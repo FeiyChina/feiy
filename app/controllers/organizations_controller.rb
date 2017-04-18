@@ -1,8 +1,12 @@
 class OrganizationsController < ApplicationController
   def new
+    @organization = Organization.new
   end
 
   def create
+    @organization = Organization.new(organization_params)
+    @organization.save
+    if
   end
 
   def edit
@@ -12,7 +16,7 @@ class OrganizationsController < ApplicationController
   def update
     organization_params = params.require(:organization).permit(:name, :problem, :description, :website)
     @organization = Organization.find(params[:id])
-    @organization.update(template_params)
+    @organization.update(organization_params)
     # redirect_to organization_path(@organization)
   end
 end
