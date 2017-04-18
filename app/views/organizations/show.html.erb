@@ -1,0 +1,8 @@
+<h2><%= @organization.name %></h2>
+<p><%= @organization.problem %></p>
+<p><%= @organization.description %></p>
+<p><%= @organization.website %></p>
+
+<% if @organization.user_id == current_user.id %>
+  <%= link_to "Delete", organization_path(@organization), method: :delete %>
+<% end %>
