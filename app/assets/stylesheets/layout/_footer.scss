@@ -1,1 +1,22 @@
 // Your footer style
+#footer {
+  background-color: #233142;
+  padding: 20px;
+  color: #7F7F7F;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#footer .fa  {
+  font-size: 30px;
+  color: #7F7F7F;
+}
+
+#footer a {
+  text-decoration:none;
+  color: #7F7F7F;
+  font-weight: 600;
+}
+
