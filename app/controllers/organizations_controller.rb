@@ -4,6 +4,7 @@ class OrganizationsController < ApplicationController
   end
 
   def create
+    organization_params = params.require(:organization).permit(:name, :problem, :description, :website)
     @organization = Organization.new(organization_params)
     if @organization.save
       redirect_to root_path
@@ -34,4 +35,5 @@ class OrganizationsController < ApplicationController
     redirect_to root_path
     # redirect_to dashboard_path
   end
+
 end
