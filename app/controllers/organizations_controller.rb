@@ -1,4 +1,6 @@
 class OrganizationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :show
+
   def new
     @organization = Organization.new
   end
