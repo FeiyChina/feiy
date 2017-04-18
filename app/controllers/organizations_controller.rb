@@ -8,6 +8,7 @@ class OrganizationsController < ApplicationController
   def create
     organization_params = params.require(:organization).permit(:name, :problem, :description, :website)
     @organization = Organization.new(organization_params)
+    @organization.user_id = current_user.id
     if @organization.save
       redirect_to root_path
     else
