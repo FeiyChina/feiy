@@ -1,5 +1,11 @@
 <h1> helloworld!</h1>
 
+<div class="container buttons-container">
+  <%= link_to "Jobs", root_path, class: "btn btn-success" %>
+  <!-- This button leads to a JOBS INDEX -->
+  <%= link_to "Events", root_path, class: "btn btn-info" %>
+  <!-- This button leads to a EVENTS INDEX -->
+</div>
 
 <div class="wrapper call-to-action-wrapper">
   <%= link_to "JOIN US NOW!", new_organization_path, class: "btn btn-primary" %>
