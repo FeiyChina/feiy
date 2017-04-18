@@ -23,6 +23,10 @@ class OrganizationsController < ApplicationController
     # redirect_to organization_path(@organization)
   end
 
+  def show
+    @organization = Organization.find(params[:id])
+  end
+
   def destroy
     organization_params = params.require(:organization).permit(:name, :problem, :description, :website)
     @organization = Organization.find(params[:id])
