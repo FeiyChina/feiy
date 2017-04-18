@@ -1,8 +1,10 @@
-<h1>Your Organization</h1>
-<h2><%= @organization.name %></h2>
-<h3><%= @organization.description %></h3>
-<p><%= @organization.website %></p>
-<p><%= @organization.address %></p>
+<h1>Your Organizations</h1>
+<% @organizations.each do |organization| %>
+<h2><%= organization.name %></h2>
+<h3><%= organization.description %></h3>
+<p><%= organization.website %></p>
+<p><%= organization.address %></p>
+<% end %>
 
 <%= link_to "Edit Info", edit_organization_path(@organization), class: "btn btn-primary"  %>
 
