@@ -5,8 +5,11 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
-    @organization.save
-    if
+    if @organization.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
