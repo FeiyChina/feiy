@@ -18,7 +18,7 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website)
+    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address)
     @organization = Organization.find(params[:id])
     @organization.update(organization_params)
     # redirect_to organization_path(@organization)
@@ -29,7 +29,6 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website)
     @organization = Organization.find(params[:id])
     @organization.destroy
     redirect_to root_path
