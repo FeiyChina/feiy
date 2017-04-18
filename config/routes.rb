@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'organizations/new'
+  get 'organizations/new', to: "organization#new"
 
-  get 'organizations/create'
+  post 'organizations/create', to: "organization#create"
 
   get 'organizations/edit'
 
