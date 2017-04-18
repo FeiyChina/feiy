@@ -1,8 +1,15 @@
 class OrganizationsController < ApplicationController
   def new
+    @organization = Organization.new
   end
 
   def create
+    @organization = Organization.new(organization_params)
+    if @organization.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
