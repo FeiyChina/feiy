@@ -12,6 +12,11 @@
   <%= link_to "Update", organization_path(@organization), method: :patch %>
 <% end %>
 
+<!-- like function -->
+<div><%= button_to "Like", action: :like%></div><br>
+<div><%= @organization.votes_for.size %> Likes</div>
+
+<!-- comment function -->
 <%= form_tag "/organizations/add_new_comment" do %>
   <%= hidden_field_tag "id", @organization.id %>
   <%= text_area_tag "comment[comment]" %>
@@ -24,4 +29,3 @@
       <br>
   <% end %>
 </div>
-
