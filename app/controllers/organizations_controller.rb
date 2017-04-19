@@ -6,7 +6,6 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website)
     @organization = Organization.new(organization_params)
     @organization.user_id = current_user.id
     if @organization.save
@@ -21,7 +20,6 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address)
     @organization = Organization.find(params[:id])
     @organization.update(organization_params)
     # redirect_to organization_path(@organization)
@@ -44,6 +42,12 @@ class OrganizationsController < ApplicationController
     @likes = @organization.votes_for.size
     #call the show method to re-render the page
     show
+  end
+
+private
+
+  def organization_params
+    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address)
   end
 
 end
