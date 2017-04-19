@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # delete 'organizations/:id', to: "organizations#destroy"
   resources :organizations
+  post "organizations/:id/like", to:"organizations#like", as: "like_organization"
   devise_for :users
 
   root to: 'pages#home'
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
 
 
-  post "organizations/:id/like", to:"organizations#like"
 
   match "/organizations/add_new_comment" => "organizations#add_new_comment", :as => "add_new_comment_to_organizations", :via => [:post]
 end
