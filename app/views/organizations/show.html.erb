@@ -5,6 +5,13 @@
 <p><%= @organization.description %></p>
 <p><%= @organization.address %></p>
 <p><%= @organization.website %></p>
+<% if @organization.photos? %>
+  <% @organization.photos.each do |photo| %>
+    <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+  <% end %>
+<% end %>
+
+
 
 
 <% if user_signed_in? && @organization.user_id == current_user.id %>
