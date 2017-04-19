@@ -11,6 +11,49 @@
   <% end %>
 <% end %>
 
+<div class="title-divider text-center">
+  <h2><%= @organization.name.capitalize %> events</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="events-card text-center">
+        <%= image_tag "card_picture1_ok.jpg", class: "event-card-img" %>
+        <div class="event-card-text">
+          <h3><strong>Clothes Donation</strong></h3>
+          <h5><%= @organization.name.capitalize %></h3>
+          <p>Donate clothes to people in need</p>
+          <p><strong>Date:</strong> 25/04/2017</p>
+          <p><strong>Location:</strong> 32 Nanjing Xi Lu, Shanghai</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="events-card text-center">
+        <%= image_tag "card_picture2_ok.jpg", class: "event-card-img" %>
+        <div class="event-card-text">
+          <h3><strong>Benefic Rock Festival</strong></h3>
+          <h5><%= @organization.name.capitalize %></h3>
+          <p>Help raise money for a good cause</p>
+          <p><strong>Date:</strong> 30/04/2017</p>
+          <p><strong>Location:</strong> 323 Wulumuqi Lu, Shanghai</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="events-card text-center">
+        <%= image_tag "card_picture3_ok.jpg", class: "event-card-img" %>
+        <div class="event-card-text">
+          <h3><strong>Clothes Donation</strong></h3>
+          <h5><%= @organization.name.capitalize %></h3>
+          <p>Visit kids in the shanghai hospital</p>
+          <p><strong>Date:</strong> 14/05/2017</p>
+          <p><strong>Location:</strong> 13 Shifu lu, Shanghai</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
