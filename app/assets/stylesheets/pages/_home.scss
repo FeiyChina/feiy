@@ -5,10 +5,10 @@
 
 .title-divider {
   margin: 40px 0px
-
 }
 
 .events-card {
+  position: relative;
   margin: 0 auto;
   border-radius: 10px;
   border: 1px solid black;
@@ -29,4 +29,19 @@
 
 .event-card-text {
   padding: 10px;
+}
+
+.card-link {
+  position: absolute;
+  border-radius: 10px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index:2;
+  background: #B3D1FF;
+  opacity: 0;
+}
+.card-link:hover{
+  opacity: 0.1;
 }
