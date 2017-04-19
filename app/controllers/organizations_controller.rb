@@ -39,9 +39,14 @@ class OrganizationsController < ApplicationController
   end
 
   def add_new_comment
-    organization = Organization.find(params[:id])
-    organization.comments << Organization.new(params[:comment])
-    redirect_to :action => :show, :id => post
+    @organization = Organization.find(params[:id])
+    @organization.update(comment_params)
+    redirect_to :action => :show, :id => @organization
   end
+
+  private
+    def comment_params
+      params.permit(:comment)
+    end
 
 end
