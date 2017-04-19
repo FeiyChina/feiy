@@ -6,6 +6,9 @@
 <h3><%= organization.description %></h3>
 <p><%= organization.website %></p>
 <p><%= organization.address %></p>
+<% if organization.photos? %>
+  <%= cl_image_tag organization.photos.first.path, width: 300, height: 200, crop: :fill %>
+<% end %>
 <%= link_to "Edit Info", edit_organization_path(organization), class: "btn btn-primary"  %>
 <% end %>
 
