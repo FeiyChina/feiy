@@ -6,6 +6,7 @@
 <p><%= @organization.address %></p>
 <p><%= @organization.website %></p>
 <br>
+
 <% if @organization.user_id == current_user.id %>
   <%= link_to "Delete", organization_path(@organization), method: :delete %>
   <%= link_to "Update", organization_path(@organization), method: :patch %>
