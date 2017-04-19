@@ -11,3 +11,7 @@
   <%= link_to "Delete", organization_path(@organization), method: :delete %>
   <%= link_to "Update", organization_path(@organization), method: :patch %>
 <% end %>
+
+
+<div><%= button_to "Like", action: :like%></div><br>
+<div><%= @organization.votes_for.size %> Likes</div>

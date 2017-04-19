@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#dashboard'
 
+  post "organizations/:id/like", to:"organizations#like"
+
 end
