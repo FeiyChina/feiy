@@ -1,19 +1,17 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
-    <img src="images/lewagon.png" />
-  </a>
+<!--   <a href="/" class="navbar-wagon-brand">
+    <img src="images/feiylogo.png" />
+
+  </a> -->
+<%= link_to root_path, class: "navbar-feiy-logo" do %>
+  <%= image_tag "feiylogo.png" %>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
 
     <!-- Text link -->
 
@@ -23,6 +21,7 @@
     <div class="navbar-wagon-item">
       <div class="dropdown">
       <% if user_signed_in? %>
+          <%= link_to "Organizations", "", class: "navbar-organizations"  %>
         <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>

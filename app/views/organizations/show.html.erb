@@ -16,8 +16,13 @@
 <% end %>
 
 <!-- like function -->
-<div><%= button_to "Like", action: :like%></div><br>
-<div><%= @organization.votes_for.size %> Likes</div>
+<div class="action-like">
+<%= link_to like_organization_path(@organization), method: :post do %>
+  <i class="fa fa-thumbs-up"></i>
+<% end %>
+<%= @organization.votes_for.size %> Likes
+</div>
+
 
 <!-- comment function -->
 <div class="comment-section">

@@ -10,15 +10,12 @@ Rails.application.routes.draw do
 
   # delete 'organizations/:id', to: "organizations#destroy"
   resources :organizations
-
+    post "organizations/:id/like", to:"organizations#like", as: "like_organization"
   devise_for :users
 
   root to: 'pages#home'
 
   get 'dashboard', to: 'pages#dashboard'
-
-
-  post "organizations/:id/like", to:"organizations#like"
 
   post 'comments' => 'comments#create', as: "create_comment"
 end
