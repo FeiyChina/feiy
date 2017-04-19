@@ -22,7 +22,7 @@ class OrganizationsController < ApplicationController
   def update
     @organization = Organization.find(params[:id])
     @organization.update(organization_params)
-    # redirect_to organization_path(@organization)
+    redirect_to organization_path(@organization)
   end
 
   def show
@@ -36,13 +36,6 @@ class OrganizationsController < ApplicationController
     # redirect_to dashboard_path
   end
 
-  def add_comment
-    @organization = Organization.find(params[:id])
-    @organization.update(comment_params)
-    redirect_to :action => :show, :id => @organization
-  end
-
-
   def like
     @organization = Organization.find(params[:id])
     @organization.liked_by current_user
@@ -52,10 +45,6 @@ class OrganizationsController < ApplicationController
   end
 
   private
-
-  def comment_params
-      params.permit(:comment)
-  end
 
   def organization_params
     organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, photos: [])
