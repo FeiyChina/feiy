@@ -10,4 +10,7 @@ class PagesController < ApplicationController
     @organizations = @current_user.organizations
   end
 
+  def eventshow
+  end
+
 end

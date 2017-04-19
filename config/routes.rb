@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'dashboard', to: 'pages#dashboard'
-
+  get 'eventshow', to: 'pages#eventshow', as: "event_show"
 
 
   match "/organizations/add_new_comment" => "organizations#add_new_comment", :as => "add_new_comment_to_organizations", :via => [:post]
