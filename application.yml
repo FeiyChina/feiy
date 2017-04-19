@@ -1,0 +1,6 @@
+
+development:
+  CLOUDINARY_URL: "cloudinary://898119152723615:n5kApOA_xhnYGiyb6LZdra11e2Y@dbislofrw"
+
+production:
+  CLOUDINARY_URL: "cloudinary://898119152723615:n5kApOA_xhnYGiyb6LZdra11e2Y@dbislofrw"
