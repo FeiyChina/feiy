@@ -39,6 +39,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 
+gem 'acts_as_commentable'
+
 # Styleing gems go here
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
