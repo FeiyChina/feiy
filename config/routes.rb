@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  mount Attachinary::Engine => "/attachinary"
   # get 'organizations/:id', to: "organizations#show"
 
   # get 'organizations/new', to: "organizations#new"
