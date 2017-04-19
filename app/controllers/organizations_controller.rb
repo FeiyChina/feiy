@@ -1,5 +1,5 @@
 class OrganizationsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show :dashboard
+  skip_before_action :authenticate_user!, only: :show
 
   def new
     @organization = Organization.new
@@ -9,7 +9,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     @organization.user_id = current_user.id
     if @organization.save
-      redirect_to dashboard_path
+      redirect_to root_path
     else
       render :new
     end
