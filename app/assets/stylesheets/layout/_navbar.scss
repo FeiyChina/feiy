@@ -1,7 +1,7 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: #D5F0EE;
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
@@ -20,8 +20,8 @@
 }
 
 /* Navbar logo */
-.navbar-wagon-brand img {
-  width: 58px;
+.navbar-feiy-logo img {
+  width: 50px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -128,4 +128,8 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.navbar-organizations{
+padding-right: 20px
 }
