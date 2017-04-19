@@ -2,3 +2,21 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+.events-cards {
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 20px;
+  width: 80%;
+  h3 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+
+.event-img {
+  border-radius: 10px 10px 0px 0px;
+  width: 100%;
+}

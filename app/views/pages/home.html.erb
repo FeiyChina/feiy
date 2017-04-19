@@ -7,6 +7,44 @@
   <!-- This button leads to a EVENTS INDEX -->
 </div>
 
+<div class="container" id="events-container">
+  <h2>EVENT</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="events-cards text-center">
+          <%= image_tag "card_picture1_ok.jpg", class: "event-img" %>
+          <h3>Clothes Donation</h3>
+          <h3>JingAn Temple Friends</h3>
+          <p>Donate clothes to people in need</p>
+          <p>25/04/2017</p>
+          <p>32 Nanjing Xi Lu</p>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="events-cards text-center">
+          <%= image_tag "card_picture2_ok.jpg", class: "event-img" %>
+          <h3>Benefic Rock Festival</h3>
+          <h3>Green Leaf Society</h3>
+          <p>Enjoy good music and help raise money for a good cause</p>
+          <p>30/04/2017</p>
+          <p>323 Wulumuqi Lu</p>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="events-cards text-center">
+          <%= image_tag "card_picture3_ok.jpg", class: "event-img" %>
+          <h3>Clothes Donation</h3>
+          <h3>High Five</h3>
+          <p>Visit kids in the shanghai hospital</p>
+          <p>14/05/2017</p>
+          <p>13 Shifu lu</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="wrapper call-to-action-wrapper">
   <%= link_to "JOIN US NOW!", new_organization_path, class: "btn btn-primary" %>
 </div>
