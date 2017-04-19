@@ -1,12 +1,22 @@
 <h1>Your Organizations</h1>
+
+
 <% @organizations.each do |organization| %>
 <h2><%= organization.name %></h2>
 <h3><%= organization.description %></h3>
 <p><%= organization.website %></p>
 <p><%= organization.address %></p>
+<%= link_to "Edit Info", edit_organization_path(organization), class: "btn btn-primary"  %>
 <% end %>
 
-<%= link_to "Edit Info", edit_organization_path(@organization), class: "btn btn-primary"  %>
+
+<div class="container buttons-container">
+  <%= link_to "Jobs", root_path, class: "btn btn-success" %>
+  <!-- This button leads to a JOBS CREATE -->
+  <%= link_to "Events", root_path, class: "btn btn-info" %>
+  <!-- This button leads to a EVENTS CREATE -->
+</div>
+
 
 <hr>
 
