@@ -53,11 +53,11 @@ class OrganizationsController < ApplicationController
 
   private
 
-  def comment_params
-      params.permit(:comment)
-  end
-
   def organization_params
     organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, :photo)
+  end
+
+  def comment_params
+      params.permit(:comment)
   end
 end
