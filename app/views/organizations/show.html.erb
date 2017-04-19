@@ -1,6 +1,5 @@
-<h1>organization show page</h1>
+<h1><%= @organization.name %></h1>
 <br>
-<h2><%= @organization.name %></h2>
 <p><%= @organization.problem %></p>
 <p><%= @organization.description %></p>
 <p><%= @organization.address %></p>
@@ -10,9 +9,6 @@
     <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
   <% end %>
 <% end %>
-
-
-
 
 <% if user_signed_in? && @organization.user_id == current_user.id %>
   <%= link_to "Delete", organization_path(@organization), method: :delete %>
@@ -24,15 +20,16 @@
 <div><%= @organization.votes_for.size %> Likes</div>
 
 <!-- comment function -->
-<%= form_tag "/organizations/add_new_comment" do %>
-  <%= hidden_field_tag "id", @organization.id %>
-  <%= text_area_tag "comment[comment]" %>
-  <%= submit_tag "Post Comment" %>
-<% end %>
+<div class="comment-section">
+  <%= form_tag create_comment_path, method: "post" do %>
+    <%= hidden_field_tag "id", @organization.id %>
+      <%= text_area_tag :comment %>
+      <%= submit_tag "Submit" %>
+    <% end %>
+</div>
 <div class="comment_list">
   <% @organization.comments.each do |comment| %>
-    <%= comment %> <br>
-      <%= comment.user.name %> <br>
-      <br>
+    <%= comment.comment %>
+    <%= comment.user.name %>
   <% end %>
 </div>
