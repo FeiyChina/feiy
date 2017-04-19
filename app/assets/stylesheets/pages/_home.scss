@@ -3,11 +3,17 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
-.events-cards {
+.title-divider {
+  margin: 40px 0px
+
+}
+
+.events-card {
+  margin: 0 auto;
   border-radius: 10px;
   border: 1px solid black;
-  padding: 20px;
   width: 80%;
+  min-height: 360px;
   h3 {
     font-size: 20px;
   }
@@ -16,7 +22,11 @@
   }
 }
 
-.event-img {
+.event-card-img {
   border-radius: 10px 10px 0px 0px;
   width: 100%;
+}
+
+.event-card-text {
+  padding: 10px;
 }
