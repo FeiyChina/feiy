@@ -38,4 +38,10 @@ class OrganizationsController < ApplicationController
     # redirect_to dashboard_path
   end
 
+  def add_new_comment
+    organization = Organization.find(params[:id])
+    organization.comments << Organization.new(params[:comment])
+    redirect_to :action => :show, :id => post
+  end
+
 end

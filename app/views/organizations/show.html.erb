@@ -11,3 +11,9 @@
   <%= link_to "Delete", organization_path(@organization), method: :delete %>
   <%= link_to "Update", organization_path(@organization), method: :patch %>
 <% end %>
+
+  <%= form_tag "/organizations/add_new_comment" do %>
+    <%= hidden_field_tag "id", @organization.id %>
+    <%= text_area_tag "comment[comment]" %>
+    <%= submit_tag "Post Comment" %>
+  <% end %>

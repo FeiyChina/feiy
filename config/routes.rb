@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'pages#dashboard'
 
+  match "/organizations/add_new_comment" => "organizations#add_new_comment", :as => "add_new_comment_to_organizations", :via => [:post]
+
 end
