@@ -20,7 +20,7 @@
     <!-- Profile picture and dropdown -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-      <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.organizations.count > 0 %>
           <%= link_to "Organizations", "", class: "navbar-organizations"  %>
         <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -28,6 +28,15 @@
           <li><%= link_to "Dashboard", dashboard_path %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         </ul>
+
+      <% elsif user_signed_in? && current_user.organizations.count == 0 %>
+          <%= link_to "Organizations", "", class: "navbar-organizations"  %>
+        <img src="http://placehold.it/50x50" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a href="#">Profile</a></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+
         <% else %>
           <ul class="list-inline">
             <li><%= link_to "Sign up", new_user_registration_path %></li>
