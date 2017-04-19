@@ -38,4 +38,12 @@ class OrganizationsController < ApplicationController
     # redirect_to dashboard_path
   end
 
+  def like
+    @organization = Organization.find(params[:id])
+    @organization.liked_by current_user
+    @likes = @organization.votes_for.size
+    #call the show method to re-render the page
+    show
+  end
+
 end
