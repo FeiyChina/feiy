@@ -22,7 +22,7 @@
     <% if user_signed_in? && current_user.organizations.count > 0 %>
       <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% if current_user.avatar? %>
-          <%= cl_image_tag(current_user.avatar.path, { size: '45x45', crop: :thumb, gravity: :face, radius: :max }) %>
+          <%= cl_image_tag(current_user.avatar.path, { size: '40x40', crop: :thumb, gravity: :face, radius: :max }) %>
         <% else %>
           <img src="http://placehold.it/50x50">
         <% end %>
@@ -35,7 +35,7 @@
     <% elsif user_signed_in? && current_user.organizations.count == 0 %>
       <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% if current_user.avatar? %>
-          <%= cl_image_tag(current_user.avatar.path, { size: '45x45', crop: :thumb, gravity: :face, radius: :max }) %>
+          <%= cl_image_tag(current_user.avatar.path, { size: '40x40', crop: :thumb, gravity: :face, radius: :max }) %>
         <% else %>
           <img src="http://placehold.it/50x50">
         <% end %>
@@ -54,7 +54,7 @@
   </div>
 
     <!-- Button (call-to-action) -->
-  <%= link_to "Create Organization", new_organization_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+  <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
   </div>
 
 
