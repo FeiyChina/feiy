@@ -78,6 +78,9 @@
           <p id="organization-problem"><%= organization.problem%></p>
           <p id="organization-category">Category</p>
         </div>
+        <div class="hobby-card-icons">
+          <i class="fa fa-thumbs-up"><span><%= organization.votes_for.size %></span> Likes</i>
+        </div>
         <%= link_to "", organization_path(organization), class: "organization-card-link" %>
         </div>
       </div>
