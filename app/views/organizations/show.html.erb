@@ -1,14 +1,32 @@
-
-<h1><%= @organization.name %></h1>
-<% if @organization.logo? %>
-  <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill %>
-<% end %>
-<p><%= @organization.problem %></p>
-<p><%= @organization.description %></p>
-<p><%= @organization.address %></p>
-<p><%= @organization.website %></p>
+<div class="wrapper" id="organization-banner">
 <% if @organization.photo %>
-    <%= cl_image_tag @organization.photo.path, width: 300, height: 200, crop: :fill %>
+    <%= cl_image_tag @organization.photo.path, crop: :fill %>
+<% end %>
+</div>
+
+<div class="title-divider text-center">
+  <% if @organization.logo? %>
+    <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill %>
+  <% end %>
+  <h1><%= @organization.name.capitalize %></h1>
+</div>
+
+<div class="container text-center" id="organization-information">
+  <h4><strong>Who were are?</strong></h4>
+  <p><%= @organization.description %></p>
+  <h4><strong>What problem we solve?</strong></h4>
+  <p><%= @organization.problem %></p>
+  <h4><strong>Where we are?</strong></h4>
+  <p><%= @organization.address %></p>
+  <h4><strong>What to contact us?</strong></h4>
+  <p><%= @organization.website %></p>
+</div>
+
+<% if user_signed_in? && @organization.user_id == current_user.id %>
+  <div class="container text-center" id="organization-buttons-container">
+    <%= link_to "Delete", organization_path(@organization), method: :delete, class: 'btn btn-danger' %>
+    <%= link_to "Update", organization_path(@organization), method: :patch, class: 'btn btn-warning'  %>
+  </div>
 <% end %>
 
 <div class="title-divider text-center">
@@ -58,10 +76,6 @@
   </div>
 </div>
 
-<% if user_signed_in? && @organization.user_id == current_user.id %>
-  <%= link_to "Delete", organization_path(@organization), method: :delete %>
-  <%= link_to "Update", organization_path(@organization), method: :patch %>
-<% end %>
 
 <!-- like function -->
 <div class="action-like">
