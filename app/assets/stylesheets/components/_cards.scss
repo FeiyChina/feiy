@@ -82,22 +82,20 @@
   font-weight: 600;
 }
 
-// #organization-card-category {
-//   font-size: 15px;
-// }
-
 .organization-card-icons {
   position: absolute;
-  bottom: 5px;
-  left: 30px;
-  z-index: 2;
+  top: 310px;
+  right: 30px;
+  z-index: 3;
 }
 
 .organization-card-icon-text {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 32px;
+  margin-left: 10px;
 }
 
 .organization-card-icon {
   width: 12px;
+  color: #31c7c5;
 }
