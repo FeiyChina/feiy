@@ -133,3 +133,66 @@
 .navbar-organizations{
 padding-right: 20px
 }
+
+
+// Styling for Links on Navbar
+
+.jobs-linkto{
+  color: #393A3E;
+  font-weight: thick;
+  text-decoration: none;
+  opacity: 0.6em
+}
+
+.jobs-linkto:hover{
+  color: #7B7D86;
+  text-decoration: none;
+  opacity: 1em
+}
+
+.events-linkto{
+  color: #393A3E;
+  font-weight: thick;
+  text-decoration: none;
+  opacity: 0.6em
+}
+
+.events-linkto:hover{
+  color: #7B7D86;
+  text-decoration: none;
+  opacity: 1em
+}
+
+.organizations-linkto{
+  color: #393A3E;
+  font-weight: thick;
+  text-decoration: none;
+  opacity: 0.6em
+}
+
+.organizations-linkto:hover{
+  color: #7B7D86;
+  text-decoration: none;
+  opacity: 1em
+}
+
+
+// Placeholder avatar transform into circle
+
+.circle-avatar{
+  border-radius: 50%
+}
+
+// Navbar links to the left side of
+
+#list-left{
+  position: absolute;
+  padding: 10px;
+  margin-left: 60px
+}
+
+.inline-block{
+  display: inline-block;
+  padding: 10px
+}
+
