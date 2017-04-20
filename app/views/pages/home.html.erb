@@ -77,10 +77,10 @@
           <p id="organization-name"><strong><%= organization.name %></strong></p>
           <p id="organization-problem"><%= organization.problem%></p>
           <p id="organization-category">Category</p>
-          <div class="hobby-card-icons">
-            <i class="fa fa-thumbs-up hobby-card-icon"></i>
-            <span class="hobby-card-icon-text"><%= organization.votes_for.size %></span>
-          </div>
+        </div>
+        <div class="organization-card-icons">
+          <i class="fa fa-thumbs-up organization-card-icon"></i>
+          <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
         </div>
         <%= link_to "", organization_path(organization), class: "organization-card-link" %>
         </div>
