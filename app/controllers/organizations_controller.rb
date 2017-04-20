@@ -47,6 +47,6 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, photos: [])
+    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, :photo, :logo)
   end
 end
