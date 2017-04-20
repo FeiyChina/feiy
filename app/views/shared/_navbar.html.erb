@@ -28,7 +28,7 @@
         <% end %>
       </div>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Edit Profile</a></li>
+        <li><%= link_to "Edit Account", edit_user_registration_path %></li>
         <li><%= link_to "Dashboard", dashboard_path %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
@@ -41,7 +41,7 @@
         <% end %>
       </div>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Edit Profile</a></li>
+        <li><%= link_to "Edit Account", edit_user_registration_path %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
       <% else %>
