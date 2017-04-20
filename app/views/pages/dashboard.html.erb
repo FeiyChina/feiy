@@ -2,16 +2,18 @@
 
 
 <% @organizations.each do |organization| %>
+<% if organization.logo? %>
+  <%= cl_image_tag organization.logo.path, width: 100, height: 100, crop: :fill %>
+<% end %>
 <h2><%= organization.name %></h2>
 <h3><%= organization.description %></h3>
 <p><%= organization.website %></p>
 <p><%= organization.address %></p>
-<% if organization.photos? %>
-  <%= cl_image_tag organization.photos.first.path, width: 300, height: 200, crop: :fill %>
+<% if organization.photo %>
+    <%= cl_image_tag organization.photo.path, width: 300, height: 200, crop: :fill %>
 <% end %>
 <%= link_to "Edit Info", edit_organization_path(organization), class: "btn btn-primary"  %>
 <% end %>
-
 
 <div class="container buttons-container">
   <%= link_to "Jobs", root_path, class: "btn btn-success" %>
