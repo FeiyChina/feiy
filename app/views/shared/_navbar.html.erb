@@ -2,10 +2,17 @@
   <%= link_to root_path, class: "navbar-feiy-logo" do %>
     <%= image_tag "feiylogo.png" %>
   <% end %>
-
-  <%= link_to "Jobs", event_show_path %>
-  <%= link_to "Events", event_show_path %>
-  <%= link_to "Organizations", root_path %>
+  <div class="list-inline hidden-xs" id="list-left">
+    <div class="inline-block">
+    <%= link_to "Jobs", event_show_path, class: "jobs-linkto" %>
+    </div>
+    <div class="inline-block">
+    <%= link_to "Events", event_show_path, class: "events-linkto" %>
+    </div>
+    <div class="inline-block">
+    <%= link_to "Organizations", root_path, class: "organizations-linkto" %>
+    </div>
+  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -24,7 +31,7 @@
         <% if current_user.avatar? %>
           <%= cl_image_tag(current_user.avatar.path, { size: '40x40', crop: :thumb, gravity: :face, radius: :max }) %>
         <% else %>
-          <img src="http://placehold.it/50x50">
+          <img src="http://placehold.it/40x40" class="circle-avatar">
         <% end %>
       </div>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -37,7 +44,7 @@
         <% if current_user.avatar? %>
           <%= cl_image_tag(current_user.avatar.path, { size: '40x40', crop: :thumb, gravity: :face, radius: :max }) %>
         <% else %>
-          <img src="http://placehold.it/50x50">
+          <img src="http://placehold.it/40x40">
         <% end %>
       </div>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
