@@ -1,11 +1,9 @@
-<h1> helloworld!</h1>
+<!-- <h1> helloworld!</h1> -->
 
-<div class="container buttons-container">
+<!-- <div class="container buttons-container">
   <%= link_to "Jobs", root_path, class: "btn btn-success" %>
-  <!-- This button leads to a JOBS INDEX -->
   <%= link_to "Events", root_path, class: "btn btn-info" %>
-  <!-- This button leads to a EVENTS INDEX -->
-</div>
+</div> -->
 
 
 <div class="title-divider text-center">
@@ -59,31 +57,28 @@
 <div class="title-divider text-center">
   <h2>ORGANIZATIONS</h2>
 </div>
-<% @organizations.each do |organization| %>
-         <div class="col-xs-12 col-sm-6 col-md-6">
-          <div class="hobby-card">
-            <% if organization.photos.first %>
-            <img src="<%= cl_image_path organization.photos.first.path, height: 180, width: 350, crop: :fill%>", class='organization-card-img' >
-            <% else %>
-            <img src="https://s-media-cache-ak0.pinimg.com/originals/41/20/83/412083f76fe2e72b979902158f91d2bf.jpg" alt="image" class="organization-card-img">
-            <% end %>
-          <div class="organization-card-description text-left">
-            <p id="organization-card-description-hobby-name"><%= organization.name %></p>
-            <p id="organization-card-summary">
-              <%= organization.problem[0..30] %>
-              <% if organization.problem.length > 30 %>
-                ...
-              <% end %>
-            </p>
-          </div>
-          <%= link_to "", organization_path(organization), class: "organization-card-link" %>
-          </div>
-          </div>
+
+<div class="container">
+  <div class="row">
+    <% @organizations.each do |organization| %>
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="organization-card">
+        <% if organization.photos.first %>
+          <img src="<%= cl_image_path organization.photos.first.path, height: 180, width: 350, crop: :fill%>", class='organization-card-img' >
+        <% else %>
+          <img src="https://s-media-cache-ak0.pinimg.com/originals/41/20/83/412083f76fe2e72b979902158f91d2bf.jpg" alt="image" class="organization-card-img">
         <% end %>
+        <div class="organization-card-description">
+          <p id="organization-name"><strong><%= organization.name %></strong></p>
+          <p id="organization-problem"><%= organization.problem%></p>
+        </div>
+        <%= link_to "", organization_path(organization), class: "organization-card-link" %>
         </div>
       </div>
-    </section>
+    <% end %>
+  </div>
+</div>
 
-<div class="wrapper call-to-action-wrapper">
-  <%= link_to "JOIN US NOW!", new_organization_path, class: "btn btn-primary" %>
+<div class="wrapper" id="call-to-action-wrapper">
+  <%= link_to "JOIN US NOW!", new_organization_path, class: "btn btn-call-to-action" %>
 </div>

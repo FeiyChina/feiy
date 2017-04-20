@@ -3,15 +3,17 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 
+// Section titles
 .title-divider {
   margin: 40px 0px
 }
 
+// event cards
 .events-card {
   position: relative;
   margin: 0 auto;
-  border-radius: 10px;
-  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
   width: 80%;
   min-height: 360px;
   h3 {
@@ -39,9 +41,19 @@
   right: 0;
   width: 100%;
   z-index:2;
-  background: #B3D1FF;
+  background: #00CDCB;
   opacity: 0;
 }
 .card-link:hover{
   opacity: 0.1;
+}
+
+// Call to action
+#call-to-action-wrapper {
+  margin-top: 50px;
+  height: 400px;
+  background-color: #E0E0E0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
