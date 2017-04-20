@@ -12,6 +12,15 @@
   }
 }
 
-#organization-buttons-container {
-
+.action-like {
+  .fa {
+    font-size: 25px;
+    transition: all 0.3s ease;
+    color: gray;
+    margin-bottom: 10px;
+    &:hover {
+      color: green;
+      transition: all 0.3s ease;
+    }
+  }
 }
