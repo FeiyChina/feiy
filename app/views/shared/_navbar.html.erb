@@ -5,6 +5,7 @@
 
   <%= link_to "Jobs", event_show_path %>
   <%= link_to "Events", event_show_path %>
+  <%= link_to "Organizations", root_path %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -16,40 +17,41 @@
     <!-- Text link -->
 
     <!-- Profile picture and dropdown -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
-      <% if user_signed_in? && current_user.organizations.count > 0 %>
-          <%= link_to "Organizations", "", class: "navbar-organizations"  %>
-        <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-          <%= cl_image_tag(current_user.avatar.path, { size: '50x50', crop: :thumb, gravity: :face }) %>
-        </div>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><%= link_to "Dashboard", dashboard_path %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        </ul>
-
-      <% elsif user_signed_in? && current_user.organizations.count == 0 %>
-          <%= link_to "Organizations", "", class: "navbar-organizations"  %>
-        <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-          <% if current_user.avatar? %>
-          <%= cl_image_tag(current_user.avatar.path, { size: '50x50', crop: :thumb, gravity: :face }) %>
-          <% else %>
-          <img src="http://placehold.it/50x50">
-          <% end %>
-        </div>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        </ul>
+  <div class="navbar-wagon-item">
+    <div class="dropdown">
+    <% if user_signed_in? && current_user.organizations.count > 0 %>
+      <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <% if current_user.avatar? %>
+          <%= cl_image_tag(current_user.avatar.path, { size: '45x45', crop: :thumb, gravity: :face, radius: :max }) %>
         <% else %>
-          <ul class="list-inline">
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
-          </ul>
-      <% end %>
+          <img src="http://placehold.it/50x50">
+        <% end %>
       </div>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="#">Edit Profile</a></li>
+        <li><%= link_to "Dashboard", dashboard_path %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% elsif user_signed_in? && current_user.organizations.count == 0 %>
+      <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <% if current_user.avatar? %>
+          <%= cl_image_tag(current_user.avatar.path, { size: '45x45', crop: :thumb, gravity: :face, radius: :max }) %>
+        <% else %>
+          <img src="http://placehold.it/50x50">
+        <% end %>
+      </div>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="#">Edit Profile</a></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+      <% else %>
+        <ul class="list-inline">
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+        </ul>
+    <% end %>
     </div>
+  </div>
 
     <!-- Button (call-to-action) -->
   <%= link_to "Create Organization", new_organization_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
