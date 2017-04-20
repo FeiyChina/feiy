@@ -1,12 +1,10 @@
 <div class="navbar-wagon">
-  <!-- Logo -->
-<!--   <a href="/" class="navbar-wagon-brand">
-    <img src="images/feiylogo.png" />
-
-  </a> -->
-<%= link_to root_path, class: "navbar-feiy-logo" do %>
-  <%= image_tag "feiylogo.png" %>
+  <%= link_to root_path, class: "navbar-feiy-logo" do %>
+    <%= image_tag "feiylogo.png" %>
   <% end %>
+
+  <%= link_to "Jobs", event_show_path %>
+  <%= link_to "Events", event_show_path %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -44,7 +42,6 @@
           <li><a href="#">Profile</a></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
         </ul>
-s
         <% else %>
           <ul class="list-inline">
             <li><%= link_to "Sign up", new_user_registration_path %></li>
