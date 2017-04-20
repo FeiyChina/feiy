@@ -1,0 +1,94 @@
+//organization cards
+.title-divider {
+  margin: 40px 0px
+}
+
+.organization-card {
+  background-color: white;
+  width: 350px;
+  height: 350px;
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
+  margin: 15px 0px;
+  z-index: 0;
+}
+
+.organization-card-link {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
+  position: absolute;
+  left: 0px;
+}
+
+.organization-card:hover {
+  box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
+}
+
+.organization-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom: 4px solid #31c7c5;
+}
+
+// .organization-card-avatar {
+//   border-radius: 50%;
+//   width: 80px;
+//   height:80px;
+//   border: solid 3px $yellow;
+//   position: absolute;
+//   bottom: 5px;
+// }
+
+// .organization-card-avatar-link {
+//   z-index: 10;
+//   position: absolute;
+//   left: 24px;
+//   bottom: 135px;
+// }
+
+.organization-card-description {
+  width: 350px;
+  height: 130px;
+  position: absolute;
+  bottom: 10px;
+}
+
+#organization-name {
+  font-size: 20px;
+  color: black;
+  margin-left: 30px;
+}
+
+#organization-problem {
+  font-size: 16px;
+  color: black;
+  margin-left: 30px;
+}
+
+// #organization-card-category {
+//   font-size: 15px;
+// }
+
+.organization-card-icons {
+  position: absolute;
+  bottom: 5px;
+  left: 30px;
+  z-index: 2;
+}
+
+.organization-card-icon-text {
+  font-size: 12px;
+  line-height: 32px;
+}
+
+.organization-card-icon {
+  width: 12px;
+}
