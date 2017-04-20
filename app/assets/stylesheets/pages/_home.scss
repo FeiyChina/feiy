@@ -8,6 +8,35 @@
   margin: 40px 0px
 }
 
+// welcome banner
+#welcome-wrapper{
+  height:500px;
+  display: flex;
+  justify-content: center;
+  background: -webkit-linear-gradient(left, #007991, #78ffd6);
+  background: -o-linear-gradient(left, #007991, #78ffd6);
+  background: linear-gradient(to right, #007991, #78ffd6);
+  color: #F8F8F8
+}
+
+.header{
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-20%)
+}
+
+.welcome{
+  margin-left: auto;
+  margin-right: auto
+}
+
+.tagline-welcome{
+  margin-left: auto;
+  margin-right: auto
+}
+
+
 // event cards
 .events-card {
   position: relative;
@@ -41,7 +70,7 @@
   right: 0;
   width: 100%;
   z-index:2;
-  background: #00CDCB;
+  background: #D5F0EE;
   opacity: 0;
 }
 .card-link:hover{
