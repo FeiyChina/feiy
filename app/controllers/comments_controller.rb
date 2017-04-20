@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    @comment = Comment.new
     @comments = @organization.comments
   end
 

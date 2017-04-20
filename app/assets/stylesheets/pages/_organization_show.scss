@@ -24,3 +24,41 @@
     }
   }
 }
+
+#comment {
+  width: 500px;
+  height: 150px;
+}
+
+.comment-btn {
+  margin-top: 10px;
+}
+
+.comment-list {
+  margin-top: 40px;
+}
+
+.comment-card {
+  margin: 0 auto;
+  width: 75%;
+  height: 150px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  img {
+    width: 100px;
+    border-radius: 50%;
+  }
+}
+
+.comment-card-user-info {
+  margin-top: 10px;
+}
+
+.comment-card-text {
+  width: 80%;
+  text-align: left;
+
+}
+
