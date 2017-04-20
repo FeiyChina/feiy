@@ -61,12 +61,26 @@
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
+    <% if user_signed_in? && current_user.organizations.count > 0 %>
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+    <% elsif user_signed_in? && current_user.organizations.count == 0 %>
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+    <% else %>
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+        </ul>
+    <% end %>
     </div>
   </div>
 </div>
