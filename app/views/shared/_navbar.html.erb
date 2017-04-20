@@ -22,7 +22,7 @@
     <% if user_signed_in? && current_user.organizations.count > 0 %>
       <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% if current_user.avatar? %>
-          <%= cl_image_tag(current_user.avatar.path, { size: '45x45', crop: :thumb, gravity: :face, radius: :max }) %>
+          <%= cl_image_tag(current_user.avatar.path, { size: '40x40', crop: :thumb, gravity: :face, radius: :max }) %>
         <% else %>
           <img src="http://placehold.it/50x50">
         <% end %>
@@ -35,7 +35,7 @@
     <% elsif user_signed_in? && current_user.organizations.count == 0 %>
       <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% if current_user.avatar? %>
-          <%= cl_image_tag(current_user.avatar.path, { size: '45x45', crop: :thumb, gravity: :face, radius: :max }) %>
+          <%= cl_image_tag(current_user.avatar.path, { size: '40x40', crop: :thumb, gravity: :face, radius: :max }) %>
         <% else %>
           <img src="http://placehold.it/50x50">
         <% end %>
@@ -54,19 +54,33 @@
   </div>
 
     <!-- Button (call-to-action) -->
-  <%= link_to "Create Organization", new_organization_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
+  <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
   </div>
 
 
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
+    <% if user_signed_in? && current_user.organizations.count > 0 %>
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+    <% elsif user_signed_in? && current_user.organizations.count == 0 %>
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+    <% else %>
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+        </ul>
+    <% end %>
     </div>
   </div>
 </div>
