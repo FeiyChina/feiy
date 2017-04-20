@@ -30,3 +30,37 @@
     transition: all 0.3s ease;
   }
 }
+
+.btn-feiy-primary{
+  border-radius: 50px;
+  padding: 10px 20px;
+  background-color: #31c7c5;
+  border: solid 1px #31c7c5;
+  color: #F8F8F8;
+  font-weight: lighter
+}
+
+
+.btn-feiy-primary:hover{
+  opacity: 1;
+  text-decoration: none;
+  background-color: #37D7D4;
+  border: solid 1px #37D7D4;
+  color: #F8F8F8
+}
+
+
+.btn-feiy-secondary{
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: lighter;
+  border: solid 1px #31c7c5;
+  opacity: 0.6;
+  color: #31c7c5
+}
+
+.btn-feiy-secondary:hover{
+  opacity: 1;
+  color: #31c7c5;
+  text-decoration: none
+}
