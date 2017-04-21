@@ -24,9 +24,9 @@
         <div class="row">
           <% current_user.organizations.each do |organization| %>
           <div class="col-xs-12 col-md-6 col-lg-4">
-            <div class="organization-card">
+            <div class="organization-card" style="width: 300px">
               <% if organization.photo %>
-                <img src="<%= cl_image_path organization.photo.path, height: 180, width: 350, crop: :fill%>", class='organization-card-img' >
+                <img src="<%= cl_image_path organization.photo.path, height: 180, width: 300, crop: :fill%>", class='organization-card-img' >
               <% else %>
                 <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
               <% end %>
