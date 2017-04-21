@@ -73,37 +73,18 @@
   background: #D5F0EE;
   opacity: 0;
 }
-.card-link:hover {
+.card-link:hover{
   opacity: 0.1;
   box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
 }
 
-// features
-#features-img {
-  padding-top: 80px;
-  padding-bottom: 100px;
-  background-color: #D5F0EE;
-  margin-bottom: -40px;
-}
-
 // Call to action
 #call-to-action-wrapper {
-  margin-top: 40px;
+  margin-top: 50px;
   height: 400px;
   background: url("cta_image.jpg") no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: space-around;
-
-  &:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
-  opacity: .6;
-  }
 }
