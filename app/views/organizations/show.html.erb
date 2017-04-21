@@ -23,9 +23,17 @@
 </div>
 
 <% if user_signed_in? && @organization.user_id == current_user.id %>
-  <div class="container text-center" id="organization-buttons-container">
+  <div class="container text-center">
     <%= link_to "Delete", organization_path(@organization), method: :delete, class: 'btn btn-danger' %>
     <%= link_to "Update", organization_path(@organization), method: :patch, class: 'btn btn-warning'  %>
+  </div>
+<% else %>
+  <!-- like function -->
+  <div class="action-like text-center">
+    <%= link_to like_organization_path(@organization), method: :post do %>
+      <i class="fa fa-thumbs-up"></i>
+    <% end %><br>
+    <%= @organization.votes_for.size %> Likes
   </div>
 <% end %>
 
@@ -77,31 +85,39 @@
 </div>
 
 
-<!-- like function -->
-<div class="action-like">
-<%= link_to like_organization_path(@organization), method: :post do %>
-  <i class="fa fa-thumbs-up"></i>
-<% end %>
-<%= @organization.votes_for.size %> Likes
+
+<div class="title-divider text-center">
+  <h2>Comments</h2>
 </div>
 
-
 <!-- comment function -->
-<div class="comment-section">
+<div class="comment-section text-center">
   <%= form_tag create_comment_path, method: "post" do %>
     <%= hidden_field_tag "id", @organization.id %>
       <%= text_area_tag :comment %>
-      <%= submit_tag "Submit" %>
+      <div class="comment-btn">
+        <%= submit_tag "Submit", class: "btn btn-success" %>
+      </div>
     <% end %>
 </div>
-<div class="comment_list">
+<div class="comment-list text-center">
   <% @organization.comments.each do |comment| %>
-    <%= comment.comment %>
-    <%= comment.user.name %>
+    <div class="comment-card">
+      <div class="comment-card-user-info">
+        <% if comment.user.avatar? %>
+          <%= cl_image_tag comment.user.avatar.path, width: 50, height: 50, crop: :fill, gravity: :face %>
+        <% else %>
+          <%= image_tag "profile_placeholder.png" %>
+        <% end %>
+        <% if comment.user.name? %>
+          <%= comment.user.name %>
+        <% else %>
+          <p>Anonimous</p>
+        <% end %>
+      </div>
+      <div class="comment-card-text">
+        <%= comment.comment %>
+      </div>
+    </div>
   <% end %>
 </div>
-
-<div>
-  <%= link_to "Back to dashboard", dashboard_path %>
-</div>
-
