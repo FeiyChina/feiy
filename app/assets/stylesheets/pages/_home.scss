@@ -5,7 +5,7 @@
 
 // Section titles
 .title-divider {
-  margin: 40px 0px
+  margin: 0px 0px 30px 0px
 }
 
 // welcome banner
@@ -38,6 +38,12 @@
 
 
 // event cards
+
+.cards-wrapper{
+background-image: url(feiy_pattern_wrapper.png);
+background-size: tile
+}
+
 .events-card {
   position: relative;
   margin: 0 auto;
@@ -60,6 +66,7 @@
 
 .event-card-text {
   padding: 10px;
+  background: white;
 }
 
 .card-link {
@@ -78,10 +85,21 @@
   box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
 }
 
-// Call to action
+
+// Icons wrapper
+#features-img{
+  background-color: #D5F0EE;
+  padding-top: 30px;
+  padding-bottom: 100px;
+  margin: auto;
+  background-color: #D5F0EE
+}
+
+
+// Call to action footer
 #call-to-action-wrapper {
   height: 400px;
-  background-image: url(cta_image.jpg);
+  background-image: url(cta_footer.jpg);
   background-size: cover;
   background-repeat: none;
   display: flex;
@@ -89,10 +107,3 @@
   justify-content: space-around;
 }
 
-#features-img{
-  background-color: #D5F0EE;
-  padding-top: 50px;
-  padding-bottom: 100px;
-  margin: -40px;
-  background-color: #D5F0EE
-}
