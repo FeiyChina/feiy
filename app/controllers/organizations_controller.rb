@@ -9,7 +9,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     @organization.user_id = current_user.id
     if @organization.save
-      redirect_to root_path
+      redirect_to dashboard_path
     else
       render :new
     end

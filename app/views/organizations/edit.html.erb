@@ -1,7 +1,7 @@
-<h1>Edit#new</h1>
-
-
+<div class="form-container">
+<h2>Update your organization:</h2>
 <%= simple_form_for(@organization) do |f| %>
+  <div class="form-inputs">
   <%= f.input :name %>
   <%= f.input :problem %>
   <%= f.input :description %>
@@ -9,5 +9,9 @@
   <%= f.input :website %>
   <%= f.input :photo, as: :attachinary %>
   <%= f.input :logo, as: :attachinary %>
-  <%= f.submit %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit %>
+  </div>
 <% end %>
+</div>
