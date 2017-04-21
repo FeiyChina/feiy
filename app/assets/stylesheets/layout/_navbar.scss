@@ -139,7 +139,7 @@ padding-right: 20px
 
 .jobs-linkto{
   color: #393A3E;
-  font-weight: thick;
+  font-weight: bold;
   text-decoration: none;
   opacity: 0.6em
 }
@@ -152,7 +152,7 @@ padding-right: 20px
 
 .events-linkto{
   color: #393A3E;
-  font-weight: thick;
+  font-weight: bold;
   text-decoration: none;
   opacity: 0.6em
 }
@@ -165,7 +165,7 @@ padding-right: 20px
 
 .organizations-linkto{
   color: #393A3E;
-  font-weight: thick;
+  font-weight: bold;
   text-decoration: none;
   opacity: 0.6em
 }
@@ -197,6 +197,32 @@ padding-right: 20px
 }
 
 #right-link{
-  padding-top: 8px
+  padding-top: 10px
 }
 
+
+.signup-linkto{
+  color: #393A3E;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0.6em;
+}
+
+.signup-linkto:hover{
+  color: #7B7D86;
+  text-decoration: none;
+  opacity: 1em
+}
+
+.signin-linkto{
+  color: #393A3E;
+  font-weight: bold;
+  text-decoration: none;
+  opacity: 0.6em;
+}
+
+.signin-linkto:hover{
+  color: #7B7D86;
+  text-decoration: none;
+  opacity: 1em
+}
