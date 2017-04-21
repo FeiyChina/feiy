@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-9">
-      <div class="invitation-container">
+      <div class="organizations-dashboard-container">
         <h2 class="super-title">Organizations</h2>
         <div class="row">
           <% current_user.organizations.each do |organization| %>
@@ -34,7 +34,7 @@
                 <p id="organization-name"><strong><%= organization.name %></strong></p>
                 <p id="organization-problem"><%= organization.problem%></p>
               </div>
-              <div class="product-buttons-four text-center">
+              <div class="organization-card-buttons-two text-center">
                 <%= link_to edit_organization_path(organization), class: "dashboard-card-little-link" do %>
                   <i class="fa fa-pencil"></i>
                 <% end %>
@@ -42,7 +42,7 @@
                   <i class="fa fa-trash"></i>
                 <% end %>
               </div>
-              <div class="organization-buttons-one text-center">
+              <div class="organization-card-buttons-one text-center">
                 <p><%= organization.votes_for.size %> Likes</p>
               </div>
               <%= link_to "", organization_path(organization), class: "organization-dashboard-card-link" %>
