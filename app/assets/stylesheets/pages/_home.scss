@@ -80,11 +80,19 @@
 
 // Call to action
 #call-to-action-wrapper {
-  margin-top: 50px;
   height: 400px;
-  background: url("cta_image.jpg") no-repeat;
+  background-image: url(cta_image.jpg);
   background-size: cover;
+  background-repeat: none;
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+#features-img{
+  background-color: #D5F0EE;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  margin: -40px;
+  background-color: #D5F0EE
 }
