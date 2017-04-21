@@ -41,6 +41,8 @@
                 <%= link_to organization_path(organization), class: "dashboard-card-little-link", method: :delete do %>
                   <i class="fa fa-trash"></i>
                 <% end %>
+              </div>
+              <div class="organization-buttons-one text-center">
                 <p><%= organization.votes_for.size %> Likes</p>
               </div>
               <%= link_to "", organization_path(organization), class: "organization-dashboard-card-link" %>
