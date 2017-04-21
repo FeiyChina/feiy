@@ -115,7 +115,7 @@
 }
 @media only screen and (max-width: 991px) {
   #profile-card {
-    height: 300px;
+    height: 400px;
     padding-top: 20px;
     margin-bottom: 30px;
   }
@@ -124,37 +124,8 @@
   }
 }
 
-
 .separator {
   margin: 30px 20px;
-}
-
-
-.super-plus {
-  font-size: 50px;
-  color: #f9b5b4;
-  margin: 0 auto;
-}
-
-
-.product {
-  margin: 0 auto 50px;
-  width: 220px;
-  height: 316px;
-  border-radius: 4px;
-  position: relative;
-  background-color: #ffffff;
-  box-shadow: 0 4px 0 0 rgba(224, 224, 224, 0.5);
-  border: solid 1px #e0e0e0;
-  transition: all 0.15s ease;
-  &:hover {
-    box-shadow: none;
-  }
-}
-
-
-.padded {
-  padding-top: 20px;
 }
 
 .top-buffer {
