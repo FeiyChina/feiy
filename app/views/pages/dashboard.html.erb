@@ -4,12 +4,12 @@
       <div id="profile-card" class="text-center">
         <% if current_user.avatar %>
           <%= cl_image_tag current_user.avatar.path, height: 150, width: 150, crop: :fill, gravity: :face, radius: :max %>
-          <p><%= current_user.name %></p>
+          <!-- <p><%= current_user.name %></p> -->
           <hr class="separator">
           <p><%= current_user.email %></p>
         <% else %>
           <%= image_tag "profile-big.svg" %>
-          <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+          <!-- <p><%= current_user.name %></p> -->
           <hr class="separator">
           <p><%= current_user.email %><p>
         <% end %>
