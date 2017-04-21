@@ -40,7 +40,7 @@
 // event cards
 
 .cards-wrapper{
-background-image: image_path(feiy_pattern_wrapper.png);
+background-image: image-url('feiy_pattern_wrapper.png');
 background-size: tile
 }
 
@@ -99,7 +99,7 @@ background-size: tile
 // Call to action footer
 #call-to-action-wrapper {
   height: 400px;
-  background-image: image_path(cta_footer.jpg);
+  background-image: image-url('cta_footer.jpg');
   background-size: cover;
   background-repeat: none;
   display: flex;
