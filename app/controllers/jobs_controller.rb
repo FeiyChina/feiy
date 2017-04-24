@@ -8,6 +8,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.organization = Organization.find(params[:organization_id])
     @job.save
+      redirect_to dashboard_path
   end
 
   def edit
@@ -19,13 +20,18 @@ class JobsController < ApplicationController
     @job.update(job_params)
   end
 
+  def show
+    @job = Job.find(params[:id])
+  end
+
+
   def destroy
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:name, :address, :website, :email, :type, :task, :requirement, :active )
+    params.require(:job).permit(:name, :address, :website, :email, :job_type, :task, :requirement, :active )
   end
 
 end
