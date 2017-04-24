@@ -5,7 +5,7 @@ class CreateJobs < ActiveRecord::Migration[5.0]
       t.string  :address
       t.string  :website
       t.string  :email
-      t.string  :type, inclusion: { in: %w(volunteer internship part-time full-time)}
+      t.string  :job_type, inclusion: { in: %w(volunteer internship part-time full-time)}
       t.string  :task
       t.string  :requirement
       t.boolean :active, default: true

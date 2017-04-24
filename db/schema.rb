@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424094931) do
+ActiveRecord::Schema.define(version: 20170424100308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,9 +61,11 @@ ActiveRecord::Schema.define(version: 20170424094931) do
     t.string   "job_type"
     t.string   "task"
     t.string   "requirement"
-    t.boolean  "active",      default: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "active",          default: true
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "organization_id"
+    t.index ["organization_id"], name: "index_jobs_on_organization_id", using: :btree
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -110,5 +112,6 @@ ActiveRecord::Schema.define(version: 20170424094931) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
 
+  add_foreign_key "jobs", "organizations"
   add_foreign_key "organizations", "users"
 end
