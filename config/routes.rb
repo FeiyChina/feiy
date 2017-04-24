@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   # patch 'organizations/:id', to: "organizations#update"
 
   # delete 'organizations/:id', to: "organizations#destroy"
-  resources :organizations
+  resources :organizations do
+    resources :jobs
+    end
     post "organizations/:id/like", to:"organizations#like", as: "like_organization"
   devise_for :users
+
 
   root to: 'pages#home'
 
