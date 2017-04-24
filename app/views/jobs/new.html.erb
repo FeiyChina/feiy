@@ -1,0 +1,14 @@
+<h2>add a job</h2>
+
+
+<%= simple_form_for [@organization, @job] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :website %>
+  <%= f.input :email %>
+  <%= f.input :job_type, collection: %w(volunteer internship part-time full-time)%>
+  <%= f.input :task %>
+  <%= f.input :requirement %>
+  <%= f.collection_radio_buttons :active, [[true, 'Open'] ,[false, 'Closed']], :first, :last %>
+  <%= f.submit "add a job", class: "btn btn-primary" %>
+<% end %>
