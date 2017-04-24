@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+
   def new
     @organization = Organization.find(params[:organization_id])
     @job = Job.new
@@ -12,12 +13,14 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @organization = Organization.find(params[:organization_id])
     @job = Job.find(params[:id])
   end
 
   def update
     @job = Job.find(params[:id])
     @job.update(job_params)
+    redirect_to dashboard_path
   end
 
   def show
