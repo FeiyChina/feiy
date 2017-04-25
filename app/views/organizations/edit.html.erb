@@ -9,6 +9,7 @@
   <%= f.input :website %>
   <%= f.input :photo, as: :attachinary %>
   <%= f.input :logo, as: :attachinary %>
+  <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, :multiple => true %>
   </div>
   <div class="form-actions">
     <%= f.submit %>

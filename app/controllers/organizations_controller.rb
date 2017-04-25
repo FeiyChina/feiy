@@ -3,6 +3,7 @@ class OrganizationsController < ApplicationController
 
   def new
     @organization = Organization.new
+    @categories = Category.all
   end
 
   def create
@@ -27,6 +28,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
+    @categories = Category.all
   end
 
   def destroy
@@ -47,6 +49,6 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, :photo, :logo)
+    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, :photo, :logo, :category_ids)
   end
 end

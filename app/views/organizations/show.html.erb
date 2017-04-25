@@ -8,7 +8,10 @@
   <% if @organization.logo? %>
     <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill %>
   <% end %>
-  <h1><%= @organization.name.capitalize %></h1>
+  <% if @organization.categories %>
+    <p id="organization-problem"><%= @organization.categories.last.name %></p>
+  <% end %>
+    <h1><%= @organization.name.capitalize %></h1>
 </div>
 
 <div class="container text-center" id="organization-information">
