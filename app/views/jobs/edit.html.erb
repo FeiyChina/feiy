@@ -10,5 +10,9 @@
   <%= f.input :task %>
   <%= f.input :requirement %>
   <%= f.collection_radio_buttons :active, [[true, 'Open'] ,[false, 'Closed']], :first, :last %>
-  <%= f.submit "edit job", class: "btn btn-primary" %>
+
+  <% if user_signed_in? && @organization.user_id == current_user.id %>
+  <%= f.submit "Update job", class: "btn btn-primary" %>
+
+  <% end %>
 <% end %>

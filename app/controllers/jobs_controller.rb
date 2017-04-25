@@ -25,11 +25,15 @@ class JobsController < ApplicationController
   end
 
   def show
+    @organization = Organization.find(params[:organization_id])
     @job = Job.find(params[:id])
   end
 
 
   def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+    redirect_to root_path
   end
 
   private

@@ -42,7 +42,7 @@
                 <%= link_to edit_organization_path(organization), class: "dashboard-card-little-link" do %>
                   <i class="fa fa-pencil"></i>
                 <% end %>
-                <%= link_to organization_path(organization), class: "dashboard-card-little-link", method: :delete do %>
+                <%= link_to organization_path(organization), class: "dashboard-card-little-link", confirm: "are you sure you want to delete?", method: :delete do %>
                   <i class="fa fa-trash"></i>
                 <% end %>
               </div>

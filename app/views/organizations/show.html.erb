@@ -92,6 +92,13 @@
 <!-- Jobs Section -->
 <div class="title-divider text-center">
   <h2>JOBS</h2>
+  <% if user_signed_in? && @organization.user_id == current_user.id %>
+  <div class="container text-center">
+
+    <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn btn-warning'  %>
+
+  </div>
+  <% end %>
 </div>
 <div class="container">
   <div class="row">
@@ -103,7 +110,7 @@
           <p id="organization-problem"><%= job.job_type%></p>
           <p id="organization-category"><%= job.address %></p>
         </div>
-        <%= link_to "", organization_job_path(job), class: "organization-card-link" %>
+        <%= link_to "", organization_job_path(job.organization_id, job.id), class: "organization-card-link" %>
         </div>
       </div>
     <% end %>
