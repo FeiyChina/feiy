@@ -99,3 +99,17 @@
   width: 12px;
   color: #31c7c5;
 }
+
+
+
+//events cards
+.events-card {
+  background-color: grey;
+  width: 350px;
+  height: 350px;
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
+  margin: 20px 0px 40px 0px;
+  z-index: 0;
+}

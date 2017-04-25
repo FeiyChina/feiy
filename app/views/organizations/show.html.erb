@@ -39,7 +39,7 @@
     <%= @organization.votes_for.size %> Likes
   </div>
 <% end %>
-
+<!-- Hardcoded Events Section -->
 <div class="title-divider text-center">
   <h2><%= @organization.name.capitalize %> events</h2>
 </div>
@@ -86,8 +86,27 @@
     </div>
   </div>
 </div>
-
-
+<!-- Jobs Section -->
+<div class="title-divider text-center">
+  <h2>JOBS</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <% @organization.jobs.each do |job| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="organization-card">
+        <div class="organization-card-description">
+          <p id="organization-name"><strong><%= job.name %></strong></p>
+          <p id="organization-problem"><%= job.job_type%></p>
+          <p id="organization-category"><%= job.address %></p>
+        </div>
+        <%= link_to "", organization_job_path(job), class: "organization-card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
 
 <div class="title-divider text-center">
   <h2>Comments</h2>

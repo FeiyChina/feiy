@@ -10,6 +10,31 @@
   </div>
 </div>
 
+<!-- JOBS -->
+<div class="cards-wrapper">
+<div class="title-divider text-center" id="title-padding" >
+  <h2>JOBS</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <% @jobs.each do |job| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="organization-card">
+        <div class="organization-card-description">
+          <p id="organization-name"><strong><%= job.name %></strong></p>
+          <p id="organization-problem"><%= job.job_type%></p>
+          <p id="organization-category"><%= job.address %></p>
+        </div>
+         <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+
+
+
 <!-- EVENTS -->
 <div class="cards-wrapper">
 <div class="title-divider text-center" id="title-padding" >
