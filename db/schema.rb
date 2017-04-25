@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170424074312) do
+ActiveRecord::Schema.define(version: 20170424100308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,14 +79,6 @@ ActiveRecord::Schema.define(version: 20170424074312) do
     t.index ["organization_id"], name: "index_jobs_on_organization_id", using: :btree
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.string   "likeable_type"
-    t.integer  "likeable_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id", using: :btree
-  end
-
   create_table "organizations", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -132,7 +123,7 @@ ActiveRecord::Schema.define(version: 20170424074312) do
     t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
   end
 
-  add_foreign_key "jobs", "organizations"
   add_foreign_key "events", "organizations"
+  add_foreign_key "jobs", "organizations"
   add_foreign_key "organizations", "users"
 end
