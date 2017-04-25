@@ -8,7 +8,7 @@
   <% if @organization.logo? %>
     <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill %>
   <% end %>
-  <% if @organization.categories %>
+  <% if @organization.categories.any? %>
     <p id="organization-problem"><%= @organization.categories.last.name %></p>
   <% end %>
     <h1><%= @organization.name.capitalize %></h1>
@@ -31,6 +31,7 @@
     <%= link_to "Update", edit_organization_path(@organization), method: :get, class: 'btn btn-warning'  %>
   </div>
 <% else %>
+
   <!-- like function -->
   <div class="action-like text-center">
     <%= link_to like_organization_path(@organization), method: :post do %>
@@ -39,6 +40,7 @@
     <%= @organization.votes_for.size %> Likes
   </div>
 <% end %>
+
 <!-- Hardcoded Events Section -->
 <div class="title-divider text-center">
   <h2><%= @organization.name.capitalize %> events</h2>
@@ -86,6 +88,7 @@
     </div>
   </div>
 </div>
+
 <!-- Jobs Section -->
 <div class="title-divider text-center">
   <h2>JOBS</h2>
