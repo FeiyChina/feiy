@@ -31,8 +31,11 @@
                 <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
               <% end %>
               <div class="organization-card-description">
-                <p id="organization-name"><strong><%= organization.name %></strong></p>
-                <p id="organization-problem"><%= organization.problem%></p>
+                <% if organization.categories %>
+                  <p id="organization-problem"><%= organization.categories.last.name %></p>
+                 <% end %>
+                 <p id="organization-name"><strong><%= organization.name %></strong></p>
+                 <p id="organization-problem"><%= organization.problem%></p>
               </div>
               <div class="organization-card-buttons-two text-center">
                 <%= link_to edit_organization_path(organization), class: "dashboard-card-little-link" do %>

@@ -10,6 +10,7 @@
     <%= f.input :description %>
     <%= f.input :address %>
     <%= f.input :website %>
+    <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, :multiple => true %>
   </div>
   <div class="form-actions">
     <%= f.button :submit, "Create organization", class: "btn-feiy-primary" %>

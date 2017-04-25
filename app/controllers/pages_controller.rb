@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   def dashboard
     @current_user = current_user
     @organizations = @current_user.organizations
+    @categories = Category.all
   end
 
   def eventshow
