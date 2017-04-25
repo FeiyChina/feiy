@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @current_user = current_user
     @organizations = Organization.all
+    @categories = Category.all
   end
 
   def dashboard
