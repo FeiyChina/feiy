@@ -4,6 +4,11 @@ class PagesController < ApplicationController
   def home
     @current_user = current_user
     @organizations = Organization.all
+
+
+    @job = Job.all
+    @jobs = @job.where(active: true)
+
   end
 
   def dashboard
@@ -12,6 +17,7 @@ class PagesController < ApplicationController
 
 
     @jobs = Job.all
+
   end
 
   def eventshow
