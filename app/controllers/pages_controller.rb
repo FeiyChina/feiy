@@ -9,6 +9,9 @@ class PagesController < ApplicationController
   def dashboard
     @current_user = current_user
     @organizations = @current_user.organizations
+
+
+    @jobs = Job.all
   end
 
   def eventshow

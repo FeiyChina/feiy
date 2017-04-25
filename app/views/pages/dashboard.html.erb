@@ -18,6 +18,7 @@
         </div>
       </div>
     </div>
+    <!-- Organizations sections -->
     <div class="col-xs-12 col-md-9">
       <div class="organizations-dashboard-container">
         <h2 class="super-title">Organizations</h2>
@@ -54,6 +55,30 @@
     </div>
   </div>
 </div>
+<!-- Jobs Section -->
+<div class="title-divider text-center">
+  <h2>JOBS</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <% @jobs.each do |job| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="organization-card">
+        <div class="organization-card-description">
+          <p id="organization-name"><strong><%= job.name %></strong></p>
+          <p id="organization-problem"><%= job.job_type%></p>
+          <p id="organization-category"><%= job.address %></p>
+        </div>
+        <%= link_to "", organization_job_path(@organizations, job) , class: "organization-card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+
+
+<!-- Events Section -->
 
 <h1 class="title-divider text-center">Your Events</h1>
 <div class="container">
