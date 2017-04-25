@@ -26,8 +26,6 @@
   <div class="container text-center">
     <%= link_to "Delete", organization_path(@organization), method: :delete, class: 'btn btn-danger' %>
     <%= link_to "Update", edit_organization_path(@organization), method: :get, class: 'btn btn-warning'  %>
-    <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn btn-warning'  %>
-
   </div>
 <% else %>
   <!-- like function -->
@@ -88,13 +86,18 @@
 <!-- Jobs Section -->
 <div class="title-divider text-center">
   <h2>JOBS</h2>
+  <% if user_signed_in? && @organization.user_id == current_user.id %>
+  <div class="container text-center">
+
+    <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn btn-warning'  %>
+
+  </div>
+  <% end %>
 </div>
 <div class="container">
   <div class="row">
     <% @organization.jobs.each do |job| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-          <%= link_to "Delete", organization_job_path(job.organization, job.id), confirm: "are you sure you want to delete?", method: :delete, class: 'btn btn-danger' %>
-          <%= link_to "Update", edit_organization_job_path(job.organization, job.id), method: :get, class: 'btn btn-warning'  %>
         <div class="organization-card">
         <div class="organization-card-description">
           <p id="organization-name"><strong><%= job.name %></strong></p>
