@@ -1,6 +1,6 @@
 class Job < ApplicationRecord
 
 
-  validates :job_type, inclusion: { in: %w(volunteer internship part-time full-time) }
+  validates :job_type, inclusion: { in: %w(Volunteer Internship Part-time Full-time) }
   belongs_to :organization
 end
