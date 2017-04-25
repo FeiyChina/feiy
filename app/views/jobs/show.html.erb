@@ -10,7 +10,10 @@
       <h1>Requirement: <%= @job.requirement %></h1>
       <h1>Status: <%= @job.active ? "open" : "closed" %></h1>
     </div>
+
+     <% if user_signed_in? && @organization.user_id == current_user.id %>
     <%= link_to "Update", edit_organization_job_path(@job.organization_id, @job), method: :get, class: 'btn btn-warning'  %>
+    <% end %>
   </div>
 </div>
 
