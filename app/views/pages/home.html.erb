@@ -25,7 +25,7 @@
           <p id="organization-problem"><%= job.job_type%></p>
           <p id="organization-category"><%= job.address %></p>
         </div>
-
+         <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
         </div>
       </div>
     <% end %>
