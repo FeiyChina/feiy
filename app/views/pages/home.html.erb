@@ -10,6 +10,40 @@
   </div>
 </div>
 
+<!-- ORGANIZATIONS -->
+<div class="title-divider text-center">
+  <h2>ORGANIZATIONS</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <% @organizations.each do |organization| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="organization-card">
+        <% if organization.photo %>
+          <img src="<%= cl_image_path organization.photo.path, height: 180, width: 350, crop: :fill%>", class='organization-card-img' >
+        <% else %>
+          <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
+        <% end %>
+        <div class="organization-card-description">
+          <% if organization.categories.any? %>
+            <p id="organization-problem"><%= organization.categories.last.name %></p>
+          <% end %>
+          <p id="organization-name"><strong><%= organization.name %></strong></p>
+          <p id="organization-problem"><%= organization.problem%></p>
+          <p id="organization-category">Category</p>
+        </div>
+        <div class="organization-card-icons">
+          <i class="fa fa-thumbs-up organization-card-icon"></i>
+          <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
+        </div>
+        <%= link_to "", organization_path(organization), class: "organization-card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+
 <!-- JOBS -->
 <div class="cards-wrapper">
 <div class="title-divider text-center" id="title-padding" >
@@ -85,39 +119,6 @@
   </div>
 </div>
 
-<!-- ORGANIZATIONS -->
-<div class="title-divider text-center">
-  <h2>ORGANIZATIONS</h2>
-</div>
-<div class="container">
-  <div class="row">
-    <% @organizations.each do |organization| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="organization-card">
-        <% if organization.photo %>
-          <img src="<%= cl_image_path organization.photo.path, height: 180, width: 350, crop: :fill%>", class='organization-card-img' >
-        <% else %>
-          <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
-        <% end %>
-        <div class="organization-card-description">
-          <% if organization.categories.any? %>
-            <p id="organization-problem"><%= organization.categories.last.name %></p>
-          <% end %>
-          <p id="organization-name"><strong><%= organization.name %></strong></p>
-          <p id="organization-problem"><%= organization.problem%></p>
-          <p id="organization-category">Category</p>
-        </div>
-        <div class="organization-card-icons">
-          <i class="fa fa-thumbs-up organization-card-icon"></i>
-          <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
-        </div>
-        <%= link_to "", organization_path(organization), class: "organization-card-link" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-</div>
 <!-- FEATURES -->
 <div class="title-divider text-center" id="features-img">
   <h2>HOW FEIY WORKS</h2>
