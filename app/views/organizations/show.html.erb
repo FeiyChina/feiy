@@ -12,7 +12,11 @@
     <p id="organization-problem"><%= @organization.categories.last.name %></p>
   <% end %>
     <h1><%= @organization.name.capitalize %></h1>
+  <!-- like partial -->
+  <%= render 'shared/org_likes' %>
 </div>
+
+
 
 <div class="container text-center" id="organization-information">
   <h4><strong>Who were are?</strong></h4>
@@ -25,21 +29,14 @@
   <p><%= @organization.website %></p>
 </div>
 
+<!-- Edit function -->
 <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
     <%= link_to "Delete", organization_path(@organization), method: :delete, class: 'btn btn-danger' %>
     <%= link_to "Update", edit_organization_path(@organization), method: :get, class: 'btn btn-warning'  %>
   </div>
-<% else %>
-
-  <!-- like function -->
-  <div class="action-like text-center">
-    <%= link_to like_organization_path(@organization), method: :post do %>
-      <i class="fa fa-thumbs-up"></i>
-    <% end %><br>
-    <%= @organization.votes_for.size %> Likes
-  </div>
 <% end %>
+
 
 <!-- Hardcoded Events Section -->
 <div class="title-divider text-center">
