@@ -7,7 +7,6 @@ class PagesController < ApplicationController
     @categories = Category.all
     @job = Job.all
     @jobs = @job.where(active: true)
-
   end
 
   def dashboard
@@ -18,6 +17,11 @@ class PagesController < ApplicationController
   end
 
   def eventshow
+  end
+
+  def jobspool
+    @job = Job.all
+    @jobs = @job.where(active: true)
   end
 
 end
