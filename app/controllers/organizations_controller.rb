@@ -10,6 +10,10 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     @organization.user_id = current_user.id
     if @organization.save
+      MIXPANEL.track(@organization.user_id, 'Organization Created', {
+        name: @organization.name
+      })
+
       redirect_to dashboard_path
     else
       render :new
