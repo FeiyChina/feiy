@@ -10,7 +10,22 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.organization = Organization.find(params[:organization_id])
     @job.save
+    redirect_to dashboard_path
+
+    if @job.save
+      MIXPANEL.track(@job.user_id, 'Created', {
+        content: "Job",
+        name: @job.name,
+        address: @job.address,
+        job_type: @job.job_type,
+        organization: @job.organization_id,
+        active: @job.active
+      })
+
       redirect_to dashboard_path
+    else
+      render :new
+    end
   end
 
   def edit

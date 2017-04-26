@@ -10,7 +10,8 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     @organization.user_id = current_user.id
     if @organization.save
-      MIXPANEL.track(@organization.user_id, 'Organization Created', {
+      MIXPANEL.track(@organization.user_id, 'Created', {
+        content: "Organization",
         name: @organization.name
       })
 
