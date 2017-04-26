@@ -48,6 +48,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'acts_as_votable'
 
+gem 'mixpanel-ruby'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
