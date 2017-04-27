@@ -113,26 +113,15 @@
   justify-content: space-around;
   width: 25%;
 }
-@media only screen and (max-width: 991px) {
-  #profile-card {
-    height: 400px;
-    padding-top: 20px;
-    margin-bottom: 30px;
-  }
-  .organizations-dashboard-container {
-    text-align: center;
-  }
-}
 
-.separator {
-  margin: 30px 20px;
-}
-
-.top-buffer {
-  margin-top: 20px;
+.sidebar{
+  float: left;
+  width: 25%
 }
 
 
-
-
+.content {
+  float: right;
+  width: 75%
+}
 

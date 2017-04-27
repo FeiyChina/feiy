@@ -1,137 +1,146 @@
-<div class="container dashboard-container top-space">
-  <div class="row">
-    <div class="col-xs-12 col-md-3">
-      <div id="profile-card" class="text-center">
-        <% if current_user.avatar %>
-          <%= cl_image_tag current_user.avatar.path, height: 150, width: 150, crop: :fill, gravity: :face, radius: :max %>
-          <!-- <p><%= current_user.name %></p> -->
-          <hr class="separator">
-          <p><%= current_user.email %></p>
-        <% else %>
-          <%= image_tag "profile-big.svg" %>
-          <!-- <p><%= current_user.name %></p> -->
-          <hr class="separator">
-          <p><%= current_user.email %><p>
-        <% end %>
-        <div id='profile-card-button'>
-          <%= link_to "Edit profile", edit_user_registration_path, class: "btn-feiy-secondary"  %>
-        </div>
-      </div>
-    </div>
-    <!-- Organizations sections -->
-    <div class="col-xs-12 col-md-9">
-      <div class="organizations-dashboard-container">
-        <h2 class="super-title">Organizations</h2>
-        <div class="row">
-          <% current_user.organizations.each do |organization| %>
-          <div class="col-xs-12 col-md-6 col-lg-4">
-            <div class="organization-card" style="width: 300px">
-              <% if organization.photo %>
-                <img src="<%= cl_image_path organization.photo.path, height: 180, width: 300, crop: :fill%>", class='organization-card-img' >
-              <% else %>
-                <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
-              <% end %>
-              <div class="organization-card-description">
-                <% if organization.categories.any? %>
-                  <p id="organization-problem"><%= organization.categories.last.name %></p>
-                 <% end %>
-                 <p id="organization-name"><strong><%= organization.name %></strong></p>
-                 <p id="organization-problem"><%= organization.problem%></p>
-              </div>
-              <div class="organization-card-buttons-two text-center">
-                <%= link_to edit_organization_path(organization), class: "dashboard-card-little-link" do %>
-                  <i class="fa fa-pencil"></i>
-                <% end %>
-                <%= link_to organization_path(organization), class: "dashboard-card-little-link", confirm: "are you sure you want to delete?", method: :delete do %>
-                  <i class="fa fa-trash"></i>
-                <% end %>
-              </div>
-              <div class="organization-card-buttons-one text-center">
-                <p><%= organization.votes_for.size %> Likes</p>
-              </div>
-              <%= link_to "", organization_path(organization), class: "organization-dashboard-card-link" %>
+<div class="sidebar">
+
+</div>
+<div class="content">
+  <div class="content-fluid">
+
+    <div class="container dashboard-container top-space">
+      <div class="row">
+        <div class="col-xs-12 col-md-3">
+          <div id="profile-card" class="text-center">
+            <% if current_user.avatar %>
+              <%= cl_image_tag current_user.avatar.path, height: 150, width: 150, crop: :fill, gravity: :face, radius: :max %>
+              <!-- <p><%= current_user.name %></p> -->
+              <hr class="separator">
+              <p><%= current_user.email %></p>
+            <% else %>
+              <%= image_tag "profile-big.svg" %>
+              <!-- <p><%= current_user.name %></p> -->
+              <hr class="separator">
+              <p><%= current_user.email %><p>
+            <% end %>
+            <div id='profile-card-button'>
+              <%= link_to "Edit profile", edit_user_registration_path, class: "btn-feiy-secondary"  %>
             </div>
           </div>
-          <% end %>
+        </div>
+        <!-- Organizations sections -->
+        <div class="col-xs-12 col-md-9">
+          <div class="organizations-dashboard-container">
+            <h2 class="super-title">Organizations</h2>
+            <div class="row">
+              <% current_user.organizations.each do |organization| %>
+              <div class="col-xs-12 col-md-6 col-lg-4">
+                <div class="organization-card" style="width: 300px">
+                  <% if organization.photo %>
+                    <img src="<%= cl_image_path organization.photo.path, height: 180, width: 300, crop: :fill%>", class='organization-card-img' >
+                  <% else %>
+                    <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
+                  <% end %>
+                  <div class="organization-card-description">
+                    <% if organization.categories.any? %>
+                      <p id="organization-problem"><%= organization.categories.last.name %></p>
+                     <% end %>
+                     <p id="organization-name"><strong><%= organization.name %></strong></p>
+                     <p id="organization-problem"><%= organization.problem%></p>
+                  </div>
+                  <div class="organization-card-buttons-two text-center">
+                    <%= link_to edit_organization_path(organization), class: "dashboard-card-little-link" do %>
+                      <i class="fa fa-pencil"></i>
+                    <% end %>
+                    <%= link_to organization_path(organization), class: "dashboard-card-little-link", confirm: "are you sure you want to delete?", method: :delete do %>
+                      <i class="fa fa-trash"></i>
+                    <% end %>
+                  </div>
+                  <div class="organization-card-buttons-one text-center">
+                    <p><%= organization.votes_for.size %> Likes</p>
+                  </div>
+                  <%= link_to "", organization_path(organization), class: "organization-dashboard-card-link" %>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Jobs Section -->
+    <div class="title-divider text-center">
+      <h2>JOBS</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+        <% @jobs.each do |job| %>
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="organization-card">
+            <div class="organization-card-description">
+            <p id="organization-name"><strong><%= job.organization.name %></strong></p>
+              <p id="organization-name"><%= job.name %></p>
+              <p id="organization-problem"><%= job.job_type%></p>
+              <p id="organization-category"><%= job.address %></p>
+            </div>
+            <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <!-- Events Section -->
+    <div class="title-divider text-center">
+      <h1>Your Events</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="events-card text-center">
+            <%= link_to "", event_show_path, class: "card-link" %>
+            <%= image_tag "card_picture1_ok.jpg", class: "event-card-img" %>
+            <div class="event-card-text">
+              <h3><strong>Clothes Donation</strong></h3>
+              <h3>JingAn Temple Friends</h3>
+              <p>Donate clothes to people in need</p>
+              <p><strong>Date:</strong> 25/04/2017</p>
+              <p><strong>Location:</strong> 32 Nanjing Xi Lu, Shanghai</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="events-card text-center">
+            <%= link_to "", event_show_path, class: "card-link" %>
+            <%= image_tag "card_picture2_ok.jpg", class: "event-card-img" %>
+            <div class="event-card-text">
+              <h3><strong>Benefic Rock Festival</strong></h3>
+              <h3>Green Leaf Society</h3>
+              <p>Help raise money for a good cause</p>
+              <p><strong>Date:</strong> 30/04/2017</p>
+              <p><strong>Location:</strong> 323 Wulumuqi Lu, Shanghai</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="events-card text-center">
+            <%= link_to "", event_show_path, class: "card-link" %>
+            <%= image_tag "card_picture3_ok.jpg", class: "event-card-img" %>
+            <div class="event-card-text">
+              <h3><strong>Clothes Donation</strong></h3>
+              <h3>High Five</h3>
+              <p>Visit kids in the shanghai hospital</p>
+              <p><strong>Date:</strong> 14/05/2017</p>
+              <p><strong>Location:</strong> 13 Shifu lu, Shanghai</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Followers Section -->
+    <div class="title-divider text-center">
+      <h1>Your Followers</h1>
+    </div>
+    <div class="row">
+      <br>
+      <h2 class="text-center">Follower avatars here</h2>
+      <br>
+    </div>
+
   </div>
 </div>
-<!-- Jobs Section -->
-<div class="title-divider text-center">
-  <h2>JOBS</h2>
-</div>
-<div class="container">
-  <div class="row">
-    <% @jobs.each do |job| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="organization-card">
-        <div class="organization-card-description">
-        <p id="organization-name"><strong><%= job.organization.name %></strong></p>
-          <p id="organization-name"><%= job.name %></p>
-          <p id="organization-problem"><%= job.job_type%></p>
-          <p id="organization-category"><%= job.address %></p>
-        </div>
-        <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-</div>
-
-
-<!-- Events Section -->
-
-<h1 class="title-divider text-center">Your Events</h1>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="events-card text-center">
-        <%= link_to "", event_show_path, class: "card-link" %>
-        <%= image_tag "card_picture1_ok.jpg", class: "event-card-img" %>
-        <div class="event-card-text">
-          <h3><strong>Clothes Donation</strong></h3>
-          <h5>JingAn Temple Friends</h3>
-          <p>Donate clothes to people in need</p>
-          <p><strong>Date:</strong> 25/04/2017</p>
-          <p><strong>Location:</strong> 32 Nanjing Xi Lu, Shanghai</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="events-card text-center">
-        <%= link_to "", event_show_path, class: "card-link" %>
-        <%= image_tag "card_picture2_ok.jpg", class: "event-card-img" %>
-        <div class="event-card-text">
-          <h3><strong>Benefic Rock Festival</strong></h3>
-          <h5>Green Leaf Society</h3>
-          <p>Help raise money for a good cause</p>
-          <p><strong>Date:</strong> 30/04/2017</p>
-          <p><strong>Location:</strong> 323 Wulumuqi Lu, Shanghai</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="events-card text-center">
-        <%= link_to "", event_show_path, class: "card-link" %>
-        <%= image_tag "card_picture3_ok.jpg", class: "event-card-img" %>
-        <div class="event-card-text">
-          <h3><strong>Clothes Donation</strong></h3>
-          <h5>High Five</h3>
-          <p>Visit kids in the shanghai hospital</p>
-          <p><strong>Date:</strong> 14/05/2017</p>
-          <p><strong>Location:</strong> 13 Shifu lu, Shanghai</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr>
-
-<h1>Your followers</h1>
-<br>
-<h2>Follower avatars here</h2>
-<br>
