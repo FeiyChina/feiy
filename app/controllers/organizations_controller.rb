@@ -1,6 +1,10 @@
 class OrganizationsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
+  def search
+    @organizations = Organization.search(search_params)
+  end
+
   def new
     @organization = Organization.new
     @categories = Category.all
@@ -61,6 +65,10 @@ class OrganizationsController < ApplicationController
   end
 
   private
+
+  def search_params
+    search_params = params.require(:organization).permit(:name, :category_ids)
+  end
 
   def organization_params
     organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, :photo, :logo, :category_ids, :user_is_a_representative)
