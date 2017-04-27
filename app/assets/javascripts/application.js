@@ -18,3 +18,12 @@
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require_tree .
+
+$(document).ready(function() {
+  $("#conf_msg").hide();
+  $("#create_booking").on("click", function(event) {
+  event.preventDefault();
+  $("#conf_msg").show();
+  $(".new_booking").hide();
+})
+});
