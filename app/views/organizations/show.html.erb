@@ -147,28 +147,30 @@
 </div>
 <div class="container">
   <div class="row">
-    <% @empty_array.each do |organization| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="organization-card">
-        <% if organization.photo %>
-          <img src="<%= cl_image_path organization.photo.path, height: 180, width: 350, crop: :fill%>", class='organization-card-img' >
-        <% else %>
-          <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
-        <% end %>
-        <div class="organization-card-description">
-          <p id="organization-name"><strong><%= organization.name %></strong></p>
-          <p id="organization-problem"><%= organization.problem%></p>
-          <% if organization.categories.any? %>
-            <p id="organization-category"><%= organization.categories.last.name %></p>
+    <% if @empty_array != nil %>
+      <% @empty_array.each do |organization| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="organization-card">
+          <% if organization.photo %>
+            <img src="<%= cl_image_path organization.photo.path, height: 180, width: 350, crop: :fill%>", class='organization-card-img' >
+          <% else %>
+            <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
           <% end %>
+          <div class="organization-card-description">
+            <p id="organization-name"><strong><%= organization.name %></strong></p>
+            <p id="organization-problem"><%= organization.problem%></p>
+            <% if organization.categories.any? %>
+              <p id="organization-category"><%= organization.categories.last.name %></p>
+            <% end %>
+          </div>
+          <div class="organization-card-icons">
+            <i class="fa fa-thumbs-up organization-card-icon"></i>
+            <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
+          </div>
+          <%= link_to "", organization_path(organization), class: "organization-card-link" %>
+          </div>
         </div>
-        <div class="organization-card-icons">
-          <i class="fa fa-thumbs-up organization-card-icon"></i>
-          <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
-        </div>
-        <%= link_to "", organization_path(organization), class: "organization-card-link" %>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

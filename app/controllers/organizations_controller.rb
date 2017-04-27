@@ -30,16 +30,18 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @categories = Category.all
     @organizations = Organization.all
-    organization_category = @organization.categories.last.name
-    @empty_array = []
+    if @organization.categories.any?
+      organization_category = @organization.categories.last.name
+      @empty_array = []
 
-    @organizations.each do |organization|
-      if organization.categories == organization_category
-        @empty_array << organization
+      @organizations.each do |organization|
+        if organization.categories == organization_category
+          @empty_array << organization
+        end
       end
-    end
-    if @empty_array.any?
-      @empty_array.shuffle[1..3]
+      if @empty_array.any?
+        @empty_array.shuffle[1..3]
+      end
     end
   end
 
