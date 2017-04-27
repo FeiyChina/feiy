@@ -113,26 +113,60 @@
   justify-content: space-around;
   width: 25%;
 }
-@media only screen and (max-width: 991px) {
-  #profile-card {
-    height: 400px;
-    padding-top: 20px;
-    margin-bottom: 30px;
-  }
-  .organizations-dashboard-container {
-    text-align: center;
-  }
+
+.sidebar{
+  float: left;
+  width: 250px;
+  background-color: white;
+  position: fixed;
+  display: block;
+  min-height: calc(100vh - 250px)!important;
+  box-shadow: 0px 0.5px 0px 1px rgba(224, 224, 224, 0.5);
+  text-align: left
 }
 
-.separator {
-  margin: 30px 20px;
-}
-
-.top-buffer {
-  margin-top: 20px;
+.sidebar-profile{
+  padding-top: 20px;
+  padding-left: 20px
 }
 
 
+.content {
+  float: right;
+  width: 80%;
+}
+
+.tabs {
+  background: white;
+  padding: 10px;
+  box-shadow: 0px 0.5px 0px 0px rgba(224, 224, 224, 0.5);
+}
+
+.tabs a {
+  color: black;
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #46C8C7;
+  opacity: 0.8;
+}
 
 
+.tab {
+  background: thistle;
+  text-align: center;
+  padding: 20px 0;
+  opacity: 0.6;
 
+}
+
+
+.sidebar-avatar{
+  box-shadow: 0px 0.5px 0px 0px rgba(224, 224, 224, 0.5);
+  padding: 10px ;
+}
+
+.avatar-style{
+  margin-bottom: 5px
+}
