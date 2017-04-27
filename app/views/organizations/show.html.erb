@@ -147,8 +147,8 @@
 </div>
 <div class="container">
   <div class="row">
-    <% if @empty_array != nil %>
-      <% @empty_array.each do |organization| %>
+    <% if @@suggested_organizations != nil %>
+      <% @@suggested_organizations.each do |organization| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="organization-card">
           <% if organization.photo %>

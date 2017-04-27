@@ -32,15 +32,15 @@ class OrganizationsController < ApplicationController
     @organizations = Organization.all
     if @organization.categories.any?
       organization_category = @organization.categories.last.name
-      @empty_array = []
+      @suggested_organizations = []
 
       @organizations.each do |organization|
         if organization.categories == organization_category
-          @empty_array << organization
+          @suggested_organizations << organization
         end
       end
-      if @empty_array.any?
-        @empty_array.shuffle[1..3]
+      if @suggested_organizations.any?
+        @suggested_organizations.shuffle[1..3]
       end
     end
   end
