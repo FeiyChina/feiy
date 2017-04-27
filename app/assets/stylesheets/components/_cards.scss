@@ -113,3 +113,60 @@
   margin: 20px 0px 40px 0px;
   z-index: 0;
 }
+
+
+
+
+//jobs cards
+
+.job-card {
+  background-color: white;
+  width: 300px;
+  height: 250px;
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
+  margin: 20px 0px 40px 0px;
+  z-index: 0;
+  padding: inherit
+}
+
+.job-card-description {
+  width: 300px;
+  height: 150px;
+  position: absolute;
+  padding: 0px 10px;
+  margin: 10px auto;
+}
+
+#job-name {
+  font-size: 20px;
+  color: black;
+
+}
+
+#job-title {
+  font-size: 18px;
+  color: black;
+}
+
+#job-problem {
+  font-size: 16px;
+  color: black;
+  font-weight: lighter;
+}
+
+#job-category {
+  font-size: 14px;
+  color: black;
+  margin-top: 9px;
+  font-weight: lighter;
+}
+
+.job-logo{
+  width: 230px;
+  height: 80px;
+  background-color: pink;
+  margin: 0px auto;
+  padding-top: 10px
+}
