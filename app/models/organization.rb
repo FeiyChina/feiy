@@ -7,4 +7,5 @@ class Organization < ApplicationRecord
   has_many :events
   has_many :categories, as: :categorizable
   has_many :jobs, dependent: :destroy
+  validates :user_is_a_representative, presence: true
 end

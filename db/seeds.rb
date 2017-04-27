@@ -5,6 +5,7 @@ categories_attributes.each { |params| Category.create(name: params) }
 p "Done !"
 
 
+
 # These seeds have vital information
 
 # Organization.find_or_create_by(name:"The Inclusion Factory"){|c| c.assign_attributes({address:"Taican, China",

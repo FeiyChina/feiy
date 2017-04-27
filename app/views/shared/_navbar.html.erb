@@ -4,7 +4,7 @@
   <% end %>
   <div class="list-inline hidden-xs" id="list-left">
     <div class="inline-block">
-    <%= link_to "Jobs", event_show_path, class: "jobs-linkto" %>
+    <%= link_to "Jobs", jobspool_path, class: "jobs-linkto" %>
     </div>
     <div class="inline-block">
     <%= link_to "Events", event_show_path, class: "events-linkto" %>
@@ -60,9 +60,18 @@
     </div>
   </div>
 
-    <!-- Button (call-to-action) -->
-  <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
-  </div>
+
+  <!-- Button (call-to-action) -->
+  <!-- if current_user.organizations <= 3 create org, else render alert "you have reached max nber of org" -->
+  <% if user_signed_in? && current_user.organizations.count <= 3 %>
+    <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
+  <% else %>
+    <%= link_to "Create Organization", dashboard_path, class: "btn-feiy-primary" %>
+    <% flash[:alert] = "It seems you already have a maximun of 3 organizations" %>
+  <% end %>
+</div>
+
+
 
 
   <!-- Dropdown appearing on mobile only -->

@@ -3,15 +3,19 @@
       <%= cl_image_tag @organization.photo.path, crop: :fill %>
   <% end %>
 </div>
+
 <div class="title-divider text-center">
   <% if @organization.logo? %>
     <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill %>
   <% end %>
   <% if @organization.categories.any? %>
-    <p id="organization-problem"><%= @organization.categories.last.name %></p>
+    <p id="organization-category"><%= @organization.categories.last.name %></p>
   <% end %>
-    <h1><%= @organization.name.capitalize %></h1>
+  <h1><%= @organization.name.capitalize %></h1>
+  <!-- like partial -->
+  <%= render 'shared/org_likes' %>
 </div>
+
 <div class="container text-center" id="organization-information">
   <h4><strong>Who were are?</strong></h4>
   <p><%= @organization.description %></p>
@@ -23,33 +27,25 @@
   <p><%= @organization.website %></p>
 </div>
 
-
+<!-- Edit function -->
 <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
     <%= link_to "Delete", organization_path(@organization), method: :delete, class: 'btn btn-danger' %>
     <%= link_to "Update", edit_organization_path(@organization), method: :get, class: 'btn btn-warning'  %>
   </div>
-  <% else %>
-  <!-- like function -->
-  <div class="action-like text-center">
-    <%= link_to like_organization_path(@organization), method: :post do %>
-      <i class="fa fa-thumbs-up"></i>
-    <% end %><br>
-    <%= @organization.votes_for.size %> Likes
-  <% end %>
-</div>
+<% end %>
 <!-- comment function -->
 <div class="title-divider text-center">
   <h2>Comments</h2>
 </div>
 <div class="comment-section text-center">
   <%= form_tag create_comment_path, method: "post" do %>
-    <%= hidden_field_tag "id", @organization.id %>
-      <%= text_area_tag :comment %>
-      <div class="comment-btn">
-        <%= submit_tag "Submit", class: "btn btn-success" %>
-      </div>
-    <% end %>
+  <%= hidden_field_tag "id", @organization.id %>
+  <%= text_area_tag :comment %>
+  <div class="comment-btn">
+    <%= submit_tag "Submit", class: "btn btn-success" %>
+  </div>
+  <% end %>
 </div>
 <div class="comment-list text-center">
   <% @organization.comments.each do |comment| %>

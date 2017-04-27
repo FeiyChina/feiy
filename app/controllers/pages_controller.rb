@@ -17,6 +17,13 @@ class PagesController < ApplicationController
   end
 
   def eventshow
+    @event = Event.find(params[:id])
+    @event.liked_by(current_user)
+  end
+
+  def jobspool
+    @job = Job.all
+    @jobs = @job.where(active: true)
   end
 
 end

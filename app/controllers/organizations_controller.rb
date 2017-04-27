@@ -29,7 +29,8 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     @categories = Category.all
-    @suggested_organizations = @organization.categories.last.name
+    @suggested_organizations = Organization.where(Organization.categories.last.name == @organization.categories.last.name)
+    @suggested_organization.shuffle[1..3]
   end
 
   def destroy
@@ -50,6 +51,6 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, :photo, :logo, :category_ids)
+    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, :photo, :logo, :category_ids, :user_is_a_representative)
   end
 end
