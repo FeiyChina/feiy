@@ -17,8 +17,9 @@ class PagesController < ApplicationController
   end
 
   def eventshow
-    @event = Event.find(params[:id])
-    @event.liked_by(current_user)
+    @booking = Booking.new
+    # @event = Event.find(params[:id])
+    # @event.liked_by(current_user)
   end
 
   def jobspool
