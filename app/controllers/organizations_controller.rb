@@ -29,6 +29,20 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     @categories = Category.all
+    @organizations = Organization.all
+    if @organization.categories.any?
+      organization_category = @organization.categories.last.name
+      @suggested_organizations = []
+
+      @organizations.each do |organization|
+        if organization.categories == organization_category
+          @suggested_organizations << organization
+        end
+      end
+      if @suggested_organizations.any?
+        @suggested_organizations.shuffle[1..3]
+      end
+    end
   end
 
   def destroy
