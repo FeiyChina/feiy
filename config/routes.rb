@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # patch 'organizations/:id', to: "organizations#update"
 
   # delete 'organizations/:id', to: "organizations#destroy"
+  resource :bookings, only: [:create]
+
   resources :organizations do
     resources :jobs
   end
