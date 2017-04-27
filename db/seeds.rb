@@ -1,5 +1,5 @@
 Category.destroy_all
-categories_attributes = %w{ Art Climate Design Employment Energy Fashion Finance Food Games Handicap Health Kids Lifestyle Media Music Pollution Tourism Waste }
+categories_attributes = %w{ Education Fashion Food Waste Health Environment Inclusion Community }
 p "Creating seeds"
 categories_attributes.each { |params| Category.create(name: params) }
 p "Done !"

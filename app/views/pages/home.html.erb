@@ -100,12 +100,11 @@
           <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
         <% end %>
         <div class="organization-card-description">
+          <p id="organization-name"><strong><%= organization.name %></strong></p>
+          <p id="organization-problem"><%= organization.problem%></p>
           <% if organization.categories.any? %>
             <p id="organization-problem"><%= organization.categories.last.name %></p>
           <% end %>
-          <p id="organization-name"><strong><%= organization.name %></strong></p>
-          <p id="organization-problem"><%= organization.problem%></p>
-          <p id="organization-category"><%= organization.categories%></p>
         </div>
         <div class="organization-card-icons">
           <i class="fa fa-thumbs-up organization-card-icon"></i>
