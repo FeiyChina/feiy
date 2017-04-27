@@ -11,6 +11,7 @@
     <%= f.input :website %>
     <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, :multiple => true %>
   </div>
+    <%= f.input :user_is_a_representative %>
   <div class="form-actions">
     <%= f.button :submit, "Create organization", class: "btn-feiy-primary" %>
   </div>
