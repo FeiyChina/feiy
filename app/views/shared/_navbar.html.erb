@@ -62,12 +62,14 @@
 
 
   <!-- Button (call-to-action) -->
-  <!-- if current_user.organizations <= 3 create org, else render alert "you have reached max nber of org" -->
-  <% if user_signed_in? && current_user.organizations.count <= 3 %>
+  <!-- Problem this flash alert also appears when I am not trying to create a fourth og -->
+  <% if user_signed_in? && current_user.organizations.count < 3 %>
     <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
-  <% else %>
+  <% elsif user_signed_in? && current_user.organizations.count >= 3 %>
     <%= link_to "Create Organization", dashboard_path, class: "btn-feiy-primary" %>
     <% flash[:alert] = "It seems you already have a maximun of 3 organizations" %>
+  <% else %>
+    <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
   <% end %>
 </div>
 
