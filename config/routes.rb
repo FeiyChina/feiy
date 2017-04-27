@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bookings/create'
+
   mount Attachinary::Engine => "/attachinary"
   # get 'organizations/:id', to: "organizations#show"
 
