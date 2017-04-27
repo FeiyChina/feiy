@@ -1,22 +1,41 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <h1>Name: <%= @job.name %></h1>
-      <h1>Address: <%= @job.address %></h1>
-      <h1>Website: <%= @job.website %></h1>
-      <h1>Email: <%= @job.email %></h1>
-      <h1>Job Type: <%= @job.job_type %></h1>
-      <h1>Task: <%= @job.task %></h1>
-      <h1>Requirement: <%= @job.requirement %></h1>
-      <h1>Status: <%= @job.active ? "open" : "closed" %></h1>
+      <div class="card">
+        <div class="card-logo"> <%= cl_image_tag @job.organization.logo.path, :width=>200, :height=>100, :crop=>"fit", :secure=>true %></div>
+        <div class="card-description">
+          <h4><%= @job.organization.name %></h4>
+          <h2><%= @job.name %></h2>
+          <p><%= @job.job_type %></p>
+          <p><%= @job.address %></p>
+          <p>Status: <%= @job.active ? "open" : "closed" %></p>
+        </div>
+      </div>
+      <br>
+      <div class="sub-header-card">
+        <div class="sub-header-card-description">
+          <h2>Who we are</h2>
+          <p><%= @job.organization.description %></p>
+          <br>
+          <h2>Job Task</h2>
+          <p><%= @job.task %></p>
+          <br>
+          <h2>Job Requirement</h2>
+          <p><%= @job.requirement %></p>
+          <br>
+          <h2>Reach us</h2>
+          <p>Website: <%= @job.website %></p>
+          <p>Email: <%= @job.email %></p>
+        </div>
+      </div>
+      <div class="footer-buttons">
+        <% if user_signed_in? && @organization.user_id == current_user.id %>
+          <%= link_to "Update Job Info", edit_organization_job_path(@job.organization_id, @job), method: :get, class: 'btn btn-warning'  %>
+          <%= link_to "Delete Job", organization_job_path(@job.organization_id, @job), method: :delete, class: 'btn btn-danger' %>
+      </div>
+        <% end %>
     </div>
-
-     <% if user_signed_in? && @organization.user_id == current_user.id %>
-    <%= link_to "Update", edit_organization_job_path(@job.organization_id, @job), method: :get, class: 'btn btn-warning'  %>
-    <%= link_to "Delete", organization_job_path(@job.organization_id, @job), method: :delete, class: 'btn btn-danger' %>
-    <% end %>
   </div>
 </div>
-
 
 
