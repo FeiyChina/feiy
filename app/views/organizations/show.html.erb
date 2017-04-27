@@ -1,9 +1,8 @@
 <div class="wrapper" id="organization-banner">
-<% if @organization.photo %>
-    <%= cl_image_tag @organization.photo.path, crop: :fill %>
-<% end %>
+  <% if @organization.photo %>
+      <%= cl_image_tag @organization.photo.path, crop: :fill %>
+  <% end %>
 </div>
-
 <div class="title-divider text-center">
   <% if @organization.logo? %>
     <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill %>
@@ -13,7 +12,6 @@
   <% end %>
     <h1><%= @organization.name.capitalize %></h1>
 </div>
-
 <div class="container text-center" id="organization-information">
   <h4><strong>Who were are?</strong></h4>
   <p><%= @organization.description %></p>
@@ -25,22 +23,81 @@
   <p><%= @organization.website %></p>
 </div>
 
+
 <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
     <%= link_to "Delete", organization_path(@organization), method: :delete, class: 'btn btn-danger' %>
     <%= link_to "Update", edit_organization_path(@organization), method: :get, class: 'btn btn-warning'  %>
   </div>
-<% else %>
-
+  <% else %>
   <!-- like function -->
   <div class="action-like text-center">
     <%= link_to like_organization_path(@organization), method: :post do %>
       <i class="fa fa-thumbs-up"></i>
     <% end %><br>
     <%= @organization.votes_for.size %> Likes
+  <% end %>
+</div>
+<!-- comment function -->
+<div class="title-divider text-center">
+  <h2>Comments</h2>
+</div>
+<div class="comment-section text-center">
+  <%= form_tag create_comment_path, method: "post" do %>
+    <%= hidden_field_tag "id", @organization.id %>
+      <%= text_area_tag :comment %>
+      <div class="comment-btn">
+        <%= submit_tag "Submit", class: "btn btn-success" %>
+      </div>
+    <% end %>
+</div>
+<div class="comment-list text-center">
+  <% @organization.comments.each do |comment| %>
+    <div class="comment-card">
+      <div class="comment-card-user-info">
+        <% if comment.user.avatar? %>
+          <%= cl_image_tag comment.user.avatar.path, width: 50, height: 50, crop: :fill, gravity: :face %>
+        <% else %>
+          <%= image_tag "profile_placeholder.png" %>
+        <% end %>
+        <% if comment.user.name? %>
+          <%= comment.user.name %>
+        <% else %>
+          <p>Anonimous</p>
+        <% end %>
+      </div>
+      <div class="comment-card-text">
+        <%= comment.comment %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<!-- Jobs Section -->
+<div class="title-divider text-center">
+  <h2>Do you want to be part of the journey? Join us and do good!</h2>
+  <% if user_signed_in? && @organization.user_id == current_user.id %>
+  <div class="container text-center">
+    <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn btn-warning'  %>
   </div>
-<% end %>
-
+  <% end %>
+</div>
+<div class="container">
+  <div class="row">
+    <% @organization.jobs.each do |job| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="organization-card">
+        <div class="organization-card-description">
+          <p id="organization-name"><strong><%= job.name %></strong></p>
+          <p id="organization-problem"><%= job.job_type%></p>
+          <p id="organization-category"><%= job.address %></p>
+        </div>
+        <%= link_to "", organization_job_path(job.organization_id, job.id), class: "organization-card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
 <!-- Hardcoded Events Section -->
 <div class="title-divider text-center">
   <h2><%= @organization.name.capitalize %> events</h2>
@@ -88,68 +145,34 @@
     </div>
   </div>
 </div>
-
-<!-- Jobs Section -->
+<!-- ORGANIZATIONS -->
 <div class="title-divider text-center">
-  <h2>JOBS</h2>
-  <% if user_signed_in? && @organization.user_id == current_user.id %>
-  <div class="container text-center">
-
-    <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn btn-warning'  %>
-
-  </div>
-  <% end %>
+  <h2>You might also like these organizations:</h2>
 </div>
 <div class="container">
   <div class="row">
-    <% @organization.jobs.each do |job| %>
+    <% @suggested_organizations.each do |organization| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="organization-card">
+        <% if organization.photo %>
+          <img src="<%= cl_image_path organization.photo.path, height: 180, width: 350, crop: :fill%>", class='organization-card-img' >
+        <% else %>
+          <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
+        <% end %>
         <div class="organization-card-description">
-          <p id="organization-name"><strong><%= job.name %></strong></p>
-          <p id="organization-problem"><%= job.job_type%></p>
-          <p id="organization-category"><%= job.address %></p>
+          <p id="organization-name"><strong><%= organization.name %></strong></p>
+          <p id="organization-problem"><%= organization.problem%></p>
+          <% if organization.categories.any? %>
+            <p id="organization-category"><%= organization.categories.last.name %></p>
+          <% end %>
         </div>
-        <%= link_to "", organization_job_path(job.organization_id, job.id), class: "organization-card-link" %>
+        <div class="organization-card-icons">
+          <i class="fa fa-thumbs-up organization-card-icon"></i>
+          <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
+        </div>
+        <%= link_to "", organization_path(organization), class: "organization-card-link" %>
         </div>
       </div>
     <% end %>
   </div>
-</div>
-</div>
-
-<div class="title-divider text-center">
-  <h2>Comments</h2>
-</div>
-
-<!-- comment function -->
-<div class="comment-section text-center">
-  <%= form_tag create_comment_path, method: "post" do %>
-    <%= hidden_field_tag "id", @organization.id %>
-      <%= text_area_tag :comment %>
-      <div class="comment-btn">
-        <%= submit_tag "Submit", class: "btn btn-success" %>
-      </div>
-    <% end %>
-</div>
-<div class="comment-list text-center">
-  <% @organization.comments.each do |comment| %>
-    <div class="comment-card">
-      <div class="comment-card-user-info">
-        <% if comment.user.avatar? %>
-          <%= cl_image_tag comment.user.avatar.path, width: 50, height: 50, crop: :fill, gravity: :face %>
-        <% else %>
-          <%= image_tag "profile_placeholder.png" %>
-        <% end %>
-        <% if comment.user.name? %>
-          <%= comment.user.name %>
-        <% else %>
-          <p>Anonimous</p>
-        <% end %>
-      </div>
-      <div class="comment-card-text">
-        <%= comment.comment %>
-      </div>
-    </div>
-  <% end %>
 </div>

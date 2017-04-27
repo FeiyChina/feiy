@@ -29,6 +29,7 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     @categories = Category.all
+    @suggested_organizations = @organization.categories.last.name
   end
 
   def destroy

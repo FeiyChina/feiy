@@ -103,7 +103,7 @@
           <p id="organization-name"><strong><%= organization.name %></strong></p>
           <p id="organization-problem"><%= organization.problem%></p>
           <% if organization.categories.any? %>
-            <p id="organization-problem"><%= organization.categories.last.name %></p>
+            <p id="organization-category"><%= organization.categories.last.name %></p>
           <% end %>
         </div>
         <div class="organization-card-icons">
@@ -115,7 +115,6 @@
       </div>
     <% end %>
   </div>
-</div>
 </div>
 <!-- FEATURES -->
 <div class="title-divider text-center" id="features-img">
