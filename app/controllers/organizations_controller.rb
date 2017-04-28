@@ -61,7 +61,6 @@ class OrganizationsController < ApplicationController
     @organization.liked_by current_user
     @likes = @organization.votes_for.size
     #call the show method to re-render the page
-    show
   end
 
   private

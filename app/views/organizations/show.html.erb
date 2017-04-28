@@ -175,3 +175,22 @@
     <% end %>
   </div>
 </div>
+<!-- Followers -->
+<div class="title-divider text-center">
+  <h2>Who is following this Organization?</h2>
+</div>
+<div class="container">
+  <div class="row">
+    <% @organization.votes_for.each do |follower| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="follower-avatar">
+        <% if follower.voter.avatar? %>
+          <%= cl_image_tag follower.user.avatar.path, width: 50, height: 50, crop: :fill, gravity: :face %>
+        <% else %>
+          <%= image_tag "profile_placeholder.png" %>
+        <% end %>
+      </div>
+      </div>
+    <% end %>
+  </div>
+</div>
