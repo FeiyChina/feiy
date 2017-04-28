@@ -185,7 +185,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="follower-avatar">
         <% if follower.voter.avatar? %>
-          <%= cl_image_tag follower.user.avatar.path, width: 50, height: 50, crop: :fill, gravity: :face %>
+          <%= cl_image_tag follower.voter.avatar.path, width: 50, height: 50, crop: :fill, gravity: :face %>
         <% else %>
           <%= image_tag "profile_placeholder.png" %>
         <% end %>
