@@ -3,7 +3,7 @@
     <div class="sidebar-organizations">
     <p>Your Organizations</p>
   <br>
-      <div class="tabs">
+    <div class="tabs">
       <% current_user.organizations.each do |organization| %>
       <li style="list-style: none"><strong><%=link_to organization.name, organization_path(organization) %></strong></li>
       <br>
@@ -44,7 +44,7 @@
                   <% end %>
                   <div class="organization-card-description">
                     <% if organization.categories.any? %>
-                      <p id="organization-problem"><%= organization.categories.last.name %></p>
+                      <p id="organization-category"><%= organization.categories.last.name %></p>
                      <% end %>
                      <p id="organization-name"><strong><%= organization.name %></strong></p>
                      <p id="organization-problem"><%= organization.problem%></p>
