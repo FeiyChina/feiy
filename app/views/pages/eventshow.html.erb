@@ -1,3 +1,20 @@
-<h1>Hey Babe, this section is under construction</h1><br>
+<div class="wrapper-white">
+  <div class="container-demo-title">
+    <h1>This section is still under construction!</h1>
+  </div>
+  <div class="container-demo">
+    <div class="container-form-intro">
+      <h4>Please leave your name and email
+      and we'll notify you when this page is finished</h4>
+    </div>
 
-<h1>Why don't ya sign up and we'll notify when it's ready</h1>
+    <div class="container-demo-form">
+      <h4 id="conf_msg">Thank you,<br>we'll be in touch shortly!</h4>
+      <%= simple_form_for(@booking) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :email %>
+      <%= f.button :submit, class: "btn-rec-out-black btn-block", id:"create_booking"%>
+      <% end %>
+    </div>
+  </div>
+</div>

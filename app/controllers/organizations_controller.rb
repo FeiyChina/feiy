@@ -1,6 +1,10 @@
 class OrganizationsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
+  def search
+    @organizations = Organization.search(search_params)
+  end
+
   def new
     @organization = Organization.new
     @categories = Category.all
@@ -29,6 +33,20 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     @categories = Category.all
+    @organizations = Organization.all
+    if @organization.categories.any?
+      organization_category = @organization.categories.last.name
+      @suggested_organizations = []
+
+      @organizations.each do |organization|
+        if organization.categories == organization_category
+          @suggested_organizations << organization
+        end
+      end
+      if @suggested_organizations.any?
+        @suggested_organizations.shuffle[1..3]
+      end
+    end
   end
 
   def destroy
@@ -47,6 +65,10 @@ class OrganizationsController < ApplicationController
   end
 
   private
+
+  def search_params
+    search_params = params.require(:organization).permit(:name, :category_ids)
+  end
 
   def organization_params
     organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, :photo, :logo, :category_ids, :user_is_a_representative)
