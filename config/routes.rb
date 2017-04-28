@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
   get 'eventshow', to: 'pages#eventshow', as: "event_show"
   get 'jobspool', to: 'pages#jobspool', as: "jobspool"
+  get 'organizations/search', to: 'organizations#search', as: "organizations_search"
   post 'comments' => 'comments#create', as: "create_comment"
 
 end
