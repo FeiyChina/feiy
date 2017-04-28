@@ -148,7 +148,6 @@
 </div>
 <div class="container">
   <div class="row">
-        <%= link_to "", organization_job_path(job.organization_id, job.id), class: "organization-card-link" %>
     <% if @suggested_organizations != nil %>
       <% @suggested_organizations.each do |organization| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
@@ -171,7 +170,6 @@
           </div>
           <%= link_to "", organization_path(organization), class: "organization-card-link" %>
           </div>
-
         </div>
       <% end %>
     <% end %>
