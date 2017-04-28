@@ -12,8 +12,11 @@ class PagesController < ApplicationController
   def dashboard
     @current_user = current_user
     @organizations = @current_user.organizations
+    @organization = @current_user.organizations.first
     @categories = Category.all
     @jobs = Job.all
+    @events = @organization.events.all
+    @random_comment = @organization.comments.shuffle.first
   end
 
   def eventshow
