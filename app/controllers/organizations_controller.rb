@@ -66,7 +66,7 @@ class OrganizationsController < ApplicationController
   private
 
   def search_params
-    search_params = params.require(:organization).permit(:name, :category_ids)
+    params.require(:organization).permit(:name, :category_ids)
   end
 
   def organization_params
