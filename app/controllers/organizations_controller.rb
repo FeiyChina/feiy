@@ -2,7 +2,8 @@ class OrganizationsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
   def search
-    @organizations = Organization.search(search_params)
+    @organizations = Organization.find(search_params)
+    @categories = Category.all
   end
 
   def new
@@ -31,6 +32,8 @@ class OrganizationsController < ApplicationController
   end
 
   def show
+    # trying to display search results by categories #
+    @organizations = Organization.where(:category_ids => "category".to_i)
     @organization = Organization.find(params[:id])
     @categories = Category.all
     @organizations = Organization.all
@@ -66,7 +69,7 @@ class OrganizationsController < ApplicationController
   private
 
   def search_params
-    params.require(:organization).permit(:name, :category_ids)
+    params.require(:organization).permit(:name, :id, :category_ids)
   end
 
   def organization_params
