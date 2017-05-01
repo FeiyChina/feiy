@@ -8,12 +8,14 @@ class OrganizationsController < ApplicationController
 
   def new
     @organization = Organization.new
-    @categories = Category.all
+    @categories = ENV["categories"].split(",")
+    @current_category = ENV["categories"].first
   end
 
   def create
     @organization = Organization.new(organization_params)
     @organization.user_id = current_user.id
+    @organization.categories << Category.create(name: params[:organization][:categories])
     if @organization.save
       redirect_to dashboard_path
     else
@@ -23,11 +25,23 @@ class OrganizationsController < ApplicationController
 
   def edit
     @organization = Organization.find(params[:id])
+    @categories = ENV["categories"].split(",")
+    if @organization.categories.any?
+      @current_category = @organization.categories.last.name
+    else
+      @current_category = ENV["categories"].first
+    end
   end
 
   def update
     @organization = Organization.find(params[:id])
     @organization.update(organization_params)
+    if @organization.categories.any?
+      @organization.categories.last.update(name: params[:organization][:categories])
+    else
+      @organization.categories << Category.create(name: params[:organization][:categories])
+      @organization.save
+    end
     redirect_to organization_path(@organization)
   end
 
