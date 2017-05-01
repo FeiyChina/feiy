@@ -80,6 +80,19 @@ class OrganizationsController < ApplicationController
     #call the show method to re-render the page
   end
 
+  def organization_contact
+    @organization = Organization.find(params[:organization_id])
+  end
+
+  def organization_send
+    @sender = current_user
+    @organization = Organization.find(params[:organization_id])
+    @body = params[:body]
+    OrganizationMailer.organization_contact_email(@organization, @sender, @body).deliver
+    flash[:notice] = "The message has been sent"
+    redirect_to organization_path(@organization)
+  end
+
   private
 
   def search_params
@@ -87,6 +100,6 @@ class OrganizationsController < ApplicationController
   end
 
   def organization_params
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :address, :photo, :logo, :user_is_a_representative, :category_ids)
+    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :email, :address, :photo, :logo, :category_ids, :user_is_a_representative)
   end
 end

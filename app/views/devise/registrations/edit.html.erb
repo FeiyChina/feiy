@@ -5,7 +5,9 @@
 
       <div class="form-inputs">
       <h2 style="text-align: center">Edit your information:</h2>
-       <%= f.input :email, required: true, autofocus: true %>
+       <%= f.input :name, required: true, autofocus: true %>
+       <%= f.input :city, required: true %>
+       <%= f.input :email, required: true %>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>

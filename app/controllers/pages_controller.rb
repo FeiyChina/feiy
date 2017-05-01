@@ -29,5 +29,4 @@ class PagesController < ApplicationController
     @job = Job.all
     @jobs = @job.where(active: true)
   end
-
 end
