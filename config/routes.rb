@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post "organizations/:id/like", to:"organizations#like", as: "like_organization"
   devise_for :users
 
+  get 'organization_contact', to: 'pages#organization_contact'
+
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
   get 'eventshow', to: 'pages#eventshow', as: "event_show"
