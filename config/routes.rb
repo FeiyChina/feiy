@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :organizations do
     resources :jobs
+    resources :events
   end
 
   post "organizations/:id/like", to:"organizations#like", as: "like_organization"
