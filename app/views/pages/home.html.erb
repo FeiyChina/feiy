@@ -7,6 +7,13 @@
     <div class="tagline-welcome">
       <h2>Connect with High Impact Organizations in China</h2>
     </div>
+      <div class="text-center">
+      <%= form_tag organizations_search_path, method: :get do |f| %>
+        <%= text_field_tag :name, params[:name], placeholder: "Search Organizations" %>
+        <%= select_tag 'category', options_for_select(Category.all.map{|el| [el.name, el.id]}) %>
+        <%= submit_tag 'Search', class: "btn-feiy-primary"%>
+      <% end %>
+      </div>
   </div>
 </div>
 
@@ -43,7 +50,6 @@
 </div>
 
 <!-- JOBS -->
-
 <div class="title-divider text-center" id="title-padding" >
   <h2>JOBS</h2>
 </div>
