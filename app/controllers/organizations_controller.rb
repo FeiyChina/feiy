@@ -73,7 +73,8 @@ class OrganizationsController < ApplicationController
   def organization_send
     @sender = current_user
     @organization = Organization.find(params[:organization_id])
-    OrganizationMailer.organization_contact_email(@organization, @sender).deliver
+    @body = params[:body]
+    OrganizationMailer.organization_contact_email(@organization, @sender, @body).deliver
     flash[:notice] = "The message has been sent"
     redirect_to organization_path(@organization)
   end
