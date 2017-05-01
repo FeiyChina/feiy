@@ -1,7 +1,8 @@
 
-Hi <%= @organization.name %>
+<p>Hi <%= @organization.name %></p>
 
-You receive a message from <%= @sender.name %>
-The content of the message is:
-<%= @body %>
-End of message
+<p>You receive a message from: <%= @sender.name %><p>
+<p>The sender email is: <%= @sender.email %></p>
+<p>The content of the message is:<p>
+<p><%= @body %></p>
+
