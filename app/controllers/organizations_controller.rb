@@ -66,6 +66,16 @@ class OrganizationsController < ApplicationController
     #call the show method to re-render the page
   end
 
+  def organization_contact
+    @organization = Organization.find(params[:organization_id])
+  end
+
+  def organization_send
+    @sender_email = current_user.email
+    @message_body = params[:body]
+    @organization_email = Organization.find(params[:organization_id])
+  end
+
   private
 
   def search_params

@@ -29,9 +29,4 @@ class PagesController < ApplicationController
     @job = Job.all
     @jobs = @job.where(active: true)
   end
-
-  def organization_contact
-
-  end
-
 end

@@ -1,0 +1,10 @@
+
+
+<%= form_for organization_organization_contact_path (@organization) do |f| %>
+  <div class="form-inputs">
+    <%= f.text_area :body %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Send", class: "btn-feiy-primary" %>
+  </div>
+<% end %>
