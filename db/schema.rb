@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427074229) do
+ActiveRecord::Schema.define(version: 20170501094930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,14 +86,6 @@ ActiveRecord::Schema.define(version: 20170427074229) do
     t.index ["organization_id"], name: "index_jobs_on_organization_id", using: :btree
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.string   "likeable_type"
-    t.integer  "likeable_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id", using: :btree
-  end
-
   create_table "organizations", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -121,6 +113,7 @@ ActiveRecord::Schema.define(version: 20170427074229) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.string   "city"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
