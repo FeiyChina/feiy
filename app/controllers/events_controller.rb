@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   # end
 
   def new
-    @organization = Organization(params[:organization_id])
+    @organization = Organization.find(params[:organization_id])
     @event = Event.new
   end
 

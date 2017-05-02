@@ -5,9 +5,7 @@
     <%= f.input :name, autofocus: true %>
     <%= f.input :content, label: "Description", as: :text, :input_html => { :maxlength => 500, :style => 'height: 200px' } %>
     <%= f.input :venue, label:"Location" %>
-    <%= f.datetime :date %>
-    <h5><strong>Job Status</strong></h5>
-    <%= f.collection_radio_buttons :active, [[true, 'Open'], [false, 'Closed']], :first, :last %>
+    <%= f.input :date %>
   </div>
   <div class="form-actions">
     <%= f.submit "Add event", class: "btn btn-primary" %>

@@ -1,13 +1,11 @@
 <div class="form-container">
-<h2>Edit job information</h2>
+<h2>Edit event information</h2>
   <%= simple_form_for [@organization, @event] do |f| %>
   <div class="form-inputs">
     <%= f.input :name, autofocus: true %>
     <%= f.input :content, label: "Description", as: :text, :input_html => { :maxlength => 500, :style => 'height: 200px' } %>
     <%= f.input :venue, label:"Location" %>
-    <%= f.datetime :date %>
-    <h5><strong>Job Status</strong></h5>
-    <%= f.collection_radio_buttons :active, [[true, 'Open'], [false, 'Closed']], :first, :last %>
+    <%= f.input :date %>
   </div>
 
     <% if user_signed_in? && @organization.user_id == current_user.id %>
