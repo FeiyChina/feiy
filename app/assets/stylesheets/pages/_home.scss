@@ -10,32 +10,61 @@
 
 // welcome banner
 #welcome-wrapper{
-  height:500px;
+  height: 500px;
   display: flex;
-  justify-content: center;
-  background: -webkit-linear-gradient(left, #007991, #78ffd6);
-  background: -o-linear-gradient(left, #007991, #78ffd6);
-  background: linear-gradient(to right, #007991, #78ffd6);
-  color: #F8F8F8
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: image-url('banner.jpg');
+  color: #F8F8F8;
 }
 
 .header{
-  text-align: center;
-  position: relative;
-  top: 50%;
-  transform: translateY(-20%)
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .welcome{
-  margin-left: auto;
-  margin-right: auto
 }
 
 .tagline-welcome{
-  margin-left: auto;
-  margin-right: auto
+  margin-bottom: 50px;
 }
 
+.button-cta-primary {
+  padding: 10px 50px 10px 50px;
+}
+
+// search wrapper
+
+.search-wrapper {
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0;
+    margin-right: 20px;
+  }
+}
+
+.text-search-field {
+  color: black;
+  border-radius: 3px;
+  border: none;
+  height: 35px;
+  width: 200px;
+  margin-right: 20px;
+}
+
+.text-search-dropdown {
+  color: black;
+  border-radius: 3px;
+  border: none;
+  height: 35px;
+  margin-right: 20px;
+}
 
 // event cards
 
