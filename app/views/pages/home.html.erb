@@ -1,25 +1,30 @@
 <!-- Welcome Banner -->
 <div class="wrapper" id="welcome-wrapper">
-  <div class=header>
-    <div class="header-welcome">
-      <h1>Change the World</h1>
-    </div>
-    <div class="tagline-welcome">
-      <h2>Connect with High Impact Organizations in China</h2>
-    </div>
-      <div class="text-center">
-      <%= form_tag organizations_search_path, method: :get do |f| %>
-        <%= text_field_tag :name, params[:name], placeholder: "Search Organizations" %>
-        <%= select_tag 'category', options_for_select(Category.all.map{|el| [el.name, el.id]}) %>
-        <%= submit_tag 'Search', class: "btn-feiy-primary"%>
-      <% end %>
-      </div>
+  <%= render 'shared/navbar' %>
+  <div class="header">
+  <div class="header-welcome">
+    <h1>Change the World</h1>
+  </div>
+  <div class="tagline-welcome">
+    <h3>Connect with High Impact Organizations in China</h3>
+  </div>
+  <%= link_to "Sign in", new_user_session_path, class: "btn-feiy-primary button-cta-primary" %>
+  </div>
+  <!-- SEARCH -->
+  <div class="search-wrapper">
+    <p>Find an organization</p>
+    <%= form_tag organizations_search_path, method: :get do |f| %>
+      <%= text_field_tag :name, params[:name], placeholder: "  Search organizations", class: "text-search-field" %>
+      <%= select_tag 'category', options_for_select(Category.all.map{|el| [el.name, el.id]}), class: "text-search-dropdown"  %>
+      <%= submit_tag 'Search', class: "btn-feiy-primary"%>
+    <% end %>
   </div>
 </div>
 
+
 <!-- ORGANIZATIONS -->
 <div class="title-divider text-center">
-  <h2>ORGANIZATIONS</h2>
+  <h4>ORGANIZATIONS</h4>
 </div>
 <div class="container">
   <div class="row">
@@ -33,7 +38,7 @@
         <% end %>
         <div class="organization-card-description">
           <p id="organization-name"><strong><%= organization.name %></strong></p>
-          <p id="organization-problem"><%= organization.problem%></p>
+          <p id="organization-problem"><%= truncate(organization.problem) %></p>
           <% if organization.categories.any? %>
             <p id="organization-category"><%= organization.categories.first.name %></p>
           <% end %>
@@ -51,7 +56,7 @@
 
 <!-- JOBS -->
 <div class="title-divider text-center" id="title-padding" >
-  <h2>JOBS</h2>
+  <h4>JOBS</h4>
 </div>
 <div class="container">
   <div class="row">
@@ -76,11 +81,9 @@
 
 
 <!-- EVENTS -->
-<div class="cards-wrapper">
 <div class="title-divider text-center" id="title-padding" >
-  <h2>EVENTS</h2>
+  <h4>EVENTS</h4>
 </div>
-
 <div class="container">
   <div class="row">
     <% @events.each do |event| %>
@@ -97,37 +100,40 @@
     <% end %>
   </div>
 </div>
+
 <!-- FEATURES -->
-<div class="title-divider text-center" id="features-img">
-  <h2>HOW FEIY WORKS</h2>
+<div id="features-img">
+  <div class="title-divider text-center">
+    <h4>HOW FEIY WORKS</h4>
+  </div>
   <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="features text-center">
-        <%= image_tag "icon_feiy_1.svg", class: "feiy-feature-img" %>
-        <div class="feiy-feature-text">
-          <h5>Explore the ecosystem of high impact initiatives in China</h3>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="features text-center">
+          <%= image_tag "icon_feiy_1.svg", class: "feiy-feature-img" %>
+          <div class="feiy-feature-text">
+            <h5>Explore the ecosystem of high impact initiatives in China</h3>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="features text-center">
-        <%= image_tag "icon_feiy_2.svg", class: "feiy-feature-img" %>
-        <div class="feiy-feature-text">
-          <h5>Let the world know about your organization</h3>
+      <div class="col-xs-12 col-sm-4">
+        <div class="features text-center">
+          <%= image_tag "icon_feiy_2.svg", class: "feiy-feature-img" %>
+          <div class="feiy-feature-text">
+            <h5>Let the world know about your organization</h3>
+          </div>
         </div>
       </div>
-    </div>
-     <div class="col-xs-12 col-sm-4">
-      <div class="features text-center">
-        <%= image_tag "icon_feiy_3.svg", class: "feiy-feature-img" %>
-        <div class="feiy-feature-text">
-          <h5>Find the changemaker fo tomorrow</h3>
+       <div class="col-xs-12 col-sm-4">
+        <div class="features text-center">
+          <%= image_tag "icon_feiy_3.svg", class: "feiy-feature-img" %>
+          <div class="feiy-feature-text">
+            <h5>Find the changemaker fo tomorrow</h3>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- Bottomer Wrapper -->
