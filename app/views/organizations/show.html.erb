@@ -4,7 +4,7 @@
   <% end %>
 </div>
 
-<div class="title-divider text-center">
+<div class="text-center">
   <% if @organization.logo? %>
     <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill %>
   <% end %>
@@ -35,7 +35,7 @@
   </div>
 <% end %>
 <!-- comment function -->
-<div class="title-divider text-center">
+<div class="text-center">
   <h2>Comments</h2>
 </div>
 <div class="comment-section text-center">
@@ -69,7 +69,7 @@
   <% end %>
 </div>
 <!-- Jobs Section -->
-<div class="title-divider text-center">
+<div class="text-center">
   <h2>Do you want to be part of the journey? Join us and do good!</h2>
   <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
@@ -96,7 +96,7 @@
   </div>
 </div>
 <!-- Hardcoded Events Section -->
-<div class="title-divider text-center">
+<div class="text-center">
   <h2><%= @organization.name.capitalize %> events</h2>
     <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
@@ -123,7 +123,7 @@
   </div>
 </div>
 <!-- OTHER ORGANIZATIONS -->
-<div class="title-divider text-center">
+<div class="text-center">
   <h2>You might also like these organizations:</h2>
 </div>
 <div class="container">
@@ -156,7 +156,7 @@
   </div>
 </div>
 <!-- Followers -->
-<div class="title-divider text-center">
+<div class="text-center">
   <h2>Who is following this Organization?</h2>
   <h3><%= @organization.name %> has <%= @organization.votes_for.count %> followers</h3>
 </div>
