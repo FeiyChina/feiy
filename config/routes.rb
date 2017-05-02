@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get 'organization_contact', to: 'organizations#organization_contact'
     post 'organization_contact', to: 'organizations#organization_send', as: "organization_send"
     resources :jobs
+    resources :events
   end
 
   post "organizations/:id/like", to:"organizations#like", as: "like_organization"

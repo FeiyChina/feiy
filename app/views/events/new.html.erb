@@ -1,0 +1,14 @@
+<div class="form-container">
+<h2>Add a new event</h2>
+  <%= simple_form_for [@organization, @event] do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name, autofocus: true %>
+    <%= f.input :content, label: "Description", as: :text, :input_html => { :maxlength => 500, :style => 'height: 200px' } %>
+    <%= f.input :venue, label:"Location" %>
+    <%= f.input :date %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Add event", class: "btn btn-primary" %>
+  </div>
+  <% end %>
+</div>
