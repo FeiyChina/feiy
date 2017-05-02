@@ -69,7 +69,7 @@ class OrganizationsController < ApplicationController
         end
       end
     end
-    if organization_category.any?
+    if suggested_organizations.any?
       @suggested_organizations_shuffled = suggested_organizations.shuffle[1..3]
     end
     events = @organization.events
