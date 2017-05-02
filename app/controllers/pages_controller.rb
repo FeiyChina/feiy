@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     @current_user = current_user
     @organizations = Organization.all
-    @categories = Category.all
+    @categories = ENV["categories"].split(",")
     @job = Job.all
     @jobs = @job.where(active: true)
     @event = Event.all

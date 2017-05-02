@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # delete 'organizations/:id', to: "organizations#destroy"
   resource :bookings, only: [:create]
+  get 'organizations_search', to: 'organizations#search'
 
   resources :organizations do
     get 'organization_contact', to: 'organizations#organization_contact'
@@ -29,7 +30,6 @@ Rails.application.routes.draw do
   get 'about_us', to: 'pages#about_us'
   get 'events', to: 'pages#events', as: "events"
   get 'jobspool', to: 'pages#jobspool', as: "jobspool"
-  get 'organizations/search', to: 'organizations#search', as: "organizations_search"
   post 'comments' => 'comments#create', as: "create_comment"
 
 end
