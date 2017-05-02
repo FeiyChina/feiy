@@ -16,7 +16,7 @@
     <%= form_tag organizations_search_path, method: :get do |f| %>
       <%= text_field_tag 'name', params[:name], placeholder: "  Search", class: "text-search-field" %>
       <%= select_tag 'category', options_for_select(@categories), class: "text-search-dropdown" %>
-      <%= submit_tag 'Search', class: "btn-feiy-primary"%>
+      <%= submit_tag 'Search', class: "btn-feiy-rec-white"%>
     <% end %>
   </div>
 </div>

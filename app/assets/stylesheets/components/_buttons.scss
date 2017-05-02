@@ -6,7 +6,6 @@
   font-weight: lighter;
   opacity: 0.6;
 }
-
 .btn-call-to-action:hover {
   opacity: 1;
   text-decoration: none;
@@ -21,15 +20,13 @@
 }
 
 .btn-feiy-primary{
-  border-radius: 50px;
+  border-radius: 3px;
   padding: 10px 20px;
   background-color: #31c7c5;
   border: solid 1px #31c7c5;
   color: #F8F8F8;
   font-weight: lighter
 }
-
-
 .btn-feiy-primary:hover{
   opacity: 1;
   text-decoration: none;
@@ -37,7 +34,6 @@
   border: solid 1px #37D7D4;
   color: #F8F8F8
 }
-
 
 .btn-feiy-secondary{
   border-radius: 50px;
@@ -47,13 +43,11 @@
   opacity: 0.6;
   color: #31c7c5
 }
-
 .btn-feiy-secondary:hover{
   opacity: 1;
   color: #31c7c5;
   text-decoration: none
 }
-
 
 .btn-feiy-white{
   border-radius: 50px;
@@ -63,9 +57,24 @@
   opacity: 0.6;
   color: #F8F8F8
 }
-
 .btn-feiy-white:hover{
   opacity: 1;
   color: #FFFFFF;
   text-decoration: none
+}
+
+.btn-feiy-rec-white{
+  border-radius: 3px;
+  padding: 10px 20px;
+  font-weight: lighter;
+  border: solid 1px #F8F8F8;
+  color: #F8F8F8;
+  background-color: transparent;
+  opacity: 1;
+  transition: background 0.3s ease;
+  &:hover {
+    opacity: 0.78;
+    color: #FFFFFF;
+    text-decoration: none
+  }
 }
