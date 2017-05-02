@@ -51,21 +51,18 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @website = @organization.website
     @categories = Category.all
-    @organizations_all = Organization.all
+    @organizations_relevant = Organization.where.not(user_id: current_user.id)
     if @organization.categories.any?
       organization_category = @organization.categories.last.name
       @suggested_organizations = []
 
-      @organizations_all.each do |organization|
+      @organizations_relevant.each do |organization|
         if organization.categories.last.name == organization_category
-          if
-          else
           @suggested_organizations << organization
-          end
         end
       end
       if @suggested_organizations.any?
-        @suggested_organizations.shuffle[1..3]
+        @suggested_organizations.shuffle[1...3]
       end
     end
   end
