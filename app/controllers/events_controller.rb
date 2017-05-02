@@ -25,17 +25,20 @@ class EventsController < ApplicationController
 
 
   def update
-
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    redirect_to dashboard_path
   end
 
   def show
-
+    @organization = Organization.find(params[:organization_id])
+    @event = Event.find(params[:id])
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:name, :content, :date, :venue, :job_type, :task, :requirement, :active )
+    params.require(:event).permit(:name, :content, :date, :venue)
   end
 
 
