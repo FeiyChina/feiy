@@ -122,14 +122,14 @@
     <% end %>
   </div>
 </div>
-<!-- ORGANIZATIONS -->
+<!-- OTHER ORGANIZATIONS -->
 <div class="title-divider text-center">
   <h2>You might also like these organizations:</h2>
 </div>
 <div class="container">
   <div class="row">
-    <% if @suggested_organizations != nil %>
-      <% @suggested_organizations.each do |organization| %>
+    <% if @suggested_organizations_shuffled != nil %>
+      <% @suggested_organizations_shuffled.each do |organization| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="organization-card">
           <% if organization.photo %>
