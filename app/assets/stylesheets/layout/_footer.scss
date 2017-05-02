@@ -1,8 +1,8 @@
 // Your footer style
 #footer {
-  background-color: #D5F0EE;
+  background-color: #3CC7C6;
   padding: 20px;
-  color: #7F7F7F;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -12,12 +12,56 @@
 
 #footer .fa  {
   font-size: 30px;
-  color: #7F7F7F;
+  color: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
 }
+
+#footer .fa:hover {
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+#footer p {
+  color: rgba(0, 0, 0, 0.2);
+  margin-bottom: 0px;
+}
+
 
 #footer a {
   text-decoration:none;
-  color: #7F7F7F;
-  font-weight: 600;
+  color: rgba(0, 0, 0, 0.2);
+  font-weight: lighter;
 }
 
+#footer a:hover {
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+#footer p {
+  margin-top: 20px;
+}
+
+.footer-links {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#wechat-qrcode a {
+  position: relative;
+  img {
+    display: none;
+    position: absolute;
+    width: 120px;
+    bottom: 40px;
+  }
+  &:hover img {
+    display: block;
+    text-align: center;
+  }
+}
