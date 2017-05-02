@@ -2,9 +2,9 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Raleway", "Helvetica", "sans-serif";
+@import url('https://fonts.googleapis.com/css?family=Karla|Raleway&amp;subset=latin-ext');
+$base-font: "Karla", "sans-serif";
+// $header-font: "Raleway", "serif";
 
 // Local fonts (uncomment following lines)
 // @font-face {
@@ -17,8 +17,11 @@ $header-font: "Raleway", "Helvetica", "sans-serif";
 // $my-font: "Font Name";
 
 // Font-size and line-height
-$base-size: 16px;
+$base-size: 14px;
 $base-height: 1.4;
+
+$header-size: 25px;
+
 
 /* -------------------------------------
  * Colors

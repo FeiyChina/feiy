@@ -1,18 +1,4 @@
 <div class="form-container">
-<h2>Add a organization</h2>
-<%= simple_form_for(@organization) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :logo, as: :attachinary %>
-    <%= f.input :name %>
-    <%= f.input :photo, as: :attachinary %>
-    <%= f.input :problem %>
-    <%= f.input :description %>
-    <%= f.input :address %>
-    <%= f.input :website %>
-    <%= f.select :category_ids, Category.all.collect {|x| [x.name, x.id]}, :multiple => true %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Create organization", class: "btn-feiy-primary" %>
-  </div>
-<% end %>
+  <h2>Create your organization</h2>
+  <%= render 'form' %>
 </div>

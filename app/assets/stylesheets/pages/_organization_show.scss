@@ -39,17 +39,15 @@
 }
 
 .comment-card {
-  margin: 0 auto;
+  margin: 20px auto;
+  padding: 40px;
   width: 75%;
   height: 150px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  img {
-    width: 100px;
-    border-radius: 50%;
-  }
+  background-color: lightgrey
 }
 
 .comment-card-user-info {
@@ -62,3 +60,6 @@
 
 }
 
+.follower-avatar{
+  padding-bottom: 40px
+}

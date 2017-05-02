@@ -1,0 +1,52 @@
+.card {
+  margin: 20px auto;
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
+  background: #2C3E50;
+  background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);
+  background: linear-gradient(to right, #4CA1AF, #2C3E50);
+}
+
+.card-logo {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.card-description {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  bottom: 10px
+}
+.card-description h2 {
+  font-size: 20px;
+}
+.card-description p {
+  font-size: 13px;
+  }
+
+
+.sub-header-card {
+  margin: 20px auto;
+  height: 700px;
+  background-size: cover !important;
+  color: black;
+  position: relative;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
+}
+
+.sub-header-card-description {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+}
+
+
+.footer-buttons{
+  text-align: center;
+  margin: 20px auto
+}

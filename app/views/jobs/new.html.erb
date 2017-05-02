@@ -3,9 +3,9 @@
   <%= simple_form_for [@organization, @job] do |f| %>
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :address %>
+    <%= f.input :address, label: "Location" %>
     <%= f.input :website %>
-    <%= f.input :email %>
+    <%= f.input :email, label: "E-mail of job recruiter"%>
     <%= f.input :job_type, collection: %w(Volunteer Internship Part-time Full-time) %>
     <%= f.input :task, as: :text, :input_html => { :maxlength => 500, :style => 'height: 200px' } %>
     <%= f.input :requirement, as: :text, :input_html => { :maxlength => 500, :style => 'height: 200px' } %>

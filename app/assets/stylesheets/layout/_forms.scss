@@ -16,6 +16,30 @@
   }
 }
 
+@media only screen and (max-width: 441px) {
+  .form-container {
+    width: 300px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    h2 {
+      font-size: 28px;
+    }
+    h4 {
+      font-size: 18px;
+    }
+  }
+  .form-inputs label{
+    font-size: 14px;
+  }
+  .form-control {
+    height: 30px !important;
+    font-size: 13px;
+  }
+  .help-block {
+    font-size: 10px;
+  }
+}
+
 .form-inputs {
   text-align: left;
 }
@@ -88,4 +112,27 @@
   }
 }
 
+.checkbox {
+  margin-top: 20px;
+  text-align: left;
+  label {
+    font-size: 14px;
+    text-align: left;
+  }
+}
 
+#representative_error {
+    font-size: 10px;
+  }
+
+#message-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.textarea {
+  width: 300px;
+  height: 400px
+}
