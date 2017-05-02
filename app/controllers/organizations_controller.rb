@@ -49,6 +49,7 @@ class OrganizationsController < ApplicationController
     # trying to display search results by categories #
     @organizations = Organization.where(:category_ids => "category".to_i)
     @organization = Organization.find(params[:id])
+    @website = @organization.website
     @categories = Category.all
     @organizations = Organization.all
     if @organization.categories.any?
