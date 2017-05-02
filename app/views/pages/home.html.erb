@@ -9,8 +9,8 @@
     </div>
       <div class="text-center">
       <%= form_tag organizations_search_path, method: :get do |f| %>
-        <%= text_field_tag :name, params[:name], placeholder: "Search Organizations" %>
-        <%= select_tag 'category', options_for_select(Category.all.map{|el| [el.name, el.id]}) %>
+        <%= text_field_tag 'name', params[:name], placeholder: "Search for an Organizations" %>
+        <%= select_tag 'category', options_for_select(@categories) %>
         <%= submit_tag 'Search', class: "btn-feiy-primary"%>
       <% end %>
       </div>

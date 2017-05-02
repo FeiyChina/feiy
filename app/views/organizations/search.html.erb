@@ -1,0 +1,13 @@
+<div class="text-center">
+  <h3>Displaying search results for: <%= @category_params %> and: <%= @name_params %></h3>
+
+  <div>
+  <% @organizations.each do |organization| %>
+    <h2><%= organization.name %></h2>
+  <% end %>
+  </div>
+
+</div>
+
+
+
