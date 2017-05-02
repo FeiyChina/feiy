@@ -28,7 +28,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <% @organizations.each do |organization| %>
+    <% @organizations.take(6).shuffle.each do |organization| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="organization-card">
         <% if organization.photo %>
@@ -60,7 +60,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <% @jobs.each do |job| %>
+    <% @jobs.take(3).shuffle.each do |job| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="job-card">
         <div class="job-logo"></div>
@@ -86,7 +86,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <% @events.each do |event| %>
+    <% @events.take(6).each  do |event| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="job-card">
           <div class="job-logo"></div>
