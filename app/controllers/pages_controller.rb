@@ -35,7 +35,7 @@ class PagesController < ApplicationController
 
   def events
     @event = Event.all
-    @events = @event.where('date >= ?', Date.today).order(date: :asc)
+    @events = @event.where('date >= ?', Date.today).order(date: :asc).paginate(:page => params[:page], :per_page => 9)
   end
 
 end

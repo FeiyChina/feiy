@@ -1,6 +1,6 @@
 <div class="wrapper-white">
   <div class="container-demo-title">
-    <h1>There are <%= @events.count %> events</h1>
+    <h1 class="text-center">Events Index</h1>
   </div>
   <div class="container">
     <div class="row">
@@ -21,3 +21,11 @@
     </div>
   </div>
 </div>
+<br>
+<br>
+<br>
+<div class="next-page">
+<%= will_paginate @events, class: "flickr_pagination" %>
+<h5 class="text-center">(<%= @events.count %> events)</h5>
+</div>
+
