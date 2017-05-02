@@ -35,7 +35,8 @@
   height: 180px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  border-bottom: 4px solid #31c7c5;
+  border-bottom: 3px solid $brand-color;
+;
 }
 
 // .organization-card-avatar {
@@ -80,7 +81,7 @@
   font-size: 14px;
   margin-left: 30px;
   font-weight: 600;
-  color: #31c7c5;
+  color: $brand-color;
   letter-spacing: 1px;
 }
 
@@ -99,7 +100,7 @@
 
 .organization-card-icon {
   width: 12px;
-  color: #31c7c5;
+  color: $brand-color;
 }
 
 
