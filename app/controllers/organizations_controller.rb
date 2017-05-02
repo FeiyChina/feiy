@@ -60,7 +60,9 @@ class OrganizationsController < ApplicationController
         end
       end
     end
-    @suggested_organizations_shuffled = suggested_organizations.shuffle[1..3]
+    if organization_category.any?
+      @suggested_organizations_shuffled = suggested_organizations.shuffle[1..3]
+    end
     events = @organization.events
     @events = events.where('date >= ?', Date.today).order(date: :asc)
   end
