@@ -22,6 +22,9 @@ class PagesController < ApplicationController
     @random_comment = @organization.comments.shuffle.first
   end
 
+  def about_us
+  end
+
   def eventshow
     @booking = Booking.new
     # @event = Event.find(params[:id])
