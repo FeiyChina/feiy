@@ -3,10 +3,10 @@
   <%= render 'shared/navbar' %>
   <div class="header">
   <div class="header-welcome">
-    <h1>Change the World</h1>
+    <h1>Change the World!</h1>
   </div>
   <div class="tagline-welcome">
-    <h3>Connect with High Impact Organizations in China</h3>
+    <h3>Join an organization today or create your own and spread the word</h3>
   </div>
   <%= link_to "Sign in", new_user_session_path, class: "btn-feiy-primary button-cta-primary" %>
   </div>
@@ -40,7 +40,7 @@
           <p id="organization-name"><strong><%= organization.name %></strong></p>
           <p id="organization-problem"><%= truncate(organization.problem) %></p>
           <% if organization.categories.any? %>
-            <p id="organization-category"><%= organization.categories.first.name %></p>
+            <p id="organization-category"><%= organization.categories.first.name.upcase %></p>
           <% end %>
         </div>
         <div class="organization-card-icons">
