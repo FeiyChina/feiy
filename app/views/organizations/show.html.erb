@@ -24,7 +24,7 @@
   <h4><strong>Where we are?</strong></h4>
   <p><%= @organization.address %></p>
   <h4><strong>What to contact us?</strong></h4>
-  <p><%= @organization.website %></p>
+  <%= link_to "Send a message", organization_organization_contact_path(@organization), class: "btn btn-success"   %>
 </div>
 
 <!-- Edit function -->
@@ -197,4 +197,3 @@
 </div>
 
 
-<%= link_to "contact", organization_organization_contact_path(@organization) %>
