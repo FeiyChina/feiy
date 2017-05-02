@@ -1,0 +1,21 @@
+div class="cards-wrapper">
+<div class="title-divider text-center" id="title-padding" >
+  <h2>EVENTS</h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="job-card">
+        <div class="job-logo"></div>
+        <div class="job-card-description">
+          <p id="job-name"><strong><%= event.name %></strong></p>
+          <p id="job-name">Hosted by <%= event.organization.name %></p>
+          <p id="job-type"><%= truncate(event.content)%></p>
+          <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+        </div>
+        <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
+    <% end %>
+  </div>
+</div>
