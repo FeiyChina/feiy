@@ -1,9 +1,27 @@
-<p><%= @event.name %></p>
-<p><%= @event.content %></p>
-<p><%= @event.venue %></p>
-<p><%= @event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
-      <div class="footer-buttons">
-        <% if user_signed_in? && @organization.user_id == current_user.id %>
-          <%= link_to "Update Event Info", edit_organization_event_path(@event.organization_id, @event), method: :get, class: 'btn btn-warning'  %>
-          <%= link_to "Delete Job", organization_event_path(@event.organization_id, @event), method: :delete, class: 'btn btn-danger' %>
-        <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="sub-header-card">
+      <div class="sub-header-card-description">
+        <h2><%= @event.name %></h2>
+        <p>From <%= link_to @event.organization.name, organization_path %></p>
+        <br>
+        <h3>Description</h3>
+        <p><%= @event.content %></p>
+        <br>
+        <h3>Address</h3>
+        <p><%= @event.venue %></p>
+        <br>
+        <h3>Date</h3>
+        <p><%= @event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+        <br>
+      </div>
+    </div>
+    <div class="footer-buttons">
+  <% if user_signed_in? && @organization.user_id == current_user.id %>
+    <%= link_to "Update Event Info", edit_organization_event_path(@event.organization_id, @event), method: :get, class: 'btn btn-warning'  %>
+    <%= link_to "Delete Job", organization_event_path(@event.organization_id, @event), method: :delete, class: 'btn btn-danger' %>
+  <% end %>
+    </div>
+  </div>
+</div>
