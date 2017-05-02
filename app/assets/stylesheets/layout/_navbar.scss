@@ -1,7 +1,7 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: #D5F0EE;
+  background-color: none;
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
@@ -138,21 +138,19 @@ padding-right: 20px
 // Styling for Links on Navbar
 
 .jobs-linkto{
-  color: #393A3E;
-  font-weight: bold;
+  color: white;
   text-decoration: none;
   opacity: 0.6em
 }
 
 .jobs-linkto:hover{
-  color: #7B7D86;
+  color: #7B7D8;
   text-decoration: none;
   opacity: 1em
 }
 
 .events-linkto{
-  color: #393A3E;
-  font-weight: bold;
+  color: white;
   text-decoration: none;
   opacity: 0.6em
 }
@@ -164,8 +162,7 @@ padding-right: 20px
 }
 
 .organizations-linkto{
-  color: #393A3E;
-  font-weight: bold;
+  color: white;
   text-decoration: none;
   opacity: 0.6em
 }
