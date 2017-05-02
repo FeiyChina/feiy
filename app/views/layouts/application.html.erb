@@ -10,7 +10,11 @@
     <%= cloudinary_js_config %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <% if current_page? root_path %>
+      <% %>
+    <% else %>
+      <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>

@@ -27,7 +27,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
-  get 'eventshow', to: 'pages#eventshow', as: "event_show"
+  get 'about_us', to: 'pages#about_us'
+  get 'events', to: 'pages#events', as: "events"
   get 'jobspool', to: 'pages#jobspool', as: "jobspool"
   post 'comments' => 'comments#create', as: "create_comment"
 

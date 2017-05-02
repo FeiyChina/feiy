@@ -1,25 +1,30 @@
 <!-- Welcome Banner -->
 <div class="wrapper" id="welcome-wrapper">
-  <div class=header>
-    <div class="header-welcome">
-      <h1>Change the World</h1>
-    </div>
-    <div class="tagline-welcome">
-      <h2>Connect with High Impact Organizations in China</h2>
-    </div>
-      <div class="text-center">
-      <%= form_tag organizations_search_path, method: :get do |f| %>
-        <%= text_field_tag 'name', params[:name], placeholder: "Search for an Organizations" %>
-        <%= select_tag 'category', options_for_select(@categories) %>
-        <%= submit_tag 'Search', class: "btn-feiy-primary"%>
-      <% end %>
-      </div>
+  <%= render 'shared/navbar' %>
+  <div class="header">
+  <div class="header-welcome">
+    <h1>Change the World</h1>
+  </div>
+  <div class="tagline-welcome">
+    <h3>Connect with High Impact Organizations in China</h3>
+  </div>
+  <%= link_to "Sign in", new_user_session_path, class: "btn-feiy-primary button-cta-primary" %>
+  </div>
+  <!-- SEARCH -->
+  <div class="search-wrapper">
+    <p>Find an organization</p>
+    <%= form_tag organizations_search_path, method: :get do |f| %>
+      <%= text_field_tag 'name', params[:name], placeholder: "Search for an Organizations" %>
+      <%= select_tag 'category', options_for_select(@categories) %>
+      <%= submit_tag 'Search', class: "btn-feiy-primary"%>
+    <% end %>
   </div>
 </div>
 
+
 <!-- ORGANIZATIONS -->
 <div class="title-divider text-center">
-  <h2>ORGANIZATIONS</h2>
+  <h4>ORGANIZATIONS</h4>
 </div>
 <div class="container">
   <div class="row">
@@ -33,7 +38,7 @@
         <% end %>
         <div class="organization-card-description">
           <p id="organization-name"><strong><%= organization.name %></strong></p>
-          <p id="organization-problem"><%= organization.problem%></p>
+          <p id="organization-problem"><%= truncate(organization.problem) %></p>
           <% if organization.categories.any? %>
             <p id="organization-category"><%= organization.categories.first.name %></p>
           <% end %>
@@ -51,7 +56,7 @@
 
 <!-- JOBS -->
 <div class="title-divider text-center" id="title-padding" >
-  <h2>JOBS</h2>
+  <h4>JOBS</h4>
 </div>
 <div class="container">
   <div class="row">
@@ -76,85 +81,61 @@
 
 
 <!-- EVENTS -->
-<div class="cards-wrapper">
 <div class="title-divider text-center" id="title-padding" >
-  <h2>EVENTS</h2>
+  <h4>EVENTS</h4>
 </div>
-
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="events-card text-center">
-        <%= link_to "", event_show_path(id: 1), class: "card-link" %>
-        <%= image_tag "card_picture1_ok.jpg", class: "event-card-img" %>
-        <div class="event-card-text">
-          <h3><strong>Clothes Donation</strong></h3>
-          <h5>JingAn Temple Friends</h3>
-          <p>Donate clothes to people in need</p>
-          <p><strong>Date:</strong> 25/04/2017</p>
-          <p><strong>Location:</strong> 32 Nanjing Xi Lu, Shanghai</p>
+    <% @events.each do |event| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="job-card">
+          <div class="job-logo"></div>
+          <div class="job-card-description">
+            <p id="job-name"><strong><%= event.name %></strong></p>
+            <p id="job-name">Hosted by <%= event.organization.name %></p>
+            <p id="job-type"><%= truncate(event.content)%></p>
+            <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+          </div>
+          <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="events-card text-center">
-        <%= link_to "", event_show_path(id: 1), class: "card-link" %>
-        <%= image_tag "card_picture2_ok.jpg", class: "event-card-img" %>
-        <div class="event-card-text">
-          <h3><strong>Benefic Rock Festival</strong></h3>
-          <h5>Green Leaf Society</h3>
-          <p>Help raise money for a good cause</p>
-          <p><strong>Date:</strong> 30/04/2017</p>
-          <p><strong>Location:</strong> 323 Wulumuqi Lu, Shanghai</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="events-card text-center">
-        <%= link_to "", event_show_path(id: 1), class: "card-link" %>
-        <%= image_tag "card_picture3_ok.jpg", class: "event-card-img" %>
-        <div class="event-card-text">
-          <h3><strong>Clothes Donation</strong></h3>
-          <h5>High Five</h3>
-          <p>Visit kids in the shanghai hospital</p>
-          <p><strong>Date:</strong> 14/05/2017</p>
-          <p><strong>Location:</strong> 13 Shifu lu, Shanghai</p>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
+
 <!-- FEATURES -->
-<div class="title-divider text-center" id="features-img">
-  <h2>HOW FEIY WORKS</h2>
+<div id="features-img">
+  <div class="title-divider text-center">
+    <h4>HOW FEIY WORKS</h4>
+  </div>
   <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="features text-center">
-        <%= image_tag "icon_feiy_1.svg", class: "feiy-feature-img" %>
-        <div class="feiy-feature-text">
-          <h5>Explore the ecosystem of high impact initiatives in China</h3>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="features text-center">
+          <%= image_tag "icon_feiy_1.svg", class: "feiy-feature-img" %>
+          <div class="feiy-feature-text">
+            <h5>Explore the ecosystem of high impact initiatives in China</h3>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="features text-center">
-        <%= image_tag "icon_feiy_2.svg", class: "feiy-feature-img" %>
-        <div class="feiy-feature-text">
-          <h5>Let the world know about your organization</h3>
+      <div class="col-xs-12 col-sm-4">
+        <div class="features text-center">
+          <%= image_tag "icon_feiy_2.svg", class: "feiy-feature-img" %>
+          <div class="feiy-feature-text">
+            <h5>Let the world know about your organization</h3>
+          </div>
         </div>
       </div>
-    </div>
-     <div class="col-xs-12 col-sm-4">
-      <div class="features text-center">
-        <%= image_tag "icon_feiy_3.svg", class: "feiy-feature-img" %>
-        <div class="feiy-feature-text">
-          <h5>Find the changemaker fo tomorrow</h3>
+       <div class="col-xs-12 col-sm-4">
+        <div class="features text-center">
+          <%= image_tag "icon_feiy_3.svg", class: "feiy-feature-img" %>
+          <div class="feiy-feature-text">
+            <h5>Find the changemaker fo tomorrow</h3>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- Bottomer Wrapper -->

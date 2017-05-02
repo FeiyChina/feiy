@@ -58,22 +58,22 @@ class OrganizationsController < ApplicationController
     # trying to display search results by categories #
     @organizations = Organization.where(:category_ids => "category".to_i)
     @organization = Organization.find(params[:id])
-    @website = @organization.website
     @categories = Category.all
-    @organizations = Organization.all
+    @organizations_relevant = Organization.where.not(user_id: current_user.id)
     if @organization.categories.any?
+      suggested_organizations = []
       organization_category = @organization.categories.last.name
-      @suggested_organizations = []
-
-      @organizations.each do |organization|
-        if organization.categories == organization_category
-          @suggested_organizations << organization
+      @organizations_relevant.each do |organization|
+        if organization.categories.last.name == organization_category
+          suggested_organizations << organization
         end
       end
-      if @suggested_organizations.any?
-        @suggested_organizations.shuffle[1..3]
-      end
     end
+    if organization_category.any?
+      @suggested_organizations_shuffled = suggested_organizations.shuffle[1..3]
+    end
+    events = @organization.events
+    @events = events.where('date >= ?', Date.today).order(date: :asc)
   end
 
   def destroy
@@ -99,7 +99,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:organization_id])
     @body = params[:body]
     OrganizationMailer.organization_contact_email(@organization, @sender, @body).deliver
-    flash[:notice] = "The message has been sent"
+    flash[:notice] = "Your message has been sent!"
     redirect_to organization_path(@organization)
   end
 

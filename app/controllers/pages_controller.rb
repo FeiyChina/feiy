@@ -7,6 +7,9 @@ class PagesController < ApplicationController
     @categories = ENV["categories"].split(",")
     @job = Job.all
     @jobs = @job.where(active: true)
+    @event = Event.all
+    @events = @event.where('date >= ?', Date.today).order(date: :asc)
+
   end
 
   def dashboard
@@ -19,6 +22,9 @@ class PagesController < ApplicationController
     @random_comment = @organization.comments.shuffle.first
   end
 
+  def about_us
+  end
+
   def eventshow
     @booking = Booking.new
     # @event = Event.find(params[:id])
@@ -29,4 +35,10 @@ class PagesController < ApplicationController
     @job = Job.all
     @jobs = @job.where(active: true)
   end
+
+  def events
+    @event = Event.all
+    @events = @event.where('date >= ?', Date.today).order(date: :asc).paginate(:page => params[:page], :per_page => 9)
+  end
+
 end
