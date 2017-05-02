@@ -51,14 +51,17 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
     @website = @organization.website
     @categories = Category.all
-    @organizations = Organization.all
+    @organizations_all = Organization.all
     if @organization.categories.any?
       organization_category = @organization.categories.last.name
       @suggested_organizations = []
 
-      @organizations.each do |organization|
-        if organization.categories == organization_category
+      @organizations_all.each do |organization|
+        if organization.categories.last.name == organization_category
+          if
+          else
           @suggested_organizations << organization
+          end
         end
       end
       if @suggested_organizations.any?
