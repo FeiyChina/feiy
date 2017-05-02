@@ -133,16 +133,15 @@
         <div class="row">
           <% @events.each do |event| %>
             <div class="col-xs-12 col-sm-6 col-md-4">
-              <div class="events-card text-center">
-                <%= link_to "", event_show_path, class: "card-link" %>
-                <%= image_tag "card_picture1_ok.jpg", class: "event-card-img" %>
-                <div class="event-card-text">
-                  <h3><strong><%= event.name %></strong></h3>
-                  <h3><%= @organization.name %></h3>
-                  <p><%= event.content %></p>
-                  <p><strong>Date:</strong> <%= event.date %></p>
-                  <p><strong>Location:</strong> <%= event.venue %></p>
-                </div>
+              <div class="job-card">
+              <div class="job-logo"></div>
+              <div class="job-card-description">
+                <p id="job-name"><strong><%= event.name %></strong></p>
+                <p id="job-name">Hosted by <%= event.organization.name %></p>
+                <p id="job-type"><%= truncate(event.content)%></p>
+                <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+              </div>
+              <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
               </div>
             </div>
           <% end %>

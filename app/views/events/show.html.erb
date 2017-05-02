@@ -1,4 +1,9 @@
 <p><%= @event.name %></p>
 <p><%= @event.content %></p>
 <p><%= @event.venue %></p>
-<p><%= @event.date %></p>
+<p><%= @event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+      <div class="footer-buttons">
+        <% if user_signed_in? && @organization.user_id == current_user.id %>
+          <%= link_to "Update Event Info", edit_organization_event_path(@event.organization_id, @event), method: :get, class: 'btn btn-warning'  %>
+          <%= link_to "Delete Job", organization_event_path(@event.organization_id, @event), method: :delete, class: 'btn btn-danger' %>
+        <% end %>
