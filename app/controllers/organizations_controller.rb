@@ -61,6 +61,8 @@ class OrganizationsController < ApplicationController
       end
     end
     @suggested_organizations_shuffled = suggested_organizations.shuffle[1..3]
+    events = @organization.events
+    @events = events.where('date >= ?', Date.today).order(date: :asc)
   end
 
   def destroy

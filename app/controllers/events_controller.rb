@@ -5,6 +5,9 @@ class EventsController < ApplicationController
   #   @event.liked_by(current_user)
   #   redirect_to event_show_path
   # end
+  def index
+    @event = Event.all
+  end
 
   def new
     @organization = Organization.find(params[:organization_id])
@@ -12,7 +15,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = event.new(event_params)
+    @event = Event.new(event_params)
     @event.organization = Organization.find(params[:organization_id])
     @event.save
       redirect_to dashboard_path
@@ -33,6 +36,12 @@ class EventsController < ApplicationController
   def show
     @organization = Organization.find(params[:organization_id])
     @event = Event.find(params[:id])
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to root_path
   end
 
   private
