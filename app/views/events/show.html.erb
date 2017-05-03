@@ -1,27 +1,41 @@
-
+<div class="col-xs-12">
 <div class="container">
   <div class="row">
-    <div class="sub-header-card">
-      <div class="sub-header-card-description">
-        <h2><%= @event.name %></h2>
-        <p>From <%= link_to @event.organization.name, organization_path %></p>
-        <br>
-        <h3>Description</h3>
-        <p><%= @event.content %></p>
-        <br>
-        <h3>Address</h3>
-        <p><%= @event.venue %></p>
-        <br>
-        <h3>Date</h3>
-        <p><%= @event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
-        <br>
+      <div class="events-card">
+        <div class="card-logo">
+        <% if @event.organization.logo == true %>
+          <%= cl_image_tag @event.organization.logo.path, :width=>200, :height=>100, :crop=>"fit", :secure=>true %></div>
+        <% else %>
+           </div>
+        <% end %>
+
+        <div class="card-description">
+          <h2><%= @event.name %></h2>
+          <h4>Hosted by: <%= @event.organization.name %></h4>
+        </div>
       </div>
-    </div>
-    <div class="footer-buttons">
-  <% if user_signed_in? && @organization.user_id == current_user.id %>
-    <%= link_to "Update Event Info", edit_organization_event_path(@event.organization_id, @event), method: :get, class: 'btn btn-warning'  %>
-    <%= link_to "Delete Job", organization_event_path(@event.organization_id, @event), method: :delete, class: 'btn btn-danger' %>
-  <% end %>
+      <br>
+      <div class="sub-header-card">
+        <div class="sub-header-card-description">
+          <h2>Event Information</h2>
+          <p><%= @event.content %></p>
+          <br>
+          <h2>Date of event:</h2>
+          <p><%= @event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+          <br>
+          <h2>Address:</h2>
+          <p><%= @event.venue %></p>
+          <br>
+        </div>
+      </div>
+      <div class="footer-buttons">
+        <% if user_signed_in? && @organization.user_id == current_user.id %>
+          <%= link_to "Update Job Info", edit_organization_job_path(@event.organization_id, @event), method: :get, class: 'btn btn-warning'  %>
+          <%= link_to "Delete Job", organization_job_path(@event.organization_id, @event), method: :delete, class: 'btn btn-danger' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
+

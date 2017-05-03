@@ -48,6 +48,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'acts_as_votable'
 gem 'will_paginate'
+gem 'geocoder'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
