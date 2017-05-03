@@ -23,85 +23,109 @@
 
 
 <!-- ORGANIZATIONS -->
-<div class="title-divider text-center">
-  <h4>ORGANIZATIONS</h4>
-</div>
-<div class="container">
-  <div class="row">
-    <% @organizations.take(6).shuffle.each do |organization| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="organization-card">
-        <% if organization.photo %>
-          <img src="<%= cl_image_path organization.photo.path, height: 180, width: 350, crop: :fill%>", class='organization-card-img' >
-        <% else %>
-          <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
-        <% end %>
-        <div class="organization-card-description">
-          <% if organization.categories.any? %>
-            <p id="organization-category"><%= organization.categories.first.name.upcase %></p>
-          <% end %>
-          <p id="organization-name"><strong><%= organization.name %></strong></p>
-          <p id="organization-problem"><%= truncate(organization.problem) %></p>
-        </div>
-        <div class="organization-card-icons">
-          <i class="fa fa-thumbs-up organization-card-icon"></i>
-          <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
-        </div>
-        <%= link_to "", organization_path(organization), class: "organization-card-link" %>
-        </div>
-      </div>
-    <% end %>
+<% if @organizations.any? %>
+  <div class="title-divider text-center">
+    <h4>ORGANIZATIONS</h4>
   </div>
-</div>
+  <div class="container">
+    <div class="row">
+      <% @organizations.take(3).shuffle.each do |organization| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="organization-card">
+          <% if organization.photo %>
+            <img src="<%= cl_image_path organization.photo.path, height: 180, width: 350, crop: :fill%>", class='organization-card-img' >
+          <% else %>
+            <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
+          <% end %>
+          <div class="organization-card-description">
+            <% if organization.categories.any? %>
+              <p id="organization-category"><%= organization.categories.first.name.upcase %></p>
+            <% end %>
+            <p id="organization-name"><strong><%= organization.name %></strong></p>
+            <p id="organization-problem"><%= truncate(organization.problem) %></p>
+          </div>
+          <div class="organization-card-icons">
+            <i class="fa fa-thumbs-up organization-card-icon"></i>
+            <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
+          </div>
+          <%= link_to "", organization_path(organization), class: "organization-card-link" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="row button-row">
+      <div class="col-xs-12">
+        <%= link_to "More organizations", organizations_path, class: "btn-feiy-primary button-cta-primary" %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="no-org-separator">
+  </div>
+<% end %>
 
 <!-- JOBS -->
-<div class="title-divider text-center" id="title-padding" >
-  <h4>JOBS</h4>
-</div>
-<div class="container">
-  <div class="row">
-    <% @jobs.take(3).shuffle.each do |job| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="job-card">
-        <div class="job-logo"></div>
-        <div class="job-card-description">
-        <p id="job-name"><strong><%= job.organization.name %></strong></p>
-          <p id="job-name"><%= job.name %></p>
-          <p id="job-problem"><%= job.job_type%></p>
-          <p id="job-category"><%= job.address %></p>
-        </div>
-         <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
-        </div>
-      </div>
-    <% end %>
+<% if @jobs.any? %>
+  <div class="title-divider text-center" id="title-padding" >
+    <h4>JOBS</h4>
   </div>
-</div>
+  <div class="container">
+    <div class="row">
+      <% @jobs.take(3).shuffle.each do |job| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="job-card">
+          <div class="job-logo"></div>
+          <div class="job-card-description">
+          <p id="job-name"><strong><%= job.organization.name %></strong></p>
+            <p id="job-name"><%= job.name %></p>
+            <p id="job-problem"><%= job.job_type%></p>
+            <p id="job-category"><%= job.address %></p>
+          </div>
+           <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="row button-row">
+      <div class="col-xs-12">
+        <%= link_to "More jobs", jobs_path, class: "btn-feiy-primary button-cta-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 
 
 
 <!-- EVENTS -->
-<div class="title-divider text-center" id="title-padding" >
-  <h4>EVENTS</h4>
-</div>
-<div class="container">
-  <div class="row">
-    <% @events.take(6).each  do |event| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="job-card">
-          <div class="job-logo"></div>
-          <div class="job-card-description">
-            <p id="job-name"><strong><%= event.name %></strong></p>
-            <p id="job-name">Hosted by <%= event.organization.name %></p>
-            <p id="job-type"><%= truncate(event.content)%></p>
-            <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
-          </div>
-          <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
-        </div>
-      </div>
-    <% end %>
+<% if @events.any? %>
+  <div class="title-divider text-center" id="title-padding" >
+    <h4>EVENTS</h4>
   </div>
-</div>
+  <div class="container">
+    <div class="row">
+      <% @events.take(6).each  do |event| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="job-card">
+            <div class="job-logo"></div>
+            <div class="job-card-description">
+              <p id="job-name"><strong><%= event.name %></strong></p>
+              <p id="job-name">Hosted by <%= event.organization.name %></p>
+              <p id="job-type"><%= truncate(event.content)%></p>
+              <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+            </div>
+            <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="row button-row">
+      <div class="col-xs-12">
+        <%= link_to "More events", events_path, class: "btn-feiy-primary button-cta-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <!-- FEATURES -->
 <div id="features-img">
@@ -112,25 +136,28 @@
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <div class="features text-center">
-          <%= image_tag "icon_feiy_1.svg", class: "feiy-feature-img" %>
+          <%= image_tag "book.png", class: "feiy-feature-img" %>
           <div class="feiy-feature-text">
-            <h5>Explore the ecosystem of high impact initiatives in China</h3>
+            <h4>BE INSPIRED</h4>
+            <h5>Browse for organizations, jobs and events</h5>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
         <div class="features text-center">
-          <%= image_tag "icon_feiy_2.svg", class: "feiy-feature-img" %>
+          <%= image_tag "search.png", class: "feiy-feature-img" %>
           <div class="feiy-feature-text">
-            <h5>Let the world know about your organization</h3>
+            <h4>BOOK & JOIN</h4>
+            <h5>Learn, book and participate</h5>
           </div>
         </div>
       </div>
        <div class="col-xs-12 col-sm-4">
         <div class="features text-center">
-          <%= image_tag "icon_feiy_3.svg", class: "feiy-feature-img" %>
+          <%= image_tag "like.png", class: "feiy-feature-img" %>
           <div class="feiy-feature-text">
-            <h5>Find the changemaker fo tomorrow</h3>
+            <h4>BE PART OF</h4>
+            <h5>Stay in touch and help others</h5>
           </div>
         </div>
       </div>
@@ -140,5 +167,5 @@
 
 <!-- Bottomer Wrapper -->
 <div class="wrapper" id="call-to-action-wrapper">
-  <%= link_to "JOIN US NOW!", new_organization_path, class: "btn-feiy-white" %>
+  <%= link_to "JOIN US NOW!", new_organization_path, class: "btn-feiy-primary button-cta-primary" %>
 </div>

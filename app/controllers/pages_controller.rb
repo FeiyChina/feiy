@@ -31,9 +31,9 @@ class PagesController < ApplicationController
     # @event.liked_by(current_user)
   end
 
-  def jobspool
+  def jobs
     @job = Job.all
-    @jobs = @job.where(active: true)
+    @jobs = @job.where(active: true).order(created_at: :desc).paginate(:page => params[:page], :per_page => 9)
   end
 
   def events

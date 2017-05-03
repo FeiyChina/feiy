@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'pages#dashboard'
   get 'about_us', to: 'pages#about_us'
   get 'events', to: 'pages#events', as: "events"
-  get 'jobspool', to: 'pages#jobspool', as: "jobspool"
+  get 'jobs', to: 'pages#jobs', as: "jobs"
   post 'comments' => 'comments#create', as: "create_comment"
 
 end

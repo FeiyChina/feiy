@@ -1,6 +1,10 @@
 class OrganizationsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
+  def index
+    @organizations = Organization.all
+  end
+
   def search
     # search by category
     @category_params = params[:category]
