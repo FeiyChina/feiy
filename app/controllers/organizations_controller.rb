@@ -9,17 +9,26 @@ class OrganizationsController < ApplicationController
     # search by category
     @category_params = params[:category]
     @categories = Category.where(name: @category_params)
+    @search_one = []
     @categories.each do |cat|
-      @categorizable_ids = []
-      categorizable_id = cat.categorizable_id
-      @categorizable_ids << categorizable_id
+      unless cat.categorizable_id.nil?
+        @search_one << cat.categorizable_id
+      end
     end
-    @search_by_org = Organization.find(@categorizable_ids)
     # search by name
     @name_params = params[:name]
     @search_by_name = Organization.where(name: @name_params)
-    # combining the two search results
-    @organizations = @search_by_org + @search_by_name
+    @search_by_name.each do |org|
+      @search_one << org.id
+    end
+
+    @search_total = @search_one.uniq
+    @organizations = []
+    if @search_total
+      @search_total.each do |id|
+        @organizations.append(Organization.find(id))
+      end
+    end
   end
 
   def new
