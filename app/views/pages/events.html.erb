@@ -25,7 +25,11 @@
 <br>
 <br>
 <div class="next-page">
-<%= will_paginate @events, class: "flickr_pagination" %>
+<% if @events.any? %>
+  <%= will_paginate @events, class: "flickr_pagination" %>
+<% else %>
+  <h2 class="no-events text-center">No Events Posted</h2>
+<% end %>
 <h5 class="text-center">(<%= @events.count %> events)</h5>
 </div>
 
