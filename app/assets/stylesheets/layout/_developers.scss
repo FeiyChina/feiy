@@ -1,0 +1,31 @@
+.developers-wrapper {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  a {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    margin: 0;
+    font-size: 12px;
+    font-weight: lighter;
+    &:hover {
+      color: orange;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+.about-developers {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  h1 {
+    margin-bottom: 30px;
+  }
+  img{
+    margin-bottom: 20px;
+  }
+}

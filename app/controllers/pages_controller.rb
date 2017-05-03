@@ -9,7 +9,6 @@ class PagesController < ApplicationController
     @jobs = @job.where(active: true)
     @event = Event.all
     @events = @event.where('date >= ?', Date.today).order(date: :asc)
-
   end
 
   def dashboard
@@ -23,6 +22,9 @@ class PagesController < ApplicationController
   end
 
   def about_us
+  end
+
+  def developer
   end
 
   def eventshow
