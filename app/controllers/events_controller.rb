@@ -36,6 +36,8 @@ class EventsController < ApplicationController
   def show
     @organization = Organization.find(params[:organization_id])
     @event = Event.find(params[:id])
+
+    @baidumap_url = 'http://api.map.baidu.com/staticimage/v2?ak=' + ENV['BAIDU_KEY'] + '&mcode=666666¢er=' + @event.longitude.to_s + ',' + @event.latitude.to_s + '&width=300&height=200&zoom=10'
   end
 
   def destroy
@@ -52,6 +54,5 @@ class EventsController < ApplicationController
 
 
 end
-
 
 

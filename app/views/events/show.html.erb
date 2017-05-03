@@ -25,7 +25,11 @@
           <br>
           <h2>Address:</h2>
           <p><%= @event.venue %></p>
+
+
+          <%= @baidumap_url %>
           <br>
+          <div style="background-image: url('<%= image_path @baidumap_url %>')"></div>
         </div>
       </div>
       <div class="footer-buttons">
