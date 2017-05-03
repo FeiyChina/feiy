@@ -52,6 +52,11 @@
       </div>
     <% end %>
   </div>
+  <div class="row button-row">
+    <div class="col-xs-12">
+      <%= link_to "More organizations", organizations_path, class: "btn-feiy-primary button-cta-primary" %>
+    </div>
+  </div>
 </div>
 
 <!-- JOBS -->
@@ -74,6 +79,11 @@
         </div>
       </div>
     <% end %>
+  </div>
+  <div class="row button-row">
+    <div class="col-xs-12">
+      <%= link_to "More jobs", jobspool_path, class: "btn-feiy-primary button-cta-primary" %>
+    </div>
   </div>
 </div>
 
@@ -101,6 +111,11 @@
       </div>
     <% end %>
   </div>
+  <div class="row button-row">
+    <div class="col-xs-12">
+      <%= link_to "More events", events_path, class: "btn-feiy-primary button-cta-primary" %>
+    </div>
+  </div>
 </div>
 
 <!-- FEATURES -->
@@ -112,25 +127,28 @@
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <div class="features text-center">
-          <%= image_tag "icon_feiy_1.svg", class: "feiy-feature-img" %>
+          <%= image_tag "book.png", class: "feiy-feature-img" %>
           <div class="feiy-feature-text">
-            <h5>Explore the ecosystem of high impact initiatives in China</h3>
+            <h4>BE INSPIRED</h4>
+            <h5>Browse for organizations, jobs and events</h5>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-sm-4">
         <div class="features text-center">
-          <%= image_tag "icon_feiy_2.svg", class: "feiy-feature-img" %>
+          <%= image_tag "search.png", class: "feiy-feature-img" %>
           <div class="feiy-feature-text">
-            <h5>Let the world know about your organization</h3>
+            <h4>BOOK & JOIN</h4>
+            <h5>Learn, book and participate</h5>
           </div>
         </div>
       </div>
        <div class="col-xs-12 col-sm-4">
         <div class="features text-center">
-          <%= image_tag "icon_feiy_3.svg", class: "feiy-feature-img" %>
+          <%= image_tag "like.png", class: "feiy-feature-img" %>
           <div class="feiy-feature-text">
-            <h5>Find the changemaker fo tomorrow</h3>
+            <h4>BE PART OF</h4>
+            <h5>Stay in touch and help others</h5>
           </div>
         </div>
       </div>
@@ -140,5 +158,5 @@
 
 <!-- Bottomer Wrapper -->
 <div class="wrapper" id="call-to-action-wrapper">
-  <%= link_to "JOIN US NOW!", new_organization_path, class: "btn-feiy-white" %>
+  <%= link_to "JOIN US NOW!", new_organization_path, class: "btn-feiy-primary button-cta-primary" %>
 </div>
