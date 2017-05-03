@@ -2,9 +2,9 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url('https://fonts.googleapis.com/css?family=Karla|Raleway&amp;subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i|Asul:700|Karla');
 $base-font: "Karla", "sans-serif";
-// $header-font: "Raleway", "serif";
+$header-font: "Asul", "sans-serif";
 
 // Local fonts (uncomment following lines)
 // @font-face {
@@ -19,7 +19,6 @@ $base-font: "Karla", "sans-serif";
 // Font-size and line-height
 $base-size: 14px;
 $base-height: 1.4;
-
 $header-size: 25px;
 
 
@@ -27,11 +26,11 @@ $header-size: 25px;
  * Colors
  * ------------------------------------- */
 // Scheme
-$brand-color: #D23333;
+$brand-color: #31c7c5;
 
-$red: #EE5F5B;
-$blue: #469AE0;
-$yellow: #FDB631;
-$orange: #E67E22;
-$green: #32B796;
-$gray: #000000;
+$red:     #F63E44;
+$blue:    #3177FE;
+$yellow:  #FDB631;
+$orange:  #E67E22;
+$green:   #32B796;
+$gray:    #000000;
