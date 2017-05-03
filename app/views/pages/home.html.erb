@@ -60,8 +60,9 @@
     </div>
   </div>
 <% else %>
-  <div class="no-org-separator">
-  </div>
+<div class="wrapper" id="call-to-action-wrapper">
+  <%= link_to "JOIN US NOW!", new_organization_path, class: "btn-feiy-primary button-cta-primary" %>
+</div>
 <% end %>
 
 <!-- JOBS -->
@@ -166,6 +167,8 @@
 </div>
 
 <!-- Bottomer Wrapper -->
-<div class="wrapper" id="call-to-action-wrapper">
-  <%= link_to "JOIN US NOW!", new_organization_path, class: "btn-feiy-primary button-cta-primary" %>
-</div>
+<% if @organizations.any? %>
+  <div class="wrapper" id="call-to-action-wrapper">
+    <%= link_to "JOIN US NOW!", new_organization_path, class: "btn-feiy-primary button-cta-primary" %>
+  </div>
+<% end %>
