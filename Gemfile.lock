@@ -85,6 +85,7 @@ GEM
       thor (~> 0.14)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    geocoder (1.4.3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     http-cookie (1.0.3)
@@ -220,6 +221,7 @@ DEPENDENCIES
   devise
   figaro
   font-awesome-sass
+  geocoder
   jbuilder (~> 2.5)
   jquery-fileupload-rails
   jquery-rails
