@@ -1,0 +1,31 @@
+<div class="wrapper-white">
+  <div class="container-demo-title">
+    <h1 class="text-center">Jobs Index</h1>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% @jobs.each do |job| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="job-card">
+          <div class="job-logo"></div>
+          <div class="job-card-description">
+            <p id="job-name"><strong><%= job.name %></strong></p>
+            <p id="job-name">Posted by <%= job.organization.name %></p>
+            <p id="job-type"><%= truncate(job.task)%></p>
+            <p id="job-address"><%= job.job_type %></p>
+          </div>
+          <%= link_to "", organization_job_path(job.organization_id, job.id), class: "organization-card-link" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<div class="next-page">
+<%= will_paginate @jobs, class: "flickr_pagination" %>
+<h5 class="text-center">(<%= @jobs.count %> jobs)</h5>
+</div>
+
