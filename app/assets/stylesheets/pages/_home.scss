@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: image-url('banner.jpg');
+  background-image: image-url('bannertwo.jpg');
   color: #F8F8F8;
 }
 
@@ -123,18 +123,26 @@
 
 // Icons wrapper
 #features-img{
+  background-image: image-url('features.jpg');
   background-color: #D5F0EE;
   padding-top: 30px;
-  padding-bottom: 100px;
-  margin: auto;
-  background-color: #D5F0EE
+  padding-bottom: 80px;
+}
+
+.features {
+  h4 {
+    color: #3CC7C6;
+  }
+  h5 {
+    color: white;
+  }
 }
 
 
 // Call to action footer
 #call-to-action-wrapper {
   height: 400px;
-  background-image: image-url('cta_footer.jpg');
+  background-color: white;
   background-size: cover;
   background-repeat: none;
   display: flex;
@@ -150,3 +158,7 @@
   padding: 0px 20px;
 }
 
+.button-row {
+  height: 100px;
+  text-align: center;
+}
