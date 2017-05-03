@@ -1,5 +1,51 @@
 #aboutus-wrapper {
+  padding-top: 50px;
 }
 
-.mission {
+.aboutus {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding-bottom: 20px;
+}
+
+.aboutus-title {
+  font-family: Arvo;
+  color: $brand-color;
+}
+
+.aboutus-content {
+  margin-bottom: 50px;
+  width: 640px;
+  float: left;
+  p {
+  margin: 0 0 20px 0;
+  }
+}
+
+.aboutus-sidebar {
+  width: 300px;
+  float: right;
+  margin-top: 65px;
+}
+
+.call-box {
+  background-image: image_url('aboutus-call-to-action.jpeg');
+  height: 258px;
+  position: relative;
+  .call-box-btn {
+    position: absolute;
+    top: 120px;
+    left: 55px;
+    background-color: transparent;
+    transition: background 0.3s ease;
+    &:hover {
+      opacity: 1;
+      text-decoration: none;
+      background-color: $brand-color;
+      border: solid 1px #37D7D4;
+      color: #F8F8F8
+    }
+  }
 }
