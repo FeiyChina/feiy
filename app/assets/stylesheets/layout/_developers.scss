@@ -19,13 +19,50 @@
   }
 }
 
+.developers-title {
+  margin-top: 50px;
+  font-weight: lighter;
+  font-size: 30px;
+}
+
 .about-developers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 50px;
   margin-bottom: 50px;
   h1 {
     margin-bottom: 30px;
   }
-  img{
-    margin-bottom: 20px;
+}
+
+.developer-card {
+  width: 200px;
+  height: 330px;
+  border: 1px solid gray;
+  z-index: 2;
+  img {
+    width: 198px;
   }
+  h5 {
+    font-weight: lighter;
+  }
+}
+
+.dev_flag {
+  width: 40px !important;
+}
+
+.dev-social {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dev_social-img {
+  width: 25px !important;
+  transition: all 0.3s ease;
 }
