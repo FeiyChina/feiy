@@ -28,7 +28,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <% @organizations.take(6).shuffle.each do |organization| %>
+    <% @organizations.take(3).shuffle.each do |organization| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="organization-card">
         <% if organization.photo %>
@@ -82,7 +82,7 @@
   </div>
   <div class="row button-row">
     <div class="col-xs-12">
-      <%= link_to "More jobs", jobspool_path, class: "btn-feiy-primary button-cta-primary" %>
+      <%= link_to "More jobs", jobs_path, class: "btn-feiy-primary button-cta-primary" %>
     </div>
   </div>
 </div>
