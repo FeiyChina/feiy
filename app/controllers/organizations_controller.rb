@@ -11,7 +11,7 @@ class OrganizationsController < ApplicationController
     @categories = Category.where(name: @category_params)
     @search_one = []
     @categories.each do |cat|
-      unless cat.categorizable_id.nil?
+      if cat.categorizable_id
         @search_one << cat.categorizable_id
       end
     end
