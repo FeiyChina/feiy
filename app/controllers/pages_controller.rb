@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @current_user = current_user
     @organizations = Organization.all
     @categories = ENV["categories"].split(",")
+    @categories.prepend("")
     @job = Job.all
     @jobs = @job.where(active: true)
     @event = Event.all

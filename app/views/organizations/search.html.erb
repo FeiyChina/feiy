@@ -1,4 +1,10 @@
 <!-- ORGANIZATIONS SEARCH RESULTS -->
+
+<% unless @organizations %>
+  <p>We haven't found any organization matching your search, try again!</p>
+<% end %>
+
+
 <div class="text-center">
   <h4>Displaying search results for: <%= @category_params %> and: <%= @name_params %></h4>
 </div>
