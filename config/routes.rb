@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   post "organizations/:id/like", to:"organizations#like", as: "like_organization"
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users#, :controllers => {:registrations => "registrations"}
 
 
   root to: 'pages#home'

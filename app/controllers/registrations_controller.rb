@@ -27,8 +27,6 @@ class RegistrationsController < Devise::RegistrationsController
       #   '$email' => @user.email,
       # })
     end
-
-
   end
 end
 
