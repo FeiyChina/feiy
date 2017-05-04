@@ -7,22 +7,17 @@ class OrganizationsController < ApplicationController
   end
 
   def search
-    # search by category
-    @category_params = params[:category]
-    @categories = Category.where(name: @category_params)
     @search_one = []
-    @categories.each do |cat|
-      if cat.categorizable_id
-        @search_one << cat.categorizable_id
-      end
+    @category_params = params[:category]
+    @search_by_category = Organization.accepted.where(category: @category_params)
+    @search_by_category.each do |org|
+      @search_one << org.id
     end
-    # search by name
     @name_params = params[:name]
     @search_by_name = Organization.accepted.where(name: @name_params)
     @search_by_name.each do |org|
       @search_one << org.id
     end
-
     @search_total = @search_one.uniq
     @organizations = []
     @search_total.each do |id|
@@ -30,22 +25,18 @@ class OrganizationsController < ApplicationController
         @organizations.append(Organization.find(id))
       end
     end
-    @categories_all = ENV["categories"].split(",")
-    @categories_all.prepend("")
+    @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
   end
 
 
 
   def new
     @organization = Organization.new
-    @categories = ENV["categories"].split(",")
-    @current_category = ENV["categories"].first
   end
 
   def create
     @organization = Organization.new(organization_params)
     @organization.user_id = current_user.id
-    @organization.categories << Category.create(name: params[:organization][:categories])
     if @organization.save
       redirect_to dashboard_path
     else
@@ -55,43 +46,19 @@ class OrganizationsController < ApplicationController
 
   def edit
     @organization = Organization.find(params[:id])
-    @categories = ENV["categories"].split(",")
-    if @organization.categories.any?
-      @current_category = @organization.categories.last.name
-    else
-      @current_category = ENV["categories"].first
-    end
   end
 
   def update
     @organization = Organization.find(params[:id])
     @organization.update(organization_params)
-    if @organization.categories.any?
-      @organization.categories.last.update(name: params[:organization][:categories])
-    else
-      @organization.categories << Category.create(name: params[:organization][:categories])
-      @organization.save
-    end
     redirect_to organization_path(@organization)
   end
 
   def show
-    # trying to display search results by categories #
-    @organizations = Organization.where(:category_ids => "category".to_i)
     @organization = Organization.find(params[:id])
-    @categories = Category.all
-    @organizations_relevant = Organization.where.not(user_id: current_user.id)
-    if @organization.categories.any?
-      suggested_organizations = []
-      organization_category = @organization.categories.last.name
-      @organizations_relevant.each do |organization|
-        if organization.categories.last.name == organization_category
-          suggested_organizations << organization
-        end
-      end
-    end
-    if suggested_organizations.any?
-      @suggested_organizations_shuffled = suggested_organizations.shuffle[1..3]
+    @organizations = Organization.where(category: @organization.category)
+    if @organizations.any?
+      @suggested_organizations_shuffled = @organizations.shuffle[1..3]
     end
     events = @organization.events
     @events = events.where('date >= ?', Date.today).order(date: :asc)
@@ -131,6 +98,6 @@ class OrganizationsController < ApplicationController
   end
 
   def organization_params
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :email, :address, :photo, :logo, :category_ids, :user_is_a_representative, :accepted?)
+    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :email, :address, :photo, :logo, :category, :user_is_a_representative, :accepted?)
   end
 end

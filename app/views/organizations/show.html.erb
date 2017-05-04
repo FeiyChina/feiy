@@ -8,12 +8,12 @@
       </div>
     <% end %>
     <% if @organization.logo? %>
-      <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill, id: "org-show-banner-logo" %>
-    <% end %>
-    <% if @organization.categories.any? %>
-      <p id="organization-category"><%= @organization.categories.last.name.upcase %></p>
-    <% end %>
-    <h1 id="org-show-banner-name"><%= @organization.name.capitalize %></h1>
+    <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill, id: "org-show-banner-logo" %>
+  <% end %>
+  <% if @organization.category %>
+    <p id="organization-category"><%= @organization.category %></p>
+  <% end %>
+  <h1 id="org-show-banner-name"><%= @organization.name.capitalize %></h1>
     <div id="actions-under-title">
       <%= link_to "Contact us", organization_organization_contact_path(@organization), class: "btn-contact" %>
       <%= render 'shared/org_likes' %>
@@ -152,8 +152,8 @@
           <div class="organization-card-description">
             <p id="organization-name"><strong><%= organization.name %></strong></p>
             <p id="organization-problem"><%= organization.problem%></p>
-            <% if organization.categories.any? %>
-              <p id="organization-category"><%= organization.categories.last.name %></p>
+            <% if organization.category %>
+              <p id="organization-category"><%= organization.category %></p>
             <% end %>
           </div>
           <div class="organization-card-icons">
