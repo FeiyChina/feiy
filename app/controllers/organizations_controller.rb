@@ -34,10 +34,6 @@ class OrganizationsController < ApplicationController
     @categories_all.prepend("")
   end
 
-  # def authorize
-  #   authorize @organization = Organization.new(organization_params)
-  # end
-
   def new
     @organization = Organization.new
     @categories = ENV["categories"].split(",")
@@ -45,6 +41,7 @@ class OrganizationsController < ApplicationController
   end
 
   def create
+    @organization = Organization.new
     @organization.user_id = current_user.id
     @organization.categories << Category.create(name: params[:organization][:categories])
     if @organization.save
@@ -55,8 +52,7 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    # authorize @organization
-    authorize @organization = Organization.find(params[:id])
+   authorize @organization = Organization.find(params[:id])
     @categories = ENV["categories"].split(",")
     if @organization.categories.any?
       @current_category = @organization.categories.last.name
@@ -67,6 +63,7 @@ class OrganizationsController < ApplicationController
 
   def update
     authorize @organization = Organization.find(params[:id])
+    @organization = Organization.find(params[:id])
     @organization.update(organization_params)
     if @organization.categories.any?
       @organization.categories.last.update(name: params[:organization][:categories])

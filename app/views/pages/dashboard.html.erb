@@ -101,7 +101,7 @@
     <div class="dashboard-content-section dashboard-content-jobs">
       <div class="dashboard-title">
         <h5><strong>Jobs</strong></h5>
-        <% if policy(Organization).create? %>
+        <% if policy(@organization).create? %>
         <%= link_to "Add", new_organization_job_path(@organization) %>
         <% end %>
       </div>

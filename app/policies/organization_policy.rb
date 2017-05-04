@@ -1,5 +1,9 @@
 class OrganizationPolicy < ApplicationPolicy
 
+  def new?
+    return true
+  end
+
   def create?
    return true
   end
@@ -18,7 +22,7 @@ class OrganizationPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope
+      scope.all
     end
   end
 end
