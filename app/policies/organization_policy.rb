@@ -8,6 +8,14 @@ class OrganizationPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def organization_contact?
+    return false
+  end
+
+  def organization_send?
+    return false
+  end
+
   def create?
    return true
   end
