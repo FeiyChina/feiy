@@ -29,7 +29,11 @@ class OrganizationsController < ApplicationController
         @organizations.append(Organization.find(id))
       end
     end
+    @categories_all = ENV["categories"].split(",")
+    @categories_all.prepend("")
   end
+
+
 
   def new
     @organization = Organization.new
