@@ -1,34 +1,34 @@
-class RegistrationsController < Devise::RegistrationsController
+# class RegistrationsController < Devise::RegistrationsController
 
-  def create
-    super
+#   def create
+#     super
 
-    if resource.save
-      @user = current_user
+#     if resource.save
+#       @user = current_user
 
-      MIXPANEL.track(@user.id, 'Created User', {
-          first_name: @user.name,
-          email: @user.email
-      })
-      MIXPANEL.people.set(@user.id, {
-          first_name: @user.name,
-          email: @user.email
-      })
+#       MIXPANEL.track(@user.id, 'Created User', {
+#           first_name: @user.name,
+#           email: @user.email
+#       })
+#       MIXPANEL.people.set(@user.id, {
+#           first_name: @user.name,
+#           email: @user.email
+#       })
 
-      # Mixpanel Create User Profile
-      # mixpanel.track(@user.id, 'Created User', {
-      #   '$first_name' => @user.first_name,
-      #   '$gametag' => @user.game_tag,
-      #   '$email' => @user.email,
-      # })
-      # mixpanel.people.set(@user.id, {
-      #   '$first_name' => @user.first_name,
-      #   '$gametag' => @user.game_tag,
-      #   '$email' => @user.email,
-      # })
-    end
-  end
-end
+#       # Mixpanel Create User Profile
+#       # mixpanel.track(@user.id, 'Created User', {
+#       #   '$first_name' => @user.first_name,
+#       #   '$gametag' => @user.game_tag,
+#       #   '$email' => @user.email,
+#       # })
+#       # mixpanel.people.set(@user.id, {
+#       #   '$first_name' => @user.first_name,
+#       #   '$gametag' => @user.game_tag,
+#       #   '$email' => @user.email,
+#       # })
+#     end
+#   end
+# end
 
 
 
