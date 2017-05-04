@@ -25,6 +25,7 @@
   margin-left: 0px;
   font-size: 50px;
   font-family: Arvo;
+  font-weight: 700;
 }
 #actions-under-title {
   width: 300px;
@@ -35,8 +36,9 @@
   margin: 0;
   border: 1px solid gray;
   border-radius: 3px;
-  padding: 3px 8px;
-  font-size: 16px;
+  padding: 5px 15px;
+  padding-top: 5px;
+  font-size: 18px;
   margin-right: 10px;
   text-decoration: none;
   color: black;
@@ -52,9 +54,11 @@
   text-align: left;
   width: 700px;
   padding: 10px;
-  background-color: #59DFDF;
+  background-color: white;
   p {
     margin-bottom: 40px;
+    font-size: 15px;
+    font-family: Arvo;
   }
 }
 .org-edit-actions {
