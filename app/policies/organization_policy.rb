@@ -16,6 +16,10 @@ class OrganizationPolicy < ApplicationPolicy
     return false
   end
 
+  def like
+    return false
+  end
+
   def create?
    return true
   end

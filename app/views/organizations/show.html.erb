@@ -179,7 +179,7 @@
         <div class="follower-card">
           <div class="follower-card-avatar">
             <% if follower.voter.avatar? %>
-              <%= cl_image_tag vote.voter.avatar.path, height: 50, width: 50, crop: :fill, gravity: :face, radius: :max, class: "avatar-style" %>
+              <%= cl_image_tag follower.voter.avatar.path, height: 50, width: 50, crop: :fill, gravity: :face, radius: :max, class: "avatar-style" %>
             <% else %>
               <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
             <% end %>
