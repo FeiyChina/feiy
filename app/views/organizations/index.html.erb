@@ -28,10 +28,10 @@
         <% end %>
         <div class="organization-card-description">
           <% if organization.category %>
-            <p id="organization-category"><%= truncate(organization.category) %></p>
+            <p id="organization-category"><%= truncate(organization.category, length: 20) %></p>
           <% end %>
-          <p id="organization-name"><strong><%= truncate(organization.name) %></strong></p>
-          <p id="organization-problem"><%= truncate(organization.problem) %></p>
+          <p id="organization-name"><strong><%= truncate(organization.name, length: 20) %></strong></p>
+          <p id="organization-problem"><%= truncate(organization.problem, length: 20) %></p>
         </div>
         <div class="organization-card-icons">
           <i class="fa fa-thumbs-up organization-card-icon"></i>
