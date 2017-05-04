@@ -1,20 +1,18 @@
-<div class="wrapper" id="organization-banner">
-  <% if @organization.photo %>
-      <%= cl_image_tag @organization.photo.path, crop: :fill %>
-  <% end %>
-</div>
+<div class="org-show-banner">
 
-<div class="container" id="organization-banner-title">
+  <div class="org-show-banner-content">
   <% if @organization.logo? %>
-    <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill %>
+    <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill, id: "org-show-banner-logo" %>
   <% end %>
   <% if @organization.categories.any? %>
     <p id="organization-category"><%= @organization.categories.last.name.upcase %></p>
   <% end %>
-  <h1 id="organization-banner-name"><%= @organization.name.capitalize %></h1>
-  <!-- like partial -->
-  <%= render 'shared/org_likes' %>
+  <h1 id="org-show-banner-name"><%= @organization.name.capitalize %></h1>
+  </div>
 </div>
+
+<!-- like partial -->
+<%= render 'shared/org_likes' %>
 
 <div class="container text-center" id="organization-information">
   <h4><strong>Who were are?</strong></h4>
