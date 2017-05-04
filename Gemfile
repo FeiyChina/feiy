@@ -41,6 +41,8 @@ gem 'devise'
 
 gem 'acts_as_commentable'
 
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # Styleing gems go here
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
