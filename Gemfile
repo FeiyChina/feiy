@@ -49,7 +49,6 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'acts_as_votable'
-gem 'will_paginate'
 gem 'geocoder'
 
 group :development, :test do
