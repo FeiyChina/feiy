@@ -11,7 +11,7 @@
   <% if @organization.categories.any? %>
     <p id="organization-category"><%= @organization.categories.last.name.upcase %></p>
   <% end %>
-  <h1 id="organization-name"><%= @organization.name.capitalize %></h1>
+  <h1 id="organization-banner-name"><%= @organization.name.capitalize %></h1>
   <!-- like partial -->
   <%= render 'shared/org_likes' %>
 </div>
@@ -36,7 +36,7 @@
 <% end %>
 <!-- comment function -->
 <div class="text-center">
-  <h2>Comments</h2>
+  <h3>Comments</h3>
 </div>
 <div class="comment-section text-center">
   <%= form_tag create_comment_path, method: "post" do %>
@@ -70,7 +70,7 @@
 </div>
 <!-- Jobs Section -->
 <div class="text-center">
-  <h2>Do you want to be part of the journey? Join us and do good!</h2>
+  <h3>Add a job offer</h3>
   <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
     <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn btn-warning'  %>
@@ -157,8 +157,8 @@
 </div>
 <!-- Followers -->
 <div class="text-center">
-  <h2>Who is following this Organization?</h2>
-  <h3><%= @organization.name %> has <%= @organization.votes_for.count %> followers</h3>
+  <h3>Who is following this Organization?</h3>
+  <p><%= @organization.name %> has <%= @organization.votes_for.count %> followers</p>
 </div>
 <div class="container">
   <div class="row">
