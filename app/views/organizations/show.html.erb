@@ -95,9 +95,9 @@
           <% end %>
           <div class="job-card-description">
             <p id="job-name"><strong><%= truncate(job.name) %></strong></p>
-            <p id="job-problem">Posted by: <%= job.organization.name%></p>
-            <p id="job-problem"><%= job.job_type%></p>
-            <p id="job-category"><%= job.address %></p>
+            <p id="job-problem">Posted by: <%= truncate(job.organization.name) %></p>
+            <p id="job-problem"><%= truncate(job.job_type) %></p>
+            <p id="job-category"><%= truncate(job.address) %></p>
           </div>
            <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
           </div>
@@ -130,7 +130,7 @@
           <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
         <% end %>
           <div class="events-card-description">
-            <p id="job-name"><strong><%= event.name %></strong></p>
+            <p id="job-name"><strong><%= truncate(event.name) %></strong></p>
             <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
           </div>
           <p class="event-hover-card text-center" id="event-name">Hosted by <%= event.organization.name %><br><br><%= truncate(event.content)%></p>
@@ -158,10 +158,10 @@
             <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
           <% end %>
           <div class="organization-card-description">
-            <p id="organization-name"><strong><%= organization.name %></strong></p>
-            <p id="organization-problem"><%= organization.problem%></p>
+            <p id="organization-name"><strong><%= truncate(organization.name) %></strong></p>
+            <p id="organization-problem"><%= truncate(organization.problem) %></p>
             <% if organization.category %>
-              <p id="organization-category"><%= organization.category %></p>
+              <p id="organization-category"><%= truncate(organization.category) %></p>
             <% end %>
           </div>
           <div class="organization-card-icons">
