@@ -1,3 +1,50 @@
-.search-wrapper {
+#search-result-wrapper {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: image-url('search-results-bg.png');
+  color: #F8F8F8;
+}
 
+.search-result-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-result-header-welcome h1 {
+  font-family: Arvo;
+  font-weight: 700;
+  color: $brand-color;
+  font-size: 40px;
+  line-height: 1.9;
+  margin-top: 40px;
+}
+
+.search-result-header-tagline {
+  margin-bottom: 50px;
+}
+
+.results-search {
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    color: white;
+    margin: 0;
+    margin-right: 20px;
+  }
+}
+
+.results-message {
+  h3 {
+    margin: 50px 0 30px 0;
+    font-size: 30px;
+    color: #3CC7C6;
+    font-weight: bolder;
+    letter-spacing: 2px;
+  }
 }

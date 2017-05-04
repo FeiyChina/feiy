@@ -1,21 +1,28 @@
-<!-- SEARCH -->
-<div class="search-wrapper">
-  <p>Find an organization</p>
-  <%= form_tag organizations_search_path, method: :get do |f| %>
-    <%= text_field_tag 'name', params[:name], placeholder: "  Search", class: "text-search-field" %>
-    <%= select_tag 'category', options_for_select(@categories_all), class: "text-search-dropdown" %>
-    <%= submit_tag 'Search', class: "btn-feiy-rec-white"%>
-  <% end %>
+<div class="wrapper" id="search-result-wrapper">
+  <div class="search-result-header">
+    <div class="search-result-header-welcome text-center">
+      <h1>Discover the community <br>of social impact organizations <br>in China</h1>
+    </div>
+  </div>
+  <!-- SEARCH -->
+  <div class="results-search">
+    <p>Find an organization</p>
+    <%= form_tag organizations_search_path, method: :get do |f| %>
+      <%= text_field_tag 'name', params[:name], placeholder: "  Search", class: "text-search-field" %>
+      <%= select_tag 'category', options_for_select(@categories_all), class: "text-search-dropdown" %>
+      <%= submit_tag 'Search', class: "btn-feiy-rec-white"%>
+    <% end %>
+  </div>
 </div>
 
 <!-- ORGANIZATIONS SEARCH RESULTS -->
-<div class="text-center">
+<div class="text-center results-message">
   <% unless @organizations %>
-    <p>We haven't found any organization matching your search! Please try again!</p>
+    <h3>We haven't found any organization matching your search! Please try again!</h3>
   <% end %>
 </div>
-<div class="text-center">
-  <h4>Displaying search results for: <%= @category_params %> and: <%= @name_params %></h4>
+<div class="text-center results-message">
+  <h3>Displaying search results for: <%= @category_params %> and: <%= @name_params %></h3>
 </div>
 <div class="container">
   <div class="row">
@@ -29,7 +36,7 @@
         <% end %>
         <div class="organization-card-description">
           <% if organization.categories.any? %>
-            <p id="organization-category"><%= organization.categories.first.name.upcase %></p>
+            <p id="organization-category"><%= organization.category %></p>
           <% end %>
           <p id="organization-name"><strong><%= organization.name %></strong></p>
           <p id="organization-problem"><%= truncate(organization.problem) %></p>

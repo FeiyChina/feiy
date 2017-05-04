@@ -1,72 +1,79 @@
 <div class="org-show-banner">
-
   <div class="org-show-banner-content">
-  <% if @organization.logo? %>
+    <!-- Edit function -->
+    <% if user_signed_in? && @organization.user_id == current_user.id %>
+      <div class="org-edit-actions">
+        <%= link_to "Delete", organization_path(@organization), method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Update", edit_organization_path(@organization), method: :get %>
+      </div>
+    <% end %>
+    <% if @organization.logo? %>
     <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill, id: "org-show-banner-logo" %>
   <% end %>
-  <% if @organization.categories.any? %>
-    <p id="organization-category"><%= @organization.categories.last.name.upcase %></p>
+  <% if @organization.category %>
+    <p id="organization-category"><%= @organization.category %></p>
   <% end %>
   <h1 id="org-show-banner-name"><%= @organization.name.capitalize %></h1>
+    <div id="actions-under-title">
+      <%= link_to "Contact us", organization_organization_contact_path(@organization), class: "btn-contact" %>
+      <%= render 'shared/org_likes' %>
+    </div>
   </div>
 </div>
 
-<!-- like partial -->
-<%= render 'shared/org_likes' %>
-
-<div class="container text-center" id="organization-information">
+<div class="org-show-body-content">
   <h4><strong>Who were are?</strong></h4>
   <p><%= @organization.description %></p>
   <h4><strong>What problem we solve?</strong></h4>
   <p><%= @organization.problem %></p>
   <h4><strong>Where we are?</strong></h4>
   <p><%= @organization.address %></p>
-  <h4><strong>What to contact us?</strong></h4>
-  <%= link_to "Send a message", organization_organization_contact_path(@organization), class: "btn btn-success"   %>
 </div>
 
-<!-- Edit function -->
-<% if user_signed_in? && @organization.user_id == current_user.id %>
-  <div class="container text-center">
-    <%= link_to "Delete", organization_path(@organization), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger' %>
-    <%= link_to "Update", edit_organization_path(@organization), method: :get, class: 'btn btn-warning'  %>
-  </div>
-<% end %>
 <!-- comment function -->
-<div class="text-center">
-  <h3>Comments</h3>
-</div>
-<div class="comment-section text-center">
-  <%= form_tag create_comment_path, method: "post" do %>
-  <%= hidden_field_tag "id", @organization.id %>
-  <%= text_area_tag :comment %>
-  <div class="comment-btn">
-    <%= submit_tag "Submit", class: "btn btn-success" %>
-  </div>
-  <% end %>
-</div>
-<div class="comment-list text-center">
-  <% @organization.comments.each do |comment| %>
-    <div class="comment-card">
-      <div class="comment-card-user-info">
-        <% if comment.user.avatar? %>
-          <%= cl_image_tag comment.user.avatar.path, height: 50, width: 50, crop: :thumb, gravity: :face, dpr: 2.0, class: "avatar-style" %>
-        <% else %>
-          <%= image_tag "profile_placeholder.png" %>
-        <% end %>
-        <% if comment.user.name? %>
-          <%= comment.user.name %>
-        <% else %>
-          <p>Anonimous</p>
-        <% end %>
-      </div>
-      <div class="comment-card-text">
-        <%= comment.comment %>
-      </div>
+<div class="org-show-comment-section text-center">
+  <h3>Leave us a nice comment</h3>
+  <div class="org-show-comment-box">
+    <%= form_tag create_comment_path, method: "post" do %>
+    <%= hidden_field_tag "id", @organization.id %>
+    <%= text_area_tag :comment %>
+    <div class="comment-btn">
+      <%= submit_tag "Submit", class: "btn btn-success" %>
     </div>
-  <% end %>
+    <% end %>
+  </div>
+
+  <!-- comment list -->
+  <div class="comment-list text-center">
+    <% @organization.comments.each do |comment| %>
+      <div class="follower-card">
+        <div class="follower-card-avatar">
+          <% if comment.user.avatar? %>
+            <%= cl_image_tag comment.user.avatar.path, height: 50, width: 50, crop: :thumb, gravity: :face, dpr: 2.0, class: "avatar-style" %>
+          <% else %>
+            <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
+          <% end %>
+        </div>
+        <div class="follower-card-info">
+          <% if comment.user.name? %>
+            <p class="comment-email"><strong><%= comment.user.name %></strong></p>
+          <% else %>
+            <p class="comment-email">Anonimous</p>
+          <% end %>
+        </div>
+        <div class="comment-card-text">
+          <%= comment.comment %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
+
 <!-- Jobs Section -->
+<div class="title-divider text-center" id="title-padding">
+  <h4>JOBS</h4>
+</div>
+
 <div class="text-center">
   <h3>Add a job offer</h3>
   <% if user_signed_in? && @organization.user_id == current_user.id %>
@@ -93,9 +100,14 @@
     <% end %>
   </div>
 </div>
+
+<div class="title-divider text-center" id="title-padding">
+  <h4>EVENTS</h4>
+</div>
+
 <!-- Hardcoded Events Section -->
 <div class="text-center">
-  <h2><%= @organization.name.capitalize %> events</h2>
+  <h3>Here are <%= @organization.name.capitalize %>'s events</h3>
     <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
     <%= link_to "Add a event", new_organization_event_path(@organization), method: :get, class: 'btn btn-warning'  %>
@@ -120,10 +132,12 @@
     <% end %>
   </div>
 </div>
+
 <!-- OTHER ORGANIZATIONS -->
-<div class="text-center">
-  <h2>Organizations you may like</h2>
+<div class="title-divider text-center" id="title-padding">
+  <h4>ORGANIZATIONS YOU MAY LIKE</h4>
 </div>
+
 <div class="container">
   <div class="row">
     <% if @suggested_organizations_shuffled != nil %>
@@ -138,8 +152,8 @@
           <div class="organization-card-description">
             <p id="organization-name"><strong><%= organization.name %></strong></p>
             <p id="organization-problem"><%= organization.problem%></p>
-            <% if organization.categories.any? %>
-              <p id="organization-category"><%= organization.categories.last.name %></p>
+            <% if organization.category %>
+              <p id="organization-category"><%= organization.category %></p>
             <% end %>
           </div>
           <div class="organization-card-icons">
