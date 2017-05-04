@@ -8,9 +8,10 @@
     <% else %>
       <%= image_tag "profile_placeholder.png" %>
     <% end %>
-      <p class="dashboard-sidebar-username">Welcome <strong>Firstname Lastname</strong></p>
+      <p class="dashboard-sidebar-username">Welcome <strong><%= current_user.name %></strong></p>
       <p class="dashboard-sidebar-usermail"><%= current_user.email %></p>
       <p class="dashboard-sidebar-admin">Verified Administrator</p>
+      <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-feiy-primary" %>
   </div>
 </div>
 <div class="dashboard-content">
@@ -164,7 +165,9 @@
       <% end %>
     </div>
   <% else %>
-    <h1>Your organization isn't autorized yet. wait the fuck up</h1>
+    <div class="approve-sign text-center">
+      <h2>We are currently approving your organization. Please wait.</h2>
+    </div>
   <% end %>
 </div>
 
