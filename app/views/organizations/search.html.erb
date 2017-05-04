@@ -1,7 +1,7 @@
 <div class="wrapper" id="search-result-wrapper">
   <div class="search-result-header">
     <div class="search-result-header-welcome text-center">
-      <h1>Discover the community <br>of social impact organizations <br>in China</h1>
+      <h1></h1>
     </div>
   </div>
   <!-- SEARCH -->
@@ -35,7 +35,7 @@
           <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
         <% end %>
         <div class="organization-card-description">
-          <% if organization.categories.any? %>
+          <% if organization.category %>
             <p id="organization-category"><%= organization.category %></p>
           <% end %>
           <p id="organization-name"><strong><%= organization.name %></strong></p>
