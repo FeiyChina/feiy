@@ -54,6 +54,21 @@
   }
 }
 
+@media (max-width: 414px) {
+  .dashboard-sidebar {
+    float: none;
+    width: 100%;
+    position: static;
+    height: 350px;
+
+  }
+  .dashboard-content {
+    float: none;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .dashboard-content-section {
   margin: 50px 0px;
 }
