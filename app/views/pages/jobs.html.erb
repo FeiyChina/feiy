@@ -27,11 +27,7 @@
 <br>
 <br>
 <div class="next-page">
-<% if @jobs.any? %>
-  <%= will_paginate @jobs, class: "flickr_pagination" %>
-<% else %>
-  <h2 class="no-jobs text-center">No Jobs Posted</h2>
-<% end %>
+
 <h5 class="text-center">(<%= @jobs.count %> jobs)</h5>
 </div>
 

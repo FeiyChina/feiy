@@ -43,10 +43,11 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    @organization = Organization.find(params[:id])
+    authorize @organization = Organization.find(params[:id])
   end
 
   def update
+    authorize @organization = Organization.find(params[:id])
     @organization = Organization.find(params[:id])
     @organization.update(organization_params)
     redirect_to organization_path(@organization)
@@ -63,7 +64,7 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    @organization = Organization.find(params[:id])
+    authorize @organization = Organization.find(params[:id])
     @organization.destroy
     flash[:notice] = "Your organization has been deleted!"
     redirect_to root_path

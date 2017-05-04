@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @organization = Organization.find(params[:organization_id])
+    authorize @organization = Organization.find(params[:organization_id])
     @event = Event.new
   end
 
@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @organization = Organization.find(params[:organization_id])
+    authorize @organization = Organization.find(params[:organization_id])
     @event = Event.find(params[:id])
   end
 
@@ -42,7 +42,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
+    authorize @event = Event.find(params[:id])
     @event.destroy
     redirect_to root_path
   end
