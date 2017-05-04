@@ -1,5 +1,9 @@
 class OrganizationPolicy < ApplicationPolicy
 
+  def index?
+    return false
+  end
+
   def new?
     record.user == user
   end
