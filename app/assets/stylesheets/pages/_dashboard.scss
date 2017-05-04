@@ -1,5 +1,4 @@
 .dashboard-sidebar{
-  padding-top: 20px;
   float: left;
   width: 20%;
   background-color: none;
@@ -52,6 +51,21 @@
   }
   p, h5 {
     font-weight: lighter;
+  }
+}
+
+@media (max-width: 414px) {
+  .dashboard-sidebar {
+    float: none;
+    width: 100%;
+    position: static;
+    height: 350px;
+
+  }
+  .dashboard-content {
+    float: none;
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -147,7 +161,40 @@
 
 .empty-content {
   color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   h3 {
+    color: black;
+    font-size: 20px;
     font-weight: lighter;
+    opacity: 0.5;
+    margin: 0;
+    margin-right: 10px;
+  }
+}
+
+.dashboard-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  h5 {
+    margin: 0;
+  }
+  a {
+    margin: 0;
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: 10px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease;
+    &:hover {
+      cursor: pointer;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
   }
 }

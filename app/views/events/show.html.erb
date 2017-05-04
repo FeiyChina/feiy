@@ -35,8 +35,8 @@
       </div>
       <div class="footer-buttons">
         <% if user_signed_in? && @organization.user_id == current_user.id %>
-          <%= link_to "Update Job Info", edit_organization_job_path(@event.organization_id, @event), method: :get, class: 'btn btn-warning'  %>
-          <%= link_to "Delete Job", organization_job_path(@event.organization_id, @event), method: :delete, class: 'btn btn-danger' %>
+          <%= link_to "Update Job Info", edit_organization_event_path(@event.organization_id, @event), method: :get, class: 'btn btn-warning'  %>
+          <%= link_to "Delete Job", organization_event_path(@event.organization_id, @event), method: :delete, class: 'btn btn-danger' %>
         <% end %>
       </div>
     </div>
