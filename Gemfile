@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
-
+gem "pundit"
 gem 'acts_as_commentable'
 
 gem 'activeadmin', github: 'activeadmin/activeadmin'
