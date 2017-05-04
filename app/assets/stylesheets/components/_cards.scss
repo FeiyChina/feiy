@@ -106,6 +106,19 @@
 
 
 //events cards
+
+.event-card {
+  background-color: white;
+  width: 300px;
+  height: 250px;
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
+  margin: 20px 0px 40px 0px;
+  z-index: 0;
+  padding: inherit
+}
+
 .events-card {
   background-color: white;
   width: 350px;
@@ -117,7 +130,50 @@
   z-index: 0;
 }
 
+.events-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom: 3px solid $brand-color;
+}
 
+.events-card-description {
+  width: 300px;
+  height: 150px;
+  position: absolute;
+  padding: 150px 0px;
+  margin: 10px auto;
+}
+
+
+.event-hover-card{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 3px;
+
+  transition: opacity .2s, visibility .2s;
+}
+.event-card:hover .event-hover-card {
+  visibility: visible;
+  opacity: 0.8;
+}
+
+#event-name {
+  font-size: 20px;
+  color: white;
+  padding-top: 20px;
+}
 
 
 //jobs cards
