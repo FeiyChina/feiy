@@ -18,15 +18,15 @@ class OrganizationsController < ApplicationController
     end
     # search by name
     @name_params = params[:name]
-    @search_by_name = Organization.where(name: @name_params)
+    @search_by_name = Organization.accepted.where(name: @name_params)
     @search_by_name.each do |org|
       @search_one << org.id
     end
 
     @search_total = @search_one.uniq
     @organizations = []
-    if @search_total
-      @search_total.each do |id|
+    @search_total.each do |id|
+      if Organization.find(id).accepted?
         @organizations.append(Organization.find(id))
       end
     end
