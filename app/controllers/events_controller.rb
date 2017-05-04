@@ -18,20 +18,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.organization = Organization.find(params[:organization_id])
     @event.save
-
-
-    if @event.save
-      MIXPANEL.track(@event.organization_id, 'Created', {
-        content: "Event",
-        organization_name: @event.organization.name,
-        event_name: @event.name,
-        venue: @event.venue
-      })
-
       redirect_to dashboard_path
-    else
-      render :new
-    end
   end
 
   def edit
