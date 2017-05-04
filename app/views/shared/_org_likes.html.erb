@@ -5,7 +5,10 @@
         <i class="fa fa-thumbs-up organization-card-icon"></i>
       <% end %>
       <span class="organization-card-icon-text"><%= @organization.votes_for.size %></span>
+    </div>
+
     <% else %>
+      <div class="action-like text-center">
       <%= link_to new_user_session_path do %>
         <i class="fa fa-thumbs-up organization-card-icon"></i>
       <% end %>
