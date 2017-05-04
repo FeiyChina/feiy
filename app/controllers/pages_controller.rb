@@ -36,12 +36,12 @@ class PagesController < ApplicationController
 
   def jobs
     @job = Job.all
-    @jobs = @job.where(active: true).order(created_at: :desc).paginate(:page => params[:page], :per_page => 9)
+    @jobs = @job.where(active: true).order(created_at: :desc)#.paginate(:page => params[:page], :per_page => 9)
   end
 
   def events
     @event = Event.all
-    @events = @event.where('date >= ?', Date.today).order(date: :asc).paginate(:page => params[:page], :per_page => 9)
+    @events = @event.where('date >= ?', Date.today).order(date: :asc)#.paginate(:page => params[:page], :per_page => 9)
   end
 
 end

@@ -15,6 +15,16 @@
   align-items: center;
 }
 
+.approve-sign {
+  height: 90vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  h2 {
+    font-weight: lighter;
+    color: #3CC7C6;
+  }
+}
 .dashboard-sidebar-orginfo {
   display: flex;
   justify-content: space-around;
@@ -26,6 +36,9 @@
   }
   p {
     font-weight: lighter;
+  }
+  a {
+    margin-top: 20px;
   }
 }
 
