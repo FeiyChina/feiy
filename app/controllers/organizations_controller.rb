@@ -95,8 +95,8 @@ class OrganizationsController < ApplicationController
   def destroy
     @organization = Organization.find(params[:id])
     @organization.destroy
+    flash[:notice] = "Your organization has been deleted!"
     redirect_to root_path
-    # redirect_to dashboard_path
   end
 
   def like
