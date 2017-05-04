@@ -1,4 +1,5 @@
 class Organization < ApplicationRecord
+  scope :accepted, -> { where(accepted?: true) }
   has_attachment :logo
   has_attachment :photo
   acts_as_commentable
