@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   get 'bookings/create'
 
   mount Attachinary::Engine => "/attachinary"
