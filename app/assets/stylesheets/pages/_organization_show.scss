@@ -1,26 +1,37 @@
-#organization-banner {
+.org-show-banner {
   height: 400px;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  img {
-    width: 100%;
-    height: 100%;
-  }
+  background-color: grey;
+  flex-direction: column;
 }
-#organization-banner-title {
-  background-color: gray;
+.org-show-banner-content {
   height: 200px;
   width: 600px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
-#organization-banner-title #organization-category {
-  margin-left: 5px;
+#org-show-banner-logo {
+  margin: 0px 15px;
+  height: 90px;
 }
-#organization-banner-name {
+.org-show-banner-content #organization-category {
+  margin-left: 15px;
+}
+#org-show-banner-name {
   margin-top: 5px;
-  margin-left: 0px;
+  margin-left: 10px;
   font-size: 55px;
+  font-family: Arvo;
+}
+
+
+
+
+#organization-banner-content #organization-category {
+  margin-left: 5px;
 }
 
 #organization-information {
