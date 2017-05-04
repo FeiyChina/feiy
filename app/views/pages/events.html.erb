@@ -13,7 +13,7 @@
             <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
           <% end %>
             <div class="events-card-description">
-              <p id="job-name">Hosted by <%= event.organization.name %></p>
+              <p id="job-name">Hosted by <%= truncate(event.organization.name) %></p>
               <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
             </div>
             <p class="event-hover-card text-center" id="event-name"><strong><%= event.name %></strong><br><br><%= truncate(event.content)%></p>

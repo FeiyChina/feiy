@@ -123,9 +123,9 @@
                 <% end %>
                 <div class="job-card-description">
                   <p id="job-name"><strong><%= truncate(job.name) %></strong></p>
-                  <p id="job-problem">Posted by: <%= job.organization.name%></p>
-                  <p id="job-problem"><%= job.job_type%></p>
-                  <p id="job-category"><%= job.address %></p>
+                  <p id="job-problem">Posted by: <%= truncate(job.organization.name) %></p>
+                  <p id="job-problem"><%= truncate(job.job_type)%></p>
+                  <p id="job-category"><%= truncate(job.address) %></p>
                 </div>
                  <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
                 </div>
@@ -156,8 +156,8 @@
               <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
             <% end %>
               <div class="events-card-description">
-                <p id="job-name">Hosted by <%= event.organization.name %></p>
-                <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+                <p id="job-name">Hosted by <%= truncate(event.organization.name) %></p>
+                <p id="job-address"><%= truncate(event.date.strftime("%B %e, %Y, %l:%M %p ")) %></p>
               </div>
               <p class="event-hover-card text-center" id="event-name"><strong><%= event.name %></strong><br><br><%= truncate(event.content)%></p>
               <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
