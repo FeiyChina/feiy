@@ -4,14 +4,14 @@
   <% end %>
 </div>
 
-<div class="text-center">
+<div id="organization-banner-title">
   <% if @organization.logo? %>
     <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill %>
   <% end %>
   <% if @organization.categories.any? %>
-    <p id="organization-category"><%= @organization.categories.last.name %></p>
+    <p id="organization-category"><%= @organization.categories.last.name.upcase %></p>
   <% end %>
-  <h1><%= @organization.name.capitalize %></h1>
+  <h1 id="organization-name"><%= @organization.name.capitalize %></h1>
   <!-- like partial -->
   <%= render 'shared/org_likes' %>
 </div>
