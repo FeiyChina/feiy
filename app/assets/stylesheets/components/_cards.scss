@@ -107,6 +107,8 @@
 
 //events cards
 
+
+
 .event-card {
   background-color: white;
   width: 300px;
@@ -118,6 +120,7 @@
   z-index: 0;
   padding: inherit
 }
+
 
 .events-card {
   background-color: white;
@@ -138,7 +141,7 @@
   height: 150px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  border-bottom: 3px solid $brand-color;
+  border-bottom: 3px solid #D5F0EE;
 }
 
 .events-card-description {
