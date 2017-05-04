@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @current_user = current_user
-    @organizations = Organization.all
+    @organizations = Organization.where(accepted?: true)
     @categories = ENV["categories"].split(",")
     @categories.prepend("")
     @job = Job.all

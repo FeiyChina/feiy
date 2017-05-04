@@ -14,154 +14,158 @@
   </div>
 </div>
 <div class="dashboard-content">
-  <h4>Organization overview</h4>
-  <div class="dashboard-content-section dasboard-content-info">
-    <h5><strong>What do we do?</strong></h6>
-    <p><%= @organization.problem %></p>
-    <h5><strong>How do we do it?</strong></h6>
-    <p><%= @organization.description %></p>
-    <div class="dashboard-content-info-buttons">
-      <%= link_to "Edit", edit_organization_path(@organization), class: "btn btn-default" %>
-      <%= link_to "Delete", organization_path(@organization), method: :delete, data: {confirm: "Are you sure you want to delete your organization?"}, class: "btn btn-default" %>
-    </div>
-  </div>
-  <div class="dashboard-content-section">
-    <h5><strong>Your audience</strong></h5>
-    <div class="dashboard-content-audience">
-      <div class="organization-audience-card">
-        <p class="audience-number"><%= @organization.votes_for.size %></p>
-        <p class="audience-word">Followers</p>
-      </div>
-      <div class="organization-audience-card">
-        <p class="audience-number"><%= @organization.comments.size %></p>
-        <p class="audience-word">Comments</p>
+  <% if @organization.accepted? == true %>
+    <h4>Organization overview</h4>
+    <div class="dashboard-content-section dasboard-content-info">
+      <h5><strong>What do we do?</strong></h6>
+      <p><%= @organization.problem %></p>
+      <h5><strong>How do we do it?</strong></h6>
+      <p><%= @organization.description %></p>
+      <div class="dashboard-content-info-buttons">
+        <%= link_to "Edit", edit_organization_path(@organization), class: "btn btn-default" %>
+        <%= link_to "Delete", organization_path(@organization), method: :delete, data: {confirm: "Are you sure you want to delete your organization?"}, class: "btn btn-default" %>
       </div>
     </div>
-  </div>
-  <div class="dashboard-content-section dashboard-content-comments">
-    <h5><strong>Followers comments</strong></h5>
-    <% if @random_comment %>
-      <div class="random-comment-big-card">
-        <div class="random-comment-big-card-top">
-          <div class="comment-big-card-useravatar">
-            <% if @random_comment.user.avatar? %>
-              <%= cl_image_tag @random_comment.user.avatar.path, height: 50, width: 50, crop: :fill, gravity: :face, radius: :max, class: "comment-avatar"  %>
-            <% else %>
-              <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
+    <div class="dashboard-content-section">
+      <h5><strong>Your audience</strong></h5>
+      <div class="dashboard-content-audience">
+        <div class="organization-audience-card">
+          <p class="audience-number"><%= @organization.votes_for.size %></p>
+          <p class="audience-word">Followers</p>
+        </div>
+        <div class="organization-audience-card">
+          <p class="audience-number"><%= @organization.comments.size %></p>
+          <p class="audience-word">Comments</p>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-content-section dashboard-content-comments">
+      <h5><strong>Followers comments</strong></h5>
+      <% if @random_comment %>
+        <div class="random-comment-big-card">
+          <div class="random-comment-big-card-top">
+            <div class="comment-big-card-useravatar">
+              <% if @random_comment.user.avatar? %>
+                <%= cl_image_tag @random_comment.user.avatar.path, height: 50, width: 50, crop: :fill, gravity: :face, radius: :max, class: "comment-avatar"  %>
+              <% else %>
+                <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
+              <% end %>
+            </div>
+            <div clas="comment-big-card-userinfo">
+              <p class="comment-email"><strong><%= @random_comment.user.email %></strong></p>
+              <p class="comment-date"><%= @random_comment.created_at.strftime("%B %d, %Y") %></p>
+            </div>
+          </div>
+          <div class="random-comment-big-card-bottom">
+            <p><em>"<%= @random_comment.comment %>"</em></p>
+          </div>
+        </div>
+      <% else %>
+        <div class="empty-content text-center">
+          <h3>No comments</h3>
+        </div>
+      <% end %>
+    </div>
+    <div class="dashboard-content-section dashboard-content-followers">
+      <h5><strong>Followers</strong></h5>
+      <% if @organization.votes_for.size == 0 %>
+        <div class="empty-content text-center">
+          <h3>No followers</h3>
+        </div>
+      <% else %>
+        <div class="container">
+          <div class="row" style="margin-top: 20px;">
+            <% @organization.votes_for.each do |vote| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="follower-card">
+                  <div class="follower-card-avatar">
+                    <% if vote.voter.avatar? %>
+                      <%= cl_image_tag vote.voter.avatar.path, height: 50, width: 50, crop: :fill, gravity: :face, radius: :max, class: "avatar-style"  %>
+                    <% else %>
+                      <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
+                    <% end %>
+                  </div>
+                  <div class="follower-card-info">
+                    <p class="comment-email"><strong><%= vote.voter.email %></strong></p>
+                    <p class="comment-date"><%= vote.created_at.strftime("%B %d, %Y") %></p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="dashboard-content-section dashboard-content-jobs">
+      <div class="dashboard-title">
+        <h5><strong>Jobs</strong></h5>
+        <%= link_to "Add", new_organization_job_path(@organization) %>
+      </div>
+      <% if @jobs.size == 0 %>
+        <div class="empty-content text-center">
+          <h3>No jobs</h3>
+        </div>
+      <% else %>
+        <div class="container">
+          <div class="row">
+            <% @jobs.each do |job| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="job-card">
+                <% if job.organization.logo %>
+                  <img src="<%= cl_image_path job.organization.logo.path, height: 180, width: 350, crop: :fill%>", class='job-card-img' >
+                <% else %>
+                  <%= image_tag "card_org_ngo_default.jpg", class: "job-card-img" %>
+                <% end %>
+                <div class="job-card-description">
+                  <p id="job-name"><strong><%= truncate(job.name) %></strong></p>
+                  <p id="job-problem">Posted by: <%= job.organization.name%></p>
+                  <p id="job-problem"><%= job.job_type%></p>
+                  <p id="job-category"><%= job.address %></p>
+                </div>
+                 <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
+                </div>
+              </div>
             <% end %>
           </div>
-          <div clas="comment-big-card-userinfo">
-            <p class="comment-email"><strong><%= @random_comment.user.email %></strong></p>
-            <p class="comment-date"><%= @random_comment.created_at.strftime("%B %d, %Y") %></p>
-          </div>
         </div>
-        <div class="random-comment-big-card-bottom">
-          <p><em>"<%= @random_comment.comment %>"</em></p>
-        </div>
-      </div>
-    <% else %>
-      <div class="empty-content text-center">
-        <h3>No comments</h3>
-      </div>
-    <% end %>
-  </div>
-  <div class="dashboard-content-section dashboard-content-followers">
-    <h5><strong>Followers</strong></h5>
-    <% if @organization.votes_for.size == 0 %>
-      <div class="empty-content text-center">
-        <h3>No followers</h3>
-      </div>
-    <% else %>
-      <div class="container">
-        <div class="row" style="margin-top: 20px;">
-          <% @organization.votes_for.each do |vote| %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <div class="follower-card">
-                <div class="follower-card-avatar">
-                  <% if vote.voter.avatar? %>
-                    <%= cl_image_tag vote.voter.avatar.path, height: 50, width: 50, crop: :fill, gravity: :face, radius: :max, class: "avatar-style"  %>
-                  <% else %>
-                    <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
-                  <% end %>
-                </div>
-                <div class="follower-card-info">
-                  <p class="comment-email"><strong><%= vote.voter.email %></strong></p>
-                  <p class="comment-date"><%= vote.created_at.strftime("%B %d, %Y") %></p>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="dashboard-content-section dashboard-content-jobs">
-    <div class="dashboard-title">
-      <h5><strong>Jobs</strong></h5>
-      <%= link_to "Add", new_organization_job_path(@organization) %>
+      <% end %>
     </div>
-    <% if @jobs.size == 0 %>
-      <div class="empty-content text-center">
-        <h3>No jobs</h3>
+    <div class="dashboard-content-section dashboard-content-events">
+      <div class="dashboard-title">
+        <h5><strong>Events</strong></h5>
+        <%= link_to "Add", new_organization_event_path(@organization) %>
       </div>
-    <% else %>
-      <div class="container">
-        <div class="row">
-          <% @jobs.each do |job| %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-              <div class="job-card">
-              <% if job.organization.logo %>
-                <img src="<%= cl_image_path job.organization.logo.path, height: 180, width: 350, crop: :fill%>", class='job-card-img' >
-              <% else %>
-                <%= image_tag "card_org_ngo_default.jpg", class: "job-card-img" %>
-              <% end %>
-              <div class="job-card-description">
-                <p id="job-name"><strong><%= truncate(job.name) %></strong></p>
-                <p id="job-problem">Posted by: <%= job.organization.name%></p>
-                <p id="job-problem"><%= job.job_type%></p>
-                <p id="job-category"><%= job.address %></p>
-              </div>
-               <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
-              </div>
-            </div>
-          <% end %>
+      <% if @events.size == 0 %>
+        <div class="empty-content text-center">
+          <h3>No events</h3>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="dashboard-content-section dashboard-content-events">
-    <div class="dashboard-title">
-      <h5><strong>Events</strong></h5>
-      <%= link_to "Add", new_organization_event_path(@organization) %>
-    </div>
-    <% if @events.size == 0 %>
-      <div class="empty-content text-center">
-        <h3>No events</h3>
-      </div>
-    <% else %>
-      <div class="container">
-        <div class="row">
-          <% @events.each do |event| %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-         <div class="event-card">
-          <% if event.organization.logo %>
-            <img src="<%= cl_image_path event.organization.logo.path, height: 180, width: 350, crop: :fill%>", class='events-card-img' >
-          <% else %>
-            <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
-          <% end %>
-            <div class="events-card-description">
-              <p id="job-name">Hosted by <%= event.organization.name %></p>
-              <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+      <% else %>
+        <div class="container">
+          <div class="row">
+            <% @events.each do |event| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+           <div class="event-card">
+            <% if event.organization.logo %>
+              <img src="<%= cl_image_path event.organization.logo.path, height: 180, width: 350, crop: :fill%>", class='events-card-img' >
+            <% else %>
+              <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
+            <% end %>
+              <div class="events-card-description">
+                <p id="job-name">Hosted by <%= event.organization.name %></p>
+                <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+              </div>
+              <p class="event-hover-card text-center" id="event-name"><strong><%= event.name %></strong><br><br><%= truncate(event.content)%></p>
+              <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
             </div>
-            <p class="event-hover-card text-center" id="event-name"><strong><%= event.name %></strong><br><br><%= truncate(event.content)%></p>
-            <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
+              </div>
+            <% end %>
           </div>
-            </div>
-          <% end %>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% else %>
+    <h1>Your organization isn't autorized yet. wait the fuck up</h1>
+  <% end %>
 </div>
 
 

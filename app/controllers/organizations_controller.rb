@@ -2,7 +2,8 @@ class OrganizationsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
 
   def index
-    @organizations = Organization.all
+    @organizations = Organization.where(accepted?: true)
+
   end
 
   def search
@@ -29,7 +30,11 @@ class OrganizationsController < ApplicationController
         @organizations.append(Organization.find(id))
       end
     end
+    @categories_all = ENV["categories"].split(",")
+    @categories_all.prepend("")
   end
+
+
 
   def new
     @organization = Organization.new
@@ -126,6 +131,6 @@ class OrganizationsController < ApplicationController
   end
 
   def organization_params
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :email, :address, :photo, :logo, :category_ids, :user_is_a_representative)
+    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :email, :address, :photo, :logo, :category_ids, :user_is_a_representative, :accepted?)
   end
 end
