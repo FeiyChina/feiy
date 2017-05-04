@@ -31,8 +31,8 @@
 </div>
 
 <!-- comment function -->
-<div class="org-show-comment-section text-center">
-  <h3>Leave us a nice comment</h3>
+<div class="org-show-comment-section">
+  <h3 id="leavemsg">Leave us a nice comment</h3>
   <div class="org-show-comment-box">
     <%= form_tag create_comment_path, method: "post" do %>
     <%= hidden_field_tag "id", @organization.id %>
