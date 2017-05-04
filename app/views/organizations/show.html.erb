@@ -86,16 +86,20 @@
   <div class="row">
     <% @organization.jobs.each do |job| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="job-card">
-        <div class="job-logo"></div>
-        <div class="job-card-description">
-        <p id="job-name"><strong><%= job.organization.name %></strong></p>
-          <p id="job-name"><%= job.name %></p>
-          <p id="job-type"><%= job.job_type%></p>
-          <p id="job-address"><%= job.address %></p>
-        </div>
-        <%= link_to "", organization_job_path(job.organization_id, job.id), class: "organization-card-link" %>
-        </div>
+          <div class="job-card">
+          <% if job.organization.logo %>
+            <img src="<%= cl_image_path job.organization.logo.path, height: 180, width: 350, crop: :fill%>", class='job-card-img' >
+          <% else %>
+            <%= image_tag "card_org_ngo_default.jpg", class: "job-card-img" %>
+          <% end %>
+          <div class="job-card-description">
+            <p id="job-name"><strong><%= truncate(job.name) %></strong></p>
+            <p id="job-problem">Posted by: <%= job.organization.name%></p>
+            <p id="job-problem"><%= job.job_type%></p>
+            <p id="job-category"><%= job.address %></p>
+          </div>
+           <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
+          </div>
       </div>
     <% end %>
   </div>
@@ -118,15 +122,18 @@
   <div class="row">
     <% @events.each do |event| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="job-card">
-        <div class="job-logo"></div>
-        <div class="job-card-description">
-          <p id="job-name"><strong><%= event.name %></strong></p>
-          <p id="job-name">Hosted by <%= event.organization.name %></p>
-          <p id="job-type"><%= truncate(event.content)%></p>
-          <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
-        </div>
-        <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
+        <div class="event-card">
+        <% if event.organization.logo %>
+          <img src="<%= cl_image_path event.organization.logo.path, height: 180, width: 350, crop: :fill%>", class='events-card-img' >
+        <% else %>
+          <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
+        <% end %>
+          <div class="events-card-description">
+            <p id="job-name"><strong><%= event.name %></strong></p>
+            <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+          </div>
+          <p class="event-hover-card text-center" id="event-name">Hosted by <%= event.organization.name %><br><br><%= truncate(event.content)%></p>
+          <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
         </div>
       </div>
     <% end %>
