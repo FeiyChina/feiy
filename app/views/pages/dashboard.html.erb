@@ -61,7 +61,7 @@
       </div>
     <% else %>
       <div class="empty-content text-center">
-        <h3>This organization doesn't have any comments yet</h1>
+        <h3>No comments</h3>
       </div>
     <% end %>
   </div>
@@ -69,7 +69,7 @@
     <h5><strong>Followers</strong></h5>
     <% if @organization.votes_for.size == 0 %>
       <div class="empty-content text-center">
-        <h3>This organization doesn't have any follower yet</h1>
+        <h3>No followers</h3>
       </div>
     <% else %>
       <div class="container">
@@ -96,10 +96,13 @@
     <% end %>
   </div>
   <div class="dashboard-content-section dashboard-content-jobs">
-    <h5><strong>Jobs</strong></h5>
+    <div class="dashboard-title">
+      <h5><strong>Jobs</strong></h5>
+      <%= link_to "Add", new_organization_job_path(@organization) %>
+    </div>
     <% if @jobs.size == 0 %>
       <div class="empty-content text-center">
-        <h3>This organization hasn't post any job offers yet</h1>
+        <h3>No jobs</h3>
       </div>
     <% else %>
       <div class="container">
@@ -123,10 +126,13 @@
     <% end %>
   </div>
   <div class="dashboard-content-section dashboard-content-events">
-    <h5><strong>Events</strong></h5>
+    <div class="dashboard-title">
+      <h5><strong>Events</strong></h5>
+      <%= link_to "Add", new_organization_event_path(@organization) %>
+    </div>
     <% if @events.size == 0 %>
       <div class="empty-content text-center">
-        <h3>This organization hasn't post any events yet</h1>
+        <h3>No events</h3>
       </div>
     <% else %>
       <div class="container">
