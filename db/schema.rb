@@ -102,6 +102,14 @@ ActiveRecord::Schema.define(version: 20170504051547) do
     t.index ["organization_id"], name: "index_jobs_on_organization_id", using: :btree
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.string   "likeable_type"
+    t.integer  "likeable_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id", using: :btree
+  end
+
   create_table "organizations", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
