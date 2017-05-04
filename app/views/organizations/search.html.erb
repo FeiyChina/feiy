@@ -22,7 +22,11 @@
   <% end %>
 </div>
 <div class="text-center results-message">
-  <h3>Displaying search results for: <%= @category_params %> and: <%= @name_params %></h3>
+<% if @organizations %>
+  <h3>Displaying search results for: <%= @category_params %> and <%= @name_params %></h3>
+<% else %>
+  <h3>No results</h3>
+<% end %>
 </div>
 <div class="container">
   <div class="row">
