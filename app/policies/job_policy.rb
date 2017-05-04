@@ -4,6 +4,12 @@ class JobPolicy < ApplicationPolicy
       scope
     end
   end
+
+  def new
+    record.user == user
+
+  end
+
   def create?
     return true
   end

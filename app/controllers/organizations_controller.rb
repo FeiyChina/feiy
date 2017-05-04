@@ -33,7 +33,7 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = Organization.new
+    @organization = Organization.new(organization_params)
     @organization.user_id = current_user.id
     if @organization.save
       redirect_to dashboard_path
@@ -43,7 +43,7 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    @organization = Organization.find(params[:id])
+    authorize @organization = Organization.find(params[:id])
   end
 
   def update

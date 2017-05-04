@@ -1,4 +1,5 @@
-class OrganizationPolicy < ApplicationPolicy
+class EventPolicy < ApplicationPolicy
+  class Scope < Scope
 
   def new?
     record.user == user
@@ -20,9 +21,9 @@ class OrganizationPolicy < ApplicationPolicy
     record.user == user
   end
 
-  class Scope < Scope
+
     def resolve
-      scope.all
+      scope
     end
   end
 end
