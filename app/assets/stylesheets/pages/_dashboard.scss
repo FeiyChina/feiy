@@ -1,5 +1,4 @@
 .dashboard-sidebar{
-  padding-top: 20px;
   float: left;
   width: 20%;
   background-color: none;
@@ -52,6 +51,21 @@
   }
   p, h5 {
     font-weight: lighter;
+  }
+}
+
+@media (max-width: 414px) {
+  .dashboard-sidebar {
+    float: none;
+    width: 100%;
+    position: static;
+    height: 350px;
+
+  }
+  .dashboard-content {
+    float: none;
+    width: 100%;
+    text-align: center;
   }
 }
 

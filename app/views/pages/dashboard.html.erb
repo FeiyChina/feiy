@@ -22,7 +22,7 @@
     <p><%= @organization.description %></p>
     <div class="dashboard-content-info-buttons">
       <%= link_to "Edit", edit_organization_path(@organization), class: "btn btn-default" %>
-      <%= link_to "Delete", organization_path(@organization), method: :delete, class: "btn btn-default" %>
+      <%= link_to "Delete", organization_path(@organization), method: :delete, data: {confirm: "Are you sure you want to delete your organization?"}, class: "btn btn-default" %>
     </div>
   </div>
   <div class="dashboard-content-section">
@@ -147,7 +147,8 @@
           <% end %>
         </div>
       </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 
