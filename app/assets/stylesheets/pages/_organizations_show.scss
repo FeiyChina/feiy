@@ -101,6 +101,17 @@
   text-align: center;
 }
 
+.org-show-comment-big-card {
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 40px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
 #comment {
   width: 500px;
   height: 150px;
