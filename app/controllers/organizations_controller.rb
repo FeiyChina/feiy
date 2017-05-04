@@ -44,6 +44,7 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
+    authorize @organization
     @organization.user_id = current_user.id
     @organization.categories << Category.create(name: params[:organization][:categories])
     if @organization.save
