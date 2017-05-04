@@ -7,7 +7,7 @@
     <%= f.input :description %>
     <%= f.input :address %>
     <%= f.input :website %>
-    <%= f.select :categories, @categories, :selected => @current_category%>
+    <%= f.input :category, collection: ["Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"] %>
   </div>
     <%= f.input :user_is_a_representative, inline_label: 'I am a representative of this organization', error: 'Only representatives can add organizations', error_html: { id: 'representative_error'}   %>
   <div class="form-actions">

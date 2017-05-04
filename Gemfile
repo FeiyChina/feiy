@@ -38,16 +38,18 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
-
+gem "pundit"
 gem 'acts_as_commentable'
 
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # Styleing gems go here
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'acts_as_votable'
-gem 'will_paginate'
+gem 'geocoder'
 
 gem 'mixpanel-ruby'
 

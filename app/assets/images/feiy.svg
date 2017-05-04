@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="209px" viewBox="0 0 200 209" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>feiy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="200" height="208.487085"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="feiy">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <g id="Mask"></g>
+            <g mask="url(#mask-2)">
+                <g transform="translate(-0.738007, 0.000000)">
+                    <g id="Group" stroke-width="1" fill-rule="evenodd">
+                        <g id="LWPOLYLINE" fill-rule="nonzero" fill="#32C8C8">
+                            <polygon id="Shape" points="0.292178021 103.284368 99.3405269 103.284368 0.292178021 0.208800001"></polygon>
+                        </g>
+                        <g id="LWPOLYLINE_1_" transform="translate(101.054052, 105.162044)" fill-rule="nonzero" fill="#32C8C8">
+                            <polygon id="Shape" points="0.268012921 0.182890511 99.316362 0.182890511 0.268012921 103.258459"></polygon>
+                        </g>
+                        <g id="LWPOLYLINE_2_" transform="translate(0.000000, 105.162044)" fill-rule="nonzero" fill="#32C8C8">
+                            <polygon id="Shape" points="47.8359129 0.182890511 0.292178021 0.182890511 47.8359129 49.6601081"></polygon>
+                        </g>
+                        <g id="LWPOLYLINE_3_" transform="translate(51.555250, 158.800940)" fill-rule="nonzero" fill="#32C8C8">
+                            <polygon id="Shape" points="0.242274255 0.143107074 47.7852768 49.6195627 47.7852768 0.143107074"></polygon>
+                        </g>
+                        <g id="LWPOLYLINE_4_" transform="translate(49.794750, 105.162044)" fill-rule="nonzero" fill="#32C8C8">
+                            <rect id="Rectangle-path" x="0.0219682722" y="0.182890511" width="49.5238085" height="51.5377841"></rect>
+                        </g>
+                        <g id="LWPOLYLINE_5_" transform="translate(151.440699, 0.000000)" fill-rule="nonzero" fill="#32C8C8">
+                            <polygon id="Shape" points="0.105961953 51.0173081 48.9297148 0.208800001 48.9297148 101.826578"></polygon>
+                        </g>
+                        <g id="LWPOLYLINE_6_" transform="translate(101.054052, 52.410638)" fill-rule="nonzero" fill="#32C8C8">
+                            <polygon id="Shape" points="49.0917657 0.0644594022 0.268012921 50.8737295 97.914786 50.8737295"></polygon>
+                        </g>
+                    </g>
+                    <rect id="Rectangle-path" x="100.439727" y="50.9922214" width="339.043668" height="107.915308"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

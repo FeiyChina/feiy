@@ -2,13 +2,12 @@
   margin: 20px auto;
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
+  background-size: fill !important;
   color: white;
   position: relative;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
-  background: #2C3E50;
-  background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);
-  background: linear-gradient(to right, #4CA1AF, #2C3E50);
+  background-image: image-url('jobs.jpeg');
+  max-width: 600px
 }
 
 .card-logo {
@@ -37,6 +36,7 @@
   color: black;
   position: relative;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
+  max-width: 600px
 }
 
 .sub-header-card-description {

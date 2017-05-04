@@ -1,16 +1,9 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   get 'bookings/create'
 
   mount Attachinary::Engine => "/attachinary"
-  # get 'organizations/:id', to: "organizations#show"
 
-  # get 'organizations/new', to: "organizations#new"
-  # post 'organizations', to: "organizations#create"
-
-  # get 'organizations/:id/edit', to: "organizations#edit"
-  # patch 'organizations/:id', to: "organizations#update"
-
-  # delete 'organizations/:id', to: "organizations#destroy"
   resource :bookings, only: [:create]
   get 'organizations_search', to: 'organizations#search'
 
@@ -28,8 +21,9 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
   get 'about_us', to: 'pages#about_us'
+  get 'developers', to: 'pages#developers'
   get 'events', to: 'pages#events', as: "events"
-  get 'jobspool', to: 'pages#jobspool', as: "jobspool"
+  get 'jobs', to: 'pages#jobs', as: "jobs"
   post 'comments' => 'comments#create', as: "create_comment"
 
 end

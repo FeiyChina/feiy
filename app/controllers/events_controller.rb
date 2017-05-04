@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @organization = Organization.find(params[:organization_id])
+    authorize @organization = Organization.find(params[:organization_id])
     @event = Event.new
   end
 
@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @organization = Organization.find(params[:organization_id])
+    authorize @organization = Organization.find(params[:organization_id])
     @event = Event.find(params[:id])
   end
 
@@ -36,10 +36,13 @@ class EventsController < ApplicationController
   def show
     @organization = Organization.find(params[:organization_id])
     @event = Event.find(params[:id])
+
+    @baidumap_url = 'http://api.map.baidu.com/staticimage/v2?ak=' + ENV['BAIDU_KEY'] + "&amp;" + 'mcode=666666&center=' + @event.longitude.to_s + ',' + @event.latitude.to_s + '&width=600&height=400&zoom=16'
+
   end
 
   def destroy
-    @event = Event.find(params[:id])
+    authorize @event = Event.find(params[:id])
     @event.destroy
     redirect_to root_path
   end
@@ -52,6 +55,5 @@ class EventsController < ApplicationController
 
 
 end
-
 
 
