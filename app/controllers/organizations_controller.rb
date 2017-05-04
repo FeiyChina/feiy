@@ -3,7 +3,7 @@ class OrganizationsController < ApplicationController
 
   def index
     @organizations = Organization.where(accepted?: true)
-
+    @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
   end
 
   def search
