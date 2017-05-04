@@ -34,7 +34,9 @@ class OrganizationsController < ApplicationController
     @categories_all.prepend("")
   end
 
-
+  # def authorize
+  #   authorize @organization = Organization.new(organization_params)
+  # end
 
   def new
     @organization = Organization.new
@@ -43,8 +45,6 @@ class OrganizationsController < ApplicationController
   end
 
   def create
-    @organization = Organization.new(organization_params)
-    authorize @organization
     @organization.user_id = current_user.id
     @organization.categories << Category.create(name: params[:organization][:categories])
     if @organization.save
@@ -55,7 +55,8 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    @organization = Organization.find(params[:id])
+    # authorize @organization
+    authorize @organization = Organization.find(params[:id])
     @categories = ENV["categories"].split(",")
     if @organization.categories.any?
       @current_category = @organization.categories.last.name
@@ -65,7 +66,7 @@ class OrganizationsController < ApplicationController
   end
 
   def update
-    @organization = Organization.find(params[:id])
+    authorize @organization = Organization.find(params[:id])
     @organization.update(organization_params)
     if @organization.categories.any?
       @organization.categories.last.update(name: params[:organization][:categories])
@@ -99,7 +100,7 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    @organization = Organization.find(params[:id])
+    authorize @organization = Organization.find(params[:id])
     @organization.destroy
     flash[:notice] = "Your organization has been deleted!"
     redirect_to root_path

@@ -1,7 +1,11 @@
-class OrganizationPolicy < ApplicationPolicy
-
+class JobPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      scope
+    end
+  end
   def create?
-   return true
+    return true
   end
 
   def edit?
@@ -14,11 +18,5 @@ class OrganizationPolicy < ApplicationPolicy
 
   def destroy?
     record.user == user
-  end
-
-  class Scope < Scope
-    def resolve
-      scope
-    end
   end
 end
