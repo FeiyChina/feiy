@@ -1,5 +1,4 @@
 <div>
-<!-- like function -->
   <% if user_signed_in? %>
     <div class="action-like ">
       <%= link_to like_organization_path(@organization), method: :post do %>
@@ -7,7 +6,6 @@
       <% end %>
       <span class="organization-card-icon-text"><%= @organization.votes_for.size %></span>
     </div>
-
     <% else %>
       <div class="action-like ">
       <%= link_to new_user_session_path do %>
