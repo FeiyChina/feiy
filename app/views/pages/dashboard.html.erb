@@ -140,7 +140,7 @@
         <h5><strong>Events</strong></h5>
         <%= link_to "Add", new_organization_event_path(@organization) %>
       </div>
-      <% if @events.size == 0 %>
+      <% if @events == nil %>
         <div class="empty-content text-center">
           <h3>No events</h3>
         </div>
