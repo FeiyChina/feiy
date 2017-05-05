@@ -67,6 +67,7 @@
 </div>
 <% end %>
 
+
 <!-- JOBS -->
 <% if @jobs.any? %>
   <div class="title-divider text-center" id="title-padding" >
@@ -100,8 +101,6 @@
     </div>
   </div>
 <% end %>
-
-
 
 
 <!-- EVENTS -->
@@ -140,13 +139,13 @@
 <!-- FEATURES -->
 <div id="features-img">
   <div class="title-divider text-center">
-    <h4>HOW FEIY WORKS</h4>
+    <h4 class="feiy-feature-title">HOW FEIY WORKS</h4>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <div class="features text-center">
-          <%= image_tag "search.png", class: "feiy-feature-img" %>
+          <%= image_tag "home-features-search.png", class: "feiy-feature-img" %>
           <div class="feiy-feature-text">
             <h4>EXPLORE</h4>
             <h5>Be inspired & discover the actors of change</h5>
@@ -155,7 +154,7 @@
       </div>
       <div class="col-xs-12 col-sm-4">
         <div class="features text-center">
-          <%= image_tag "book.png", class: "feiy-feature-img" %>
+          <%= image_tag "home-features-book.png", class: "feiy-feature-img" %>
           <div class="feiy-feature-text">
             <h4>JOBS</h4>
             <h5>Find good jobs & start a meaningful career</h5>
@@ -164,7 +163,7 @@
       </div>
        <div class="col-xs-12 col-sm-4">
         <div class="features text-center">
-          <%= image_tag "like.png", class: "feiy-feature-img" %>
+          <%= image_tag "home-features-like.png", class: "feiy-feature-img" %>
           <div class="feiy-feature-text">
             <h4>EVENTS</h4>
             <h5>Go to events & meet like minded people</h5>
@@ -174,6 +173,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- Bottomer Wrapper -->
 <% unless user_signed_in? %>

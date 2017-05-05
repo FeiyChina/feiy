@@ -31,7 +31,7 @@
         <% if current_user.avatar? %>
           <%= cl_image_tag(current_user.avatar.path, { size: '40x40', crop: :thumb, gravity: :face, dpr: 2.0, radius: :max }) %>
         <% else %>
-          <%= image_tag("profile-placeholder.png", size: '40x40') %>
+          <%= image_tag("profile_placeholder.png", size: '40x40') %>
         <% end %>
       </div>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -60,21 +60,17 @@
     </div>
   </div>
 
-
   <!-- Button (call-to-action) -->
   <!-- Problem this flash alert also appears when I am not trying to create a fourth og -->
   <% if user_signed_in? && current_user.organizations.count < 3 %>
     <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
-  <% elsif user_signed_in? && current_user.organizations.count >= 3 %>
+  <% elsif user_signed_in? && current_user.organizations.count >= 1 %>
     <%= link_to "Create Organization", dashboard_path, class: "btn-feiy-primary" %>
-    <% flash[:alert] = "It seems you already have a maximun of 3 organizations" %>
+    <% flash[:alert] = "It seems you already created an organization before" %>
   <% else %>
     <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
   <% end %>
 </div>
-
-
-
 
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
