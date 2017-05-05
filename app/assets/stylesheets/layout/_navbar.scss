@@ -176,7 +176,14 @@ padding-right: 20px
 // Placeholder avatar transform into circle
 
 .circle-avatar{
-  border-radius: 50%
+  border-radius: 50%;
+}
+
+.dropdown-toggle {
+  border-radius: 50%;
+  img {
+    border-radius: 50%;
+  }
 }
 
 // Navbar links to the left side of
