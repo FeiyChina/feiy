@@ -42,7 +42,7 @@
               <p id="organization-category"><%= truncate(organization.category.upcase) %></p>
             <% end %>
             <p id="organization-name"><strong><%= truncate(organization.name) %></strong></p>
-            <p id="organization-problem"><%= truncate(organization.problem) %></p>
+            <p id="organization-problem"><%= truncate(organization.problem, length: 55, omission: '... (continued)') %></p>
           </div>
           <div class="organization-card-icons">
             <i class="fa fa-thumbs-up organization-card-icon"></i>
@@ -81,9 +81,9 @@
             <%= image_tag "card_org_ngo_default.jpg", class: "job-card-img" %>
           <% end %>
           <div class="job-card-description">
-            <p id="job-name"><strong><%= truncate(job.name) %></strong></p>
-            <p id="job-problem">Posted by: <%= truncate(job.organization.name)%></p>
-            <p id="job-problem"><%= truncate(job.job_type)%></p>
+            <p id="job-name"><%= truncate(job.name) %></p>
+            <p id="job-problem"><%= truncate(job.organization.name)%></p>
+            <p id="job-category"><%= truncate(job.job_type)%></p>
             <p id="job-category"><%= truncate(job.address) %></p>
           </div>
            <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
@@ -118,8 +118,8 @@
             <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
           <% end %>
             <div class="events-card-description">
-              <p id="job-name"><strong><%= truncate(event.name) %></strong></p>
-              <p id="job-address"><%= truncate(event.date.strftime("%B %e, %Y, %l:%M %p ")) %></p>
+              <p id="job-problem"><%= truncate(event.name) %></p>
+              <p id="job-category"><%= truncate(event.date.strftime("%B %e, %Y, %l:%M %p ")) %></p>
             </div>
             <p class="event-hover-card text-center" id="event-name">Hosted by <%= event.organization.name %><br><br><%= truncate(event.content)%></p>
             <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>

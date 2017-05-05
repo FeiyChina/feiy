@@ -143,7 +143,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: black;
+  background: grey;
   color: #fff;
   visibility: hidden;
   opacity: 0;
@@ -153,13 +153,13 @@
 }
 .event-card:hover .event-hover-card {
   visibility: visible;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 #event-name {
-  font-size: 20px;
+  font-size: 18px;
   color: white;
-  padding-top: 20px;
+  padding: 20px 15px;
 }
 
 
@@ -208,13 +208,14 @@
 }
 
 #job-problem {
-  font-size: 16px;
+  font-size: 19px;
   color: black;
-  font-weight: lighter;
+  font-weight: 700;
+  font-family: Arvo;
 }
 
 #job-category {
-  font-size: 14px;
+  font-size: 16px;
   color: black;
   margin-top: 9px;
   font-weight: lighter;
