@@ -1,6 +1,6 @@
 <% if @organization.photo %>
   <div class="org-show-banner">
-    <%= cl_image_tag @organization.photo.path, width: 1440, height: 450, crop: :crop, gravity: :south %>
+    <%= cl_image_tag @organization.photo.path, width: 1440, height: 450, crop: :fill %>
   </div>
 <% else %>
   <div class="org-show-grey-banner"></div>
