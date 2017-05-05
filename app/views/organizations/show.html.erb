@@ -20,10 +20,11 @@
     <p><strong>Category:</strong> <%= @organization.category.capitalize %></p>
     <p><strong><%= @organization.votes_for.size %> Likes</strong></p>
   </div>
-  <% if user_signed_in? && @organization.user_id == current_user.id %>
     <div class="org-show-button-holder">
-      <%= link_to edit_organization_path(@organization), method: :get do %>
-        <%= image_tag "editor.png", class: "org-show-update" %>
+      <% if user_signed_in? && @organization.user_id == current_user.id %>
+        <%= link_to edit_organization_path(@organization), method: :get do %>
+          <%= image_tag "editor.png", class: "org-show-update" %>
+        <% end %>
       <% end %>
       <%= link_to organization_organization_contact_path(@organization) do %>
         <%= image_tag "mail.png", class: "org-show-update" %>
@@ -42,7 +43,6 @@
         </div>
       <% end %>
     </div>
-  <% end %>
 </div>
 
 
