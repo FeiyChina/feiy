@@ -17,7 +17,7 @@ class PagesController < ApplicationController
     @organizations = @current_user.organizations
     @organization = @current_user.organizations.first
     @categories = Category.all
-    @jobs = Job.all
+    @jobs = @organization.job
     @events = @organization.events
     @random_comment = @organization.comments.shuffle.first
   end
