@@ -13,7 +13,7 @@
     font-size: 12px;
     font-weight: lighter;
     &:hover {
-      color: orange;
+      color: $brand-color;
       transition: all 0.3s ease;
     }
   }
@@ -23,6 +23,7 @@
   margin-top: 50px;
   font-weight: lighter;
   font-size: 30px;
+  color: $brand-color;
 }
 
 .about-developers {
@@ -30,22 +31,25 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
+  margin-left: 80px;
   h1 {
     margin-bottom: 30px;
   }
 }
 
 .developer-card {
+  margin: 0 5px 0 5px;
   width: 200px;
   height: 330px;
-  border: 1px solid gray;
   z-index: 2;
   img {
     width: 198px;
   }
   h5 {
     font-weight: lighter;
+    font-size: 20px;
+    margin-top: 15px;
   }
 }
 
@@ -55,11 +59,20 @@
 
 .dev-social {
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 15px;
   width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 33px;
+  .fa {
+    color: gray;
+    &:hover {
+      opacity: 1;
+      text-decoration: none;
+      color: $brand-color;
+    }
+  }
 }
 
 .dev_social-img {
