@@ -101,10 +101,9 @@
 </div>
 
 <div class="text-center">
-  <h3>Add a job offer</h3>
   <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
-    <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn btn-warning'  %>
+    <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn-feiy-secondary'  %>
   </div>
   <% end %>
 </div>
@@ -137,10 +136,9 @@
 
 <!-- Hardcoded Events Section -->
 <div class="text-center">
-  <h3>Here are <%= @organization.name.capitalize %>'s events</h3>
     <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
-    <%= link_to "Add a event", new_organization_event_path(@organization), method: :get, class: 'btn btn-warning'  %>
+    <%= link_to "Add a event", new_organization_event_path(@organization), method: :get, class: 'btn-feiy-secondary'  %>
   </div>
   <% end %>
 </div>
@@ -167,13 +165,15 @@
 </div>
 
 <!-- OTHER ORGANIZATIONS -->
-<div class="title-divider text-center" id="title-padding">
-  <h4>ORGANIZATIONS YOU MAY LIKE</h4>
-</div>
 
-<div class="container">
-  <div class="row">
-    <% if @suggested_organizations_shuffled != nil %>
+<% if @suggested_organizations_shuffled.empty? %>
+  <div></div>
+<% else %>
+  <div class="title-divider text-center" id="title-padding">
+    <h4>ORGANIZATIONS YOU MAY LIKE</h4>
+  </div>
+  <div class="container">
+    <div class="row">
       <% @suggested_organizations_shuffled.each do |organization| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="organization-card">
@@ -197,34 +197,37 @@
           </div>
         </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>
 
-<!-- Followers -->
-<div class="text-center">
-  <h3><%= @organization.name %> has <%= @organization.votes_for.count %> followers</h3>
-</div>
-<div class="container">
-  <div class="row" style="margin-top: 20px;">
-    <% @organization.votes_for.each do |follower| %>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <div class="follower-card">
-          <div class="follower-card-avatar">
-            <% if follower.voter.avatar? %>
-              <%= cl_image_tag follower.voter.avatar.path, height: 50, width: 50, crop: :fill, gravity: :face, radius: :max, class: "avatar-style" %>
-            <% else %>
-              <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
-            <% end %>
-          </div>
-          <div class="follower-card-info">
-            <p class="comment-email"><strong><%= follower.voter.name %></strong></p>
-            <p class="comment-date"><%= follower.voter.created_at.strftime("%B %d, %Y") %></p>
+<% if @organization.votes_for.count == 0 %>
+  <div></div>
+<% else %>
+  <div class="title-divider text-center" id="title-padding">
+    <h4>FOLLOWERS</h4>
+  </div>
+  <div class="container">
+    <div class="row" style="margin-top: 20px;">
+      <% @organization.votes_for.each do |follower| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="follower-card">
+            <div class="follower-card-avatar">
+              <% if follower.voter.avatar? %>
+                <%= cl_image_tag follower.voter.avatar.path, height: 50, width: 50, crop: :fill, gravity: :face, radius: :max, class: "avatar-style" %>
+              <% else %>
+                <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
+              <% end %>
+            </div>
+            <div class="follower-card-info">
+              <p class="comment-email"><strong><%= follower.voter.name %></strong></p>
+              <p class="comment-date"><%= follower.voter.created_at.strftime("%B %d, %Y") %></p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
 
 
