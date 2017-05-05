@@ -118,8 +118,8 @@
             <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
           <% end %>
             <div class="events-card-description">
-              <p id="job-name"><strong><%= truncate(event.name) %></strong></p>
-              <p id="job-address"><%= truncate(event.date.strftime("%B %e, %Y, %l:%M %p ")) %></p>
+              <p id="job-problem"><%= truncate(event.name) %></p>
+              <p id="job-category"><%= truncate(event.date.strftime("%B %e, %Y, %l:%M %p ")) %></p>
             </div>
             <p class="event-hover-card text-center" id="event-name">Hosted by <%= event.organization.name %><br><br><%= truncate(event.content)%></p>
             <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
