@@ -8,7 +8,9 @@
   <div class="tagline-welcome">
     <h3>Connect with high impact initiatives and create a positive impact</h3>
   </div>
+  <% unless user_signed_in? %>
   <%= link_to "Sign in", new_user_session_path, class: "btn-feiy-primary button-cta-primary" %>
+  <% end %>
   </div>
   <!-- SEARCH -->
   <div class="search-wrapper">
@@ -174,7 +176,7 @@
 </div>
 
 <!-- Bottomer Wrapper -->
-<% if @organizations.any? %>
+<% unless user_signed_in? %>
   <div class="wrapper" id="call-to-action-wrapper">
     <%= link_to "JOIN US NOW!", new_organization_path, class: "btn-feiy-primary button-cta-primary" %>
   </div>
