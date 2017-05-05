@@ -1,6 +1,6 @@
 <% if @organization.photo %>
   <div class="org-show-banner">
-    <%= cl_image_tag @organization.photo.path, width: 1440, height: 450, crop: :crop, gravity: :south %>
+    <%= cl_image_tag @organization.photo.path, width: 1440, height: 450, crop: :crop, gravity: :center %>
   </div>
 <% else %>
   <div class="org-show-grey-banner"></div>
@@ -69,6 +69,7 @@
   </div>
 </div>
 
+<% if @organization.comments %>
   <!-- comment list -->
   <div class="org-show-comment-big-card">
     <% @organization.comments.each do |comment| %>
@@ -94,6 +95,7 @@
       <div class="line"></div>
     <% end %>
   </div>
+<% end %>
 
 <!-- Jobs Section -->
 <div class="title-divider text-center" id="title-padding">

@@ -161,9 +161,7 @@
   border: 1px solid gray;
   border-radius: 5px;
   padding: 20px;
-  // display: flex;
-  // flex-direction: column;
-  height: 400px;
+  max-height: 400px;
   overflow: scroll;
 }
 
