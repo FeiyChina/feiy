@@ -1,24 +1,86 @@
+.org-show-grey-banner {
+  height: 450px;
+  background-color: grey;
+  position: relative;
+}
+
 .org-show-banner {
   height: 450px;
-  width: auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
   background-color: grey;
-  flex-direction: column;
+  position: relative;
 }
+
 .org-show-banner-content {
+  left: 25%;
   height: 235px;
-  width: 700px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
+  width: 50%;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  position: absolute;
+  top: 285px;
 }
+
+.org-show-banner-logo-placeholder {
+  width: 50%;
+  position: absolute;
+  left: 25%;
+  top: 125px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.round-logo-placeholder {
+  height: 110px;
+  width: 110px;
+  border-radius: 50%;
+  border: 2px solid black;
+  background-color: gray;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  img {
+    border-radius: 50%;
+  }
+
+}
+
+.org-show-banner-content-info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  h1, p {
+    margin: 0;
+    color: white;
+    opacity: 0.7;
+  }
+}
+
+.org-show-button-holder {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.org-show-update {
+  width: 25px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  &:hover {
+    opacity: 1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+}
+
 .org-show-banner-content #organization-category {
   margin-left: 5px;
-}
-#org-show-banner-logo {
-  margin: 0px 5px;
-  height: 90px;
 }
 #org-show-banner-name {
   margin-top: 5px;
@@ -52,33 +114,24 @@
 .org-show-body-content {
   margin: 0 auto;
   text-align: left;
-  width: 700px;
+  width: 50%;
   padding: 10px;
-  background-color: white;
   p {
     margin-bottom: 40px;
     font-size: 15px;
     font-family: Arvo;
   }
-}
-.org-edit-actions {
-  float: right;
-  a {
-    margin: 0;
-    border: 1px solid gray;
-    border-radius: 3px;
-    padding: 3px 8px;
-    font-size: 13px;
-    margin-left: 10px;
-    text-decoration: none;
-    color: black;
-    transition: all 0.3s ease;
-    &:hover {
-      cursor: pointer;
-      background-color: transparent;
-      transition: all 0.3s ease;
-    }
+  h4 {
+    margin-top: 40px;
+    font-weight: bolder;
+    font-size: 20px;
   }
+}
+
+
+.line {
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 10px;
 }
 
 .action-like {
@@ -95,25 +148,25 @@
 }
 .org-show-comment-section {
   margin: 0 auto;
-  width: 700px;
+  width: 50%;
   padding: 10px;
   background-color: #677BFF;
   text-align: center;
 }
 
 .org-show-comment-big-card {
-  width: 700px;
+  width: 50%;
   margin: 0 auto;
   margin-top: 40px;
   border: 1px solid gray;
   border-radius: 5px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
+  max-height: 400px;
+  overflow: scroll;
 }
 
 #comment {
-  width: 500px;
+  width: 80%;
   height: 150px;
 }
 #leavemsg {
@@ -147,4 +200,36 @@
 }
 .follower-avatar {
   padding-bottom: 40px
+}
+
+@media (max-width: 600px) {
+  .org-show-banner-content {
+    width: 90%;
+    left: 5%;
+    height: 150px;
+    img {
+      width: 15px;
+    }
+  }
+
+  .org-show-banner-content h1 {
+    font-size: 25px;
+  }
+
+  .org-show-body-content {
+    width: 90%;
+    text-align: center;
+  }
+
+  .org-show-comment-section {
+    width: 90%;
+  }
+
+  .org-show-comment-big-card {
+    width: 90%;
+  }
+}
+
+#emptypadding-footer{
+  margin: 20px;
 }
