@@ -16,7 +16,7 @@
 
 <div class="org-show-banner-content">
   <div class="org-show-banner-content-info">
-    <h1><%= @organization.name.capitalize %></h1>
+    <h1 id="org-show-banner-name"><%= @organization.name.capitalize %></h1>
     <p><strong>Category:</strong> <%= @organization.category.capitalize %></p>
     <p><strong><%= @organization.votes_for.size %> Likes</strong></p>
   </div>
@@ -69,6 +69,7 @@
   </div>
 </div>
 
+<% if @organization.comments %>
   <!-- comment list -->
   <div class="org-show-comment-big-card">
     <% @organization.comments.each do |comment| %>
@@ -94,6 +95,7 @@
       <div class="line"></div>
     <% end %>
   </div>
+<% end %>
 
 <!-- Jobs Section -->
 <div class="title-divider text-center" id="title-padding">
@@ -134,7 +136,7 @@
   <h4>EVENTS</h4>
 </div>
 
-<!-- Hardcoded Events Section -->
+<!-- Events Section -->
 <div class="text-center">
     <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
@@ -163,6 +165,11 @@
     <% end %>
   </div>
 </div>
+
+<% if user_signed_in? && @organization.user_id == current_user.id %>
+<div class="row" id="emptypadding-footer"></div>
+<% else %>
+<% end %>
 
 <!-- OTHER ORGANIZATIONS -->
 

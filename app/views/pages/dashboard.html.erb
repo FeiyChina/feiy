@@ -123,8 +123,8 @@
                 <% end %>
                 <div class="job-card-description">
                   <p id="job-name"><strong><%= truncate(job.name) %></strong></p>
-                  <p id="job-problem">Posted by: <%= truncate(job.organization.name) %></p>
-                  <p id="job-problem"><%= truncate(job.job_type)%></p>
+                  <p id="job-problem"><%= truncate(job.organization.name) %></p>
+                  <p id="job-category"><%= truncate(job.job_type)%></p>
                   <p id="job-category"><%= truncate(job.address) %></p>
                 </div>
                  <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
