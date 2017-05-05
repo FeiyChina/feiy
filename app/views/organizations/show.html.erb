@@ -136,7 +136,7 @@
   <h4>EVENTS</h4>
 </div>
 
-<!-- Hardcoded Events Section -->
+<!-- Events Section -->
 <div class="text-center">
     <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
@@ -165,6 +165,11 @@
     <% end %>
   </div>
 </div>
+
+<% if user_signed_in? && @organization.user_id == current_user.id %>
+<div class="row" id="emptypadding-footer"></div>
+<% else %>
+<% end %>
 
 <!-- OTHER ORGANIZATIONS -->
 
