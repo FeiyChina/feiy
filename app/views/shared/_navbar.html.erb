@@ -29,7 +29,7 @@
     <% if user_signed_in? && current_user.organizations.count > 0 %>
       <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% if current_user.avatar? %>
-          <%= cl_image_tag(current_user.avatar.path, { size: '40x40', crop: :thumb, gravity: :face, dpr: 2.0, class: "circle-avatar" }) %>
+          <%= cl_image_tag(current_user.avatar.path, { size: '40x40', crop: :thumb, gravity: :face, dpr: 2.0, radius: :max }) %>
         <% else %>
           <%= image_tag("profile_placeholder.png", size: '40x40') %>
         <% end %>
