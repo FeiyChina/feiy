@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...SD
+
+Contributors:
+  Stephane Delgado
