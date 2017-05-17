@@ -82,6 +82,7 @@
   top: -2px;
   z-index: 1;
 }
+
 .navbar-wagon-search-input {
   flex: 0 1 300px;
   transition: all 0.15s ease;
@@ -94,6 +95,7 @@
   font-size: 14px;
   outline: none;
 }
+
 .navbar-wagon-search-input:focus  {
   border: 1px solid #CCCCCC;
 }
@@ -104,6 +106,7 @@
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
 }
+
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
@@ -112,10 +115,12 @@
   line-height: 22px !important;
   padding: 10px 20px;
 }
+
 .navbar-wagon-dropdown-menu li > a:hover {
   background: transparent !important;
   color: black !important;
 }
+
 .navbar-wagon-dropdown-menu:before {
   content: ' ';
   height: 10px;
@@ -133,9 +138,7 @@
 padding-right: 20px
 }
 
-
 // Styling for Links on Navbar
-
 .jobs-linkto{
   color: #3CC7C6;
   text-decoration: none;
@@ -172,9 +175,7 @@ padding-right: 20px
   opacity: 1em
 }
 
-
 // Placeholder avatar transform into circle
-
 .circle-avatar{
   border-radius: 50%;
 }
@@ -187,7 +188,6 @@ padding-right: 20px
 }
 
 // Navbar links to the left side of
-
 #list-left{
   position: absolute;
   padding: 10px;
@@ -203,33 +203,17 @@ padding-right: 20px
   padding-top: 10px
 }
 
-
-.signup-linkto{
-  color: #393A3E;
+.signup-linkto {
+  color: white;
   font-weight: bold;
   text-decoration: none;
-  opacity: 0.6em;
+  opacity: 1em;
+  &:hover {
+    color: #7B7D86;
+    text-decoration: none;
+    opacity: 0.6em
+  }
 }
-
-.signup-linkto:hover{
-  color: #7B7D86;
-  text-decoration: none;
-  opacity: 1em
-}
-
-.signin-linkto{
-  color: #393A3E;
-  font-weight: bold;
-  text-decoration: none;
-  opacity: 0.6em;
-}
-
-.signin-linkto:hover{
-  color: #7B7D86;
-  text-decoration: none;
-  opacity: 1em
-}
-
 
 .circle-avatar{
   border-radius:50%;
