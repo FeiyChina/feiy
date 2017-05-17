@@ -1,8 +1,3 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
-
 // Section titles
 .title-divider {
   margin: 40px 0px 40px 0px;
@@ -49,7 +44,6 @@
 }
 
 // search wrapper
-
 .search-wrapper {
   height: 100px;
   background-color: rgba(0, 0, 0, 0.6);
@@ -79,8 +73,19 @@
   margin-right: 20px;
 }
 
-// event cards
+#search-all-organizations {
+  color: white;
+  text-decoration: none;
+  opacity: 0.6em;
+  margin-left: 20px;
+  &:hover {
+    color: #7B7D86;
+    text-decoration: none;
+    opacity: 1em;
+  }
+}
 
+// event cards
 .events-card {
   position: relative;
   margin: 20px auto;
@@ -125,7 +130,6 @@
   box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
 }
 
-
 // Icons wrapper
 #features-img{
   background-image: image-url('home-features-bg.jpg');
@@ -142,7 +146,6 @@
     color: white;
   }
 }
-
 
 // Call to action footer
 #call-to-action-wrapper {
