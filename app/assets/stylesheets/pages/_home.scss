@@ -23,7 +23,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: image-url('home-banner.jpg');
+  background: image-url('home-banner.jpg') no-repeat;
+  background-size: cover;
   color: #F8F8F8;
 }
 
