@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: image-url('search-results-bg.png');
+  background: image-url('search-results-bg.png') no-repeat;
+  background-size: cover;
   color: #F8F8F8;
 }
 
