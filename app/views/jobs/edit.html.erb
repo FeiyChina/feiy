@@ -1,22 +1,4 @@
 <div class="form-container">
-<h2>Edit job information</h2>
-  <%= simple_form_for [@organization, @job] do |f| %>
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address, label: "Location" %>
-    <%= f.input :website %>
-    <%= f.input :email, label: "E-mail of job recruiter" %>
-    <%= f.input :job_type, collection: %w(Volunteer Internship Part-time Full-time) %>
-    <%= f.input :task, as: :text, :input_html => { :maxlength => 500, :style => 'height: 200px' } %>
-    <%= f.input :requirement, as: :text, :input_html => { :maxlength => 500, :style => 'height: 200px' } %>
-    <h5><strong>Job Status</strong></h5>
-    <%= f.collection_radio_buttons :active, [[true, 'Open'] ,[false, 'Closed']], :first, :last %>
-  </div>
-
-    <% if user_signed_in? && @organization.user_id == current_user.id %>
-    <div class="form-actions">
-    <%= f.submit "Update job", class: "btn btn-primary" %>
-    <% end %>
-    </div>
-  <% end %>
+  <h2>Edit Job Details</h2>
+  <%= render 'form' %>
 </div>
