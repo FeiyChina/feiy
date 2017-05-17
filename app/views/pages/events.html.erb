@@ -1,6 +1,6 @@
 <div class="wrapper-white">
   <div class="container-demo-title">
-    <h1 class="text-center">Events Index</h1>
+    <h1 class="text-center">Great Events</h1>
   </div>
   <div class="container">
     <div class="row">
@@ -28,6 +28,6 @@
 <br>
 <br>
 <div class="next-page">
-<h5 class="text-center">(<%= @events.count %> events)</h5>
+<h5 class="text-center"><%= pluralize(@events.count, "Event") %></h5>
 </div>
 
