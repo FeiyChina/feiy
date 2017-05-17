@@ -1,6 +1,6 @@
 <div class="wrapper-white">
   <div class="container-demo-title">
-    <h1 class="text-center">Jobs Index</h1>
+    <h1 class="text-center">Great Jobs</h1>
   </div>
   <div class="container">
     <div class="row">
@@ -27,7 +27,8 @@
 <br>
 <br>
 <div class="next-page">
-
-<h5 class="text-center">(<%= @jobs.count %> jobs)</h5>
+  <h5 class="text-center"><%= pluralize(@jobs.count, "Job") %></h5>
 </div>
+
+
 
