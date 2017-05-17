@@ -16,19 +16,19 @@
       <br>
       <div class="footer-buttons">
         <% if user_signed_in? && @organization.user_id == current_user.id %>
-          <%= link_to "Update Job Info", edit_organization_event_path(@event.organization_id, @event), method: :get, class: 'btn btn-warning'  %>
-          <%= link_to "Delete Job", organization_event_path(@event.organization_id, @event), method: :delete, class: 'btn btn-danger' %>
+          <%= link_to "Update", edit_organization_event_path(@event.organization_id, @event), method: :get, class: 'btn btn-warning'  %>
+          <%= link_to "Delete", organization_event_path(@event.organization_id, @event), method: :delete, class: 'btn btn-danger' %>
         <% end %>
       </div>
       <div class="sub-header-card">
         <div class="sub-header-card-description">
-          <h2>Event Information</h2>
+          <h2>What</h2>
           <p><%= @event.content %></p>
           <br>
-          <h2>Date of event:</h2>
+          <h2>When</h2>
           <p><%= @event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
           <br>
-          <h2>Address:</h2>
+          <h2>Where</h2>
           <p><%= @event.venue %></p>
           <br>
           <%= cl_image_tag @baidumap_url %>
