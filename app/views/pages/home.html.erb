@@ -12,6 +12,7 @@
   <%= link_to "Sign in", new_user_session_path, class: "btn-feiy-primary button-cta-primary" %>
   <% end %>
   </div>
+
   <!-- SEARCH -->
   <div class="results-search">
     <p>Find an organization</p>
@@ -20,6 +21,7 @@
       <%= select_tag 'category', options_for_select(@categories_all), class: "text-search-dropdown" %>
       <%= submit_tag 'Search', class: "btn-feiy-rec-white"%>
     <% end %>
+    <%= link_to "See all Organizations", organizations_path, id: "search-all-organizations" %>
   </div>
 </div>
 
