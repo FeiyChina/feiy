@@ -14,9 +14,12 @@ class OrganizationsController < ApplicationController
       @search_one << org.id
     end
     @name_params = params[:name]
-    @search_by_name = Organization.accepted.where(name: @name_params)
-    @search_by_name.each do |org|
-      @search_one << org.id
+    if @name_params.present?
+      like_keyword = "%#{@name_params}%"
+      @search_by_name = Organization.accepted.where("name ILIKE ?", like_keyword)
+      @search_by_name.each do |org|
+        @search_one << org.id
+      end
     end
     @search_total = @search_one.uniq
     @organizations = []

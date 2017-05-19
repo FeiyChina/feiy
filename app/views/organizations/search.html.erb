@@ -17,15 +17,8 @@
 
 <!-- ORGANIZATIONS SEARCH RESULTS -->
 <div class="text-center results-message">
-  <% unless @organizations %>
-    <h3>We haven't found any organization matching your search! Please try again!</h3>
-  <% end %>
-</div>
-<div class="text-center results-message">
-<% if @organizations %>
-  <h3>Displaying search results for: <%= @category_params %> and <%= @name_params %></h3>
-<% else %>
-  <h3>No results</h3>
+<% unless @organizations.present? %>
+  <h4>We haven't found any organization matching your search! Please try again!</h4>
 <% end %>
 </div>
 <div class="container">
