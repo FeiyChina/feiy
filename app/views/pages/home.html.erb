@@ -49,7 +49,7 @@
             <p id="organization-problem"><%= truncate(organization.problem, length: 55, omission: '... (continued)') %></p>
           </div>
           <div class="organization-card-icons">
-            <i class="fa fa-thumbs-up organization-card-icon"></i>
+            <i class="fa fa-heart organization-card-icon"></i>
             <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
           </div>
           <%= link_to "", organization_path(organization), class: "organization-card-link" %>
@@ -180,6 +180,6 @@
 <!-- Bottomer Wrapper -->
 <% unless user_signed_in? %>
   <div class="wrapper" id="call-to-action-wrapper">
-    <%= link_to "JOIN US NOW!", new_organization_path, class: "btn-feiy-primary button-cta-primary" %>
+    <%= link_to "JOIN US NOW!", root_path, class: "btn-feiy-primary button-cta-primary" %>
   </div>
 <% end %>
