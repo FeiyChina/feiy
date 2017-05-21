@@ -85,6 +85,13 @@ class OrganizationsController < ApplicationController
   #   call the show method to re-render the page
   # end
 
+  def like
+    @organization = Organization.find(params[:id])
+    @organization.liked_by current_user
+    @likes = @organization.votes_for.size
+    redirect_to organization_path(@organization)
+  end
+
   def organization_contact
     @organization = Organization.find(params[:organization_id])
   end

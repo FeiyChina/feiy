@@ -38,7 +38,6 @@
   border-bottom: 3px solid $brand-color;
 }
 
-
 .organization-card-description {
   width: 350px;
   height: 130px;
@@ -88,11 +87,7 @@
 }
 
 
-
 //events cards
-
-
-
 .event-card {
   background-color: white;
   width: 300px;
@@ -104,7 +99,6 @@
   z-index: 0;
   padding: inherit
 }
-
 
 .events-card {
   background-color: white;
@@ -136,7 +130,6 @@
   margin: 10px auto;
 }
 
-
 .event-hover-card{
   position: absolute;
   top: 0;
@@ -165,7 +158,6 @@
 
 
 //jobs cards
-
 .job-card {
   background-color: white;
   width: 300px;
@@ -200,7 +192,6 @@
 #job-name {
   font-size: 20px;
   color: black;
-
 }
 
 #job-title {

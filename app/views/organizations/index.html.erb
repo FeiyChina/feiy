@@ -1,7 +1,7 @@
 <div class="wrapper" id="index-wrapper">
   <div class="index-header">
     <div class="index-header-welcome text-center">
-      <h1>Discover a community <br>of high-impact initiatives <br>in China</h1>
+      <h1>Discover the community <br>of high-impact initiatives <br>in China</h1>
     </div>
   </div>
 
@@ -36,7 +36,7 @@
           <p id="organization-problem"><%= truncate(organization.problem, length: 20) %></p>
         </div>
         <div class="organization-card-icons">
-          <i class="fa fa-thumbs-up organization-card-icon"></i>
+          <i class="fa fa-heart organization-card-icon"></i>
           <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
         </div>
         <%= link_to "", organization_path(organization), class: "organization-card-link" %>
