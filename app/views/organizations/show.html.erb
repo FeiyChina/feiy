@@ -97,13 +97,13 @@
   </div>
 <% end %>
 
-<!-- Jobs Section -->
-<div class="title-divider text-center" id="title-padding">
-  <h4>JOBS</h4>
-</div>
 
+<!-- Jobs Section -->
 <div class="text-center">
   <% if user_signed_in? && @organization.user_id == current_user.id %>
+  <div class="title-divider text-center" id="title-padding">
+    <h4>You may also like</h4>
+  </div>
   <div class="container text-center">
     <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn-feiy-secondary'  %>
   </div>
@@ -132,11 +132,9 @@
   </div>
 </div>
 
-<div class="title-divider text-center" id="title-padding">
-  <h4>EVENTS</h4>
-</div>
-
 <!-- Events Section -->
+<div class="title-divider text-center" id="title-padding">
+</div>
 <div class="text-center">
     <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="container text-center">
@@ -172,12 +170,11 @@
 <% end %>
 
 <!-- OTHER ORGANIZATIONS -->
-
 <% if @suggested_organizations_shuffled.empty? %>
   <div></div>
 <% else %>
   <div class="title-divider text-center" id="title-padding">
-    <h4>ORGANIZATIONS YOU MAY LIKE</h4>
+    <h4>Similar organizations</h4>
   </div>
   <div class="container">
     <div class="row">
