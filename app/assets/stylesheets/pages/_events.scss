@@ -28,7 +28,6 @@
   font-size: 13px;
   }
 
-
 .sub-header-card {
   margin: 20px auto;
   height: 700px;
@@ -39,10 +38,26 @@
   max-width: 600px
 }
 
+
 .sub-header-card-description {
   position: absolute;
   top: 20px;
-  left: 10px;
+  left: 15px;
+  right: 15px;
+  color: #6a6c73;
+  h4 {
+    font-weight: bolder;
+    font-size: 25px;
+  }
+  p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-family: Arvo;
+  }
+}
+
+.baidu-map {
+  width: 100%;
 }
 
 

@@ -200,16 +200,17 @@
 }
 
 .btn-feiy-comments {
-  border-radius: 50px;
+  border-radius: 0px;
   padding: 10px 20px;
   font-weight: lighter;
-  border: solid 1px #31c7c5;
-  color: #31c7c5;
-  background-color: white;
+  border: solid 2px white;
+  letter-spacing: 1px !important;
+  color: white;
+  background-color: #31c7c5;
+  opacity: 0.9;
   &:hover {
     opacity: 1;
-    color: #31c7c5;
-    text-decoration: none
+    text-decoration: none;
   }
 }
 

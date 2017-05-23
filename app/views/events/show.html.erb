@@ -22,16 +22,16 @@
       </div>
       <div class="sub-header-card">
         <div class="sub-header-card-description">
-          <h2>What</h2>
-          <p><%= @event.content %></p>
+          <h4>What:</h2>
+          <p class="text-justify"><%= @event.content %></p>
           <br>
-          <h2>When</h2>
+          <h4>When:</h2>
           <p><%= @event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
           <br>
-          <h2>Where</h2>
+          <h4><strong> Where:</strong></h2>
           <p><%= @event.venue %></p>
           <br>
-          <%= cl_image_tag @baidumap_url %>
+          <%= cl_image_tag @baidumap_url, class: "baidu-map" %>
         </div>
       </div>
     </div>
