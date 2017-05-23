@@ -55,60 +55,20 @@
   <p><%= @organization.address %></p>
 </div>
 
-<!-- comment function -->
-<div class="org-show-comment-section">
-  <h3 id="leavemsg">Leave us a nice comment</h3>
-  <div class="org-show-comment-box">
-    <%= form_tag create_comment_path, method: "post" do %>
-    <%= hidden_field_tag "id", @organization.id %>
-    <%= text_area_tag :comment %>
-    <div class="comment-btn">
-      <%= submit_tag "Submit", class: "btn btn-success" %>
-    </div>
-    <% end %>
-  </div>
-</div>
-
-<% if @organization.comments %>
-  <!-- comment list -->
-  <div class="org-show-comment-big-card">
-    <% @organization.comments.each do |comment| %>
-      <div class="random-comment-big-card-top">
-        <div class="comment-big-card-useravatar">
-          <% if comment.user.avatar? %>
-            <%= cl_image_tag comment.user.avatar.path, height: 50, width: 50, crop: :thumb, gravity: :face, dpr: 2.0, class: "avatar-style" %>
-          <% else %>
-            <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
-          <% end %>
-        </div>
-        <div class="comment-big-card-userinfo">
-          <% if comment.user.name? %>
-            <p class="comment-email"><strong><%= comment.user.name %></strong></p>
-          <% else %>
-            <p class="comment-email">Anonimous</p>
-          <% end %>
-        </div>
-      </div>
-      <div class="random-comment-big-card-bottom">
-        <em><%= comment.comment %></em>
-      </div>
-      <div class="line"></div>
-    <% end %>
-  </div>
-<% end %>
-
-
-<!-- Jobs Section -->
+<!-- You may also like -->
 <div class="text-center">
-  <% if user_signed_in? && @organization.user_id == current_user.id %>
   <div class="title-divider text-center" id="title-padding">
     <h4>You may also like</h4>
   </div>
-  <div class="container text-center">
-    <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn-feiy-secondary'  %>
-  </div>
+  <% if user_signed_in? && @organization.user_id == current_user.id %>
+    <div class="container text-center">
+      <%= link_to "Add a job", new_organization_job_path(@organization), method: :get, class: 'btn-feiy-secondary'  %>
+      <%= link_to "Add a event", new_organization_event_path(@organization), method: :get, class: 'btn-feiy-secondary'  %>
+    </div>
   <% end %>
 </div>
+
+<!-- Jobs Section -->
 <div class="container">
   <div class="row">
     <% @organization.jobs.each do |job| %>
@@ -133,15 +93,6 @@
 </div>
 
 <!-- Events Section -->
-<div class="title-divider text-center" id="title-padding">
-</div>
-<div class="text-center">
-    <% if user_signed_in? && @organization.user_id == current_user.id %>
-  <div class="container text-center">
-    <%= link_to "Add a event", new_organization_event_path(@organization), method: :get, class: 'btn-feiy-secondary'  %>
-  </div>
-  <% end %>
-</div>
 <div class="container">
   <div class="row">
     <% @events.each do |event| %>
@@ -205,6 +156,7 @@
   </div>
 <% end %>
 
+<!-- FOLLOWERS -->
 <% if @organization.votes_for.count == 0 %>
   <div></div>
 <% else %>
@@ -233,5 +185,49 @@
     </div>
   </div>
 <% end %>
+
+<!-- comment function -->
+<div class="org-show-comment-section">
+  <h3 id="leavemsg">Leave us a nice comment</h3>
+  <div class="org-show-comment-box">
+    <%= form_tag create_comment_path, method: "post" do %>
+    <%= hidden_field_tag "id", @organization.id %>
+    <%= text_area_tag :comment %>
+    <div class="comment-btn">
+      <%= submit_tag "Submit", class: "btn-feiy-secondary" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div>
+  <% if @organization.comments %>
+    <!-- comment list -->
+    <div class="org-show-comment-big-card">
+      <% @organization.comments.each do |comment| %>
+        <div class="random-comment-big-card-top">
+          <div class="comment-big-card-useravatar">
+            <% if comment.user.avatar? %>
+              <%= cl_image_tag comment.user.avatar.path, height: 50, width: 50, crop: :thumb, gravity: :face, dpr: 2.0, class: "avatar-style" %>
+            <% else %>
+              <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
+            <% end %>
+          </div>
+          <div class="comment-big-card-userinfo">
+            <% if comment.user.name? %>
+              <p class="comment-email"><strong><%= comment.user.name %></strong></p>
+            <% else %>
+              <p class="comment-email">Anonimous</p>
+            <% end %>
+          </div>
+        </div>
+        <div class="random-comment-big-card-bottom">
+          <em><%= comment.comment %></em>
+        </div>
+        <div class="line"></div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
 
