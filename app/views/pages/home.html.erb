@@ -65,7 +65,7 @@
   </div>
 <% else %>
 <div class="wrapper" id="call-to-action-wrapper">
-  <%= link_to "JOIN US NOW!", new_organization_path, class: "btn-feiy-primary button-cta-primary" %>
+  <%= link_to "JOIN US NOW!", new_user_session_path, class: "btn-feiy-primary button-cta-primary" %>
 </div>
 <% end %>
 
@@ -180,6 +180,6 @@
 <!-- Bottomer Wrapper -->
 <% unless user_signed_in? %>
   <div class="wrapper" id="call-to-action-wrapper">
-    <%= link_to "JOIN US NOW!", root_path, class: "btn-feiy-primary button-cta-primary" %>
+    <%= link_to "JOIN US NOW!", new_user_session_path, class: "btn-feiy-primary button-cta-primary" %>
   </div>
 <% end %>
