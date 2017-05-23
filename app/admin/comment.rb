@@ -1,23 +1,19 @@
-ActiveAdmin.register Organization do
-  menu priority: 3
+ActiveAdmin.register Comment do
+  menu priority: 4
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :name, :problem, :description, :website, :address, :email, :user_is_a_representative, :accepted?
-    index do
+permit_params :title, :comment, :commentable_type, :commentable_id, :user_id
+index do
     selectable_column
     column :id
-    column :name
-    column :website
-    column :email
-    column :address
-    column :created_at
-    column :user_is_a_representative
-    column :accepted?
+    column :title
+    column :comment
+    column :commentable_type
+    column :commentable_id
+    column :user_id
     actions
   end
-
-
 #
 # or
 #
@@ -28,4 +24,3 @@ ActiveAdmin.register Organization do
 # end
 
 end
-
