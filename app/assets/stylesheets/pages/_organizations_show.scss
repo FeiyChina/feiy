@@ -198,6 +198,21 @@
   width: 80%;
   text-align: left;
 }
+
+.btn-feiy-comments {
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: lighter;
+  border: solid 1px #31c7c5;
+  color: #31c7c5;
+  background-color: white;
+  &:hover {
+    opacity: 1;
+    color: #31c7c5;
+    text-decoration: none
+  }
+}
+
 .follower-avatar {
   padding-bottom: 40px
 }
