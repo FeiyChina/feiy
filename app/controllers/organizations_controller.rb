@@ -78,13 +78,6 @@ class OrganizationsController < ApplicationController
     redirect_to root_path
   end
 
-  # def like
-  #   @organization = Organization.find(params[:id])
-  #   @organization.liked_by current_user
-  #   @likes = @organization.votes_for.size
-  #   call the show method to re-render the page
-  # end
-
   def like
     @organization = Organization.find(params[:id])
     @organization.liked_by current_user

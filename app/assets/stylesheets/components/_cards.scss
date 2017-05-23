@@ -156,7 +156,6 @@
   height: 100%;
 }
 
-
 //jobs cards
 .job-card {
   background-color: white;
@@ -167,7 +166,10 @@
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
   margin: 20px auto;
   z-index: 0;
-  padding: inherit
+  padding: inherit;
+  &:hover {
+    box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
+  }
 }
 
 .job-card-description {
