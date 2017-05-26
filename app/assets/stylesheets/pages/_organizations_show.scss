@@ -127,6 +127,14 @@
   }
 }
 
+.organization-website-link {
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
 
 .line {
   border-bottom: 1px solid lightgrey;

@@ -48,11 +48,12 @@
 
 <div class="org-show-body-content">
   <h4><strong>Our Mission</strong></h4>
-  <p><%= @organization.description %></p>
+  <p class="text-justify"><%= @organization.description %></p>
   <h4><strong>What problem we solve?</strong></h4>
-  <p><%= @organization.problem %></p>
-  <h4><strong>Where we are?</strong></h4>
+  <p class="text-justify"><%= @organization.problem %></p>
+  <h4><strong>Locations</strong></h4>
   <p><%= @organization.address %></p>
+  <!-- <h4 class="text-center"><strong><%= link_to "Find out more", @organization.website, class: "organization-website-link" %></strong></h4> -->
 </div>
 
 <!-- You may also like -->
