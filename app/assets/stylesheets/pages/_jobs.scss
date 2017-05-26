@@ -1,13 +1,13 @@
 .card {
-  margin: 20px auto;
+  margin: 20px auto 0px auto;
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: fill !important;
+  background-size: cover;
   color: white;
   position: relative;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
   background-image: image-url('jobs-bg.jpeg');
-  max-width: 600px
+  max-width: 52%;
 }
 
 .card-logo {
@@ -29,24 +29,31 @@
   }
 
 
-.sub-header-card {
+.sub-header-card-jobs {
   margin: 20px auto;
   height: 700px;
   background-size: cover !important;
   color: black;
   position: relative;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
-  max-width: 600px
+  max-width: 52%;
 }
 
-.sub-header-card-description {
+.sub-header-card-description-jobs {
   position: absolute;
   top: 20px;
   left: 10px;
+  right: 15px;
+  color: #6a6c73;
+  h4 {
+    font-weight: bolder;
+    font-size: 25px;
+  }
+  p {
+    margin-bottom: 15px;
+    font-size: 13px;
+    font-family: Arvo;
+    opacity: 0.7;
+  }
 }
 
-
-.footer-buttons{
-  text-align: center;
-  margin: 20px auto
-}

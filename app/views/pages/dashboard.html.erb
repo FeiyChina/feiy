@@ -108,7 +108,7 @@
       </div>
       <% if @jobs.size == 0 %>
         <div class="empty-content text-center">
-          <h3>No jobs</h3>
+          <h3>No jobs have been created</h3>
         </div>
       <% else %>
         <div class="container">
@@ -140,9 +140,9 @@
         <h5><strong>Events</strong></h5>
         <%= link_to "Add", new_organization_event_path(@organization) %>
       </div>
-      <% if @events == nil %>
+      <% if @events.size == 0 %>
         <div class="empty-content text-center">
-          <h3>No events</h3>
+          <h3>No events have been created</h3>
         </div>
       <% else %>
         <div class="container">

@@ -1,5 +1,5 @@
 .events-card {
-  margin: 20px auto;
+  margin: 20px auto 0px auto;
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: fill !important;
@@ -28,7 +28,7 @@
   font-size: 13px;
   }
 
-.sub-header-card {
+.sub-header-card-events {
   margin: 20px auto;
   height: 700px;
   background-size: cover !important;
@@ -39,7 +39,7 @@
 }
 
 
-.sub-header-card-description {
+.sub-header-card-description-events {
   position: absolute;
   top: 20px;
   left: 15px;
@@ -51,8 +51,9 @@
   }
   p {
     margin-bottom: 15px;
-    font-size: 15px;
+    font-size: 13px;
     font-family: Arvo;
+    opacity: 0.7;
   }
 }
 
@@ -61,7 +62,3 @@
 }
 
 
-.footer-buttons{
-  text-align: center;
-  margin: 20px auto
-}
