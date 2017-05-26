@@ -1,6 +1,7 @@
 <div class="wrapper-white">
   <div class="container-demo-title">
     <h1 class="text-center">Good Events</h1>
+    <h5 class="text-center"><%= pluralize(@events.count, "Event") %></h5>
   </div>
   <div class="container">
     <div class="row">
@@ -27,7 +28,4 @@
 <br>
 <br>
 <br>
-<div class="next-page">
-<h5 class="text-center"><%= pluralize(@events.count, "Event") %></h5>
-</div>
 

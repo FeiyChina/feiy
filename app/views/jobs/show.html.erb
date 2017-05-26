@@ -18,28 +18,29 @@
         </div>
       </div>
       <br>
-      <div class="sub-header-card">
-        <div class="sub-header-card-description">
-          <h2>Our Mission</h2>
+      <div class="text-center">
+        <% if user_signed_in? && @organization.user_id == current_user.id %>
+          <%= link_to "Update", edit_organization_job_path(@job.organization_id, @job), method: :get, class: 'btn btn-feiy-organization-action'  %>
+          <%= link_to "Delete", organization_job_path(@job.organization_id, @job), method: :delete, class: 'btn btn-feiy-organization-action' %>
+        <% end %>
+      </div>
+      <div class="sub-header-card-jobs">
+        <div class="sub-header-card-description-jobs text-justify">
+          <h4>Our Mission</h4>
           <p><%= @job.organization.description %></p>
           <br>
-          <h2>The Position</h2>
+          <h4>The Position</h4>
           <p><%= @job.task %></p>
           <br>
-          <h2>Requirements / Skills</h2>
+          <h4>Requirements / Skills</h4>
           <p><%= @job.requirement %></p>
           <br>
-          <h2>How to Apply</h2>
+          <h4>How to Apply</h4>
           <p>Website: <%= @job.website %></p>
           <p>Email: <%= @job.email %></p>
         </div>
       </div>
-      <div class="footer-buttons">
-        <% if user_signed_in? && @organization.user_id == current_user.id %>
-          <%= link_to "Update", edit_organization_job_path(@job.organization_id, @job), method: :get, class: 'btn btn-warning'  %>
-          <%= link_to "Delete", organization_job_path(@job.organization_id, @job), method: :delete, class: 'btn btn-danger' %>
-        <% end %>
-      </div>
+
     </div>
   </div>
 </div>

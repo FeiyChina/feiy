@@ -204,10 +204,12 @@
     text-decoration: none;
     color: black;
     transition: all 0.3s ease;
+    opacity: 0.65;
     &:hover {
       cursor: pointer;
-      background-color: white;
       transition: all 0.3s ease;
+      color: #31c7c5;
+      border: 1px solid #31c7c5;
     }
   }
 }
