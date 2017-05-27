@@ -20,7 +20,7 @@
 }
 
 .developers-title {
-  margin-top: 50px;
+  margin: 50px auto;
   font-weight: lighter;
   font-size: 30px;
   color: $brand-color;
@@ -30,39 +30,46 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 50px;
-  margin-bottom: 60px;
-  margin-left: 80px;
-  h1 {
-    margin-bottom: 30px;
-  }
+  margin: 50px auto 60px;
 }
 
 .developer-card {
-  margin: 0 5px 0 5px;
-  width: 200px;
-  height: 330px;
+  margin: 0 5px;
+  min-width: 180px;
+  height: 270px;
   z-index: 2;
   img {
-    width: 198px;
+    width: 140px;
   }
   h5 {
     font-weight: lighter;
     font-size: 20px;
-    margin-top: 15px;
+    margin: 15px 0;
   }
+}
+
+.developer-card-info {
+  margin: auto;
+  width: 100%;
+}
+
+.dev_avatar {
+  width: 200px;
+  border-radius: 100px;
+  margin: auto;
 }
 
 .dev_flag {
   width: 40px !important;
+  // margin: 0 15px;
 }
 
 .dev-social {
   margin: 0 auto;
   margin-top: 15px;
-  width: 50%;
+  width: 80%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   font-size: 33px;
   .fa {
@@ -75,7 +82,7 @@
   }
 }
 
-.dev_social-img {
-  width: 25px !important;
-  transition: all 0.3s ease;
-}
+// .dev_social-img {
+//   width: 25px !important;
+//   transition: all 0.3s ease;
+// }
