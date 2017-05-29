@@ -1,8 +1,4 @@
-// * {
-//   border: solid 1px grey
-// }
-
-.developers-wrapper {
+.developers-btn {
   width: 100%;
   height: 40px;
   display: flex;
@@ -26,7 +22,6 @@
 .developers-title {
   margin: 40px auto 25px;
   font-weight: lighter;
-  // font-size: 30px;
   padding: 0 15px;
   color: $brand-color;
 }
@@ -35,12 +30,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto 60px;
+  margin: 0 auto 30px;
 }
 
 .developer-card {
   margin: 0 5px;
-  // min-width: 180px;
   width: 200px;
   display: inline;
   height: 270px;
@@ -51,13 +45,10 @@
   h5 {
     font-weight: 600;
     font-size: 17px;
-    // margin: 15px 0 10px;
   }
 }
 
 .developer-card-info {
-  // margin: auto;
-  // width: 100%;
 }
 
 .dev_avatar {
@@ -68,12 +59,10 @@
 
 .dev_flag {
   width: 40px !important;
-  // margin: 0 15px;
 }
 
 .dev-social {
   margin: 10px 0 0;
-  // padding: 0 30px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -91,8 +80,3 @@
     margin: 0 5px;
   }
 }
-
-// .dev_social-img {
-//   width: 25px !important;
-//   transition: all 0.3s ease;
-// }
