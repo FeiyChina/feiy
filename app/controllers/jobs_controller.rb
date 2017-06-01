@@ -9,8 +9,6 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.organization = Organization.find(params[:organization_id])
-    # @job.save
-    # redirect_to dashboard_path
     if @job.save
       MIXPANEL.track(@job.organization.user_id, 'Created', {
         content: "Job",

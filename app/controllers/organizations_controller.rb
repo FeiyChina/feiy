@@ -6,30 +6,49 @@ class OrganizationsController < ApplicationController
     @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
   end
 
+  # def search
+  #   @search_one = []
+  #   @category_params = params[:category]
+  #   @search_by_category = Organization.accepted.where(category: @category_params)
+  #   @search_by_category.each do |org|
+  #     @search_one << org.id
+  #   end
+  #   @name_params = params[:name]
+  #   if @name_params.present?
+  #     like_keyword = "%#{@name_params}%"
+  #     @search_by_name = Organization.accepted.where("name ILIKE ?", like_keyword)
+  #     @search_by_name.each do |org|
+  #       @search_one << org.id
+  #     end
+  #   end
+  #   @search_total = @search_one.uniq
+  #   @organizations = []
+  #   @search_total.each do |id|
+  #     if Organization.find(id).accepted?
+  #       @organizations.append(Organization.find(id))
+  #     end
+  #   end
+  #   @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
+  # end
+
   def search
-    @search_one = []
-    @category_params = params[:category]
-    @search_by_category = Organization.accepted.where(category: @category_params)
-    @search_by_category.each do |org|
-      @search_one << org.id
+    @organizations = Organization.accepted
+    if params[:name] != ""
+      @organizations = @organizations.where("name = ?", name)
     end
-    @name_params = params[:name]
-    if @name_params.present?
-      like_keyword = "%#{@name_params}%"
-      @search_by_name = Organization.accepted.where("name ILIKE ?", like_keyword)
-      @search_by_name.each do |org|
-        @search_one << org.id
-      end
+
+    if params[:category] != ""
+      @organizations = @organizations.where('category ILIKE ?', "%#{params[:category]}%")
     end
-    @search_total = @search_one.uniq
-    @organizations = []
-    @search_total.each do |id|
-      if Organization.find(id).accepted?
-        @organizations.append(Organization.find(id))
-      end
-    end
-    @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
   end
+
+  # def search
+  # @category_params = params[:category]
+  #   if @category_params != ""
+  #      @search_by_category = Organization.accepted.where(category: @category_params)
+  #   end
+  # end
+
 
   def new
     @organization = Organization.new
