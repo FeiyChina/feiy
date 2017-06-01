@@ -42,7 +42,7 @@
           <p id="organization-problem"><%= truncate(organization.problem) %></p>
         </div>
         <div class="organization-card-icons">
-          <i class="fa fa-thumbs-up organization-card-icon"></i>
+          <i class="fa fa-heart organization-card-icon"></i>
           <span class="organization-card-icon-text"><%= organization.votes_for.size %></span>
         </div>
         <%= link_to "", organization_path(organization), class: "organization-card-link" %>

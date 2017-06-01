@@ -85,6 +85,8 @@ class OrganizationsController < ApplicationController
     @organizations = Organization.where(category: @organization.category).where.not(id: params[:id])
     if @organizations.any?
       @suggested_organizations_shuffled = @organizations.shuffle
+    else
+      @suggested_organizations_shuffled = []
     end
     events = @organization.events
     @events = events.where('date >= ?', Date.today).order(date: :asc)
