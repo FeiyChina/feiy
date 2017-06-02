@@ -13,15 +13,10 @@
   <% end %>
   </div>
 
-  <!-- SEARCH -->
-  <div class="results-search">
-    <p>Find an organization</p>
-    <%= form_tag organizations_search_path, method: :get do |f| %>
-      <%= text_field_tag 'name', params[:name], placeholder: "  Search", class: "text-search-field" %>
-      <%= select_tag 'category', options_for_select(@categories_all), class: "text-search-dropdown" %>
-      <%= submit_tag 'Search', class: "btn-feiy-rec-white"%>
-    <% end %>
-    <%= link_to "See all Organizations", organizations_path, id: "search-all-organizations" %>
+
+  <!-- Search bar -->
+  <div id="home-search">
+    <%= render 'organizations/search_bar'%>
   </div>
 </div>
 
@@ -137,6 +132,7 @@
     </div>
   </div>
 <% end %>
+
 
 <!-- FEATURES -->
 <div id="features-img">
