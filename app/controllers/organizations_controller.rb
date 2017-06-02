@@ -3,52 +3,19 @@ class OrganizationsController < ApplicationController
 
   def index
     @organizations = Organization.where(accepted?: true)
-    @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
   end
 
-  # def search
-  #   @search_one = []
-  #   @category_params = params[:category]
-  #   @search_by_category = Organization.accepted.where(category: @category_params)
-  #   @search_by_category.each do |org|
-  #     @search_one << org.id
-  #   end
-  #   @name_params = params[:name]
-  #   if @name_params.present?
-  #     like_keyword = "%#{@name_params}%"
-  #     @search_by_name = Organization.accepted.where("name ILIKE ?", like_keyword)
-  #     @search_by_name.each do |org|
-  #       @search_one << org.id
-  #     end
-  #   end
-  #   @search_total = @search_one.uniq
-  #   @organizations = []
-  #   @search_total.each do |id|
-  #     if Organization.find(id).accepted?
-  #       @organizations.append(Organization.find(id))
-  #     end
-  #   end
-  #   @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
-  # end
-
   def search
-    @organizations = Organization.accepted
+    @organizations = Organization.where(accepted?: true)
+
     if params[:name] != ""
-      @organizations = @organizations.where("name = ?", name)
+      @organizations = @organizations.where("name = ?", params[:name])
     end
 
     if params[:category] != ""
-      @organizations = @organizations.where('category ILIKE ?', "%#{params[:category]}%")
+      @organizations = @organizations.where("category = ?", params[:category])
     end
   end
-
-  # def search
-  # @category_params = params[:category]
-  #   if @category_params != ""
-  #      @search_by_category = Organization.accepted.where(category: @category_params)
-  #   end
-  # end
-
 
   def new
     @organization = Organization.new
@@ -120,10 +87,6 @@ class OrganizationsController < ApplicationController
   end
 
   private
-
-  def search_params
-    params.require(:organization).permit(:name, :category)
-  end
 
   def organization_params
     organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :email, :address, :photo, :logo, :category, :user_is_a_representative, :accepted?)

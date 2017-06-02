@@ -1,21 +1,15 @@
-<div class="wrapper" id="index-wrapper">
-  <div class="index-header">
-    <div class="index-header-welcome text-center">
+<div class="wrapper index-search-wrapper">
+  <div class="index-search-header">
+    <div class="index-search-header-welcome text-center">
       <h1>Discover the community <br>of high-impact initiatives <br>in China</h1>
     </div>
   </div>
-
-  <!-- SEARCH -->
-  <div class="results-search">
-    <p>Find an organization</p>
-    <%= form_tag organizations_search_path, method: :get do |f| %>
-      <%= text_field_tag 'name', params[:name], placeholder: "  Search", class: "text-search-field" %>
-      <%= select_tag 'category', options_for_select(@categories_all), class: "text-search-dropdown" %>
-      <%= submit_tag 'Search', class: "btn-feiy-rec-white"%>
-    <% end %>
-    <%= link_to "See all Organizations", organizations_path, id: "search-all-organizations" %>
+  <!-- Search bar -->
+  <div  class="results-search" >
+    <%= render 'search_bar'%>
   </div>
 </div>
+
 
 <!-- ORGANIZATIONS SEARCH RESULTS -->
 <div class="container">

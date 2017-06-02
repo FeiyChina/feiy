@@ -43,45 +43,17 @@
   padding: 10px 50px 10px 50px;
 }
 
-// search wrapper
-.search-wrapper {
+// search
+#home-search {
   height: 100px;
   background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   p {
+    color: white;
     margin: 0;
     margin-right: 20px;
-  }
-}
-
-.text-search-field {
-  color: black;
-  border-radius: 3px;
-  border: none;
-  height: 32px;
-  width: 200px;
-  margin-right: 20px;
-}
-
-.text-search-dropdown {
-  color: black;
-  border-radius: 3px;
-  border: none;
-  height: 32px;
-  margin-right: 20px;
-}
-
-#search-all-organizations {
-  color: white;
-  text-decoration: none;
-  opacity: 0.6em;
-  margin-left: 20px;
-  &:hover {
-    color: #7B7D86;
-    text-decoration: none;
-    opacity: 1em;
   }
 }
 
