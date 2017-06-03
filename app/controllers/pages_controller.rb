@@ -4,8 +4,6 @@ class PagesController < ApplicationController
   def home
     @current_user = current_user
     @organizations = Organization.where(accepted?: true)
-    # @categories = ENV["categories"].split(",")
-    # @categories.prepend("")
     @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
     @job = Job.all
     @jobs = @job.where(active: true)
@@ -17,7 +15,6 @@ class PagesController < ApplicationController
     @current_user = current_user
     @organizations = @current_user.organizations
     @organization = @current_user.organizations.first
-    # @categories = Category.all
     @jobs = @organization.jobs
     @events = @organization.events
     @random_comment = @organization.comments.shuffle.first
