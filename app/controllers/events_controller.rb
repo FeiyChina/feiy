@@ -1,14 +1,5 @@
 class EventsController < ApplicationController
 
-  # def like
-  #   @event = Event.find(params[:id])
-  #   @event.liked_by(current_user)
-  #   redirect_to event_show_path
-  # end
-  def index
-    @event = Event.all
-  end
-
   def new
     authorize @organization = Organization.find(params[:organization_id])
     @event = Event.new
@@ -39,7 +30,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
-
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
@@ -65,8 +55,6 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :content, :date, :venue)
   end
-
-
 end
 
 
