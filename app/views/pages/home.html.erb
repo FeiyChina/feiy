@@ -2,10 +2,10 @@
 <div class="wrapper" id="welcome-wrapper">
   <%= render 'shared/navbar' %>
   <div class="header">
-  <div class="header-welcome">
+  <div class="header-welcome text-center">
     <h1>Be the change!</h1>
   </div>
-  <div class="tagline-welcome">
+  <div class="tagline-welcome text-center">
     <h3>Connect with high-impact initiatives in China and create sustainable change</h3>
   </div>
   <% unless user_signed_in? %>
@@ -22,6 +22,7 @@
 
 
 <!-- ORGANIZATIONS -->
+<div class="wrapper">
 <% if @organizations.any? %>
   <div class="title-divider text-center">
     <h4>ORGANIZATIONS</h4>
@@ -52,9 +53,11 @@
         </div>
       <% end %>
     </div>
-    <div class="row button-row">
+    <div class="row">
       <div class="col-xs-12">
-        <%= link_to "More organizations", organizations_path, class: "btn-feiy-primary button-cta-primary" %>
+        <div class="more-button text-center">
+          <%= link_to "More organizations", organizations_path, class: "btn-feiy-primary button-cta-primary" %>
+        </div>
       </div>
     </div>
   </div>
@@ -91,9 +94,11 @@
         </div>
       <% end %>
     </div>
-    <div class="row button-row">
+    <div class="row">
       <div class="col-xs-12">
-        <%= link_to "More jobs", jobs_path, class: "btn-feiy-primary button-cta-primary" %>
+        <div class="more-button text-center">
+          <%= link_to "More jobs", jobs_path, class: "btn-feiy-primary button-cta-primary" %>
+        </div>
       </div>
     </div>
   </div>
@@ -125,9 +130,11 @@
         </div>
       <% end %>
     </div>
-    <div class="row button-row">
+    <div class="row">
       <div class="col-xs-12">
-        <%= link_to "More events", events_path, class: "btn-feiy-primary button-cta-primary" %>
+        <div class="more-button text-center">
+          <%= link_to "More events", events_path, class: "btn-feiy-primary button-cta-primary" %>
+        </div>
       </div>
     </div>
   </div>
@@ -135,6 +142,7 @@
 
 
 <!-- FEATURES -->
+<div id="features-section">
 <div id="features-img">
   <div class="title-divider text-center">
     <h4 class="feiy-feature-title">HOW FEIY WORKS</h4>
@@ -171,6 +179,7 @@
     </div>
   </div>
 </div>
+</div>
 
 
 <!-- Bottomer Wrapper -->
@@ -179,3 +188,4 @@
     <%= link_to "JOIN US NOW!", new_user_session_path, class: "btn-feiy-primary button-cta-primary" %>
   </div>
 <% end %>
+</div>

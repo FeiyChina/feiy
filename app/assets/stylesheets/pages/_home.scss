@@ -57,10 +57,16 @@
   }
 }
 
+// more buttons
+.more-button {
+  margin: 15px 0px 25px 0px;
+}
+
+
 // event cards
 .events-card {
   position: relative;
-  margin: 20px auto;
+  margin: 20px 0px 40px 0px;
   border-radius: 3px;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
   width: 60%;
@@ -103,6 +109,9 @@
 }
 
 // Icons wrapper
+#features-section {
+  margin-top: 25px;
+}
 #features-img{
   background-image: image-url('home-features-bg.jpg');
   background-color: #D5F0EE;
@@ -117,17 +126,6 @@
   h5 {
     color: white;
   }
-}
-
-// Call to action footer
-#call-to-action-wrapper {
-  height: 400px;
-  background-color: white;
-  background-size: cover;
-  background-repeat: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .feiy-feature-img {
@@ -146,10 +144,18 @@
   padding: 0px 20px;
 }
 
-.button-row {
-  height: 100px;
-  text-align: center;
+// Call to action footer
+#call-to-action-wrapper {
+  height: 400px;
+  background-color: white;
+  background-size: cover;
+  background-repeat: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
+
+
 
 @media (max-width: 414px) {
   }
