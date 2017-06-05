@@ -9,7 +9,7 @@
 <div class="org-show-banner-logo-placeholder">
   <div class="round-logo-placeholder">
     <% if @organization.logo? %>
-        <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :fill, radius: :max %>
+        <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :pad, radius: :max %>
     <% end %>
   </div>
 </div>
