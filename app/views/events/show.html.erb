@@ -31,7 +31,7 @@
           <h4><strong> Where:</strong></h2>
           <p><%= @event.venue %></p>
           <br>
-          <% if @event.register_link %>
+          <% if @event.register_link.size > 4 %>
             <%= link_to "Click here to register for this event", @event.normalized_register_link %>
             <br>
           <% end %>
