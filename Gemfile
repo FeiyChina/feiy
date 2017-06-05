@@ -41,6 +41,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem "pundit"
 gem 'acts_as_commentable'
+gem 'postrank-uri'
 
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'

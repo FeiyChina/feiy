@@ -18,7 +18,6 @@ class EventsController < ApplicationController
         event_name: @event.name,
         venue: @event.venue
       })
-
       redirect_to dashboard_path
     else
       render :new
@@ -53,7 +52,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :content, :date, :venue)
+    params.require(:event).permit(:name, :content, :date, :venue, :register_link)
   end
 end
 
