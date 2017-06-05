@@ -8,7 +8,7 @@
     <% else %>
       <%= image_tag "profile_placeholder.png" %>
     <% end %>
-      <p class="dashboard-sidebar-username">Welcome <strong><%= current_user.name %></strong></p>
+      <h3 class="dashboard-sidebar-username">Welcome <strong><%= current_user.name %></strong></h3>
       <p class="dashboard-sidebar-usermail"><%= current_user.email %></p>
       <p class="dashboard-sidebar-admin">Verified Administrator</p>
       <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-feiy-primary" %>
