@@ -20,21 +20,3 @@
 //= require attachinary
 //= require cable.js
 //= require init_attachinary.js
-
-
-// $(document).ready(function() {
-//   $("#conf_msg").hide();
-//   $("#create_booking").on("click", function(event) {
-//   event.preventDefault();
-//   $("#conf_msg").show();
-//   $(".new_booking").hide();
-// })
-// });
-
-$(document).on('turbolinks:load', function() {
-  $('.meet-dev-team').hide();
-  $('.developers-btn').on('click', function() {
-      event.preventDefault();
-      $('.meet-dev-team').slideToggle(300);
-  });
-})
