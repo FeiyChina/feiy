@@ -18,7 +18,6 @@ class EventsController < ApplicationController
         event_name: @event.name,
         venue: @event.venue
       })
-
       redirect_to dashboard_path
     else
       render :new
