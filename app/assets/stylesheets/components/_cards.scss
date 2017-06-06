@@ -12,7 +12,7 @@
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
   margin: 20px auto 40px auto;
   z-index: 0;
-  display: inline-block;
+  display: block;
   float: none;
 }
 
@@ -99,7 +99,7 @@
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
   margin: 20px auto 40px auto;
   z-index: 0;
-  display: inline-block;
+  display: block;
   padding: inherit
 }
 
@@ -111,7 +111,7 @@
   position: relative;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
   margin: 20px auto 20px auto;
-  display: inline-block;
+  display: block;
   z-index: 0;
 }
 
@@ -172,7 +172,7 @@
   z-index: 0;
   padding: inherit;
   float: none;
-  display: inline-block;
+  display: block;
   &:hover {
     box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
   }

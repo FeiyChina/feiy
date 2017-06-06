@@ -75,6 +75,26 @@
   </div>
   <div class="container">
     <div class="row">
+      <% if @jobs.count == 1 %>
+        <% @jobs.take(3).shuffle.each do |job| %>
+          <div class="col-xs-12 col-sm-6 col-md-4 center-block" style="float: none;">
+            <div class="job-card">
+            <% if job.organization.logo %>
+              <img src="<%= cl_image_path job.organization.logo.path, height: 180, width: 350, crop: :fill%>", class='job-card-img' >
+            <% else %>
+              <%= image_tag "card_org_ngo_default.jpg", class: "job-card-img" %>
+            <% end %>
+            <div class="job-card-description">
+              <p id="job-name"><%= truncate(job.name) %></p>
+              <p id="job-problem"><%= truncate(job.organization.name)%></p>
+              <p id="job-category"><%= truncate(job.job_type)%></p>
+              <p id="job-category"><%= truncate(job.address) %></p>
+            </div>
+             <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
       <% @jobs.take(3).shuffle.each do |job| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="job-card">
@@ -92,6 +112,7 @@
            <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
           </div>
         </div>
+      <% end %>
       <% end %>
     </div>
     <div class="row">
