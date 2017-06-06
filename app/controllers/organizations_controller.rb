@@ -66,7 +66,6 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
-
     @organizations = Organization.where(accepted?: true).where(category: @organization.category).where.not(id: params[:id])
     if @organizations.any?
       @suggested_organizations_shuffled = @organizations.shuffle
