@@ -16,7 +16,8 @@ class EventsController < ApplicationController
         content: "Event",
         organization_name: @event.organization.name,
         event_name: @event.name,
-        venue: @event.venue
+        venue: @event.venue,
+        date: @event.date
       })
       redirect_to dashboard_path
     else
@@ -32,7 +33,20 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
-    redirect_to dashboard_path
+
+    if @event.save
+      MIXPANEL.track(@event.organization_id, 'Update', {
+        content: "Event",
+        organization_name: @event.organization.name,
+        event_name: @event.name,
+        venue: @event.venue,
+        date: @event.date
+      })
+      redirect_to dashboard_path
+    else
+      render :new
+    end
+
   end
 
   def show
