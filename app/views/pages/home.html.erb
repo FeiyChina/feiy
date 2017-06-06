@@ -41,8 +41,8 @@
             <% if organization.category %>
               <p id="organization-category"><%= truncate(organization.category.upcase) %></p>
             <% end %>
-            <p id="organization-name"><strong><%= truncate(organization.name) %></strong></p>
-            <p id="organization-problem"><%= truncate(organization.problem, length: 55, omission: '... (continued)') %></p>
+            <p id="organization-name"><strong><%= truncate(organization.name, length: 20) %></strong></p>
+            <p id="organization-problem"><%= truncate(organization.problem, length: 40, omission: '...') %></p>
           </div>
           <div class="organization-card-icons">
             <i class="fa fa-heart organization-card-icon"></i>
