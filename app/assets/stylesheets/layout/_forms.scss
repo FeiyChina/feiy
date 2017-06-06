@@ -65,7 +65,7 @@
   margin-bottom: 0;
   transition: all 0.5s ease;
   &:hover, &:active {
-    color: green;
+    color: $brand-color;
     cursor: pointer;
     text-decoration: none;
   }
@@ -85,13 +85,13 @@
 #text-signup {
   color: #a7a7a7;
   font-size: 13px;
-  float: right;
+  //float: right;
   transition: all 0.5s ease;
   p {
     color: #a7a7a7;
   }
   &:hover, &:active {
-    color: green;
+    color: $brand-color;
     cursor: pointer;
     text-decoration: none;
   }
@@ -106,7 +106,7 @@
     color: #a7a7a7;
   }
   &:hover, &:active {
-    color: green;
+    color: $brand-color;
     cursor: pointer;
     text-decoration: none;
   }
@@ -135,4 +135,26 @@
 .textarea {
   width: 300px;
   height: 400px
+}
+
+.btn-feiy-submit{
+  border-radius: 3px;
+  padding: 10px 20px;
+  background-color: #31c7c5;
+  border: solid 1px #31c7c5;
+  color: #F8F8F8;
+  font-weight: lighter
+}
+.btn-feiy-submit:hover{
+  opacity: 1;
+  text-decoration: none;
+  background-color: #37D7D4;
+  border: solid 1px #37D7D4;
+  color: #F8F8F8
+}
+
+.field {
+  &:active {
+    border-color: $brand-color;
+  }
 }

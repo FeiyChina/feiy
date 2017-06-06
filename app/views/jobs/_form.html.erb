@@ -1,6 +1,6 @@
 <%= simple_form_for [@organization, @job] do |f| %>
   <div class="form-inputs">
-    <%= f.input :name %>
+    <%= f.input :name, label: "Job position" %>
     <%= f.input :address, label: "Location" %>
     <%= f.input :website %>
     <%= f.input :email, label: "Recruiter's email"%>

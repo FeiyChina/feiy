@@ -33,7 +33,7 @@ class PagesController < ApplicationController
   end
 
   def jobs
-    @job = Job.all
+    @job = Job.where(Organization accepted?: true)
     @jobs = @job.where(active: true).order(created_at: :desc)#.paginate(:page => params[:page], :per_page => 9)
   end
 
