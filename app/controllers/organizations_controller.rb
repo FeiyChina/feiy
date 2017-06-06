@@ -27,7 +27,10 @@ class OrganizationsController < ApplicationController
     if @organization.save
       MIXPANEL.track(@organization.user_id, 'Created', {
         content: "Organization",
-        name: @organization.name
+        name: @organization.name,
+        address: @organization.address,
+        website: @organization.website
+
       })
 
       redirect_to dashboard_path
@@ -44,7 +47,21 @@ class OrganizationsController < ApplicationController
     authorize @organization = Organization.find(params[:id])
     @organization = Organization.find(params[:id])
     @organization.update(organization_params)
-    redirect_to organization_path(@organization)
+
+        @organization.user_id = current_user.id
+    if @organization.save
+      MIXPANEL.track(@organization.user_id, 'Update', {
+        content: "Organization",
+        name: @organization.name,
+        address: @organization.address,
+        website: @organization.website
+
+      })
+
+      redirect_to organization_path(@organization)
+    else
+      render :new
+    end
   end
 
   def show

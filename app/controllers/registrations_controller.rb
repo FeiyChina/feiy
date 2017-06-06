@@ -20,7 +20,8 @@ class RegistrationsController < Devise::RegistrationsController
       {
           "$first_name" => user.name,
           "$email" => user.email,
-          "ip" => request.env['REMOTE_ADDR']
+          "city" => user.city
+
       }
     )
 
