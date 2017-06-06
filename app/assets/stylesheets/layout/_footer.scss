@@ -12,32 +12,32 @@
 
 #footer .fa  {
   font-size: 30px;
-  color: rgba(0, 0, 0, 0.2);
+  color: white;
   transition: all 0.3s ease;
   margin-bottom: 20px;
 }
 
 #footer .fa:hover {
   cursor: pointer;
-  color: white;
+  color: rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
 #footer p {
-  color: rgba(0, 0, 0, 0.2);
+  color: white;
   margin-bottom: 0px;
 }
 
 
 #footer a {
   text-decoration:none;
-  color: rgba(0, 0, 0, 0.2);
+  color: white;
   font-weight: lighter;
 }
 
 #footer a:hover {
   cursor: pointer;
-  color: white;
+  color: rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
