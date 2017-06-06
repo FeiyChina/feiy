@@ -10,8 +10,10 @@
   border-radius: 3px;
   position: relative;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
-  margin: 20px 0px 40px 0px;
+  margin: 20px auto 40px auto;
   z-index: 0;
+  display: inline-block;
+  float: none;
 }
 
 .organization-card-link {
@@ -95,8 +97,9 @@
   border-radius: 3px;
   position: relative;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
-  margin: 20px 0px 40px 0px;
+  margin: 20px auto 40px auto;
   z-index: 0;
+  display: inline-block;
   padding: inherit
 }
 
@@ -107,7 +110,8 @@
   border-radius: 3px;
   position: relative;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
-  margin: 20px 0px 20px 0px;
+  margin: 20px auto 20px auto;
+  display: inline-block;
   z-index: 0;
 }
 
@@ -164,9 +168,11 @@
   border-radius: 3px;
   position: relative;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
-  margin: 20px 0px 40px 0px;
+  margin: 20px auto 40px auto;
   z-index: 0;
   padding: inherit;
+  float: none;
+  display: inline-block;
   &:hover {
     box-shadow: 0.5px 0.5px 0.5px 0.5px grey;
   }
