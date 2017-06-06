@@ -33,13 +33,13 @@ class PagesController < ApplicationController
   end
 
   def jobs
-    @job = Job.where(Organization accepted?: true)
-    @jobs = @job.where(active: true).order(created_at: :desc)#.paginate(:page => params[:page], :per_page => 9)
+    # @job = Job.where(Organization accepted?: true)
+    @jobs = Job.where(active: true).order(created_at: :desc)#.paginate(:page => params[:page], :per_page => 9)
   end
 
   def events
-    @event = Event.all
-    @events = @event.where('date >= ?', Date.today).order(date: :asc)#.paginate(:page => params[:page], :per_page => 9)
+    # @event = Event.all
+    @events = Event.where('date >= ?', Date.today).order(date: :asc)#.paginate(:page => params[:page], :per_page => 9)
   end
 
 end
