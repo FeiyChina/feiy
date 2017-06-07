@@ -7,6 +7,7 @@ class PagesController < ApplicationController
     @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
     @job = Job.all
     @jobs = @job.where(active: true)
+    # @jobs = @organizations.map { |org| org.jobs.where(active: true) }
     @event = Event.all
     @events = @event.where('date >= ?', Date.today).order(date: :asc)
   end
