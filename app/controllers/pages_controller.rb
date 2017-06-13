@@ -5,11 +5,10 @@ class PagesController < ApplicationController
     @current_user = current_user
     @organizations = Organization.where(accepted?: true)
     @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
-    @job = Job.all
-    @jobs = @job.where(active: true)
-    # @jobs = @organizations.map { |org| org.jobs.where(active: true) }
-    @event = Event.all
-    @events = @event.where('date >= ?', Date.today).order(date: :asc)
+    # a scope was defined in model
+    @jobs = Job.accepted.activated
+    # a scope was defined in model
+    @events = Event.accepted.future(Date.today)
   end
 
   def dashboard
@@ -29,18 +28,16 @@ class PagesController < ApplicationController
 
   def eventshow
     @booking = Booking.new
-    # @event = Event.find(params[:id])
-    # @event.liked_by(current_user)
   end
 
   def jobs
-    # @job = Job.where(Organization accepted?: true)
-    @jobs = Job.where(active: true).order(created_at: :desc)#.paginate(:page => params[:page], :per_page => 9)
+    # a scope was defined in model
+    @jobs = Job.accepted.activated
   end
 
   def events
-    # @event = Event.all
-    @events = Event.where('date >= ?', Date.today).order(date: :asc)#.paginate(:page => params[:page], :per_page => 9)
+    # a scope was defined in model
+    @events = Event.accepted.future(Date.today)
   end
 
 end
