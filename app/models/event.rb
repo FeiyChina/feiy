@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   belongs_to :organization
   acts_as_votable
 
-  scope :accepted, -> { joins(:organization).where("organization.accepted?" => true) }
+  scope :accepted, -> { joins(:organization).where("organizations.accepted?" => true) }
   scope :future, -> (date) { where("date >= ?", Date.today).order(date: :asc) }
 
   geocoded_by :venue
