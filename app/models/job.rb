@@ -4,5 +4,5 @@ class Job < ApplicationRecord
   belongs_to :organization
 
   scope :accepted, -> { joins(:organization).where("organizations.accepted?" => true) }
-  scope :activated, -> { where("job.active" => true).order(created_at: :desc) }
+  scope :activated, -> { where("jobs.active" => true).order(created_at: :desc) }
 end
