@@ -20,3 +20,4 @@
 //= require attachinary
 //= require cable.js
 //= require init_attachinary.js
+//= require google_analytics.js
