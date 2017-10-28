@@ -1,59 +1,60 @@
-<% if @organization.photo %>
-  <div class="org-show-banner">
-    <%= cl_image_tag @organization.photo.path, width: 1440, height: 450, crop: :fill %>
-  </div>
-<% else %>
-  <div class="org-show-grey-banner"></div>
-<% end %>
+<div itemscope itemtype="http://schema.org/Organization">
+  <% if @organization.photo %>
+    <div class="org-show-banner">
+      <%= cl_image_tag @organization.photo.path, width: 1440, height: 450, crop: :fill %>
+    </div>
+  <% else %>
+    <div class="org-show-grey-banner"></div>
+  <% end %>
 
-<div class="org-show-banner-logo-placeholder">
-  <div class="round-logo-placeholder">
-    <% if @organization.logo? %>
-        <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :pad, radius: :max %>
-    <% end %>
-  </div>
-</div>
-
-<div class="org-show-banner-content">
-  <div class="org-show-banner-content-info">
-    <h1><%= @organization.name.capitalize %></h1>
-    <p><strong>Category:</strong> <%= @organization.category.capitalize %></p>
-    <p><strong><%= @organization.votes_for.size %> Likes</strong></p>
-  </div>
-    <div class="org-show-button-holder">
-      <% if user_signed_in? && @organization.user_id == current_user.id %>
-        <%= link_to edit_organization_path(@organization), method: :get do %>
-          <%= image_tag "editor.png", class: "org-show-update" %>
-        <% end %>
-      <% end %>
-      <%= link_to organization_organization_contact_path(@organization) do %>
-        <%= image_tag "mail.png", class: "org-show-update" %>
-      <% end %>
-      <% if user_signed_in? %>
-        <div class="action-like ">
-          <%= link_to like_organization_path(@organization), method: :post do %>
-            <%= image_tag "praise.png", class: "org-show-update" %>
-          <% end %>
-        </div>
-      <% else %>
-        <div class="action-like ">
-          <%= link_to new_user_session_path do %>
-            <%= image_tag "praise.png", class: "org-show-update" %>
-          <% end %>
-        </div>
+  <div class="org-show-banner-logo-placeholder">
+    <div class="round-logo-placeholder">
+      <% if @organization.logo? %>
+          <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :pad, radius: :max %>
       <% end %>
     </div>
-</div>
+  </div>
 
+  <div class="org-show-banner-content">
+    <div class="org-show-banner-content-info">
+      <h1 itemprop="name"><%= @organization.name.capitalize %></h1>
+      <p><strong>Category:</strong> <%= @organization.category.capitalize %></p>
+      <p><strong><%= @organization.votes_for.size %> Likes</strong></p>
+    </div>
+      <div class="org-show-button-holder">
+        <% if user_signed_in? && @organization.user_id == current_user.id %>
+          <%= link_to edit_organization_path(@organization), method: :get do %>
+            <%= image_tag "editor.png", class: "org-show-update" %>
+          <% end %>
+        <% end %>
+        <%= link_to organization_organization_contact_path(@organization) do %>
+          <%= image_tag "mail.png", class: "org-show-update" %>
+        <% end %>
+        <% if user_signed_in? %>
+          <div class="action-like ">
+            <%= link_to like_organization_path(@organization), method: :post do %>
+              <%= image_tag "praise.png", class: "org-show-update" %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="action-like ">
+            <%= link_to new_user_session_path do %>
+              <%= image_tag "praise.png", class: "org-show-update" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+  </div>
 
-<div class="org-show-body-content">
-  <h4><strong>Our Mission</strong></h4>
-  <p class="text-justify"><%= @organization.description %></p>
-  <h4><strong>What problem we solve?</strong></h4>
-  <p class="text-justify"><%= @organization.problem %></p>
-  <h4><strong>Locations</strong></h4>
-  <p><%= @organization.address %></p>
-  <!-- <h4 class="text-center"><strong><%= link_to "Find out more", @organization.website, class: "organization-website-link" %></strong></h4> -->
+  <div class="org-show-body-content">
+    <h4><strong>Our Mission</strong></h4>
+    <p itemprop="description" class="text-justify"><%= @organization.description %></p>
+    <h4><strong>What problem we solve?</strong></h4>
+    <p class="text-justify"><%= @organization.problem %></p>
+    <h4><strong>Locations</strong></h4>
+    <p itemprop="address"><%= @organization.address %></p>
+    <!-- <h4 class="text-center"><strong><%= link_to "Find out more", @organization.website, class: "organization-website-link" %></strong></h4> -->
+  </div>
 </div>
 
 <!-- You may also like -->

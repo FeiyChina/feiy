@@ -7,17 +7,17 @@
     <div class="row">
       <% @events.each do |event| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="event-card">
+          <div itemscope itemtype="http://schema.org/Event" class="event-card">
           <% if event.organization.logo %>
-            <img src="<%= cl_image_path event.organization.logo.path, height: 180, width: 350, crop: :fill%>", class='events-card-img' >
+            <img itemprop="image" src="<%= cl_image_path event.organization.logo.path, height: 180, width: 350, crop: :fill%>", class='events-card-img' >
           <% else %>
             <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
           <% end %>
             <div class="events-card-description">
-              <p id="job-name"><%= truncate(event.name, length: 17) %></p>
-              <p id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
+              <p itemprop="name" id="job-name"><%= truncate(event.name, length: 17) %></p>
+              <p itemprop="startDate" id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
             </div>
-            <p class="event-hover-card text-center" id="event-name"><strong>Hosted by <%= truncate(event.organization.name, length: 17) %></strong><br><br><%= truncate(event.content, length: 20)%></p>
+            <p itemprop="location" itemscope itemtype="http://schema.org/Place" class="event-hover-card text-center" id="event-name"><strong itemprop="address">Hosted by <%= truncate(event.organization.name, length: 17) %></strong><br><br><%= truncate(event.content, length: 20)%></p>
             <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
           </div>
         </div>
