@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Feiy<%= if content_for?(:title) then ' | ' + yield(:title) end %></title>
+    <title><%= if content_for?(:title) then yield(:title) + ' | ' end %>Feiy</title>
       <% if current_page? root_path %>
         <meta name="description" content="Feiy connects people with high-impact organisations. We are a hub where inspiring projects, events and job offers meet with people decided to take action and create impact." />
       <% end %>
