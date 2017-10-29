@@ -21,7 +21,6 @@ class RegistrationsController < Devise::RegistrationsController
           "$first_name" => user.name,
           "$email" => user.email,
           "city" => user.city
-
       }
     )
 
