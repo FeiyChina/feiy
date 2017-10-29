@@ -2,9 +2,12 @@
 <html>
   <head>
     <title>Feiy</title>
-      <meta name="description" content="Feiy connects people with high-impact organisations. We are a hub where inspiring projects, events and job offers meet with people decided to take action and create impact." />
+      <% if current_page? root_path %>
+        <meta name="description" content="Feiy connects people with high-impact organisations. We are a hub where inspiring projects, events and job offers meet with people decided to take action and create impact." />
+      <% end %>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <link rel="alternate" href="http://www.feiy.co/" hreflang="en-cn"/>
 
       <% if Rails.env.production? %>
         <!-- Global site tag (gtag.js) - Google Analytics -->
