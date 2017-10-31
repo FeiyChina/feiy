@@ -1,0 +1,13 @@
+<div class="org-show-comment-section">
+  <h3 id="leavemsg">Leave us a nice comment</h3>
+  <div class="org-show-comment-box">
+    <%= form_for Comment.new do %>
+    <%= hidden_field_tag "commentable_type", locals[:commentable].class.name %>
+    <%= hidden_field_tag "commentable_id", locals[:commentable].id %>
+    <%= text_area_tag :comment %>
+    <div class="comment-btn">
+      <%= submit_tag "COMMENT", class: "btn-feiy-comments" %>
+    </div>
+    <% end %>
+  </div>
+</div>

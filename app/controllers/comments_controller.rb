@@ -1,27 +1,31 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  include CommentableController
 
   def create
-    organization = Organization.find(params[:id])
-    comment = organization.comments.build(comment_params)
+    comment = @commentable.comments.build(comment_params)
     comment.user = current_user
 
     if comment.save
       flash[:notice] = "Comment has been created."
-      redirect_to organization
+      redirect_to @commentable
     else
       flash[:alert] = "Comment has not been created."
     end
   end
 
-  def show
-    @organization = Organization.find(params[:id])
-    @comment = Comment.new
-    @comments = @organization.comments
+  def destroy
+    if current_user.admin? && @comment.destroy
+      flash[:notice] = "Comment has been deleted."
+      redirect_to @commentable
+    else
+      flash[:alert] = "Comment has not been deleted."
+    end
   end
 
   private
-    def comment_params
-      params.permit(:comment)
-    end
+
+  def comment_params
+    params.permit(:comment, :commentable_type, :commentable_id, :id)
+  end
 end
