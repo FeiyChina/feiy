@@ -23,6 +23,6 @@ Rails.application.routes.draw do
   get 'developers', to: 'pages#developers'
   get 'events', to: 'pages#events', as: "events"
   get 'jobs', to: 'pages#jobs', as: "jobs"
-  post 'comments' => 'comments#create', as: "create_comment"
 
+  resources 'comments', only: [:create, :destroy]
 end

@@ -3,7 +3,7 @@ ActiveAdmin.register Organization do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :name, :problem, :description, :website, :address, :email, :user_is_a_representative, :accepted?
+  permit_params :name, :problem, :description, :website, :address, :email, :user_is_a_representative, :accepted?, :user_id, :category
     index do
     selectable_column
     column :id
