@@ -1,0 +1,2 @@
+jQuery ->
+  $('.attachinary-input').attachinary()
