@@ -16,6 +16,22 @@
   font-size: 20px;
 }
 
+.articles_pagination {
+  font-size: 20px;
+}
+
+.articles_pagination > li.active > a {
+  color: #fff;
+  background-color: #32c6c5;
+  border-color: #32c6c5;
+}
+
+.articles_pagination > li > a {
+  color: #3a3b3f;
+  background-color: #fff;
+}
+
+
 .main-article-card {
   width: 100%;
   margin: 20px auto 40px auto;
