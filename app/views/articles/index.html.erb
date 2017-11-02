@@ -1,15 +1,19 @@
 <%= cloudinary_js_config %>
 <% title "High-impact initiatives in China" %>
 
+<!-- Welcome Banner -->
 <div class="wrapper index-search-wrapper">
-  <div class="index-search-header">
+  <div class="index-search-heade">
     <div class="index-search-header-welcome text-center">
-      <h1>Discover the community<br>of high-impact initiatives<br>in China</h1>
+      <h1>Be the change!</h1>
+    </div>
+    <div class="tagline-welcome text-center">
+      <h3>Connect with high-impact initiatives in China and create sustainable change</h3>
     </div>
   </div>
   <!-- Search bar -->
-  <div  class="results-search" >
-    <%= render 'search_bar'%>
+  <div id="home-search">
+    <%= render 'articles/search_bar'%>
   </div>
 </div>
 
@@ -28,7 +32,7 @@
             <% end %>
             <div class="main-article-description">
               <p class="article-category"><%= 'CATEGORY HERE' %></p>
-              <p class="main-article-title"><strong><%= truncate(article.title, length: 20) %></strong></p>
+              <p class="main-article-title"><strong><%= article.title %></strong></p>
               <p class="main-article-title-description"><%= truncate(article.description, length: 150) %></p>
             </div>
             <div class="article-icons">
@@ -50,7 +54,7 @@
             <% end %>
             <div class="article-description">
               <p class="article-category"><%= 'CATEGORY HERE' %></p>
-              <p class="article-title"><strong><%= truncate(article.title, length: 20) %></strong></p>
+              <p class="article-title"><strong><%= article.title %></strong></p>
               <p class="article-title-description"><%= truncate(article.description, length: 150) %></p>
             </div>
             <div class="article-icons">
