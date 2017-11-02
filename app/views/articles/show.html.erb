@@ -1,0 +1,71 @@
+<% title @article.title.capitalize %>
+
+<div itemscope itemtype="http://schema.org/Organization">
+  <% if @article.photo %>
+    <div class="org-show-banner">
+      <%= cl_image_tag @article.photo.path, width: 1440, height: 450, crop: :fill %>
+    </div>
+  <% else %>
+    <div class="org-show-grey-banner"></div>
+  <% end %>
+
+  <div class="org-show-banner-content">
+    <div class="org-show-banner-content-info">
+      <h1 itemprop="name"><%= @article.title.capitalize %></h1>
+      <p><strong>Category:</strong> <%= 'CATEGORY HERE' %></p>
+      <p><strong><%= @article.votes_for.size %> Likes</strong></p>
+    </div>
+      <div class="org-show-button-holder">
+        <%= image_tag "mail.png", class: "org-show-update" %>
+        <% if user_signed_in? %>
+          <div class="action-like ">
+            <%= link_to like_article_path(@article), method: :post do %>
+              <%= image_tag "praise.png", class: "org-show-update" %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="action-like ">
+            <%= link_to new_user_session_path do %>
+              <%= image_tag "praise.png", class: "org-show-update" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  <div class="org-show-body-content">
+    <h4><strong><%= @article.body[0..100] %></strong></h4>
+    <p class="text-justify"><%= @article.body %></p>
+  </div>
+</div>
+
+<!-- Read more -->
+<div class="container">
+  <div class="row">
+    <% @suggestions.each do |article| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="event-card">
+        <% if article.photo %>
+          <img src="<%= cl_image_path article.photo.path, height: 180, width: 350, crop: :fill%>" class='events-card-img' tag="<%= article.title %>" >
+        <% else %>
+          <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
+        <% end %>
+          <div class="events-card-description">
+            <p id="job-problem"><strong><%= truncate(article.title, length: 20) %></strong></p>
+            <p id="job-address"><%= article.created_at.strftime("%B %e, %Y, %l:%M %p ") %></p>
+          </div>
+          <p class="event-hover-card text-center" id="event-name"><%= article.title %><br><br><%= truncate(article.body, length: 100)%></p>
+          <%= link_to "", article_path(article), class: "organization-card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<!-- comment function -->
+<%= render('comments/form', locals: {commentable: @article}) %>
+<%= render('comments/comments', locals: {commentable: @article}) %>
+
+
+

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   end
 
   post "organizations/:id/like", to:"organizations#like", as: "like_organization"
+
+  post "articles/:id/like", to:"articles#like", as: "like_article"
+
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   root to: 'pages#home'
@@ -25,4 +28,5 @@ Rails.application.routes.draw do
   get 'jobs', to: 'pages#jobs', as: "jobs"
 
   resources 'comments', only: [:create, :destroy]
+  resources 'articles', only: [:show, :index]
 end
