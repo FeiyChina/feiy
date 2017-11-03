@@ -1,5 +1,7 @@
 class Article < ApplicationRecord
+  acts_as_taggable
   scope :published, -> { where(is_published: true, is_main_article: false).order(published_at: :desc) }
+  #scope :published, ->(tag) { where(is_published: true, is_main_article: false).order(published_at: :desc) }
   scope :main_article, -> { where(is_main_article: true) }
   before_save :check_for_publication_status
   before_save :set_main_article
@@ -14,6 +16,12 @@ class Article < ApplicationRecord
     else
       Article.published.page(page).per(6)
     end
+  end
+
+  def self.by_tag(tag)
+    Article.includes(:tags)
+           .tagged_with(tag)
+           .where(is_published: true)
   end
 
   private

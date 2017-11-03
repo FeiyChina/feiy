@@ -34,7 +34,7 @@
           <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
         <% end %>
         <div class="main-article-description">
-          <p class="article-category"><%= 'CATEGORY HERE' %></p>
+          <p class="article-category"><%= @main_article.tags.first&.name&.capitalize %></p>
           <p class="main-article-title"><strong><%= @main_article.title %></strong></p>
           <p class="main-article-title-description"><%= truncate(@main_article.description, length: 100) %></p>
         </div>
@@ -57,7 +57,7 @@
               <%= image_tag "card_org_ngo_default.jpg", class: "article-img" %>
             <% end %>
             <div class="article-description">
-              <p class="article-category"><%= 'CATEGORY HERE' %></p>
+              <p class="article-category"><%= article.tags.first&.name&.capitalize %></p>
               <p class="article-title"><strong><%= article.title %></strong></p>
               <p class="article-title-description"><%= truncate(article.description, length: 100) %></p>
             </div>

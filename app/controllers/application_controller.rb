@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   include Pundit
   after_filter :store_location
 
-  after_action :verify_authorized, except: [:index,:show, :new, :create, :search, :edit, :organization_contact, :organization_send, :like, :update],  unless: :skip_pundit?
+  after_action :verify_authorized, except: [:index, :show,
+                                            :new, :create, :search,
+                                            :edit, :organization_contact,
+                                            :organization_send, :like,
+                                            :update, :by_tag],  unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [], unless: :skip_pundit?
 
 

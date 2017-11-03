@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'tinymce-rails'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
@@ -43,6 +44,8 @@ gem 'devise'
 gem 'pundit'
 
 gem 'acts_as_commentable'
+
+gem 'acts-as-taggable-on', git: 'https://github.com/mbleigh/acts-as-taggable-on'
 
 gem 'postrank-uri'
 
