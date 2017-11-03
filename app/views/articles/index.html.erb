@@ -22,7 +22,11 @@
 <div class="container">
   <div class="row">
   <% if @main_article %>
-    <% background_style = "background: url(#{cl_image_path(@main_article.photo.path, :width=>700, :height=>410, :crop=>"fill")}) no-repeat;background-size: cover;"%>
+    <%if @main_article.photo %>
+      <% background_style = "background: url(#{cl_image_path(@main_article.photo.path, :width=>700, :height=>410, :crop=>"fill")}) no-repeat;background-size: cover;"%>
+    <% else %>
+      <% background_style = "background: url(card_org_ngo_default.jpg) no-repeat;background-size: cover;"%>
+    <% end %>
     <%= content_tag :div, class: 'col-xs-12 col-sm-12 col-md-12' do %>
       <%= content_tag :div, class: 'main-article-card', style:background_style do %>
         <% if @main_article.photo %>
