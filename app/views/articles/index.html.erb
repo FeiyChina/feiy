@@ -21,30 +21,30 @@
 <!-- ORGANIZATIONS SEARCH RESULTS -->
 <div class="container">
   <div class="row">
+  <% if @main_article %>
+    <% background_style = "background: url(#{cl_image_path(@main_article.photo.path, :width=>700, :height=>410, :crop=>"fill")}) no-repeat;background-size: cover;"%>
+    <%= content_tag :div, class: 'col-xs-12 col-sm-12 col-md-12' do %>
+      <%= content_tag :div, class: 'main-article-card', style:background_style do %>
+        <% if @main_article.photo %>
+        <% else %>
+          <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
+        <% end %>
+        <div class="main-article-description">
+          <p class="article-category"><%= 'CATEGORY HERE' %></p>
+          <p class="main-article-title"><strong><%= @main_article.title %></strong></p>
+          <p class="main-article-title-description"><%= truncate(@main_article.description, length: 100) %></p>
+        </div>
+        <div class="article-icons">
+          <i class="fa fa-heart main-article-icon"></i>
+          <span class="main-article-icon-text"><%= @main_article.votes_for.size %></span>
+          <i class="fa fa-commenting main-article-icon"></i>
+          <span class="main-article-icon-text"><%= @main_article.votes_for.size %></span>
+        </div>
+        <%= link_to "", article_path(@main_article), class: "article-link" %>
+      <% end %>
+     <%end%>
+    <%end%>
     <% @articles.each_with_index do |article, index| %>
-      <% if index.zero? %>
-        <% background_style = "background: url(#{cl_image_path(article.photo.path, :width=>700, :height=>410, :crop=>"fill")}) no-repeat;background-size: cover;"%>
-        <%= content_tag :div, class: 'col-xs-12 col-sm-12 col-md-12' do %>
-          <%= content_tag :div, class: 'main-article-card', style:background_style do %>
-            <% if article.photo %>
-            <% else %>
-              <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
-            <% end %>
-            <div class="main-article-description">
-              <p class="article-category"><%= 'CATEGORY HERE' %></p>
-              <p class="main-article-title"><strong><%= article.title %></strong></p>
-              <p class="main-article-title-description"><%= truncate(article.description, length: 100) %></p>
-            </div>
-            <div class="article-icons">
-              <i class="fa fa-heart main-article-icon"></i>
-              <span class="main-article-icon-text"><%= article.votes_for.size %></span>
-              <i class="fa fa-commenting main-article-icon"></i>
-              <span class="main-article-icon-text"><%= article.votes_for.size %></span>
-            </div>
-            <%= link_to "", article_path(article), class: "article-link" %>
-          <% end %>
-        <%end%>
-      <% else %>
         <%= content_tag :div, class: 'col-xs-12 col-sm-6 col-md-6' do %>
           <%= content_tag :div, class: 'article-card-medium' do %>
             <% if article.photo %>
@@ -65,10 +65,8 @@
             </div>
             <%= link_to "", article_path(article), class: "article-link" %>
           <% end %>
-        <%end%>
       <% end %>
     <%end%>
-
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
       <%= paginate @articles %>
     </div>
