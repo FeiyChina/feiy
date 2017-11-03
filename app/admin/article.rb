@@ -1,6 +1,8 @@
 ActiveAdmin.register Article do
   menu priority: 5
-  permit_params :title, :body, :category, :user_id, :photo, :description
+  permit_params :title, :body, :category,
+                :user_id, :photo, :description,
+                :is_main_article, :is_published
   index do
     selectable_column
     column :id
@@ -9,6 +11,8 @@ ActiveAdmin.register Article do
     column :body
     column :category
     column :user_id
+    column :is_main_article
+    column :is_published
     actions
   end
 
@@ -19,6 +23,8 @@ ActiveAdmin.register Article do
       input :title
       input :description
       input :body
+      input :is_published
+      input :is_main_article
     end
     para 'Press cancel to return to the list without saving.'
     actions

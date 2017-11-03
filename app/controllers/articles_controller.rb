@@ -1,12 +1,16 @@
 class ArticlesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :find_article, only: [:show, :like]
 
   def index
-    @articles = Article.page(article_params[:page] || 1).per(5)
+    if !article_params[:page] || article_params[:page] == '1'
+      @main_article = Article.main_article.first
+    end
+    @articles = Article.decide_page(article_params[:page])
   end
 
   def show
-    @suggestions = Article.all.limit(5)
+    @suggestions = Article.published.limit(5)
   end
 
   def like
