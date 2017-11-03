@@ -14,8 +14,8 @@ $(document).ready(function() {
       plugins: 'image',
      theme: 'modern',
       file_browser_callback: function(field_name, url, type, win) {
-        let title_text;
-        let cmsURL;
+        var title_text;
+        var cmsURL;
 
         if (type == 'image') {
           title_text = "Choose an Image"
