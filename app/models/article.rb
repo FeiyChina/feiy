@@ -11,8 +11,6 @@ class Article < ApplicationRecord
   def self.decide_page(page)
     if !page || page == '1'
       Article.published.page(1).per(6)
-    elsif page == '2'
-      Article.published.page(2).per(6)
     else
       Article.published.page(page).per(6)
     end

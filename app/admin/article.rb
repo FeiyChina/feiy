@@ -22,7 +22,7 @@ ActiveAdmin.register Article do
       input :photo, as: :formtastic_attachinary
       input :title
       input :description
-      input :body
+      input :body, input_html: { class: 'tinymce' }
       input :is_published
       input :is_main_article
     end
