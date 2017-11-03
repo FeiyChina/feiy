@@ -12,7 +12,7 @@
   <div class="org-show-banner-content">
     <div class="org-show-banner-content-info">
       <h1 itemprop="name"><%= @article.title.capitalize %></h1>
-      <p><strong>Category:</strong> <%= 'CATEGORY HERE' %></p>
+      <p><strong>Category:</strong> <%= @article.tags.first&.name&.capitalize %></p>
       <p><strong><%= @article.votes_for.size %> Likes</strong></p>
     </div>
       <div class="org-show-button-holder">
