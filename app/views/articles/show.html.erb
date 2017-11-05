@@ -17,7 +17,7 @@
     </div>
       <div class="org-show-button-holder">
         <%= image_tag "mail.png", class: "org-show-update" %>
-        <%= social_share_button_tag(@article.title) %>
+        <%= social_share_button_tag(@article.title, desc: 'Shared article from feiy.co') %>
         <% if user_signed_in? %>
           <div class="action-like ">
             <%= link_to like_article_path(@article), method: :post do %>
