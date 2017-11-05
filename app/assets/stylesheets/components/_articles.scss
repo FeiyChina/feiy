@@ -1,10 +1,12 @@
 .submit_article_to_us {
-  height: 20px;
-  background-color: #677BFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  padding: 20px;
+  width: 50%;
+  text-align: center;
+  background-color: #6a6c73;
   p a {
+    font-family: Arvo;
+    font-size: 24px;
     color: white;
   }
 }
