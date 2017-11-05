@@ -17,7 +17,7 @@
       <p><strong><%= @article.votes_for.size %> Likes</strong></p>
     </div>
       <div class="org-show-button-holder">
-        <%= image_tag "mail.png", class: "org-show-update" %>
+        <div class: "org-show-update"></div>
         <% if user_signed_in? %>
           <div class="action-like ">
             <%= link_to like_article_path(@article), method: :post do %>
@@ -37,6 +37,7 @@
   <div class="org-show-body-content">
     <h4><strong><%= @article.description %></strong></h4>
     <p class="text-justify"><%= raw(@article.body) %></p>
+    <div class="text-right"><%= social_share_button_tag(@article.title, desc: 'Shared article from feiy.co') %></div>
   </div>
 </div>
 
@@ -66,6 +67,12 @@
 
 <!-- comment function -->
 <%= render('comments/form', locals: {commentable: @article}) %>
+<br/>
+
+<div class='submit_article_to_us'>
+  <p><a href="mailto:hi@feiy.co?subject=Submit an article">Submit an article to feiy.co!</a></p>
+</div>
+
 <%= render('comments/comments', locals: {commentable: @article}) %>
 
 
