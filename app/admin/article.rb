@@ -22,7 +22,7 @@ ActiveAdmin.register Article do
       input :user_id, as: :select, collection: User.where(admin: true)
       input :photo, as: :formtastic_attachinary
       input :title
-      input :description
+      input :description, as: :string
       input :body, input_html: { class: 'tinymce' }
       input :is_published
       input :is_main_article

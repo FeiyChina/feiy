@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @suggestions = Article.published.limit(5)
+    @suggestions = @article.suggestions
   end
 
   def like
