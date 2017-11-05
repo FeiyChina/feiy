@@ -49,6 +49,8 @@ gem 'acts-as-taggable-on', git: 'https://github.com/mbleigh/acts-as-taggable-on'
 
 gem 'postrank-uri'
 
+gem 'social-share-button', git: 'https://github.com/xnagpa/social-share-button', branch: 'feature/add-address-to-send-to-email'
+
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # Styleing gems go here

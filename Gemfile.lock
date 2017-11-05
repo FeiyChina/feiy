@@ -40,6 +40,14 @@ GIT
     acts-as-taggable-on (5.0.0)
       activerecord (>= 4.2.8)
 
+GIT
+  remote: https://github.com/xnagpa/social-share-button
+  revision: ec91fc5a81a1509ae0a128140350c036a2da88a3
+  branch: feature/add-address-to-send-to-email
+  specs:
+    social-share-button (1.0.0)
+      coffee-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -336,6 +344,7 @@ DEPENDENCIES
   rails (~> 5.0.2)
   sass-rails (~> 5.0)
   simple_form
+  social-share-button!
   spring
   spring-watcher-listen (~> 2.0.0)
   tinymce-rails
