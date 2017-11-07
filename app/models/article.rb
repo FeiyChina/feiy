@@ -26,9 +26,13 @@ class Article < ApplicationRecord
     end
   end
 
+  def self.search(criteria)
+    Article.where('title LIKE ?', "%#{criteria}%")
+           .or(Article.where('body LIKE ?', "%#{criteria}%"))
+  end
+
   def self.by_tag(tag)
-    Article.includes(:tags)
-           .tagged_with(tag)
+    Article.tagged_with(tag)
            .where(is_published: true)
   end
 

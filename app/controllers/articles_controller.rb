@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :by_tag]
+  skip_before_action :authenticate_user!, only: [:index, :show, :by_tag, :search]
   before_action :find_article, only: [:show, :like]
 
   def index
@@ -11,6 +11,13 @@ class ArticlesController < ApplicationController
 
   def show
     @suggestions = @article.suggestions
+  end
+
+  def search
+    @articles = Article.by_tag(params[:category])
+    @articles = @articles.or(Article.search(params[:title]))
+    @articles = @articles.page(article_params[:page] || '1').per(6)
+    render template: 'articles/index'
   end
 
   def like
