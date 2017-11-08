@@ -6,8 +6,8 @@
     <% else %>
       <title><%= if content_for?(:title) then yield(:title) + ' | ' end %>Feiy</title>
     <% end %>
-    <% if current_page? root_path %>
-      <meta name="description" content="Feiy connects people with high-impact organisations. We are a hub where inspiring projects, events and job offers meet with people decided to take action and create impact." />
+    <% if content_for?(:description) %>
+      <meta name="description" content="<%= yield(:description) %>" />
     <% end %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
