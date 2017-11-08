@@ -26,7 +26,7 @@
           <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
         <% end %>
         <div class="organization-card-description">
-          <% if organization.category %>
+          <% if organization.tags&.first&.name %>
             <p id="organization-category"><%= truncate(organization.tags&.first&.name&.capitalize, length: 20) %></p>
           <% end %>
           <p id="organization-name"><strong><%= truncate(organization.name, length: 20) %></strong></p>

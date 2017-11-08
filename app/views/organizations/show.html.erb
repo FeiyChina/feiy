@@ -146,8 +146,8 @@
           <div class="organization-card-description">
             <p id="organization-name"><strong><%= truncate(organization.name, length: 20) %></strong></p>
             <p id="organization-problem"><%= truncate(organization.problem, length: 20) %></p>
-            <% if organization.category %>
-              <p id="organization-category"><%= truncate(organization.category, length: 20) %></p>
+            <% if organization.tags&.first&.name %>
+              <p id="organization-category"><%= truncate(organization.tags&.first&.name, length: 20) %></p>
             <% end %>
           </div>
           <div class="organization-card-icons">

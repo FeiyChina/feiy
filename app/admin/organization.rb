@@ -5,7 +5,7 @@ ActiveAdmin.register Organization do
 #
   permit_params :name, :problem, :description, :website,
     :address, :email, :user_is_a_representative,
-    :accepted?, :user_id, :category, :tag_list
+    :accepted?, :user_id, :tag_list
     index do
     selectable_column
     column :id
