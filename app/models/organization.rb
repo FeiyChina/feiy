@@ -9,5 +9,4 @@ class Organization < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :jobs, dependent: :destroy
   validates :user_is_a_representative, presence: true
-  validates :category, presence: true, inclusion: { in: %w(Education Fashion Food Waste Health Environment Inclusion Community) }
 end

@@ -8,7 +8,7 @@
     <%= f.input :description, as: :text, :input_html => {:rows => 10}  %>
     <%= f.input :email, label: "E-mail" %>
     <%= f.input :website %>
-    <%= f.input :category, collection: ["Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"] %>
+    <%= f.input :tags, collection: ActsAsTaggableOn::Tag.all.map(&:name), value: (@organization&.tags&.first&.name || 'Tag your organization') %>
   </div>
     <%= f.input :user_is_a_representative, inline_label: 'I am a representative of this organization', error: 'Only representatives can add organizations', error_html: { id: 'representative_error'}   %>
   <div class="form-actions">
