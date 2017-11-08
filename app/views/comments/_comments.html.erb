@@ -23,7 +23,7 @@
       </div>
       <div class="line"></div>
       <% if current_user.admin? %>
-      <%= link_to 'Delete stupid comment', comment_path(comment, commentable_id: comment.commentable.id, commentable_type: comment.commentable_type), method: :delete%>
+      <%= link_to 'Delete comment', comment_path(comment, commentable_id: comment.commentable.id, commentable_type: comment.commentable_type), method: :delete%>
       <% end %>
     <% end %>
   </div>

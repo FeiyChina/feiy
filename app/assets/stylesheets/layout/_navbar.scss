@@ -175,6 +175,18 @@ padding-right: 20px
   opacity: 1em
 }
 
+.stories-linkto{
+  color: #3CC7C6;
+  text-decoration: none;
+  opacity: 0.6em
+}
+
+.stories-linkto:hover{
+  color: #7B7D86;
+  text-decoration: none;
+  opacity: 1em
+}
+
 // Placeholder avatar transform into circle
 .circle-avatar{
   border-radius: 50%;

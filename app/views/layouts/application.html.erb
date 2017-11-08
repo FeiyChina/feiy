@@ -6,7 +6,6 @@
     <% else %>
       <title><%= if content_for?(:title) then yield(:title) + ' | ' end %>Feiy</title>
     <% end %>
-
     <% if content_for?(:description) %>
       <meta name="description" content="<%= yield(:description) %>" />
     <% end %>

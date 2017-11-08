@@ -21,3 +21,5 @@
 //= require cable.js
 //= require init_attachinary.js
 //= require google_analytics.js
+//= require social-share-button
+//= require social-share-button/wechat
