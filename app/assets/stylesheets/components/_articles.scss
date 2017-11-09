@@ -60,6 +60,7 @@
 }
 
 .main-article-description {
+  padding-right: 10px;
   border-radius: 3px;
   box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
   background-color: rgb(50, 198, 197);
@@ -128,7 +129,7 @@
 .article-title {
   color: #393A3E;
   margin-left: 30px;
-  font-size: x-large;
+  font-size: x-medium;
   font-family: Arvo;
 }
 
@@ -174,7 +175,7 @@
 .main-article-title {
   color: white;
   margin-left: 30px;
-  font-size: x-large;
+  font-size: x-medium;
   font-family: Arvo;
 }
 
@@ -192,19 +193,6 @@
 
   .main-article-icon {
     display: none;
-  }
-
-  .main-article-description {
-    border-radius: 3px;
-    box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
-    background-color: rgb(50, 198, 197);
-    padding-top: 0px;
-    padding-bottom: 0px;
-    max-width: 450px;
-    max-height: 200px;
-    position: absolute;
-    bottom: 10px;
-    top: 180px;
   }
 
   .main-article-title-description {

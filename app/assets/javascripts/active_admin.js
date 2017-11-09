@@ -11,7 +11,8 @@
 $(document).ready(function() {
   tinyMCE.init({
      selector: '.tinymce',
-      plugins: 'image',
+     toolbar: "undo redo | bold italic | styleselect | alignleft aligncenter alignright alignjustify | indent outdent | forecolor backcolor",
+     plugins: 'textcolor',
      theme: 'modern',
       file_browser_callback: function(field_name, url, type, win) {
         var title_text;

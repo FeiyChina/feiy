@@ -7,8 +7,12 @@ ActiveAdmin.register Article do
     selectable_column
     column :id
     column :title
-    column :description
-    column :body
+    column 'description' do |x|
+      x.description.slice(0, 100)
+    end
+    column 'body' do |x|
+      x.body.slice(0, 100)
+    end
     column :category
     column :user_id
     column :is_main_article
