@@ -35,7 +35,6 @@
   </div>
 
   <div class="org-show-body-content">
-    <h4><strong><%= @article.description %></strong></h4>
     <p class="text-justify"><%= raw(@article.body) %></p>
     <div class="text-right"><%= social_share_button_tag(@article.title, desc: 'Shared article from feiy.co') %></div>
   </div>

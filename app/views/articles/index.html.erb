@@ -28,7 +28,7 @@
   <div class="row">
   <% if @main_article %>
     <%if @main_article.photo %>
-      <% background_style = "background: url(#{cl_image_path(@main_article.photo.path, :width=>700, :height=>410, :crop=>"fill")}) no-repeat;background-size: cover;"%>
+      <% background_style = "background: url(#{cl_image_path(@main_article.photo.path, :width=>1000, :height=>515, :crop=>"fill")}) no-repeat;background-size: cover;"%>
     <% else %>
       <% background_style = "background: url(card_org_ngo_default.jpg) no-repeat;background-size: cover;"%>
     <% end %>
@@ -57,7 +57,7 @@
         <%= content_tag :div, class: 'col-xs-12 col-sm-6 col-md-6' do %>
           <%= content_tag :div, class: 'article-card-medium' do %>
             <% if article.photo %>
-              <img src="<%= cl_image_path(article.photo.path, :width=>700, :height=>250, :crop=>"fill")%>" class='article-img' %> tag="<%= article.title %>" >
+              <img src="<%= cl_image_path(article.photo.path, :width=>1000, :height=>515,:crop=>"fill")%>" class='article-img' %> tag="<%= article.title %>" >
             <% else %>
               <%= image_tag "card_org_ngo_default.jpg", class: "article-img" %>
             <% end %>
