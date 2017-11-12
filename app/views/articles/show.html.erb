@@ -55,7 +55,7 @@
             <p id="job-problem"><strong><%= truncate(article.title, length: 20) %></strong></p>
             <p id="job-address"><%= article.created_at.strftime("%B %e, %Y, %l:%M %p ") %></p>
           </div>
-          <p class="event-hover-card text-center" id="event-name"><%= article.title %><br><br><%= truncate(article.body, length: 100)%></p>
+          <p class="event-hover-card text-center" id="event-name"><%= article.title %><br><br><%= truncate(article.description, length: 100)%></p>
           <%= link_to "", article_path(article), class: "organization-card-link" %>
         </div>
       </div>
