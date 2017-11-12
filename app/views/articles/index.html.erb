@@ -21,11 +21,6 @@
 
 <!-- ORGANIZATIONS SEARCH RESULTS -->
 <div class="container">
-<!--   <div class="row">
-    <div class='col-xs-12 col-sm-12 col-md-12'>
-
-    </div>
-  </div> -->
   <div class="row">
   <% if @main_article %>
     <%if @main_article.photo %>
@@ -41,8 +36,8 @@
         <% end %>
         <div class="main-article-description">
           <p class="article-category"><%= @main_article.tags.first&.name&.capitalize %></p>
-          <p class="main-article-title"><strong><%= @main_article.title %></strong></p>
-          <p class="main-article-title-description"><%= truncate(@main_article.description, length: 100) %></p>
+            <p class="main-article-title"><strong><%= @main_article.title %></strong></p>
+            <p class="main-article-title-description"><%= truncate(@main_article.description, length: 100) %></p>
         </div>
         <div class="article-icons">
           <i class="fa fa-heart main-article-icon"></i>
@@ -58,7 +53,7 @@
         <%= content_tag :div, class: 'col-xs-12 col-sm-6 col-md-6' do %>
           <%= content_tag :div, class: 'article-card-medium' do %>
             <% if article.photo %>
-              <img src="<%= cl_image_path(article.photo.path, :width=>1000, :height=>515,:crop=>"fill")%>" class='article-img' %> tag="<%= article.title %>" >
+              <img src="<%= cl_image_path(article.photo.path, :width=>1000, :height=>515,:crop=>"fill")%>" class='article-img'/>
             <% else %>
               <%= image_tag "card_org_ngo_default.jpg", class: "article-img" %>
             <% end %>
