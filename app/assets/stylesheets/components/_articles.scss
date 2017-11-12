@@ -195,7 +195,34 @@
     display: none;
   }
 
+  .article-title-description {
+    font-size: 14px;
+    color: #393A3E;
+    margin-left: 30px;
+    font-weight: lighter;
+  }
+}
+
+@media only screen and (max-width : 400px) {
+  .main-article-icon-text {
+    display: none;
+  }
+
+  .main-article-icon {
+    display: none;
+  }
+
   .main-article-title-description {
+    display: none;
+  }
+
+  .main-article-title {
+    font-size: 14px;
+    margin-left: 30px;
+    font-weight: lighter;
+  }
+
+  .article-title {
     font-size: 14px;
     margin-left: 30px;
     font-weight: lighter;
@@ -208,5 +235,6 @@
     font-weight: lighter;
   }
 }
+
 
 
