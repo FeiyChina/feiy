@@ -1,4 +1,4 @@
-<% title @article.title.capitalize %>
+<% title @article.title %>
 
 <div itemscope itemtype="http://schema.org/Organization">
   <% if @article.photo %>
@@ -11,7 +11,7 @@
 
   <div class="org-show-banner-content">
     <div class="org-show-banner-content-info">
-      <h1 itemprop="name"><%= @article.title.capitalize %></h1>
+      <h1 itemprop="name"><%= @article.title %></h1>
       <p><strong>Category:</strong> <%= @article.tags.first&.name&.capitalize %></p>
       <%= social_share_button_tag(@article.title, desc: 'Shared article from feiy.co') %>
       <p><strong><%= @article.votes_for.size %> Likes</strong></p>
