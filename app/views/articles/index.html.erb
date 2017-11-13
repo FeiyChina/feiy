@@ -24,7 +24,7 @@
   <div class="row">
   <% if @main_article %>
     <%if @main_article.photo %>
-      <% background_style = "background: url(#{cl_image_path(@main_article.photo.path, :width=>1000, :height=>562, :crop=>"fill")}) no-repeat;background-size: cover;"%>
+      <% background_style = "background: url(#{cl_image_path(@main_article.photo.path, :width=>940, :height=>350, :crop=>"fill")}) no-repeat;background-size: cover;"%>
     <% else %>
       <% background_style = "background: url(card_org_ngo_default.jpg) no-repeat;background-size: cover;"%>
     <% end %>
