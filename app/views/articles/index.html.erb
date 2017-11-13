@@ -30,8 +30,7 @@
     <% end %>
     <%= content_tag :div, class: 'col-xs-12 col-sm-12 col-md-12' do %>
       <%= content_tag :div, class: 'main-article-card', style:background_style do %>
-        <% if @main_article.photo %>
-        <% else %>
+        <% if !@main_article.photo %>
           <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
         <% end %>
         <div class="main-article-description">
@@ -50,6 +49,7 @@
     <%end%>
     <% @articles.each_with_index do |article, index| %>
         <%= content_tag :div, class: 'col-xs-12 col-sm-6 col-md-6' do %>
+        <a href=<%= article_path(article) %> class='article-link'>
           <%= content_tag :div, class: 'article-card-medium' do %>
             <% if article.photo %>
               <img src="<%= cl_image_path(article.photo.path, :width=>1000, height: 562, :crop=>"fill")%>" class='article-img'/>
@@ -67,7 +67,7 @@
               <i class="fa fa-commenting article-icon"></i>
               <span class="article-icon-text"><%= article.votes_for.size %></span>
             </div>
-            <%= link_to "", article_path(article), class: "article-link" %>
+            </a>
           <% end %>
       <% end %>
     <%end%>
