@@ -81,6 +81,7 @@
     <% if user_signed_in? && current_user.organizations.count > 0 %>
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Articles", articles_path %></li>
           <li><%= link_to "Organizations", organizations_path %></li>
           <li><%= link_to "Edit Account", edit_user_registration_path %></li>
           <li><%= link_to "Dashboard", dashboard_path %></li>

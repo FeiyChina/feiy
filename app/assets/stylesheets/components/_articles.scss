@@ -203,14 +203,17 @@
     z-index: 0;
     display: block;
     float: none;
-
+    height: 500px;
     width: 100%;
-    height: auto;
   }
 }
 
 @media only screen and (max-width : 400px) {
   .article-title {
+    font-size: 14px;
+  }
+
+  .main-article-title {
     font-size: 14px;
   }
 
@@ -241,9 +244,8 @@
     z-index: 0;
     display: block;
     float: none;
-
+    height: 400px;
     width: 100%;
-    height: auto;
   }
 }
 
