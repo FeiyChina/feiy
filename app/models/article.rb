@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   acts_as_taggable
+  scope :without_current, ->(id) { where.not(id: id) }
   scope :published, -> { where(is_published: true).order(published_at: :desc) }
   scope :published_without_main, -> { where(is_published: true, is_main_article: false).order(published_at: :desc) }
   scope :main_article, -> { where(is_main_article: true) }
@@ -12,9 +13,9 @@ class Article < ApplicationRecord
 
   def suggestions
     if tags.blank?
-      Article.published.limit(3)
+      Article.published.without_current(id).limit(3)
     else
-      Article.tagged_with(tags.first).limit(3)
+      Article.tagged_with(tags.first).without_current(id).limit(3)
     end
   end
 
