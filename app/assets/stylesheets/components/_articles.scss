@@ -4,11 +4,19 @@
 }
 
 .article-show-body-content {
-  width: 90%;
+  margin: 0 auto;
   text-align: left;
-  img{
-    width: 100%;
-    height: 100%;
+  width: 50%;
+  padding: 10px;
+  p {
+    margin-bottom: 40px;
+    font-size: 15px;
+    font-family: Arvo;
+  }
+  h4 {
+    margin-top: 40px;
+    font-weight: bolder;
+    font-size: 20px;
   }
 }
 
@@ -192,6 +200,27 @@
     display: none;
   }
 
+  .article-show-body-content {
+    margin: 0 auto;
+    text-align: left;
+    width: 50%;
+    padding: 10px;
+    p {
+      margin-bottom: 40px;
+      font-size: 15px;
+      font-family: Arvo;
+    }
+    h4 {
+      margin-top: 40px;
+      font-weight: bolder;
+      font-size: 20px;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   .main-article-icon {
     display: none;
   }
@@ -225,6 +254,27 @@
 @media only screen and (max-width : 400px) {
   .article-title {
     font-size: 14px;
+  }
+
+  .article-show-body-content {
+    margin: 0 auto;
+    text-align: left;
+    width: 50%;
+    padding: 10px;
+    p {
+      margin-bottom: 40px;
+      font-size: 15px;
+      font-family: Arvo;
+    }
+    h4 {
+      margin-top: 40px;
+      font-weight: bolder;
+      font-size: 20px;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .main-article-title {
