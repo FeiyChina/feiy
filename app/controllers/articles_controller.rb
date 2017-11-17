@@ -14,8 +14,8 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    @articles = Article.by_tag(params[:category])
-    @articles = @articles.or(Article.search(params[:title]))
+    @articles = Article.by_tag(params[:category]) unless params[:category].blank?
+    @articles = Article.search(params[:title]) unless params[:title].blank?
     @articles = @articles.page(article_params[:page] || '1').per(6)
     render template: 'articles/index'
   end

@@ -2,7 +2,7 @@
 
 <div itemscope itemtype="http://schema.org/Organization">
   <% if @article.photo %>
-    <div class="org-show-banner">
+    <div class="article-show-banner">
       <%= cl_image_tag @article.photo.path, width: 1440, height: 450, crop: :fill %>
     </div>
   <% else %>
@@ -34,7 +34,7 @@
       </div>
   </div>
 
-  <div class="org-show-body-content">
+  <div class="article-show-body-content">
     <p class="text-justify"><%= raw(@article.body) %></p>
     <div class="text-right"><%= social_share_button_tag(@article.title, desc: 'Shared article from feiy.co') %></div>
   </div>

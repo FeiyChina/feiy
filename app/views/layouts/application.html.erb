@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% if @article %>
+      <meta name="weibo:webpage: image" content="<%= cl_image_path(@article.photo.path, width: 600, height: 315, crop: :fill) %>" />
+      <meta name="weibo:image:url" content="<%= cl_image_path(@article.photo.path, width: 600, height: 315, crop: :fill) %>" />
+      <meta property="og:image" content='<%= cl_image_path(@article.photo.path, width: 600, height: 315, crop: :fill) %>'/>
+    <% end %>
     <% if current_page? root_path %>
       <title>Feiy<%= if content_for?(:title) then ' | ' + yield(:title) end %></title>
     <% else %>
