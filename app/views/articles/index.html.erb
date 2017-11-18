@@ -1,0 +1,78 @@
+<%= cloudinary_js_config %>
+<% title "Good Stories" %>
+<% description "Discover ideas, people and projects that create a better future!" %>
+
+<!-- Welcome Banner -->
+<div class="wrapper index-search-wrapper">
+  <div class="index-search-header">
+    <div class="index-search-header-welcome text-center">
+      <h1>Inspire the Change!</h1>
+    </div>
+    <div class="tagline-welcome text-center">
+      <h3>Discover ideas, people and projects that create a better future</h3>
+    </div>
+  </div>
+  <!-- Search bar -->
+  <div id="home-search">
+    <%= render 'articles/search_bar'%>
+  </div>
+</div>
+
+
+<!-- ORGANIZATIONS SEARCH RESULTS -->
+<div class="container">
+  <div class="row">
+  <% if @main_article %>
+    <%if @main_article.photo %>
+      <% background_style = "background: url(#{cl_image_path(@main_article.photo.path, :width=>940, :height=>350, :crop=>"fill")}) no-repeat;background-size: cover;"%>
+    <% else %>
+      <% background_style = "background: url(card_org_ngo_default.jpg) no-repeat;background-size: cover;"%>
+    <% end %>
+    <%= content_tag :div, class: 'col-xs-12 col-sm-12 col-md-12' do %>
+      <%= content_tag :div, class: 'main-article-card', style:background_style do %>
+        <% if !@main_article.photo %>
+          <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
+        <% end %>
+        <div class="main-article-description">
+          <p class="article-category"><%= @main_article.tags.first&.name&.capitalize %></p>
+            <p class="main-article-title"><strong><%= @main_article.title %></strong></p>
+        </div>
+        <div class="article-icons">
+          <i class="fa fa-heart main-article-icon"></i>
+          <span class="main-article-icon-text"><%= @main_article.votes_for.size %></span>
+          <i class="fa fa-commenting main-article-icon"></i>
+          <span class="main-article-icon-text"><%= @main_article.votes_for.size %></span>
+        </div>
+        <%= link_to "", article_path(@main_article), class: "article-link" %>
+      <% end %>
+     <%end%>
+    <%end%>
+    <% @articles.each_with_index do |article, index| %>
+        <%= content_tag :div, class: 'col-xs-12 col-sm-6 col-md-6' do %>
+        <a href=<%= article_path(article) %> class='article-link'>
+          <%= content_tag :div, class: 'article-card-medium' do %>
+            <% if article.photo %>
+              <img src="<%= cl_image_path(article.photo.path, :width=>1000, height: 562, :crop=>"fill")%>" class='article-img'/>
+            <% else %>
+              <%= image_tag "card_org_ngo_default.jpg", class: "article-img" %>
+            <% end %>
+            <div class="article-description">
+              <p class="article-category"><%= article.tags.first&.name&.capitalize %></p>
+              <p class="article-title"><strong><%= truncate(article.title, length: 73) %></strong></p>
+              <p class="article-title-description"><%= truncate(article.description, length: 100) %></p>
+            </div>
+            <div class="article-icons">
+              <i class="fa fa-heart article-icon"></i>
+              <span class="article-icon-text"><%= article.votes_for.size %></span>
+              <i class="fa fa-commenting article-icon"></i>
+              <span class="article-icon-text"><%= article.votes_for.size %></span>
+            </div>
+            </a>
+          <% end %>
+      <% end %>
+    <%end%>
+    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+      <%= paginate @articles %>
+    </div>
+  </div>
+</div>

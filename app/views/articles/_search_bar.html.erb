@@ -1,0 +1,9 @@
+<!-- Search bar -->
+<%= form_tag articles_search_path, method: :get do %>
+<%= text_field_tag 'title', params[:name], placeholder: "  Search articles", class: "text-search-field" %>
+<%= select_tag(:category, options_for_select([['Education'], ['Fashion'], ['Waste'], ['Health'], ['Environment'], ['Inclusion'],['Community']]), include_blank: "All categories", class: "text-search-dropdown")%>
+
+<%= submit_tag 'Search', class: "btn-feiy-rec-white"%>
+<% end %>
+
+

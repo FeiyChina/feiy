@@ -1,0 +1,31 @@
+<div>
+  <% if locals[:commentable].comments %>
+  <div class="org-show-comment-big-card">
+    <% locals[:commentable].comments.each do |comment| %>
+      <div class="random-comment-big-card-top">
+        <div class="comment-big-card-useravatar">
+          <% if comment.user.avatar? %>
+            <%= cl_image_tag comment.user.avatar.path, height: 50, width: 50, crop: :thumb, gravity: :face, dpr: 2.0, class: "avatar-style" %>
+          <% else %>
+            <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
+          <% end %>
+        </div>
+        <div class="comment-big-card-userinfo">
+          <% if comment.user.name? %>
+            <p class="comment-email"><strong><%= comment.user.name %></strong></p>
+          <% else %>
+            <p class="comment-email">Anonimous</p>
+          <% end %>
+        </div>
+      </div>
+      <div class="random-comment-big-card-bottom">
+        <em><%= comment.comment %></em>
+      </div>
+      <div class="line"></div>
+      <% if current_user.admin? %>
+      <%= link_to 'Delete comment', comment_path(comment, commentable_id: comment.commentable.id, commentable_type: comment.commentable_type), method: :delete%>
+      <% end %>
+    <% end %>
+  </div>
+  <% end %>
+</div>

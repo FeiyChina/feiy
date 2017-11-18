@@ -1,0 +1,56 @@
+<% title "Search Organizations" %>
+
+<div class="wrapper index-search-wrapper">
+  <div class="index-search-header">
+    <div class="index-search-header-welcome text-center">
+      <h1>Discover the community<br>of high-impact initiatives<br>in China</h1>
+    </div>
+  </div>
+  <!-- Search bar -->
+  <div  class="results-search" >
+    <%= render 'search_bar'%>
+  </div>
+</div>
+
+
+<!-- ORGANIZATIONS SEARCH RESULTS -->
+<div class="text-center results-message">
+<% unless @articles.present? %>
+  <h4>We haven't found any article matching your search! Please try again!</h4>
+<% end %>
+</div>
+<div class="container">
+  <div class="row">
+    <% if @articles.present? %>
+      <% @articles.each_with_index do |article, index| %>
+          <%= content_tag :div, class: 'col-xs-12 col-sm-6 col-md-6' do %>
+            <%= content_tag :div, class: 'article-card-medium' do %>
+              <% if article.photo %>
+                <img src="<%= cl_image_path(article.photo.path, :width=>700, :height=>250, :crop=>"fill")%>" class='article-img' %> tag="<%= article.title %>" >
+              <% else %>
+                <%= image_tag "card_org_ngo_default.jpg", class: "article-img" %>
+              <% end %>
+              <div class="article-description">
+                <p class="article-category"><%= article.tags.first&.name&.capitalize %></p>
+                <p class="article-title"><strong><%= article.title %></strong></p>
+                <p class="article-title-description"><%= truncate(article.description, length: 100) %></p>
+              </div>
+              <div class="article-icons">
+                <i class="fa fa-heart article-icon"></i>
+                <span class="article-icon-text"><%= article.votes_for.size %></span>
+                <i class="fa fa-commenting article-icon"></i>
+                <span class="article-icon-text"><%= article.votes_for.size %></span>
+              </div>
+              <%= link_to "", article_path(article), class: "article-link" %>
+            <% end %>
+        <% end %>
+      <%end%>
+      <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+        <%= paginate @articles %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+

@@ -13,7 +13,7 @@ class OrganizationsController < ApplicationController
     end
 
     if params[:category] != ""
-      @organizations = @organizations.where("category = ?", params[:category])
+      @organizations = @organizations.tagged_with(params[:category])
     end
   end
 
@@ -24,6 +24,7 @@ class OrganizationsController < ApplicationController
   def create
     @organization = Organization.new(organization_params)
     @organization.user_id = current_user.id
+    @organization = update_tag(tag_params[:tags]) if tag_params[:tags]
     if @organization.save
       MIXPANEL.track(@organization.user_id, 'Created', {
         content: "Organization",
@@ -47,8 +48,8 @@ class OrganizationsController < ApplicationController
     authorize @organization = Organization.find(params[:id])
     @organization = Organization.find(params[:id])
     @organization.update(organization_params)
-
-        @organization.user_id = current_user.id
+    @organization = update_tag(tag_params[:tags]) if tag_params[:tags]
+    @organization.user_id = current_user.id
     if @organization.save
       MIXPANEL.track(@organization.user_id, 'Update', {
         content: "Organization",
@@ -66,7 +67,8 @@ class OrganizationsController < ApplicationController
 
   def show
     @organization = Organization.find(params[:id])
-    @organizations = Organization.where(accepted?: true).where(category: @organization.category).where.not(id: params[:id])
+    tag = @organization&.tags&.first&.name
+    @organizations = Organization.accepted.tagged_with(tag).where.not(id: params[:id])
     if @organizations.any?
       @suggested_organizations_shuffled = @organizations.shuffle
     else
@@ -105,7 +107,17 @@ class OrganizationsController < ApplicationController
 
   private
 
+  def update_tag(tag)
+    @organization.tag_list.remove(@organization.tags.map(&:name))
+    @organization.tag_list.add(ActsAsTaggableOn::Tag.find_by(name: tag))
+    @organization
+  end
+
+  def tag_params
+    params.require(:organization).permit(:tags)
+  end
+
   def organization_params
-    organization_params = params.require(:organization).permit(:name, :problem, :description, :website, :email, :address, :photo, :logo, :category, :user_is_a_representative, :accepted?)
+    params.require(:organization).permit(:name, :problem, :description, :website, :email, :address, :photo, :logo, :user_is_a_representative, :accepted?)
   end
 end

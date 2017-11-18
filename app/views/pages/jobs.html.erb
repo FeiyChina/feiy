@@ -1,3 +1,6 @@
+<% title "Good Jobs" %>
+<% description "You want to start a meaningful career and be the change? Look for a job with impact on Feiy. Need to find passionate and changemakers employees ? Post your offer on Feiy to get in touch with people that want to change the world." %>
+
 <div class="wrapper-white">
   <div class="container-demo-title">
     <h1 class="text-center">Good Jobs</h1>
@@ -7,17 +10,17 @@
     <div class="row">
       <% @jobs.each do |job| %>
         <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="job-card">
+          <div itemscope itemtype="http://schema.org/jobPosting" class="job-card">
           <% if job.organization.logo %>
             <img src="<%= cl_image_path job.organization.logo.path, height: 180, width: 350, crop: :fill%>", class='job-card-img' >
           <% else %>
             <%= image_tag "card_org_ngo_default.jpg", class: "job-card-img" %>
           <% end %>
           <div class="job-card-description">
-            <p id="job-name"><strong><%= truncate(job.name, length: 20) %></strong></p>
-            <p id="job-problem"><%= truncate(job.organization.name, length: 20) %></p>
-            <p id="job-category"><%= truncate(job.job_type, length: 20) %></p>
-            <p id="job-category"><%= truncate(job.address, length: 20) %></p>
+            <p itemprop="title" id="job-name"><strong><%= truncate(job.name, length: 20) %></strong></p>
+            <p itemprop="hiringOrganization" id="job-problem"><%= truncate(job.organization.name, length: 20) %></p>
+            <p itemprop="employmentType" id="job-category"><%= truncate(job.job_type, length: 20) %></p>
+            <p itemprop="jobLocation" itemscope itemtype="http://schema.org/Place" id="job-category"><span itemprop="address"><%= truncate(job.address, length: 20) %></span></p>
           </div>
            <%= link_to "", organization_job_path(job.organization_id, job.id) , class: "organization-card-link" %>
           </div>
