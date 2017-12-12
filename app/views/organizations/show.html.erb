@@ -83,7 +83,7 @@
           <% if job.organization.logo %>
             <img src="<%= cl_image_path job.organization.logo.path, height: 180, width: 350, crop: :fill%>" class='job-card-img' tag="<%= job.organization.name %>" >
           <% else %>
-            <%= image_tag "card_org_ngo_default.jpg", class: "job-card-img" %>
+            <%= image_tag "home_bg.png", class: "job-card-img" %>
           <% end %>
           <div class="job-card-description">
             <p id="job-name"><strong><%= truncate(job.name, length: 20) %></strong></p>
@@ -107,7 +107,7 @@
         <% if event.organization.logo %>
           <img src="<%= cl_image_path event.organization.logo.path, height: 180, width: 350, crop: :fill%>" class='events-card-img' tag="<%= event.organization.name %>" >
         <% else %>
-          <%= image_tag "card_org_ngo_default.jpg", class: "events-card-img" %>
+          <%= image_tag "home_bg.png", class: "events-card-img" %>
         <% end %>
           <div class="events-card-description">
             <p id="job-problem"><strong><%= truncate(event.name, length: 20) %></strong></p>
@@ -141,7 +141,7 @@
           <% if organization.photo %>
             <img src="<%= cl_image_path organization.photo.path, height: 180, width: 350, crop: :fill%>" class='organization-card-img' tag="<%= organization.name %>" >
           <% else %>
-            <%= image_tag "card_org_ngo_default.jpg", class: "organization-card-img" %>
+            <%= image_tag "home_bg.png", class: "organization-card-img" %>
           <% end %>
           <div class="organization-card-description">
             <p id="organization-name"><strong><%= truncate(organization.name, length: 20) %></strong></p>
