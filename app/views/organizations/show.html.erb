@@ -19,7 +19,7 @@
 
   <div class="org-show-banner-content">
     <div class="org-show-banner-content-info">
-      <h1 itemprop="name"><%= @organization.name.capitalize %></h1>
+      <h1 itemprop="name"><%= @organization.name %></h1>
       <p><strong>Category:</strong> <%= @organization.tags.first&.name&.capitalize %></p>
       <p><strong><%= @organization.votes_for.size %> Likes</strong></p>
     </div>
