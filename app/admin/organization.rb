@@ -5,7 +5,7 @@ ActiveAdmin.register Organization do
 #
   permit_params :name, :problem, :description, :website,
     :address, :email, :user_is_a_representative,
-    :accepted?, :user_id, :tag_list
+    :accepted?, :user_id, :tag_list, :photo, :logo
     index do
     selectable_column
     column :id
@@ -23,6 +23,7 @@ ActiveAdmin.register Organization do
   form title: 'Organization' do |_|
     inputs 'Details' do
       input :photo, as: :formtastic_attachinary
+      input :logo, as: :formtastic_attachinary
       input :name
       input :problem
       input :description

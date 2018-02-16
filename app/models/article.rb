@@ -6,7 +6,7 @@ class Article < ApplicationRecord
   scope :main_article, -> { where(is_main_article: true) }
   before_save :check_for_publication_status
   before_save :set_main_article
-  has_attachment :photo
+  has_attachment :photo, accept: [:jpg, :png, :gif]
   acts_as_commentable
   acts_as_votable
   belongs_to :user
