@@ -9,13 +9,13 @@
     <div class="org-show-grey-banner"></div>
   <% end %>
 
-  <div class="org-show-banner-logo-placeholder">
-    <div class="round-logo-placeholder">
-      <% if @organization.logo? %>
-          <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :pad, radius: :max %>
-      <% end %>
+  <% if @organization.logo? %>
+    <div class="org-show-banner-logo-placeholder">
+      <div class="round-logo-placeholder">
+        <%= cl_image_tag @organization.logo.path, width: 100, height: 100, crop: :pad, radius: :max %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="org-show-banner-content">
     <div class="org-show-banner-content-info">

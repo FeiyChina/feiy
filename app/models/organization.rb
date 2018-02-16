@@ -1,8 +1,8 @@
 class Organization < ApplicationRecord
   acts_as_taggable
   scope :accepted, -> { where(accepted?: true) }
-  has_attachment :logo
-  has_attachment :photo
+  has_attachment :logo, accept: [:jpg, :png, :gif]
+  has_attachment :photo, accept: [:jpg, :png, :gif]
   acts_as_commentable
   acts_as_votable
   belongs_to :user
