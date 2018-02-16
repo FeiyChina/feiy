@@ -1,29 +1,13 @@
 class EventPolicy < ApplicationPolicy
-  class Scope < Scope
-
-  def new?
-    record.user == user
-  end
-
-  def create?
-   return true
-  end
-
   def edit?
-    record.user == user
+    user.organizations.include?(record.organization)
   end
 
   def update?
-    record.user == user
+    user.organizations.include?(record.organization)
   end
 
   def destroy?
-    record.user == user
-  end
-
-
-    def resolve
-      scope
-    end
+    user.organizations.include?(record.organization)
   end
 end
