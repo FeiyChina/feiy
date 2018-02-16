@@ -55,7 +55,10 @@
     <p class="text-justify"><%= @organization.problem %></p>
     <h4><strong>Locations</strong></h4>
     <p itemprop="address"><%= @organization.address %></p>
-    <!-- <h4 class="text-center"><strong><%= link_to "Find out more", @organization.website, class: "organization-website-link" %></strong></h4> -->
+    <% if @organization.website.present? %>
+      <h4><strong>Website</strong></h4>
+      <p><%= link_to @organization.website, @organization.website, class: "organization-website-link" %></p>
+    <% end %>
   </div>
 </div>
 
