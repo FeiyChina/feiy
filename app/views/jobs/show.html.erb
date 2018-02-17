@@ -29,13 +29,13 @@
       <div class="sub-header-card-jobs">
         <div class="sub-header-card-description-jobs text-justify">
           <h4>Our Mission</h4>
-          <p><%= @job.organization.description %></p>
+          <p><%= simple_format(@job.organization.description) %></p>
           <br>
           <h4>The Position</h4>
-          <p><%= @job.task %></p>
+          <p><%= simple_format(@job.task) %></p>
           <br>
           <h4>Requirements / Skills</h4>
-          <p><%= @job.requirement %></p>
+          <p><%= simple_format(@job.requirement) %></p>
           <br>
           <h4>How to Apply</h4>
           <p>Website: <%= @job.website %></p>

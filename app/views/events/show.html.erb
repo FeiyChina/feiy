@@ -28,7 +28,7 @@
     <div class="sub-header-card-events">
       <div class="sub-header-card-description-events">
         <h2>What</h2>
-        <p class="text-justify"><%= @event.content %></p>
+        <p class="text-justify"><%= simple_format(@event.content) %></p>
         <br>
         <h2>When</h2>
         <p><%= @event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>

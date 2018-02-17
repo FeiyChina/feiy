@@ -50,9 +50,9 @@
 
   <div class="org-show-body-content">
     <h4><strong>Our Mission</strong></h4>
-    <p itemprop="description" class="text-justify"><%= @organization.description %></p>
+    <p itemprop="description" class="text-justify"><%= simple_format(@organization.description) %></p>
     <h4><strong>What problem we solve?</strong></h4>
-    <p class="text-justify"><%= @organization.problem %></p>
+    <p class="text-justify"><%= simple_format(@organization.problem) %></p>
     <h4><strong>Locations</strong></h4>
     <p itemprop="address"><%= @organization.address %></p>
     <% if @organization.website.present? %>
