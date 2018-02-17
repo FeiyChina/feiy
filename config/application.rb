@@ -17,6 +17,10 @@ require "attachinary/orm/active_record"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Raven.configure do |config|
+  config.dsn = 'https://31cabcbca9494cf5a6f350259335288e:0d5f1aa620ba4b50a3beed8c505f5b25@sentry.io/289196'
+end
+
 module Feiy
   class Application < Rails::Application
     config.tinymce.install = :compile
