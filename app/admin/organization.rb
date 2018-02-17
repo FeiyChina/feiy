@@ -25,8 +25,8 @@ ActiveAdmin.register Organization do
       input :photo, as: :formtastic_attachinary
       input :logo, as: :formtastic_attachinary
       input :name
-      input :problem
-      input :description
+      input :problem, as: :text
+      input :description, as: :text
       input :website
       input :address
       input :user_is_a_representative
