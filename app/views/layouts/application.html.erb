@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <% if @article.photo %>
+    <% if @article && @article.photo %>
       <meta name="weibo:webpage: image" content="<%= cl_image_path(@article.photo.path, width: 600, height: 315, crop: :fill) %>" />
       <meta name="weibo:image:url" content="<%= cl_image_path(@article.photo.path, width: 600, height: 315, crop: :fill) %>" />
       <meta property="og:image" content='<%= cl_image_path(@article.photo.path, width: 600, height: 315, crop: :fill) %>'/>
