@@ -70,6 +70,36 @@
 </div>
 <% end %>
 
+<!-- ARTICLES -->
+<% if @articles.any? %>
+  <div class="title-divider text-center">
+    <h4>ARTICLES</h4>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-8">
+        <div class="article_card_main_page", style='background-image: url(<%= cl_image_path @articles.first.photo.path, height: 455, width: 750, crop: :fill  %>); background-size: cover;' >
+            <div class="main-article-description">
+              <p class="article-category"><%= @articles.first&.tags&.first %></p>
+              <p class="main-article-title"><strong><%= truncate(@articles.first.title, length: 100)%></strong></p>
+            </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-4">
+        <% @articles.drop(1).each do |article| %>
+            <div class="article-card-side", style='background-image: url(<%= cl_image_path  article.photo.path, height: 455, width: 750, crop: :fill  %>); background-size: cover;' >
+              <div class="article-card-header-side">
+                <p class="article-category"><%= article&.tags&.first %></p>
+                <p class="article_side_card_title"><strong><%= truncate(article.title, length: 100) %></strong></p>
+              </div>(118)
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 
 <!-- JOBS -->
 <% if @jobs %>
