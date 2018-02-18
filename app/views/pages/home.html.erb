@@ -100,14 +100,12 @@
             <% if article.photo %>
               <div class="article-card-side", style='background-image: url(<%= cl_image_path  article&.photo&.path, height: 455, width: 750, crop: :fill  %>); background-size: cover;' >
                 <div class="article-card-header-side">
-                  <p class="article-category"><%= article&.tags&.first %></p>
                   <p class="article_side_card_title"><strong><%= truncate(article.title, length: 100) %></strong></p>
                 </div>
               </div>
             <% else %>
               <div class="article-card-side" >
                 <div class="article-card-header-side">
-                  <p class="article-category"><%= article&.tags&.first %></p>
                   <p class="article_side_card_title"><strong><%= truncate(article.title, length: 100) %></strong></p>
                 </div>
               </div>
