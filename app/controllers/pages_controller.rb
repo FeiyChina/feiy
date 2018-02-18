@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @current_user = current_user
+    @articles = Article.includes(:tags).sample(3)
     @organizations = Organization.where(accepted?: true).sample(3)
     @categories_all = ["", "Education", "Fashion", "Food", "Waste", "Health", "Environment", "Inclusion", "Community"]
     # a scope was defined in model

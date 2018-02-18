@@ -3,6 +3,62 @@
   margin: 40px 0px
 }
 
+.article-card-header-main {
+  word-wrap: break-word; 
+  width: 100%; 
+}
+
+.article-card-header-side {
+  padding-top: 40%;
+  padding-bottom: 10%;
+  word-wrap: break-word; 
+  width: 100%; 
+}
+
+.article_side_card_title {
+  color: white;
+  font-size: small;
+  font-family: Arvo;
+  padding-left: 10px;
+  background-color: rgba(50, 198, 197, 0.8);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.article_card_main_page {
+  overflow: hidden;
+  background-color: white;
+  width: 100%;
+  height: 455px;
+  border-radius: 3px;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
+  margin: 15px auto 40px auto;
+  z-index: 0;
+  display: block;
+  float: none;
+}
+
+.article-card-side {
+  overflow: hidden;
+  background-color: white;
+  width: 100%;
+  height: 220px;
+  border-radius: 3px;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
+  margin: 15px auto 0px auto;
+  z-index: 0;
+  display: block;
+  float: none;
+}
+
+.article-card-img-main-page {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom: 3px solid $brand-color;
+}
+
 .organization-card {
   background-color: white;
   width: 350px;
