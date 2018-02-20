@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: 'registrations' }
   ActiveAdmin.routes(self)
   get 'bookings/create'
 
@@ -17,8 +18,6 @@ Rails.application.routes.draw do
   post 'organizations/:id/like', to: 'organizations#like', as: 'like_organization'
 
   post 'articles/:id/like', to: 'articles#like', as: 'like_article'
-
-  devise_for :users, controllers: { registrations: 'registrations' }
 
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
