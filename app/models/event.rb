@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   belongs_to :organization
   acts_as_votable
 
+  has_attachment :flyer, accept: [:jpg, :png, :gif]
+
   scope :accepted, -> { joins(:organization).where("organizations.accepted?" => true) }
   scope :future, -> (date) { where("date >= ?", Date.today).order(date: :asc) }
 
