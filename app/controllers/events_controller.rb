@@ -53,7 +53,7 @@ class EventsController < ApplicationController
     @baidumap_url = 'http://api.map.baidu.com/staticimage/v2?ak=' + ENV['BAIDU_KEY'] + "&amp;" + 'mcode=666666&center=' + @event.longitude.to_s + ',' + @event.latitude.to_s + '&width=580&height=250&zoom=16'
   end
 
-  def destroygit checkout master
+  def destroy
     authorize @event = Event.find(params[:id])
     @event.destroy
     redirect_to root_path
