@@ -73,7 +73,7 @@
 <!-- ARTICLES -->
 <% if @articles.any? %>
   <div class="title-divider text-center">
-    <h4>ARTICLES</h4>
+    <h4>STORIES</h4>
   </div>
   <div class="container">
     <div class="row">
@@ -115,6 +115,13 @@
             <% end %>
           <% end %>
         <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="more-button text-center">
+          <%= link_to "More stories", articles_path, class: "btn-feiy-primary button-cta-primary" %>
+        </div>
       </div>
     </div>
   </div>
