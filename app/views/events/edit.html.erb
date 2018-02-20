@@ -7,6 +7,7 @@
     <%= f.input :venue, label:"Location - recommend address in chinese" %>
     <%= f.input :date %>
     <%= f.input :register_link %>
+    <%= f.input :flyer, label: "Event flyer", as: :attachinary %>
   </div>
 
     <% if user_signed_in? && @organization.user_id == current_user.id %>

@@ -8,8 +8,6 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.organization = Organization.find(params[:organization_id])
-    @event.save
-
 
     if @event.save
       MIXPANEL.track(@event.organization_id, 'Created', {
@@ -54,7 +52,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     @baidumap_url = 'http://api.map.baidu.com/staticimage/v2?ak=' + ENV['BAIDU_KEY'] + "&amp;" + 'mcode=666666&center=' + @event.longitude.to_s + ',' + @event.latitude.to_s + '&width=580&height=250&zoom=16'
-
   end
 
   def destroy
@@ -66,7 +63,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :content, :date, :venue, :register_link)
+    params.require(:event).permit(:name, :content, :date, :venue, :register_link, :flyer)
   end
 end
 

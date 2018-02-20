@@ -30,7 +30,6 @@
 
 .sub-header-card-events {
   margin: 20px auto;
-  height: 700px;
   background-size: cover !important;
   color: black;
   position: relative;
@@ -40,10 +39,9 @@
 
 
 .sub-header-card-description-events {
-  position: absolute;
-  top: 20px;
-  left: 15px;
-  right: 15px;
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
   color: #6a6c73;
   h4 {
     font-weight: bolder;
@@ -55,6 +53,12 @@
     font-family: Arvo;
     opacity: 0.7;
   }
+}
+
+.flyer {
+  max-width: 600px;
+  height: 450px;
+  overflow: hidden;
 }
 
 .baidu-map {

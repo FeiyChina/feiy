@@ -1,5 +1,4 @@
 class JobsController < ApplicationController
-
   def new
     authorize @organization = Organization.find(params[:organization_id])
     @job = Job.new
@@ -30,7 +29,7 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    @job.update(job_params)
+    authorize @job.update(job_params)
     redirect_to dashboard_path
   end
 
@@ -39,10 +38,9 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
   end
 
-
   def destroy
     @job = Job.find(params[:id])
-    @job.destroy
+    authorize @job.destroy
     redirect_to root_path
   end
 
@@ -51,5 +49,4 @@ class JobsController < ApplicationController
   def job_params
     params.require(:job).permit(:name, :address, :website, :email, :job_type, :task, :requirement, :active )
   end
-
 end
