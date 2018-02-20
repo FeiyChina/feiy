@@ -50,11 +50,10 @@ class EventsController < ApplicationController
   def show
     @organization = Organization.find(params[:organization_id])
     @event = Event.find(params[:id])
-
     @baidumap_url = 'http://api.map.baidu.com/staticimage/v2?ak=' + ENV['BAIDU_KEY'] + "&amp;" + 'mcode=666666&center=' + @event.longitude.to_s + ',' + @event.latitude.to_s + '&width=580&height=250&zoom=16'
   end
 
-  def destroy
+  def destroygit checkout master
     authorize @event = Event.find(params[:id])
     @event.destroy
     redirect_to root_path
