@@ -3,6 +3,20 @@
   margin: 40px 0px
 }
 
+.home-page-link:hover{
+  text-decoration: none;
+}
+
+.home-main-article-description {
+  padding-right: 10px;
+  padding-top: 10px;
+  border-radius: 3px;
+  box-shadow: 0.2px 0.2px 0.2px 0.2px lightgrey;
+  background-color: rgba(50, 198, 197, 0.8);
+  padding-bottom: 20px;
+  max-width: 550px;
+}
+
 .article-card-header-main {
   word-wrap: break-word; 
   width: 100%; 
@@ -26,6 +40,7 @@
 }
 
 .article_card_main_page {
+  padding-top: 250px;
   overflow: hidden;
   background-color: white;
   width: 100%;
