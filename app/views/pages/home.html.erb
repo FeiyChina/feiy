@@ -78,17 +78,17 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-8">
-        <%= link_to(article_path(@articles.first)) do %>
+        <%= link_to(article_path(@articles.first), class: 'home-page-link') do %>
           <% if @articles.first.photo %>
             <div class="article_card_main_page", style='background-image: url(<%= cl_image_path @articles.first&.photo&.path, height: 455, width: 750, crop: :fill  %>); background-size: cover;' >
-                <div class="main-article-description">
+                <div class="home-main-article-description">
                   <p class="article-category"><%= @articles.first&.tags&.first %></p>
                   <p class="main-article-title"><strong><%= truncate(@articles.first.title, length: 100)%></strong></p>
                 </div>
             </div>
           <% else %>
             <div class="article_card_main_page">
-                <div class="main-article-description">
+                <div class="home-main-article-description">
                   <p class="article-category"><%= @articles.first&.tags&.first %></p>
                   <p class="main-article-title"><strong><%= truncate(@articles.first.title, length: 100)%></strong></p>
                 </div>
@@ -99,7 +99,7 @@
 
       <div class="col-xs-12 col-sm-12 col-md-4">
         <% @articles.drop(1).each do |article| %>
-          <%= link_to(article_path(article)) do %> 
+          <%= link_to(article_path(article), class: 'home-page-link') do %> 
             <% if article.photo %>
               <div class="article-card-side", style='background-image: url(<%= cl_image_path  article&.photo&.path, height: 455, width: 750, crop: :fill  %>); background-size: cover;' >
                 <div class="article-card-header-side">

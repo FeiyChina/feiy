@@ -26,6 +26,12 @@
         <h2>What</h2>
         <p class="text-justify"><%= simple_format(@event.content) %></p>
         <br>
+        <% if @event.flyer %>
+          <div class='flyer'>
+            <%= cl_image_tag @event.flyer.path, width: 600, height: 450, crop: :fit %>
+          </div>
+        <% end %>
+        </br>
         <h2>When</h2>
         <p><%= @event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
         <br>
@@ -35,11 +41,6 @@
         <% if @event.register_link.size > 4 %>
           <%= link_to "Click here to register for this event", @event.normalized_register_link %>
           <br>
-        <% end %>
-        <% if @event.flyer %>
-          <div class='flyer'>
-            <%= cl_image_tag @event.flyer.path, width: 600, height: 450, crop: :fit %>
-          </div>
         <% end %>
         <br>
         <%= cl_image_tag @baidumap_url, class: "baidu-map" %>
