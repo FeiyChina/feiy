@@ -23,9 +23,9 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def authenticate_user!
+  def authenticate_user!(options={})
     if user_signed_in?
-      super
+      super(options)
     else
       redirect_to new_user_registration_path unless %w(passwords registrations sessions).include? controller_name
     end
@@ -45,10 +45,6 @@ class ApplicationController < ActionController::Base
     session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/
   end
 
-  def after_sign_in_path_for(resource)
-    stored_location_for(resource) || session[:previous_url]
-    # replace users_dashboard_path by whichever route you want to redirect to after login - default is root_path
-  end
 
   private
 
