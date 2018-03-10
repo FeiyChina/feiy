@@ -59,7 +59,7 @@
       <h4><strong>Website</strong></h4>
 
       <% url = @organization.website %>
-      <% unless self.url[/\Ahttp:\/\//] || self.url[/\Ahttps:\/\//] %>
+      <% unless url[/\Ahttp:\/\//] || url[/\Ahttps:\/\//] %>
         <% url = "http://#{url}" %>
       <% end %>
 
