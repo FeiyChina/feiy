@@ -57,7 +57,13 @@
     <p itemprop="address"><%= @organization.address %></p>
     <% if @organization.website.present? %>
       <h4><strong>Website</strong></h4>
-      <p><%= link_to @organization.website, @organization.website, class: "organization-website-link" %></p>
+
+      <% url = @organization.website %>
+      <% unless self.url[/\Ahttp:\/\//] || self.url[/\Ahttps:\/\//] %>
+        <% url = "http://#{url}" %>
+      <% end %>
+
+      <p><%= link_to url, @organization.website, class: "organization-website-link" %></p>
     <% end %>
   </div>
 </div>
