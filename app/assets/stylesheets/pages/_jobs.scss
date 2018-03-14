@@ -31,7 +31,6 @@
 
 .sub-header-card-jobs {
   margin: 20px auto;
-  height: 700px;
   background-size: cover !important;
   color: black;
   position: relative;
@@ -40,10 +39,9 @@
 }
 
 .sub-header-card-description-jobs {
-  position: absolute;
-  top: 20px;
-  left: 10px;
-  right: 15px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 20px;
   color: #6a6c73;
   h4 {
     font-weight: bolder;
