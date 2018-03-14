@@ -29,7 +29,9 @@ class JobsController < ApplicationController
 
   def update
     @job = Job.find(params[:id])
-    authorize @job.update(job_params)
+    
+    authorize @job
+    @job.update(job_params)
     redirect_to dashboard_path
   end
 
