@@ -41,7 +41,7 @@
           <i class="fa fa-heart main-article-icon"></i>
           <span class="main-article-icon-text"><%= @main_article.votes_for.size %></span>
           <i class="fa fa-commenting main-article-icon"></i>
-          <span class="main-article-icon-text"><%= @main_article.votes_for.size %></span>
+          <span class="main-article-icon-text"><%= @main_article.comments.size %></span>
         </div>
         <%= link_to "", article_path(@main_article), class: "article-link" %>
       <% end %>
@@ -65,7 +65,7 @@
               <i class="fa fa-heart article-icon"></i>
               <span class="article-icon-text"><%= article.votes_for.size %></span>
               <i class="fa fa-commenting article-icon"></i>
-              <span class="article-icon-text"><%= article.votes_for.size %></span>
+              <span class="article-icon-text"><%= article.comments.size %></span>
             </div>
             </a>
           <% end %>
