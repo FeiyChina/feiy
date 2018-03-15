@@ -3,7 +3,7 @@
   <%= simple_form_for [@organization, @event] do |f| %>
   <div class="form-inputs">
     <%= f.input :name, autofocus: true %>
-    <%= f.input :content, label: "Description", as: :text, :input_html => { :maxlength => 750, :style => 'height: 350px' } %>
+    <%= f.input :content, label: "Description", as: :text, :input_html => { :style => 'height: 350px' } %>
     <%= f.input :venue, label:"Location - recommend address in chinese" %>
     <%= f.input :date %>
     <%= f.input :register_link %>
