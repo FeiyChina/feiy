@@ -27,8 +27,15 @@
         <p class="text-justify"><%= simple_format(@event.content) %></p>
         <br>
         <% if @event.flyer %>
-          <div class='flyer'>
+          <div class='flyer' data-toggle="modal" data-target="#pictureModal">
             <%= cl_image_tag @event.flyer.path, width: 600, height: 450, crop: :fit %>
+          </div>
+          <div id="pictureModal" class='flyer-bigger modal fade' role='dialog'>
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content" data-dismiss="modal">
+                <%= cl_image_tag @event.flyer.path, width: 1200, height: 900, crop: :fit %>
+              </div>
+            </div>
           </div>
         <% end %>
         </br>
