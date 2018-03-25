@@ -20,6 +20,12 @@ ActiveAdmin.register Organization do
     actions
   end
 
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
+
   form title: 'Organization' do |_|
     inputs 'Details' do
       input :photo, as: :formtastic_attachinary

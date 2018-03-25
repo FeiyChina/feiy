@@ -1,4 +1,7 @@
 class Organization < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :history
+
   acts_as_taggable
   scope :accepted, -> { where(accepted?: true) }
   has_attachment :logo, accept: [:jpg, :png, :gif]
@@ -9,4 +12,12 @@ class Organization < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :jobs, dependent: :destroy
   validates :user_is_a_representative, presence: true
+
+  def slug_candidates
+    [
+      :name,
+      [:name, :created_at],
+      [:name, :description, :created_at]
+    ]
+  end
 end

@@ -21,6 +21,12 @@ ActiveAdmin.register Article do
     actions
   end
 
+  controller do
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
+
   form title: 'Article' do |_|
     inputs 'Details' do
       input :user_id, as: :select, collection: User.where(admin: true)

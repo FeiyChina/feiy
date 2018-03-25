@@ -1,4 +1,7 @@
 class Article < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :history
+
   acts_as_taggable
   scope :without_current, ->(id) { where.not(id: id) }
   scope :published, -> { where(is_published: true).order(published_at: :desc) }
@@ -38,6 +41,14 @@ class Article < ApplicationRecord
   end
 
   private
+
+  def slug_candidates
+    [
+      :title,
+      [:title, :created_at],
+      [:title, :description, :created_at]
+    ]
+  end
 
   def check_for_publication_status
     if (is_published_was == false) && (is_published == true) && published_at_was.nil?

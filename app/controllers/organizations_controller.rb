@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
+  before_action :find_organization, only: [:edit, :update, :show, :destroy, :like]
 
   def index
     @organizations = Organization.where(accepted?: true)
@@ -41,12 +42,11 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
-    authorize @organization = Organization.find(params[:id])
+    authorize @organization
   end
 
   def update
-    authorize @organization = Organization.find(params[:id])
-    @organization = Organization.find(params[:id])
+    authorize @organization
     @organization.update(organization_params)
     @organization = update_tag(tag_params[:tags]) if tag_params[:tags]
     @organization.user_id = current_user.id
@@ -66,7 +66,6 @@ class OrganizationsController < ApplicationController
   end
 
   def show
-    @organization = Organization.find(params[:id])
     tag = @organization&.tags&.first&.name
     @organizations = Organization.accepted.tagged_with(tag).where.not(id: params[:id])
     if @organizations.any?
@@ -79,14 +78,13 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
-    authorize @organization = Organization.find(params[:id])
+    authorize @organization
     @organization.destroy
     flash[:notice] = "Your organization has been deleted!"
     redirect_to root_path
   end
 
   def like
-    @organization = Organization.find(params[:id])
     @organization.liked_by current_user
     @likes = @organization.votes_for.size
     redirect_to organization_path(@organization)
@@ -107,6 +105,13 @@ class OrganizationsController < ApplicationController
 
   private
 
+  def find_organization
+    @organization = Organization.friendly.find(params[:id])
+    if params[:id] != @organization.slug && params[:id]&.to_i != @organization.id
+      return redirect_to organization_path( @organization), status: :moved_permanently
+    end
+  end
+
   def update_tag(tag)
     @organization.tag_list.remove(@organization.tags.map(&:name))
     @organization.tag_list.add(ActsAsTaggableOn::Tag.find_by(name: tag))
@@ -118,6 +123,8 @@ class OrganizationsController < ApplicationController
   end
 
   def organization_params
-    params.require(:organization).permit(:name, :problem, :description, :website, :email, :address, :photo, :logo, :user_is_a_representative, :accepted?)
+    params.require(:organization).permit(:name, :problem, :description, :website,
+      :email, :address, :photo, :logo, :user_is_a_representative,
+      :slug, :accepted?)
   end
 end

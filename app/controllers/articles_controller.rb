@@ -34,7 +34,10 @@ class ArticlesController < ApplicationController
   private
 
   def find_article
-    @article = Article.find(article_params[:id])
+    @article = Article.friendly.find(params[:id])  
+    if params[:id] != @article.slug && params[:id]&.to_i != @article.id
+      redirect_to article_path(@article), status: :moved_permanently 
+    end
   end
 
   def article_params
