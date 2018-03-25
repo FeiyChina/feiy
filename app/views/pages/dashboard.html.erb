@@ -77,25 +77,27 @@
         </div>
       <% else %>
         <div class="container">
-          <div class="row" style="margin-top: 20px;">
-            <% @organization.votes_for.each do |vote| %>
-              <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="follower-card">
-                  <div class="follower-card-avatar">
-                    <% if vote.voter.avatar? %>
-                      <%= cl_image_tag vote.voter.avatar.path, height: 50, width: 50, crop: :fill, gravity: :face, radius: :max, class: "avatar-style"  %>
-                    <% else %>
-                      <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
-                    <% end %>
-                  </div>
-                  <div class="follower-card-info">
-                    <p class="comment-email"><strong><%= vote.voter.email %></strong></p>
-                    <p class="comment-date"><%= vote.created_at.strftime("%B %d, %Y") %></p>
-                  </div>
-                <% end %>
-              </div>
+          <% @organization.votes_for.in_groups_of(3) do |group| %>
+            <div class="row" style="margin-top: 20px;">
+             <% group.compact.each do |vote| %>    
+               <div class="col-xs-12 col-sm-6 col-md-4">
+                 <div class="follower-card">
+                   <div class="follower-card-avatar">
+                     <% if vote.voter.avatar? %>
+                       <%= cl_image_tag vote.voter.avatar.path, height: 50, width: 50, crop: :fill, gravity: :face, radius: :max, class: "avatar-style"  %>
+                     <% else %>
+                       <%= image_tag "profile_placeholder.png", style: "width: 50px" %>
+                     <% end %>
+                   </div>
+                   <div class="follower-card-info">
+                     <p class="comment-email"><strong><%= vote.voter.email %></strong></p>
+                     <p class="comment-date"><%= vote.created_at.strftime("%B %d, %Y") %></p>
+                   </div>        
+                 </div>
+                </div>
+             <% end %>
             </div>
-          </div>
+          <% end %>  
         </div>
       <% end %>
     </div>
