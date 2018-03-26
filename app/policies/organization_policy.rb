@@ -1,4 +1,7 @@
 class OrganizationPolicy < ApplicationPolicy
+  def create?
+    record.user == user
+  end
 
   def edit?
     record.user == user
