@@ -1,4 +1,6 @@
 class Job < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :history
 
   validates :job_type, inclusion: { in: %w(Volunteer Internship Part-time Full-time) }
   belongs_to :organization

@@ -21,7 +21,7 @@
               <p itemprop="startDate" id="job-address"><%= event.date.strftime("%B %e, %Y, %l:%M %p ") %></p>
             </div>
             <p itemprop="location" itemscope itemtype="http://schema.org/Place" class="event-hover-card text-center" id="event-name"><strong itemprop="address">Hosted by <%= truncate(event.organization.name, length: 17) %></strong><br><br><%= truncate(event.content, length: 20)%></p>
-            <%= link_to "", organization_event_path(event.organization_id, event.id), class: "organization-card-link" %>
+            <%= link_to "", organization_event_path(event.organization.slug, event.slug), class: "organization-card-link" %>
           </div>
         </div>
       <% end %>

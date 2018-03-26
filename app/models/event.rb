@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: :history
 
   belongs_to :organization
   acts_as_votable

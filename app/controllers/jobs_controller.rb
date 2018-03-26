@@ -1,12 +1,15 @@
 class JobsController < ApplicationController
+  before_action :find_job, only: [:edit, :update, :show, :destroy]
+  before_action :find_organization, only: [:new, :create, :edit, :show]
+
   def new
-    authorize @organization = Organization.find(params[:organization_id])
+    authorize @organization
     @job = Job.new
   end
 
   def create
     @job = Job.new(job_params)
-    @job.organization = Organization.find(params[:organization_id])
+    @job.organization = @organization
     if @job.save
       MIXPANEL.track(@job.organization.user_id, 'Created', {
         content: "Job",
@@ -23,32 +26,36 @@ class JobsController < ApplicationController
   end
 
   def edit
-    authorize @organization = Organization.find(params[:organization_id])
-    @job = Job.find(params[:id])
+    authorize @organization
   end
 
   def update
-    @job = Job.find(params[:id])
-    
     authorize @job
     @job.update(job_params)
     redirect_to dashboard_path
   end
 
-  def show
-    @organization = Organization.find(params[:organization_id])
-    @job = Job.find(params[:id])
-  end
+  def show; end
 
   def destroy
-    @job = Job.find(params[:id])
     authorize @job.destroy
     redirect_to root_path
   end
 
   private
 
+  def find_job
+    @job = Job.friendly.find(params[:id])
+    if params[:id] != @job.slug && params[:id]&.to_i != @job.id
+      return redirect_to job_path(@job), status: :moved_permanently
+    end
+  end
+
+  def find_organization
+    @organization = Organization.friendly.find(params[:organization_id])
+  end
+
   def job_params
-    params.require(:job).permit(:name, :address, :website, :email, :job_type, :task, :requirement, :active )
+    params.require(:job).permit(:name, :address, :website, :email, :job_type, :task, :requirement, :active)
   end
 end
