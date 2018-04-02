@@ -11,7 +11,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params.merge(organization: @organization))
 
     if @event.save
-      MIXPANEL.track(@event.organization_id, 'Created', {
+      MIXPANEL.track(@event.organization_id, 'Event Created', {
         content: "Event",
         organization_name: @event.organization.name,
         event_name: @event.name,
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
     @event.update(event_params)
 
     if @event.save
-      MIXPANEL.track(@event.organization_id, 'Update', {
+      MIXPANEL.track(@event.organization_id, 'Event Updated', {
         content: "Event",
         organization_name: @event.organization.name,
         event_name: @event.name,

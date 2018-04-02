@@ -11,7 +11,7 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.organization = @organization
     if @job.save
-      MIXPANEL.track(@job.organization.user_id, 'Created', {
+      MIXPANEL.track(@job.organization.user_id, 'Job Created', {
         content: "Job",
         name: @job.name,
         address: @job.address,

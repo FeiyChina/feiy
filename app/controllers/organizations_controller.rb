@@ -27,7 +27,7 @@ class OrganizationsController < ApplicationController
     @organization.user_id = current_user.id
     @organization = update_tag(tag_params[:tags]) if tag_params[:tags]
     if @organization.save
-      MIXPANEL.track(@organization.user_id, 'Created', {
+      MIXPANEL.track(@organization.user_id, 'Organization Created', {
         content: "Organization",
         name: @organization.name,
         address: @organization.address,
@@ -51,7 +51,7 @@ class OrganizationsController < ApplicationController
     @organization = update_tag(tag_params[:tags]) if tag_params[:tags]
     @organization.user_id = current_user.id
     if @organization.save
-      MIXPANEL.track(@organization.user_id, 'Update', {
+      MIXPANEL.track(@organization.user_id, 'Organization Updated', {
         content: "Organization",
         name: @organization.name,
         address: @organization.address,
