@@ -13,6 +13,10 @@ class Organization < ApplicationRecord
   has_many :jobs, dependent: :destroy
   validates :user_is_a_representative, presence: true
 
+  def should_generate_new_friendly_id?
+    name_changed?
+  end
+
   def slug_candidates
     [
       :name,

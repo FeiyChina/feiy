@@ -13,6 +13,10 @@ class Event < ApplicationRecord
   geocoded_by :venue
   after_validation(:geocode, { if: :venue_changed? })
 
+  def should_generate_new_friendly_id?
+    name_changed?
+  end
+
   def normalized_register_link
     register_link && PostRank::URI.normalize(register_link).to_s
   end

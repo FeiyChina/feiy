@@ -7,4 +7,8 @@ class Job < ApplicationRecord
 
   scope :accepted, -> { joins(:organization).where("organizations.accepted?" => true) }
   scope :activated, -> { where("jobs.active" => true).order(created_at: :desc) }
+
+  def should_generate_new_friendly_id?
+    name_changed?
+  end
 end

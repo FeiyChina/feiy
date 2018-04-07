@@ -40,6 +40,10 @@ class Article < ApplicationRecord
            .where(is_published: true)
   end
 
+  def should_generate_new_friendly_id?
+    title_changed?
+  end
+
   private
 
   def slug_candidates
