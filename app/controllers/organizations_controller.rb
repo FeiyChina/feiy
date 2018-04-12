@@ -27,14 +27,7 @@ class OrganizationsController < ApplicationController
     @organization.user_id = current_user.id
     @organization = update_tag(tag_params[:tags]) if tag_params[:tags]
     if @organization.save
-      MIXPANEL.track(@organization.user_id, 'Organization Created', {
-        content: "Organization",
-        name: @organization.name,
-        address: @organization.address,
-        website: @organization.website
-
-      })
-
+      mixpanel_notify(@organization, 'Organization Created') 
       redirect_to dashboard_path
     else
       render :new
@@ -50,15 +43,12 @@ class OrganizationsController < ApplicationController
     @organization.update(organization_params)
     @organization = update_tag(tag_params[:tags]) if tag_params[:tags]
     @organization.user_id = current_user.id
+
+    accepted = !@organization.send('accepted?_was') && @organization.accepted?
+    mixpanel_notify(@organization, 'Organization Accepted') if accepted
+
     if @organization.save
-      MIXPANEL.track(@organization.user_id, 'Organization Updated', {
-        content: "Organization",
-        name: @organization.name,
-        address: @organization.address,
-        website: @organization.website
-
-      })
-
+      mixpanel_notify(@organization, 'Organization Updated')
       redirect_to organization_path(@organization)
     else
       render :new
@@ -126,5 +116,15 @@ class OrganizationsController < ApplicationController
     params.require(:organization).permit(:name, :problem, :description, :website,
       :email, :address, :photo, :logo, :user_is_a_representative,
       :slug, :accepted?)
+  end
+
+  def mixpanel_notify(organization, event)
+    MIXPANEL.track(organization.user_id, event, {
+      content: organization.class.to_s,
+      name: organization.name,
+      address: organization.address,
+      website: organization.website
+
+    })
   end
 end
