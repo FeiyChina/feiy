@@ -44,9 +44,6 @@ class OrganizationsController < ApplicationController
     @organization = update_tag(tag_params[:tags]) if tag_params[:tags]
     @organization.user_id = current_user.id
 
-    accepted = !@organization.send('accepted?_was') && @organization.accepted?
-    mixpanel_notify(@organization, 'Organization Accepted') if accepted
-
     if @organization.save
       mixpanel_notify(@organization, 'Organization Updated')
       redirect_to organization_path(@organization)
