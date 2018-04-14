@@ -50,7 +50,9 @@
           <br>
         <% end %>
         <br>
-        <%= image_tag @baidumap_url, class: "baidu-map" %>
+        <%= image_tag @baidumap_url, class: "baidu-map", onerror: "this.style.display='none'" %>
+        <p><%= @event.venue %></p>
+        <br/>
 
       </div>
     </div>
