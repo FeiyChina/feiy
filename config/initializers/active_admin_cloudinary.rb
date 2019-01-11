@@ -7,7 +7,6 @@ module ActiveAdmin
 
         def build_active_admin_head
           original_build_head
-
           within @head do
             text_node cloudinary_js_config
           end

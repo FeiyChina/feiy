@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post 'articles/:id/like', to: 'articles#like', as: 'like_article'
 
   root to: 'pages#home'
+  get 'welcome', to: 'pages#welcome'
   get 'dashboard', to: 'pages#dashboard'
   get 'about_us', to: 'pages#about_us'
   get 'developers', to: 'pages#developers'

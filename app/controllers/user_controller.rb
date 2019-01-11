@@ -3,6 +3,7 @@ class UserController < Devise::SessionsController
     super
     track_sign_in(this.resource) if signed_in?
     puts this.resource.to_s
+    redirect_to dashboard_path
   end
 
   private
