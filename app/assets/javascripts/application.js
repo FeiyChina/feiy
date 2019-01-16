@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require jquery-fileupload/basic
+//= require filterrific/filterrific-jquery
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 //= require cable.js

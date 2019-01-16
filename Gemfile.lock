@@ -130,6 +130,7 @@ GEM
     ffi (1.9.25)
     figaro (1.1.1)
       thor (~> 0.14)
+    filterrific (5.1.0)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
     formtastic (3.1.5)
@@ -349,6 +350,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   figaro
+  filterrific
   font-awesome-sass
   friendly_id (~> 5.1.0)
   geocoder
