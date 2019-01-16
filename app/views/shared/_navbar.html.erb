@@ -15,6 +15,11 @@
     <div class="inline-block">
     <%= link_to "Stories", articles_path, class: "stories-linkto" %>
     </div>
+    <%- if current_page?(controller: 'pages', action: 'home') %>
+      <div class="inline-block">
+      <%= link_to "Who we are", about_us_path, class: "stories-linkto" %>
+      </div>
+    <% end %>
   </div>
 
   <!-- Right Navigation -->
