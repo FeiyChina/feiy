@@ -79,7 +79,7 @@
         <div class="container">
           <% @organization.votes_for.in_groups_of(3) do |group| %>
             <div class="row" style="margin-top: 20px;">
-             <% group.compact.each do |vote| %>    
+             <% group.compact.each do |vote| %>
                <div class="col-xs-12 col-sm-6 col-md-4">
                  <div class="follower-card">
                    <div class="follower-card-avatar">
@@ -92,12 +92,12 @@
                    <div class="follower-card-info">
                      <p class="comment-email"><strong><%= vote.voter.email %></strong></p>
                      <p class="comment-date"><%= vote.created_at.strftime("%B %d, %Y") %></p>
-                   </div>        
+                   </div>
                  </div>
                 </div>
              <% end %>
             </div>
-          <% end %>  
+          <% end %>
         </div>
       <% end %>
     </div>
@@ -172,9 +172,17 @@
     </div>
   <% else %>
     <div class="approve-sign text-center">
+      <h2>You're almost there!</h2>
+      <h4>First, our team will approve your organization because we need to make sure that your content is aligned with our mission!</h4>
+
+      <h4>Then you will be able to promote your great work, events and jobs to our growing community :)</h4>
+
+      <h4>Thank you for understanding.</h4>
+
+      <p>
+        "Genius is patience" <b>Isaac Newton</b>
+        </p>
       <h2>We are currently approving your organization. Please wait.</h2>
     </div>
   <% end %>
 </div>
-
-
