@@ -60,6 +60,11 @@
       <div class="col-xs-12">
         <div class="more-button text-center">
           <%= link_to "More organizations", organizations_path, class: "btn-feiy-primary button-cta-primary" %>
+          <% if user_signed_in? && current_user.organizations.count >= 1 %>
+            <%= link_to "Promote your Organization", dashboard_path, class: "btn-feiy-primary" %>
+          <% else %>
+            <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -99,7 +104,7 @@
 
       <div class="col-xs-12 col-sm-12 col-md-4">
         <% @articles.drop(1).each do |article| %>
-          <%= link_to(article_path(article), class: 'home-page-link') do %> 
+          <%= link_to(article_path(article), class: 'home-page-link') do %>
             <% if article.photo %>
               <div class="article-card-side", style='background-image: url(<%= cl_image_path  article&.photo&.path, height: 455, width: 750, crop: :fill  %>); background-size: cover;' >
                 <div class="article-card-header-side">
