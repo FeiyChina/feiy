@@ -25,8 +25,7 @@ Rails.application.routes.draw do
   get 'about_us', to: 'pages#about_us'
   get 'developers', to: 'pages#developers'
   get 'events', to: 'pages#events', as: 'events'
-  # get 'jobs', to: 'pages#jobs', as: 'jobs'
-  resources :jobs, only: [:index]
+  get 'jobs', to: 'pages#jobs', as: 'jobs'
 
   get 'articles/search', to: 'articles#search'
   get 'articles/tags/:tag', to: 'articles#by_tag'

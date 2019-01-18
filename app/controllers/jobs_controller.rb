@@ -2,23 +2,6 @@ class JobsController < ApplicationController
   before_action :find_job, only: [:edit, :update, :show, :destroy]
   before_action :find_organization, only: [:new, :create, :edit, :show]
 
-  def index
-    @filterrific = initialize_filterrific(
-      Job.accepted.activated,
-      params[:filterrific],
-      select_options: {
-        job_types: %w(Volunteer Internship Part-time Full-time)
-      },
-      available_filters: [:with_job_type]
-    ) or return
-    @jobs = @filterrific.find.page(params[:page])
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   def new
     authorize @organization
     @job = Job.new

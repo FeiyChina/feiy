@@ -32,8 +32,20 @@ class PagesController < ApplicationController
   end
 
   def jobs
-    # a scope was defined in model
-    @jobs = Job.accepted.activated
+    @filterrific = initialize_filterrific(
+      Job.accepted.activated,
+      params[:filterrific],
+      select_options: {
+        job_types: %w(Volunteer Internship Part-time Full-time)
+      },
+      available_filters: [:with_job_type]
+    ) or return
+    @jobs = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def events
