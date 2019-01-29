@@ -14,6 +14,12 @@
           { include_blank: '- All categories -' },
           class: 'text-search-field'
         ) %>
+        <%= f.select(
+          :with_job_address,
+          @filterrific.select_options[:job_addresses],
+          { include_blank: '- All Locations -' },
+          class: 'text-search-field'
+        ) %>
       </div>
     <% end %>
   </div>
