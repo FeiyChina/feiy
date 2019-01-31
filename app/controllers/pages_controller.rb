@@ -37,9 +37,9 @@ class PagesController < ApplicationController
       params[:filterrific],
       select_options: {
         job_types: %w(Volunteer Internship Part-time Full-time),
-        job_addresses: %w(Shanghai China)
+        # job_addresses: %w(Shanghai China)
       },
-      available_filters: [:with_job_type, :with_job_address]
+      available_filters: [:with_job_type]
     ) or return
     @jobs = @filterrific.find.page(params[:page])
 
