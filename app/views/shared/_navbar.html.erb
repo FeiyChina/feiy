@@ -8,18 +8,16 @@
         Jobs
       </div>
       <ul class="dropdown-menu">
-        <% if user_signed_in? && current_user.organizations.count > 0 %>
         <li>
           <%= link_to "Find a Job", jobs_path, class: "jobs-linkto" %>
         </li>
         <li>
-          <%= link_to "Post a Job", new_organization_job_path(current_user.organizations.first), class: "jobs-linkto" %>
+          <% unless user_signed_in? && current_user.organizations.count == 1 %>
+            <%= link_to "Post a Job", new_organization_path, class: "jobs-linkto" %>
+          <% else %>
+            <%= link_to "Post a Job", new_organization_job_path(current_user.organizations.first), class: "jobs-linkto" %>
+          <% end %>
         </li>
-        <% else %>
-        <li>
-          <%= link_to "Find a Job", jobs_path, class: "jobs-linkto" %>
-        </li>
-        <% end %>
       </ul>
     </div>
     <div class="inline-block dropdown">
@@ -27,18 +25,16 @@
         Events
       </div>
       <ul class="dropdown-menu">
-        <% if user_signed_in? && current_user.organizations.count > 0 %>
-          <li>
-            <%= link_to "Find an Event", events_path, class: "jobs-linkto" %>
-          </li>
-          <li>
+        <li>
+          <%= link_to "Find an Event", events_path, class: "jobs-linkto" %>
+        </li>
+        <li>
+          <% unless user_signed_in? && current_user.organizations.count == 1 %>
+            <%= link_to "Post an Event", new_organization_path, class: "jobs-linkto" %>
+          <% else %>
             <%= link_to "Post an Event", new_organization_event_path(current_user.organizations.first), class: "jobs-linkto" %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "Find an Event", events_path, class: "jobs-linkto" %>
-          </li>
-        <% end %>
+          <% end %>
+        </li>
       </ul>
     </div>
     <div class="inline-block">
@@ -47,11 +43,9 @@
     <div class="inline-block">
     <%= link_to "Stories", articles_path, class: "stories-linkto" %>
     </div>
-    <% if (params[:controller] == 'home') %>
-      <div class="inline-block">
-      <%= link_to "Who we are", about_us_path, class: "stories-linkto" %>
-      </div>
-    <% end %>
+    <div class="inline-block">
+    <%= link_to "Who we are", about_us_path, class: "stories-linkto" %>
+    </div>
   </div>
 
   <!-- Right Navigation -->
@@ -102,12 +96,7 @@
 
   <!-- Button (call-to-action) -->
   <!-- Problem this flash alert also appears when I am not trying to create a fourth og -->
-  <% if user_signed_in? && current_user.organizations.count < 3 %>
-    <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
-  <% elsif user_signed_in? && current_user.organizations.count >= 1 %>
-    <%= link_to "Create Organization", dashboard_path, class: "btn-feiy-primary" %>
-    <% flash[:alert] = "It seems you already created an organization before" %>
-  <% else %>
+  <% unless user_signed_in? && current_user.organizations.count == 1 %>
     <%= link_to "Create Organization", new_organization_path, class: "btn-feiy-primary" %>
   <% end %>
 </div>

@@ -2,7 +2,7 @@ class Job < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :history
 
-  validates :job_type, inclusion: { in: %w(Volunteer Internship Part-time Full-time) }
+  validates :job_type, inclusion: { in: %w(Volunteer Internship Part-time Full-time Associate) }
   # validates :job_address, inclusion: { in: %w(Shanghai China) }
   belongs_to :organization
 

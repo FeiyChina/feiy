@@ -4,7 +4,7 @@
     <%= f.input :address, label: "Location" %>
     <%= f.input :website %>
     <%= f.input :email, label: "Recruiter's email"%>
-    <%= f.input :job_type, label: "Type", collection: %w(Volunteer Internship Part-time Full-time) %>
+    <%= f.input :job_type, label: "Type", collection: %w(Volunteer Internship Part-time Full-time Associate) %>
     <%= f.input :task, label: "Job description", as: :text, :input_html => { :maxlength => 4000, :style => 'height: 200px' } %>
     <%= f.input :requirement, label: "Requirements", as: :text, :input_html => { :maxlength => 2000, :style => 'height: 200px' } %>
     <h5><strong>Job Status</strong></h5>
