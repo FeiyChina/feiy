@@ -1,5 +1,5 @@
 <% title "Good Jobs" %>
-<% description "You want to start a meaningful career and be the change? Look for a job with impact on Feiy. Need to find passionate and changemakers employees ? Post your offer on Feiy to get in touch with people that want to change the world." %>
+<% description "You want to start a meaningful career and be the change? Looking for a job with impact on Feiy. Need to find passionate and changemakers employees ? Post your offer on Feiy to get in touch with people that want to change the world." %>
 
 <div class="wrapper-white">
   <div class="container-demo-title">
@@ -19,10 +19,35 @@
   </div>
   <div class="container">
     <div class="row">
-      <%= render(
-        partial: 'pages/jobs_list',
-        locals: { jobs: @jobs }
-      ) %>
+      <div class="col col-lg-2">
+        <div class="more-button">
+          <% unless user_signed_in? && current_user.organizations.count == 1 %>
+            <%= link_to "Looking for volunteers", new_organization_path, class: "btn-feiy-primary " %>
+          <% else %>
+            <%= link_to "Looking for volunteers", new_organization_job_path(current_user.organizations.first), class: "btn-feiy-primary " %>
+          <% end %>
+        </div>
+        <div class="more-button">
+          <% unless user_signed_in? && current_user.organizations.count == 1 %>
+            <%= link_to "Looking for an associate", new_organization_path, class: "btn-feiy-primary " %>
+          <% else %>
+            <%= link_to "Looking for an associate", new_organization_job_path(current_user.organizations.first), class: "btn-feiy-primary " %>
+          <% end %>
+        </div>
+        <div class="more-button">
+          <% unless user_signed_in? && current_user.organizations.count == 1 %>
+            <%= link_to "Looking for an employee", new_organization_path, class: "btn-feiy-primary " %>
+          <% else %>
+            <%= link_to "Looking for an employee", new_organization_job_path(current_user.organizations.first), class: "btn-feiy-primary " %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col col-lg-9">
+        <%= render(
+          partial: 'pages/jobs_list',
+          locals: { jobs: @jobs }
+        ) %>
+      </div>
     </div>
   </div>
 </div>
