@@ -19,7 +19,7 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col col-lg-2">
+      <div class="col col-lg-3">
         <div class="more-button">
           <% unless user_signed_in? && current_user.organizations.count == 1 %>
             <%= link_to "Looking for volunteers", new_organization_path, class: "btn-feiy-primary " %>
