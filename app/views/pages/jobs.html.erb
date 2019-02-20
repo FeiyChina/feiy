@@ -19,7 +19,7 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="more-button text-center" style="margin-top: 24px;">
+      <div class="more-button text-center" style="margin-top: 32px;">
         <% unless user_signed_in? && current_user.organizations.count == 1 %>
           <%= link_to "Looking for volunteers", new_organization_path, class: "btn-feiy-primary " %>
         <% else %>
