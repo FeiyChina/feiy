@@ -9,6 +9,11 @@
 //= require tinymce
 
 $(document).ready(function() {
+  $(function() {
+    if($.fn.cloudinary_fileupload !== undefined) {
+      $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+    }
+  });
   tinyMCE.init({
      selector: '.tinymce',
      toolbar: "undo redo | bold italic | numlist bullist | styleselect | alignleft aligncenter alignright alignjustify | indent outdent | forecolor backcolor | image",
