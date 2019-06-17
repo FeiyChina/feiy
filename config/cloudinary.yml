@@ -6,7 +6,7 @@ development:
   enhance_image_tag: true
   static_file_support: false
 production:
-  cloud_name:3 dbislofrw
+  cloud_name: dbislofrw
   api_key: '898119152723615'
   api_secret: n5kApOA_xhnYGiyb6LZdra11e2Y
   enhance_image_tag: true
