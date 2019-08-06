@@ -24,3 +24,4 @@
 /config/application.yml
 
 #Ignore Cloudinary configuration
+/config/cloudinary.yml
